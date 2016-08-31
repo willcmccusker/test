@@ -38,6 +38,7 @@
 			<?php echo $this->fetch('content'); ?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	 <? 
+	 // echo $this->element('sql_dump'); ?>
 </body>
 </html>
