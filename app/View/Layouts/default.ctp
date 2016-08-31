@@ -33,8 +33,8 @@
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="content">
+	<div id="container" class='grid'>
+		<div id="content" class='col-1-1'>
 			<?php echo $this->fetch('content'); ?>
 		</div>
 	</div>

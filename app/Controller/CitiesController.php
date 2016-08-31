@@ -92,6 +92,14 @@ class CitiesController extends AppController {
 		$cities = $this->City->find("all", array(
 			"recursive"=>0
 			));
+		usort($cities, function($a, $b) {
+			if($a["Region"]["name"] == $b["Region"]["name"]){
+			    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
+			}else{
+			    return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
+			}
+		});
+		// $cities = Hash::sort($cities, '{n}.Region.name', 'asc');
 		$this->set(compact("cities"));
 	}
 

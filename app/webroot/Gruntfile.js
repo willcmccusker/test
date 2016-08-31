@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             outputStyle: 'compressed',
             relativeAssets: true,
             debugInfo: false,
-            watch: false,
+            watch: true,
             sourcemap: true
           },
           build: {
