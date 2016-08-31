@@ -1,0 +1,1 @@
+<script> var cities = <?= json_encode($cities);?>; console.log(cities);</script>
