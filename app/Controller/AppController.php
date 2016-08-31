@@ -32,6 +32,43 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+	public  $components = array( 
+		'Auth'=> array(
+            //login page
+            'loginAction' => array(
+            	'controller'=>'users',
+            	'action'=>'login', 
+            	'admin'=>true
+            ),
+            //after login
+            'loginRedirect' => array( 
+                'controller' => 'cities',
+                'action' => 'index',
+                'admin' => false
+            ),
+            //after logged out
+            'logoutRedirect' => array( 
+                'controller' => 'users',
+                'action' => 'login',
+                'admin'=> true  // add this so that admin actions get ignored
+            ),
+            'unauthorizedRedirect' => array(
+                'controller'=> 'users',
+                'action'=>'login',
+                'admin'=>true
+            ),
+            'authError' => 'Access Denied',
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => 'Blowfish'
+                )
+            ),
+            'authorize' => array('Controller')
+        )
+    );
+
+
+
     function beforeFilter() {
         if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
             $this->layout = 'admin';
@@ -40,6 +77,10 @@ class AppController extends Controller {
             $this->layout = 'api';
         } 
     }
+
+	public function isAuthorized($user) {
+		return true;
+	}
 
 
 }

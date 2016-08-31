@@ -17,7 +17,13 @@ class CitiesController extends AppController {
  */
 	public $components = array('Paginator', 'Session', 'Flash');
 
-
+	public function beforeFilter() {
+			parent::beforeFilter();
+			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
+			$this->Auth->allow(
+				'API_index', 
+				'index');
+	}
 
 
 

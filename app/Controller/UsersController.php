@@ -17,6 +17,68 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator', 'Session', 'Flash');
 
+	public function beforeFilter() {
+			parent::beforeFilter();
+			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
+			$this->Auth->allow(
+				'admin_login', 
+				'admin_logout', 
+				'begin' 
+				// 'admin_view', 'admin_edit', 'admin_add', "admin_index"
+				);
+	}
+
+	public function begin(){
+		$username = "admin";
+		$password = "doorkeep-tacit-ramp-uppity";
+		$email = "billy.rennekamp@gmail.com";
+
+		$user = $this->User->find("first", array(
+			"conditions"=>array(
+				"username"=>$username
+				)
+			));
+		if(!empty($user)){
+			$this->User->delete($user["User"]["id"]);
+		}
+
+		if(empty($user)){
+			$user = array("User"=> array(
+				"username"=>$username,
+				"password"=>$password,
+				"email"=>$email
+			));	
+			$this->User->create();
+			if(!$this->User->save($user)){
+				debug($this->User->validationErrors);
+			}
+		}
+		$this->render(false);
+	}
+
+/**
+ * admin_login method
+ *
+ * @return void
+ */
+	public function admin_login() {
+	    if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	            return $this->redirect($this->Auth->redirectUrl());
+	        }
+	        $this->Flash->error(__('Invalid username or password, try again'));
+	    }
+	}
+
+/**
+ * admin_logout method
+ *
+ * @return void
+ */
+	public function admin_logout() {
+	    return $this->redirect($this->Auth->logout());
+	}
+
 /**
  * admin_index method
  *
