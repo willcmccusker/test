@@ -38,7 +38,7 @@
  */
 
 if($_SERVER['SERVER_ADDR'] == "104.236.126.203"){
-	Configure::write('debug', 0);
+	Configure::write('debug', 2);
 }else{
 	Configure::write('debug', 2);	
 }
