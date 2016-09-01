@@ -14,7 +14,7 @@ class Region extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
-
+	public $order = array("name"=>"ASC");
 /**
  * Validation rules
  *
@@ -22,6 +22,16 @@ class Region extends AppModel {
  */
 	public $validate = array(
 		'name' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'slug' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',

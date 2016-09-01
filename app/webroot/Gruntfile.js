@@ -22,11 +22,12 @@ module.exports = function(grunt) {
             reporter: require('jshint-stylish') // use jshint-stylish to make our errors look and read good
           },
           // when this task is run, lint the Gruntfile and all js files in src
-          build: ['Gruntfile.js', 'src/js/**.js', '!src/js/*.min.js', '!src/js/*.jsx']
+          build: ['Gruntfile.js', 'src/js/**.js', '!src/js/*.min.js', '!src/js/*.ignore.js', '!src/js/*.jsx']
         },
         uglifyFiles : {
           'dist/js/app.min.js': [
             'src/js/zepto.min.js', 
+            'src/js/list.ignore.js',
             'src/js/app.js',
           ]
         },

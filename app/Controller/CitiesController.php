@@ -22,7 +22,8 @@ class CitiesController extends AppController {
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
 			$this->Auth->allow(
 				'API_index', 
-				'index');
+				'index',
+				'view');
 	}
 
 
@@ -101,6 +102,25 @@ class CitiesController extends AppController {
 		});
 		// $cities = Hash::sort($cities, '{n}.Region.name', 'asc');
 		$this->set(compact("cities"));
+	}
+
+
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function view($slug = null) {
+		$city = $this->City->find("first", array(
+			"conditions"=>array(
+				"City.slug"=>$slug
+				),
+			"recursive"=>1
+			));
+		if(empty($city)){
+			throw new NotFoundException(__('Invalid city'));
+		}
+		$this->set(compact("city"));
 	}
 
 

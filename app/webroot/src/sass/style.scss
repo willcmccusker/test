@@ -10,13 +10,32 @@ $tablet-max-width : 950px;
 
 @import "functions";
 @import "grid";
+@import "tiny-autocomplete";
 
 .cityheader{
 	padding-left:5px;
 }
-
-
-
 .citylist{
 	padding-left:40px;
+}
+
+.East_Asia_and_the_Pacific_EAP .region,
+.Europe_and_Japan_E_J .region,
+.Land_Rich_Developed_Countries_LRDC .region,
+.Latin_America_and_the_Caribbean_LAC .region,
+.South_and_Central_Asia_SCA .region,
+.Southeast_Asia_SEA .region,
+.Sub_Saharan_Africa_SSA .region,
+.Western_Asia_and_North_Africa_WANA .region{
+	display:block;
+}
+.East_Asia_and_the_Pacific_EAP ~ .East_Asia_and_the_Pacific_EAP .region,
+.Europe_and_Japan_E_J ~ .Europe_and_Japan_E_J .region,
+.Land_Rich_Developed_Countries_LRDC ~ .Land_Rich_Developed_Countries_LRDC .region,
+.Latin_America_and_the_Caribbean_LAC ~.Latin_America_and_the_Caribbean_LAC .region,
+.South_and_Central_Asia_SCA ~ .South_and_Central_Asia_SCA .region,
+.Southeast_Asia_SEA ~ .Southeast_Asia_SEA .region,
+.Sub_Saharan_Africa_SSA ~ .Sub_Saharan_Africa_SSA .region,
+.Western_Asia_and_North_Africa_WANA ~ .Western_Asia_and_North_Africa_WANA .region{
+	display:none;
 }

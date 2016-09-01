@@ -5,6 +5,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('slug'); ?></th>
 			<th><?php echo $this->Paginator->sort('data_set_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('city_count'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -15,6 +16,7 @@
 	<tr>
 		<td><?php echo h($region['Region']['id']); ?>&nbsp;</td>
 		<td><?php echo h($region['Region']['name']); ?>&nbsp;</td>
+		<td><?php echo h($region['Region']['slug']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($region['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $region['DataSet']['id'])); ?>
 		</td>

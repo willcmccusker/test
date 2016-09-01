@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
+		echo $this->Form->input('slug');
 		echo $this->Form->input('data_set_id');
 		echo $this->Form->input('city_count');
 	?>

@@ -11,6 +11,11 @@
 			<?php echo h($region['Region']['name']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Slug'); ?></dt>
+		<dd>
+			<?php echo h($region['Region']['slug']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Data Set'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($region['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $region['DataSet']['id'])); ?>
@@ -43,6 +48,7 @@
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Slug'); ?></th>
 		<th><?php echo __('Country'); ?></th>
 		<th><?php echo __('Latitude'); ?></th>
 		<th><?php echo __('Longitude'); ?></th>
@@ -63,6 +69,7 @@
 		<tr>
 			<td><?php echo $city['id']; ?></td>
 			<td><?php echo $city['name']; ?></td>
+			<td><?php echo $city['slug']; ?></td>
 			<td><?php echo $city['country']; ?></td>
 			<td><?php echo $city['latitude']; ?></td>
 			<td><?php echo $city['longitude']; ?></td>

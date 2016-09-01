@@ -65,7 +65,7 @@ class City extends AppModel {
 		        			if(isset($regions[$data[$c]])){
 		        				$region_id = $regions[$data[$c]];
 		        			}else{
-		        				$region = array("Region"=>array("name"=>$data[$c]));
+		        				$region = array("Region"=>array("name"=>$data[$c], "slug"=>Inflector::slug($data[$c])));
 		        				$this->Region->create();
 		        				if(!$this->Region->save($region)){
 		        					debug($this->Region->validationErrors);
@@ -85,6 +85,7 @@ class City extends AppModel {
 		        		}
 		        	}
 		        }
+		        $city["City"]["slug"] = Inflector::slug($city["City"]["name"]);
 		        $this->create();
 		        if(!$this->save($city)){
 					debug($this->validationErrors);
@@ -103,6 +104,16 @@ class City extends AppModel {
  */
 	public $validate = array(
 		'name' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'slug' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
