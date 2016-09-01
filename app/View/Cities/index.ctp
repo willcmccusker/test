@@ -3,6 +3,12 @@
 
 
   <input class="search" placeholder="Search" />
+  <button class="sort" data-sort="city">
+    Sort by city
+  </button>  
+  <button class="sort" data-sort="region">
+    Sort by region
+  </button>
   <ul class='list'>
 <?
 $region = false;
