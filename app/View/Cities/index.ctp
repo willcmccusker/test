@@ -2,13 +2,13 @@
 
 	<input class="search" placeholder="Search" />
 
-	<button class="sort" data-sort="city">
+<!-- 	<button class="sort" data-sort="city">
 		Sort by city
 	</button>  
 
 	<button class="sort" data-sort="region">
 		Sort by region
-	</button>
+	</button> -->
 	
 	<ul class='list'>
 
