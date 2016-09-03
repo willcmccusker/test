@@ -10,6 +10,8 @@
 /tags
 *.mo
 
+/app/webroot/photos/
+
 .htaccess
 
 /app/webroot/node_modules

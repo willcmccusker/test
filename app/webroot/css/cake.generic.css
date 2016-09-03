@@ -15,6 +15,20 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+
+
+
+
+
+.admin-photo{
+	max-height:100px;
+}
+
+
+
+
+
+
 * {
 	margin:0;
 	padding:0;

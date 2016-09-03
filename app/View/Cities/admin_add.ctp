@@ -4,18 +4,27 @@
 		<legend><?php echo __('Admin Add City'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
+		echo $this->Form->input('cityid');
+		echo $this->Form->input('slug');
 		echo $this->Form->input('country');
 		echo $this->Form->input('latitude');
 		echo $this->Form->input('longitude');
 		echo $this->Form->input('population');
-		echo $this->Form->input('urban_extent');
-		echo $this->Form->input('density_built_up');
-		echo $this->Form->input('photo_id');
+		echo $this->Form->input('photo_path');
+		echo $this->Form->input('p_d_f_path');
+		echo $this->Form->input('g_i_s_path');
 		echo $this->Form->input('world_id');
 		echo $this->Form->input('region_id');
 		echo $this->Form->input('g_d_p_id');
 		echo $this->Form->input('city_size_id');
 		echo $this->Form->input('data_set_id');
+		echo $this->Form->input('urban_extent_t1_path');
+		echo $this->Form->input('urban_extent_t2_path');
+		echo $this->Form->input('urban_extent_t3_path');
+		echo $this->Form->input('urban_layout_arterial_roads_path');
+		echo $this->Form->input('urban_layout_medians_path');
+		echo $this->Form->input('urban_layout_locales_path');
+		echo $this->Form->input('urban_layout_blocks_path');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -25,8 +34,6 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Cities'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Photos'), array('controller' => 'photos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Photo'), array('controller' => 'photos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Worlds'), array('controller' => 'worlds', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New World'), array('controller' => 'worlds', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Regions'), array('controller' => 'regions', 'action' => 'index')); ?> </li>

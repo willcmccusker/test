@@ -130,8 +130,8 @@ class CitiesController extends AppController {
  * @return void
  */
 	public function admin_import() {
-		$this->City->import("cities.csv");
-		$this->render(false);
+		$this->City->DataSet->import();
+		$this->redirect(array('action' => 'index'));
 	}
 
 /**
@@ -174,13 +174,12 @@ class CitiesController extends AppController {
 				$this->Flash->error(__('The city could not be saved. Please, try again.'));
 			}
 		}
-		$photos = $this->City->Photo->find('list');
 		$worlds = $this->City->World->find('list');
 		$regions = $this->City->Region->find('list');
 		$gDPs = $this->City->GDP->find('list');
 		$citySizes = $this->City->CitySize->find('list');
 		$dataSets = $this->City->DataSet->find('list');
-		$this->set(compact('photos', 'worlds', 'regions', 'gDPs', 'citySizes', 'dataSets'));
+		$this->set(compact( 'worlds', 'regions', 'gDPs', 'citySizes', 'dataSets'));
 	}
 
 /**
@@ -205,13 +204,12 @@ class CitiesController extends AppController {
 			$options = array('conditions' => array('City.' . $this->City->primaryKey => $id));
 			$this->request->data = $this->City->find('first', $options);
 		}
-		$photos = $this->City->Photo->find('list');
 		$worlds = $this->City->World->find('list');
 		$regions = $this->City->Region->find('list');
 		$gDPs = $this->City->GDP->find('list');
 		$citySizes = $this->City->CitySize->find('list');
 		$dataSets = $this->City->DataSet->find('list');
-		$this->set(compact('photos', 'worlds', 'regions', 'gDPs', 'citySizes', 'dataSets'));
+		$this->set(compact( 'worlds', 'regions', 'gDPs', 'citySizes', 'dataSets'));
 	}
 
 /**

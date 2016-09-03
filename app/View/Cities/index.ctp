@@ -12,10 +12,10 @@
 	
 	<ul class='list'>
 
-<?foreach($cities as $i=>$city):?>
+<?$i = 0;$region = false;foreach($cities as $city):if($region != $city["Region"]["name"]){$i++;$region = $city["Region"]["name"];}?>
 
-	<li class='<?=$city["Region"]["slug"];?>'>
-		<h3 class='region '><?=$city["Region"]["name"];?></h3>
+	<li class='region-<?=$i;?>'>
+		<h3 class='region '><?=$region;?></h3>
 		<div class='city'>
 			<a href='/cities/view/<?=$city["City"]["slug"];?>'>
 				<?=$city["City"]["name"];?> — <?=$city["City"]["country"];?>
@@ -26,5 +26,5 @@
 <?endforeach;?>
 
 	</ul>
-	
+
 </div>

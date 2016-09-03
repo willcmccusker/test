@@ -3,42 +3,24 @@
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('country'); ?></th>
-			<th><?php echo $this->Paginator->sort('latitude'); ?></th>
-			<th><?php echo $this->Paginator->sort('longitude'); ?></th>
 			<th><?php echo $this->Paginator->sort('population'); ?></th>
-			<th><?php echo $this->Paginator->sort('urban_extent'); ?></th>
-			<th><?php echo $this->Paginator->sort('density_built_up'); ?></th>
-			<th><?php echo $this->Paginator->sort('photo_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('world_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('region_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('g_d_p_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('city_size_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('data_set_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<th><?php echo $this->Paginator->sort('photo_path'); ?></th>
+<!-- 			<th><?php echo $this->Paginator->sort('created'); ?></th>
+ -->			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($cities as $city): ?>
 	<tr>
-		<td><?php echo h($city['City']['id']); ?>&nbsp;</td>
 		<td><?php echo h($city['City']['name']); ?>&nbsp;</td>
 		<td><?php echo h($city['City']['country']); ?>&nbsp;</td>
-		<td><?php echo h($city['City']['latitude']); ?>&nbsp;</td>
-		<td><?php echo h($city['City']['longitude']); ?>&nbsp;</td>
 		<td><?php echo h($city['City']['population']); ?>&nbsp;</td>
-		<td><?php echo h($city['City']['urban_extent']); ?>&nbsp;</td>
-		<td><?php echo h($city['City']['density_built_up']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($city['Photo']['path'], array('controller' => 'photos', 'action' => 'view', $city['Photo']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($city['World']['year'], array('controller' => 'worlds', 'action' => 'view', $city['World']['id'])); ?>
-		</td>
 		<td>
 			<?php echo $this->Html->link($city['Region']['name'], array('controller' => 'regions', 'action' => 'view', $city['Region']['id'])); ?>
 		</td>
@@ -49,10 +31,11 @@
 			<?php echo $this->Html->link($city['CitySize']['name'], array('controller' => 'city_sizes', 'action' => 'view', $city['CitySize']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($city['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $city['DataSet']['id'])); ?>
+			<img class='admin-photo' src='/photos/<?php echo $city['City']['photo_path']; ?>'>
 		</td>
-		<td><?php echo h($city['City']['created']); ?>&nbsp;</td>
-		<td><?php echo h($city['City']['modified']); ?>&nbsp;</td>
+		
+<!-- 		<td><?php echo $this->Time->niceShort($city['City']['created']); ?>&nbsp;</td>
+ -->		<td><?php echo $this->Time->niceShort($city['City']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $city['City']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $city['City']['id'])); ?>
@@ -79,9 +62,8 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Import Data'), array('controller'=>'cities', 'action' => 'import')); ?></li>
 		<li><?php echo $this->Html->link(__('New City'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Photos'), array('controller' => 'photos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Photo'), array('controller' => 'photos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Worlds'), array('controller' => 'worlds', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New World'), array('controller' => 'worlds', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Regions'), array('controller' => 'regions', 'action' => 'index')); ?> </li>

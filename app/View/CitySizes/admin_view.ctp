@@ -1,34 +1,34 @@
-<div class="regions view">
-<h2><?php echo __('Region'); ?></h2>
+<div class="citySizes view">
+<h2><?php echo __('City Size'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
-			<?php echo h($region['Region']['id']); ?>
+			<?php echo h($citySize['CitySize']['id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($region['Region']['name']); ?>
+			<?php echo h($citySize['CitySize']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Abbreviation'); ?></dt>
+		<dt><?php echo __('Number'); ?></dt>
 		<dd>
-			<?php echo h($region['Region']['abbreviation']); ?>
+			<?php echo h($citySize['CitySize']['number']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Slug'); ?></dt>
 		<dd>
-			<?php echo h($region['Region']['slug']); ?>
+			<?php echo h($citySize['CitySize']['slug']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Data Set'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($region['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $region['DataSet']['id'])); ?>
+			<?php echo $this->Html->link($citySize['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $citySize['DataSet']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('City Count'); ?></dt>
 		<dd>
-			<?php echo h($region['Region']['city_count']); ?>
+			<?php echo h($citySize['CitySize']['city_count']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -36,10 +36,10 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Region'), array('action' => 'edit', $region['Region']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Region'), array('action' => 'delete', $region['Region']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $region['Region']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Regions'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Region'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit City Size'), array('action' => 'edit', $citySize['CitySize']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete City Size'), array('action' => 'delete', $citySize['CitySize']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $citySize['CitySize']['id']))); ?> </li>
+		<li><?php echo $this->Html->link(__('List City Sizes'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New City Size'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Data Sets'), array('controller' => 'data_sets', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Data Set'), array('controller' => 'data_sets', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cities'), array('controller' => 'cities', 'action' => 'index')); ?> </li>
@@ -48,7 +48,7 @@
 </div>
 <div class="related">
 	<h3><?php echo __('Related Cities'); ?></h3>
-	<?php if (!empty($region['City'])): ?>
+	<?php if (!empty($citySize['City'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -78,7 +78,7 @@
 		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php foreach ($region['City'] as $city): ?>
+	<?php foreach ($citySize['City'] as $city): ?>
 		<tr>
 			<td><?php echo $city['id']; ?></td>
 			<td><?php echo $city['name']; ?></td>

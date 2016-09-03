@@ -11,6 +11,16 @@
 			<?php echo h($city['City']['name']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Cityid'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['cityid']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Slug'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['slug']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Country'); ?></dt>
 		<dd>
 			<?php echo h($city['City']['country']); ?>
@@ -31,19 +41,19 @@
 			<?php echo h($city['City']['population']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Urban Extent'); ?></dt>
+		<dt><?php echo __('Photo Path'); ?></dt>
 		<dd>
-			<?php echo h($city['City']['urban_extent']); ?>
+			<?php echo h($city['City']['photo_path']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Density Built Up'); ?></dt>
+		<dt><?php echo __('P D F Path'); ?></dt>
 		<dd>
-			<?php echo h($city['City']['density_built_up']); ?>
+			<?php echo h($city['City']['p_d_f_path']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Photo'); ?></dt>
+		<dt><?php echo __('G I S Path'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($city['Photo']['path'], array('controller' => 'photos', 'action' => 'view', $city['Photo']['id'])); ?>
+			<?php echo h($city['City']['g_i_s_path']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('World'); ?></dt>
@@ -71,14 +81,49 @@
 			<?php echo $this->Html->link($city['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $city['DataSet']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Urban Extent T1 Path'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['urban_extent_t1_path']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Urban Extent T2 Path'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['urban_extent_t2_path']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Urban Extent T3 Path'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['urban_extent_t3_path']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Urban Layout Arterial Roads Path'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['urban_layout_arterial_roads_path']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Urban Layout Medians Path'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['urban_layout_medians_path']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Urban Layout Locales Path'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['urban_layout_locales_path']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Urban Layout Blocks Path'); ?></dt>
+		<dd>
+			<?php echo h($city['City']['urban_layout_blocks_path']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($city['City']['created']); ?>
+			<?php echo $this->Time->niceShort($city['City']['created']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
-			<?php echo h($city['City']['modified']); ?>
+			<?php echo $this->Time->niceShort($city['City']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -90,8 +135,6 @@
 		<li><?php echo $this->Form->postLink(__('Delete City'), array('action' => 'delete', $city['City']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $city['City']['id']))); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cities'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New City'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Photos'), array('controller' => 'photos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Photo'), array('controller' => 'photos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Worlds'), array('controller' => 'worlds', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New World'), array('controller' => 'worlds', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Regions'), array('controller' => 'regions', 'action' => 'index')); ?> </li>

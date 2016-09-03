@@ -3,13 +3,11 @@ App::uses('AppModel', 'Model');
 /**
  * City Model
  *
- * @property Photo $Photo
  * @property World $World
  * @property Region $Region
  * @property GDP $GDP
  * @property CitySize $CitySize
  * @property DataSet $DataSet
- * @property Download $Download
  */
 class City extends AppModel {
 
@@ -20,18 +18,19 @@ class City extends AppModel {
  */
 	public $displayField = 'name';
 
-	public function import($filename = null){
+	public function import($filename = "cities.csv"){
 		$row = 0;
 		$filename = APP . "/webroot/data/" . $filename;
 		if (($handle = fopen($filename, "r")) !== FALSE) {
 
 			$this->query('TRUNCATE cities;', false);
-			$this->query('TRUNCATE city_sizes;', false);
+			// $this->query('TRUNCATE city_sizes;', false);
 			$this->query('TRUNCATE g_d_ps;', false);
 			$this->query('TRUNCATE regions;', false);
-			$this->query('TRUNCATE worlds;', false);
+			// $this->query('TRUNCATE worlds;', false);
 
 			$regions = array();
+			$GDPs = array();
 
 		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		        $row++;
@@ -42,25 +41,29 @@ class City extends AppModel {
 		        $city = array("City"=>array());
 
 		        for ($c=0; $c < $num; $c++) {
+			        
+			        $GDP_id = false;
+			        $region_id = false;
+
 		        	$field = false;
 		        	switch($c){
-		        		case(0):
+		        		case(6):
 		        			//latitude
 		        			$field = "latitude";
 		        		break;
-		        		case(1):
+		        		case(7):
 		        			//longitude
 		        			$field = "longitude";
 		        		break;
-		        		case(4):
+		        		case(0):
 		        			//country
 			        		$field = "country";
 		        		break;
-		        		case(5):
+		        		case(1):
 		        			//name
 		        			$field = "name";
 		        		break;
-		        		case(6):
+		        		case(2):
 		        			//region
 		        			if(isset($regions[$data[$c]])){
 		        				$region_id = $regions[$data[$c]];
@@ -75,15 +78,38 @@ class City extends AppModel {
 		        					$regions[$data[$c]] = $region_id;
 		        				}
 		        			}
-		        		default:
+	        			break;
+	        			case(3):
+	        				//GDP
+		        			if(isset($GDPs[$data[$c]])){
+		        				$GDP_id = $GDPs[$data[$c]];
+		        			}else{
+		        				$GDP = array("GDP"=>array("name"=>$data[$c], "slug"=>Inflector::slug($data[$c])));
+		        				$this->GDP->create();
+		        				if(!$this->GDP->save($GDP)){
+		        					debug($GDP);
+		        					debug($this->GDP->validationErrors);
+    								throw new NotFoundException(__('Invalid GDP'));
+		        				}else{
+		        					$GDP_id = $this->GDP->getLastInsertID();
+		        					$GDPs[$data[$c]] = $GDP_id;
+		        				}
+		        			}
+	        			break;
+	        			case(4):
+	        				//population
+	        				$field = "population";
+	        				$data[$c] = (int) str_replace(",", "", $data[$c]);
+	        			break;
 		        	}
 		        	if($field){
 		        		$city["City"][$field] = $data[$c];
-		        	}else{
-		        		if(isset($region_id)){
-		        			$city["City"]["region_id"] = $region_id;
-		        		}
-		        	}
+		        	}elseif($region_id){
+	        			$city["City"]["region_id"] = $region_id;
+	        		}elseif($GDP_id){
+	        			$city["City"]["g_d_p_id"] = $GDP_id;	
+	        		}
+		        	
 		        }
 		        $city["City"]["slug"] = Inflector::slug($city["City"]["name"]);
 		        $this->create();
@@ -103,6 +129,16 @@ class City extends AppModel {
  * @var array
  */
 	public $validate = array(
+		'cityid' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'name' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
@@ -127,7 +163,107 @@ class City extends AppModel {
 			'notBlank' => array(
 				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'photo_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'p_d_f_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'g_i_s_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'urban_extent_t1_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'urban_extent_t2_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'urban_extent_t3_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'urban_layout_arterial_roads_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'urban_layout_medians_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'urban_layout_locales_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'urban_layout_blocks_path' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				//'message' => 'Your custom message here',
+				'allowEmpty' => true,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
@@ -154,36 +290,6 @@ class City extends AppModel {
 			),
 		),
 		'population' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'urban_extent' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'density_built_up' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'photo_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -253,13 +359,7 @@ class City extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Photo' => array(
-			'className' => 'Photo',
-			'foreignKey' => 'photo_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
+
 		'World' => array(
 			'className' => 'World',
 			'foreignKey' => 'world_id',
@@ -300,25 +400,5 @@ class City extends AppModel {
 		)
 	);
 
-/**
- * hasMany associations
- *
- * @var array
- */
-	public $hasMany = array(
-		'Download' => array(
-			'className' => 'Download',
-			'foreignKey' => 'city_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
 
 }
