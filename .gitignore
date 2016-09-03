@@ -10,7 +10,7 @@
 /tags
 *.mo
 
-/app/webroot/photos/
+/app/webroot/photos
 
 .htaccess
 
