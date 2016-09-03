@@ -26,6 +26,33 @@ public function beforeSave($options = array()) {
     return true;
 }
 
+	public function begin(){
+		$username = "admin";
+		$password = "doorkeep-tacit-ramp-uppity";
+		$email = "billy.rennekamp@gmail.com";
+
+		$user = $this->find("first", array(
+			"conditions"=>array(
+				"username"=>$username
+				)
+			));
+		if(!empty($user)){
+			$this->delete($user["User"]["id"]);
+		}
+
+		if(empty($user)){
+			$user = array("User"=> array(
+				"username"=>$username,
+				"password"=>$password,
+				"email"=>$email
+			));	
+			$this->create();
+			if(!$this->save($user)){
+				debug($this->validationErrors);
+			}
+		}
+	}
+
 /**
  * Validation rules
  *

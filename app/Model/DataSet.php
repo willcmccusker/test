@@ -17,6 +17,12 @@ class DataSet extends AppModel {
 	public function import(){
 
 
+		$sql = file_get_contents( APP . '/webroot/sql/atlas.sql');
+		$this->query($sql);
+         
+        $this->User = ClassRegistry::init('User');
+		$this->User->begin();
+
 		$row = 0;
 		$filename = APP . "/webroot/data/data.csv";
 		if (($handle = fopen($filename, "r")) !== FALSE) {

@@ -22,39 +22,12 @@ class UsersController extends AppController {
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
 			$this->Auth->allow(
 				'admin_login', 
-				'admin_logout', 
-				'begin' 
+				'admin_logout' 
 				// 'admin_view', 'admin_edit', 'admin_add', "admin_index"
 				);
 	}
 
-	public function begin(){
-		$username = "admin";
-		$password = "doorkeep-tacit-ramp-uppity";
-		$email = "billy.rennekamp@gmail.com";
-
-		$user = $this->User->find("first", array(
-			"conditions"=>array(
-				"username"=>$username
-				)
-			));
-		if(!empty($user)){
-			$this->User->delete($user["User"]["id"]);
-		}
-
-		if(empty($user)){
-			$user = array("User"=> array(
-				"username"=>$username,
-				"password"=>$password,
-				"email"=>$email
-			));	
-			$this->User->create();
-			if(!$this->User->save($user)){
-				debug($this->User->validationErrors);
-			}
-		}
-		$this->render(false);
-	}
+	
 
 /**
  * admin_login method
