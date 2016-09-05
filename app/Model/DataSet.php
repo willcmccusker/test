@@ -17,14 +17,14 @@ class DataSet extends AppModel {
 	public function import(){
 
 
-		$sql = file_get_contents( APP . '/webroot/sql/atlas.sql');
+		$sql = file_get_contents( APP . '/webroot/build_data/atlas.sql');
 		$this->query($sql);
          
         $this->User = ClassRegistry::init('User');
 		$this->User->begin();
 
 		$row = 0;
-		$filename = APP . "/webroot/data/data.csv";
+		$filename = APP . "/webroot/build_data/data.csv";
 		if (($handle = fopen($filename, "r")) !== FALSE) {
 
 			$this->query('TRUNCATE data_sets;');

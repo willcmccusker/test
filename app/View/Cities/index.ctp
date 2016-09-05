@@ -1,3 +1,5 @@
+<? $this->assign('title', "Cities");?>
+
 <div id='cityList'>
 
 	<input class="search" placeholder="Search" />

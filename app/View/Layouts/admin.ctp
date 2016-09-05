@@ -28,11 +28,18 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		// echo $this->Html->css('cake.generic');
+		echo $this->Html->css('admin');
+		echo $this->Html->css('bootstrap3.min');
+		// echo $this->Html->css('bootstrap-responsive.min'); 
+
+		echo $this->Html->script('jquery-3.1.0.min');
+		echo $this->Html->script('bootstrap3.min');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+
 	?>
 </head>
 <body>

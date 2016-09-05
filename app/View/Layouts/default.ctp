@@ -33,6 +33,7 @@
 	?>
 </head>
 <body>
+	<? echo $this->element("header"); ?>
 	<div id="container" class='grid'>
 		<div id="content" class='col-1-1'>
 			<?php echo $this->fetch('content'); ?>

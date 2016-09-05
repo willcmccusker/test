@@ -20,10 +20,7 @@ class CitiesController extends AppController {
 	public function beforeFilter() {
 			parent::beforeFilter();
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
-			$this->Auth->allow(
-				'API_index', 
-				'index',
-				'view');
+			$this->Auth->allow('API_index', 'index','map','view', 'data');
 	}
 
 
@@ -89,7 +86,7 @@ class CitiesController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function index($render = "index") {
 		$cities = $this->City->find("all", array(
 			"recursive"=>0
 			));
@@ -102,7 +99,17 @@ class CitiesController extends AppController {
 		});
 		// $cities = Hash::sort($cities, '{n}.Region.name', 'asc');
 		$this->set(compact("cities"));
+		$this->render($render);
 	}
+
+	public function map(){
+		$this->index("map");
+	}
+
+	public function data(){
+		$this->index("data");
+	}
+
 
 
 /**
@@ -115,7 +122,14 @@ class CitiesController extends AppController {
 			"conditions"=>array(
 				"City.slug"=>$slug
 				),
-			"recursive"=>1
+			// "recursive"=>2,
+			"contain"=>array(
+				"World"=>array("DataSet"),
+				"DataSet",
+				"Region"=>array("DataSet"),
+				"GDP"=>array("DataSet"),
+				"CitySize"=>array("DataSet")
+				)
 			));
 		if(empty($city)){
 			throw new NotFoundException(__('Invalid city'));

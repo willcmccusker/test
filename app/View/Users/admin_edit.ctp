@@ -1,21 +1,51 @@
 <div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('email');
-		echo $this->Form->input('password');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('User.id')))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-	</ul>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1><?php echo __('Admin Edit User'); ?></h1>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="actions">
+				<div class="panel panel-default">
+					<div class="panel-heading"><?php echo __('Actions'); ?></div>
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+
+																<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array('escape' => false), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
+																<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('List Users'), array('action' => 'index'), array('escape' => false)); ?></li>
+														</ul>
+						</div>
+					</div>
+				</div>			
+		</div><!-- end col md 3 -->
+		<div class="col-md-9">
+			<?php echo $this->Form->create('User', array('role' => 'form')); ?>
+
+				<div class="form-group">
+					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('username', array('class' => 'form-control', 'placeholder' => 'Username'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('password', array('class' => 'form-control', 'placeholder' => 'Password'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
+				</div>
+
+			<?php echo $this->Form->end() ?>
+
+		</div><!-- end col md 12 -->
+	</div><!-- end row -->
 </div>

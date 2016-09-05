@@ -25,6 +25,7 @@
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
 
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *
@@ -66,7 +67,9 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::loadAll(); // Loads all plugins at once
  * CakePlugin::load('DebugKit'); // Loads a single plugin named DebugKit
  */
-
+// CakePlugin::loadAll();
+CakePlugin::load('BoostCake');
+CakePlugin::load('DocumentManager', array('bootstrap' => true));
 /**
  * To prefer app translation over plugin translation, you can set
  *
