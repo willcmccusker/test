@@ -1,182 +1,223 @@
 <div class="cities view">
-<h2><?php echo __('City'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1><?php echo __('City'); ?></h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-3">
+			<div class="actions">
+				<div class="panel panel-default">
+					<div class="panel-heading"><?php echo __('Actions'); ?></div>
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit City'), array('action' => 'edit', $city['City']['id']), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete City'), array('action' => 'delete', $city['City']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $city['City']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Cities'), array('action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New City'), array('action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Worlds'), array('controller' => 'worlds', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New World'), array('controller' => 'worlds', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Regions'), array('controller' => 'regions', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Region'), array('controller' => 'regions', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List G D Ps'), array('controller' => 'g_d_ps', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New G D P'), array('controller' => 'g_d_ps', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List City Sizes'), array('controller' => 'city_sizes', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New City Size'), array('controller' => 'city_sizes', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Data Sets'), array('controller' => 'data_sets', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Data Set'), array('controller' => 'data_sets', 'action' => 'add'), array('escape' => false)); ?> </li>
+							</ul>
+						</div><!-- end body -->
+				</div><!-- end panel -->
+			</div><!-- end actions -->
+		</div><!-- end col md 3 -->
+
+		<div class="col-md-9">			
+			<table cellpadding="0" cellspacing="0" class="table table-striped">
+				<tbody>
+				<tr>
+		<th><?php echo __('Id'); ?></th>
+		<td>
 			<?php echo h($city['City']['id']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Name'); ?></th>
+		<td>
 			<?php echo h($city['City']['name']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Cityid'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Cityid'); ?></th>
+		<td>
 			<?php echo h($city['City']['cityid']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Slug'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Slug'); ?></th>
+		<td>
 			<?php echo h($city['City']['slug']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Country'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Country'); ?></th>
+		<td>
 			<?php echo h($city['City']['country']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Latitude'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Latitude'); ?></th>
+		<td>
 			<?php echo h($city['City']['latitude']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Longitude'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Longitude'); ?></th>
+		<td>
 			<?php echo h($city['City']['longitude']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Population'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Population'); ?></th>
+		<td>
 			<?php echo h($city['City']['population']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Photo Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Photo Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['photo_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('P D F Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('P D F Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['p_d_f_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('G I S Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('G I S Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['g_i_s_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('World'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('World'); ?></th>
+		<td>
 			<?php echo $this->Html->link($city['World']['year'], array('controller' => 'worlds', 'action' => 'view', $city['World']['id'])); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Region'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Region'); ?></th>
+		<td>
 			<?php echo $this->Html->link($city['Region']['name'], array('controller' => 'regions', 'action' => 'view', $city['Region']['id'])); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('G D P'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('G D P'); ?></th>
+		<td>
 			<?php echo $this->Html->link($city['GDP']['name'], array('controller' => 'g_d_ps', 'action' => 'view', $city['GDP']['id'])); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('City Size'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('City Size'); ?></th>
+		<td>
 			<?php echo $this->Html->link($city['CitySize']['name'], array('controller' => 'city_sizes', 'action' => 'view', $city['CitySize']['id'])); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Data Set'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Data Set'); ?></th>
+		<td>
 			<?php echo $this->Html->link($city['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $city['DataSet']['id'])); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Urban Extent T1 Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Urban Extent T1 Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['urban_extent_t1_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Urban Extent T2 Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Urban Extent T2 Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['urban_extent_t2_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Urban Extent T3 Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Urban Extent T3 Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['urban_extent_t3_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Urban Layout Arterial Roads Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Urban Layout Arterial Roads Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['urban_layout_arterial_roads_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Urban Layout Medians Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Urban Layout Medians Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['urban_layout_medians_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Urban Layout Locales Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Urban Layout Locales Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['urban_layout_locales_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Urban Layout Blocks Path'); ?></dt>
-		<dd>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Urban Layout Blocks Path'); ?></th>
+		<td>
 			<?php echo h($city['City']['urban_layout_blocks_path']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo $this->Time->niceShort($city['City']['created']); ?>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Created'); ?></th>
+		<td>
+			<?php echo h($city['City']['created']); ?>
 			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo $this->Time->niceShort($city['City']['modified']); ?>
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Modified'); ?></th>
+		<td>
+			<?php echo h($city['City']['modified']); ?>
 			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit City'), array('action' => 'edit', $city['City']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete City'), array('action' => 'delete', $city['City']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $city['City']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cities'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New City'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Regions'), array('controller' => 'regions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Region'), array('controller' => 'regions', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List G D Ps'), array('controller' => 'g_d_ps', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New G D P'), array('controller' => 'g_d_ps', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List City Sizes'), array('controller' => 'city_sizes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New City Size'), array('controller' => 'city_sizes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Data Sets'), array('controller' => 'data_sets', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Data Set'), array('controller' => 'data_sets', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Downloads'), array('controller' => 'downloads', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Download'), array('controller' => 'downloads', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Downloads'); ?></h3>
-	<?php if (!empty($city['Download'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Type'); ?></th>
-		<th><?php echo __('Path'); ?></th>
-		<th><?php echo __('City Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($city['Download'] as $download): ?>
-		<tr>
-			<td><?php echo $download['id']; ?></td>
-			<td><?php echo $download['type']; ?></td>
-			<td><?php echo $download['path']; ?></td>
-			<td><?php echo $download['city_id']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'downloads', 'action' => 'view', $download['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'downloads', 'action' => 'edit', $download['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'downloads', 'action' => 'delete', $download['id']), array('confirm' => __('Are you sure you want to delete # %s?', $download['id']))); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+		</td>
+</tr>
+				</tbody>
+			</table>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Download'), array('controller' => 'downloads', 'action' => 'add')); ?> </li>
-		</ul>
+		</div><!-- end col md 9 -->
+
 	</div>
 </div>
+

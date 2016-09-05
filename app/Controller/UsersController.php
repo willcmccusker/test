@@ -34,9 +34,22 @@ class UsersController extends AppController {
  *
  * @return void
  */
+	public function admin_auth() {
+		$this->layout = "ajax";
+		echo $this->Auth->loggedIn() ? "1" : "0";
+		$this->render(false);
+	}
+	
+
+/**
+ * admin_login method
+ *
+ * @return void
+ */
 	public function admin_login() {
 	    if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {
+	        	$this->Session->write('file-manager', 'file-manager');
 	            return $this->redirect($this->Auth->redirectUrl());
 	        }
 	        $this->Flash->error(__('Invalid username or password, try again'));

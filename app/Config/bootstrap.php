@@ -69,7 +69,7 @@ Cache::config('default', array('engine' => 'File'));
  */
 // CakePlugin::loadAll();
 CakePlugin::load('BoostCake');
-CakePlugin::load('DocumentManager', array('bootstrap' => true));
+// CakePlugin::load('DocumentManager', array('bootstrap' => true));
 /**
  * To prefer app translation over plugin translation, you can set
  *
