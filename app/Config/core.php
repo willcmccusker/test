@@ -225,20 +225,20 @@ Configure::write('Routing.prefixes', array('admin', 'API'));
  * To use database sessions, run the app/Config/Schema/sessions.php schema using
  * the cake shell command: cake schema create Sessions
  */
-	// Configure::write('Session', array(
-	// 	'defaults' => 'php'
-	// ));
+	Configure::write('Session', array(
+		'defaults' => 'php'
+	));
 // debug(exec("whoami"));
 // die();
 
-	Configure::write('Session', array(
-    'defaults' => 'cake',
-    'timeout' => 24 * 60 * 60,    // Timeout in minutes
-    'autoRegenerate' => true,
-    // 'ini' => array(
-    //   'session.cookie_secure' => false
-    // )
-));
+// Configure::write('Session', array(
+//     'defaults' => 'cake',
+//     'timeout' => 24 * 60 * 60,    // Timeout in minutes
+//     'autoRegenerate' => true,
+//     // 'ini' => array(
+//     //   'session.cookie_secure' => false
+//     // )
+// ));
 
 /**
  * A random string used in security hashing methods.
