@@ -18,7 +18,9 @@ $tablet-max-width : 950px;
 .citylist{
 	padding-left:40px;
 }
-
+ul.list{
+ @include xPrefix(columns, 4);
+}
 @for $i from 1 through 8{
 	.region-#{$i} .region{
 		display:block;

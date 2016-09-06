@@ -23,7 +23,7 @@ class UsersController extends AppController {
 			$this->Auth->allow(
 				'admin_login', 
 				'admin_logout' 
-				// 'admin_view', 'admin_edit', 'admin_add', "admin_index"
+				'admin_view', 'admin_edit', 'admin_add', "admin_index"
 				);
 	}
 
