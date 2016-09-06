@@ -1,0 +1,3 @@
+<?
+die("?");
+ echo  exec("whoami");?>
