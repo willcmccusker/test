@@ -49,8 +49,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<h1><?php echo $this->Html->link("THE ATLAS OF URBAN EXPANSION", '/admin/'); ?></h1>
 		</div>
 		<div id="content">
+		<? if($this->Session->read('Auth.User')): ?>
 			<div id='file-manager'>Open File Manager</div>
-
+		<? endif;?>
 			<?php echo $this->Flash->render(); ?>
 
 			<?php echo $this->fetch('content'); ?>
