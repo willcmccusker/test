@@ -228,6 +228,8 @@ Configure::write('Routing.prefixes', array('admin', 'API'));
 	// Configure::write('Session', array(
 	// 	'defaults' => 'php'
 	// ));
+debug(exec("whoami"));
+die();
 
 	Configure::write('Session', array(
     'defaults' => 'cake',
