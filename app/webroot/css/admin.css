@@ -1,5 +1,10 @@
 #container{
 	position:relative;
+	
+	max-width:1280px;
+	margin:auto;
+}
+#content{
 }
 #file-manager{
 	position:absolute;
