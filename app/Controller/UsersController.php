@@ -22,7 +22,7 @@ class UsersController extends AppController {
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
 			$this->Auth->allow(
 				'admin_login', 
-				'admin_logout' 
+				'admin_logout' ,
 				'admin_view', 'admin_edit', 'admin_add', "admin_index"
 				);
 	}
