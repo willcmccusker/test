@@ -18,17 +18,17 @@
 					<div class="panel-heading"><?php echo __('Actions'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Import Cities and Data'), array('action' => 'import'), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('New City'), array('action' => 'add'), array('escape' => false)); ?></li>
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Worlds'), array('controller' => 'worlds', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('World'), array('controller' => 'worlds', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Regions'), array('controller' => 'regions', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('Region'), array('controller' => 'regions', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('G D Ps'), array('controller' => 'g_d_ps', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('G D P'), array('controller' => 'g_d_ps', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('City Sizes'), array('controller' => 'city_sizes', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('City Size'), array('controller' => 'city_sizes', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Data Sets'), array('controller' => 'data_sets', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('Data Set'), array('controller' => 'data_sets', 'action' => 'add'), array('escape' => false)); ?> </li>
+								
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List '.__('Regions'), array('controller' => 'regions', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New '.__('Region'), array('controller' => 'regions', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List '.__('G D Ps'), array('controller' => 'g_d_ps', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New '.__('G D P'), array('controller' => 'g_d_ps', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List '.__('City Sizes'), array('controller' => 'city_sizes', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New '.__('City Size'), array('controller' => 'city_sizes', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List '.__('Data Sets'), array('controller' => 'data_sets', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New '.__('Data Set'), array('controller' => 'data_sets', 'action' => 'add'), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -39,30 +39,30 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
-						<th nowrap><?php echo $this->Paginator->sort('id'); ?></th>
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('id'); ?></th> -->
 						<th nowrap><?php echo $this->Paginator->sort('name'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('cityid'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('slug'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('country'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('latitude'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('longitude'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('population'); ?></th>
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('cityid'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('slug'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('country'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('latitude'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('longitude'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('population'); ?></th> -->
 						<th nowrap><?php echo $this->Paginator->sort('photo_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('p_d_f_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('g_i_s_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('world_id'); ?></th>
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('p_d_f_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('g_i_s_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('world_id'); ?></th> -->
 						<th nowrap><?php echo $this->Paginator->sort('region_id'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('g_d_p_id'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('city_size_id'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('data_set_id'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t1_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t2_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t3_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_layout_arterial_roads_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_layout_medians_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_layout_locales_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_layout_blocks_path'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('created'); ?></th>
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('data_set_id'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t1_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t2_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t3_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_arterial_roads_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_medians_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_locales_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_blocks_path'); ?></th> -->
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('created'); ?></th> -->
 						<th nowrap><?php echo $this->Paginator->sort('modified'); ?></th>
 						<th class="actions"></th>
 					</tr>
@@ -70,20 +70,20 @@
 				<tbody>
 				<?php foreach ($cities as $city): ?>
 					<tr>
-						<td nowrap><?php echo h($city['City']['id']); ?>&nbsp;</td>
+<!-- 						<td nowrap><?php echo h($city['City']['id']); ?>&nbsp;</td> -->
 						<td nowrap><?php echo h($city['City']['name']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['cityid']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['slug']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['country']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['latitude']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['longitude']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['population']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['photo_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['p_d_f_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['g_i_s_path']); ?>&nbsp;</td>
-								<td>
+<!-- 						<td nowrap><?php echo h($city['City']['cityid']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['slug']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['country']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['latitude']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['longitude']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['population']); ?>&nbsp;</td> -->
+						<td nowrap><?php echo $this->Html->image("/file-manager/userfiles/_thumbs/photos/".$city['City']['photo_path']); ?><br><?= $city['City']['photo_path'];?>&nbsp;</td>
+<!-- 						<td nowrap><?php echo h($city['City']['p_d_f_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['g_i_s_path']); ?>&nbsp;</td> -->
+								<!-- <td>
 			<?php echo $this->Html->link($city['World']['year'], array('controller' => 'worlds', 'action' => 'view', $city['World']['id'])); ?>
-		</td>
+		</td> -->
 								<td>
 			<?php echo $this->Html->link($city['Region']['name'], array('controller' => 'regions', 'action' => 'view', $city['Region']['id'])); ?>
 		</td>
@@ -93,18 +93,18 @@
 								<td>
 			<?php echo $this->Html->link($city['CitySize']['name'], array('controller' => 'city_sizes', 'action' => 'view', $city['CitySize']['id'])); ?>
 		</td>
-								<td>
+							<!-- 	<td>
 			<?php echo $this->Html->link($city['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $city['DataSet']['id'])); ?>
-		</td>
-						<td nowrap><?php echo h($city['City']['urban_extent_t1_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['urban_extent_t2_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['urban_extent_t3_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['urban_layout_arterial_roads_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['urban_layout_medians_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['urban_layout_locales_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['urban_layout_blocks_path']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['created']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($city['City']['modified']); ?>&nbsp;</td>
+		</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['urban_extent_t1_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['urban_extent_t2_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['urban_extent_t3_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_arterial_roads_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_medians_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_locales_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_blocks_path']); ?>&nbsp;</td> -->
+<!-- 						<td nowrap><?php echo h($city['City']['created']); ?>&nbsp;</td> -->
+						<td nowrap><?php echo $this->Time->niceShort($city['City']['modified']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $city['City']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $city['City']['id']), array('escape' => false)); ?>

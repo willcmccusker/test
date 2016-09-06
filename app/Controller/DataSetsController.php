@@ -51,10 +51,10 @@ class DataSetsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->DataSet->create();
 			if ($this->DataSet->save($this->request->data)) {
-				$this->Flash->success(__('The data set has been saved.'));
+				$this->Session->setFlash(__('The data set has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The data set could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The data set could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}
@@ -72,10 +72,10 @@ class DataSetsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->DataSet->save($this->request->data)) {
-				$this->Flash->success(__('The data set has been saved.'));
+				$this->Session->setFlash(__('The data set has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The data set could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The data set could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('DataSet.' . $this->DataSet->primaryKey => $id));
@@ -95,11 +95,11 @@ class DataSetsController extends AppController {
 		if (!$this->DataSet->exists()) {
 			throw new NotFoundException(__('Invalid data set'));
 		}
-		$this->request->allowMethod('post', 'delete');
+		$this->request->onlyAllow('post', 'delete');
 		if ($this->DataSet->delete()) {
-			$this->Flash->success(__('The data set has been deleted.'));
+			$this->Session->setFlash(__('The data set has been deleted.'), 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Flash->error(__('The data set could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The data set could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

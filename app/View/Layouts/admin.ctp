@@ -35,6 +35,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 		echo $this->Html->script('jquery-3.1.0.min');
 		echo $this->Html->script('bootstrap3.min');
+		echo $this->Html->script("admin.js");
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -48,6 +49,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<h1><?php echo $this->Html->link("THE ATLAS OF URBAN EXPANSION", '/admin/'); ?></h1>
 		</div>
 		<div id="content">
+			<div id='file-manager'>Open File Manager</div>
 
 			<?php echo $this->Flash->render(); ?>
 

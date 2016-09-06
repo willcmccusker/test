@@ -42,11 +42,10 @@ class AppController extends Controller {
 	public  $components = array( 
 		'Auth'=> array(
             'flash' => array(
-                'element' => 'alert',
+                'element' => 'default',
                 'key' => 'auth',
                 'params' => array(
-                    'plugin' => 'BoostCake',
-                    'class' => 'alert-error'
+                    'class' => 'alert'
                 )
             ),
             //login page

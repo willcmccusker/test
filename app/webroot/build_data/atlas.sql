@@ -35,7 +35,7 @@ CREATE TABLE `cities` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
 
 DROP TABLE IF EXISTS `city_sizes`;
 CREATE TABLE `city_sizes` (
@@ -46,7 +46,7 @@ CREATE TABLE `city_sizes` (
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 DROP TABLE IF EXISTS `data_sets`;
 CREATE TABLE `data_sets` (
@@ -77,9 +77,8 @@ CREATE TABLE `data_sets` (
   `urban_built_up_t1` decimal(10,2) NOT NULL,
   `urban_built_up_t2` decimal(10,2) NOT NULL,
   `urban_built_up_t3` decimal(10,2) NOT NULL,
-  `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=220 ;
 
 DROP TABLE IF EXISTS `g_d_ps`;
 CREATE TABLE `g_d_ps` (
@@ -89,7 +88,7 @@ CREATE TABLE `g_d_ps` (
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 DROP TABLE IF EXISTS `regions`;
 CREATE TABLE `regions` (
@@ -100,7 +99,7 @@ CREATE TABLE `regions` (
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -109,7 +108,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 DROP TABLE IF EXISTS `worlds`;
 CREATE TABLE `worlds` (
@@ -117,7 +116,7 @@ CREATE TABLE `worlds` (
   `year` int(11) NOT NULL,
   `data_set_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -66,7 +66,6 @@
 						<th nowrap><?php echo $this->Paginator->sort('urban_built_up_t1'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('urban_built_up_t2'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('urban_built_up_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('created'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -100,7 +99,6 @@
 						<td nowrap><?php echo h($dataSet['DataSet']['urban_built_up_t1']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($dataSet['DataSet']['urban_built_up_t2']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($dataSet['DataSet']['urban_built_up_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['created']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $dataSet['DataSet']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $dataSet['DataSet']['id']), array('escape' => false)); ?>

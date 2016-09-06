@@ -227,13 +227,6 @@
 			&nbsp;
 		</td>
 </tr>
-<tr>
-		<th><?php echo __('Created'); ?></th>
-		<td>
-			<?php echo h($dataSet['DataSet']['created']); ?>
-			&nbsp;
-		</td>
-</tr>
 				</tbody>
 			</table>
 

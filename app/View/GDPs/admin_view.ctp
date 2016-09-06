@@ -137,7 +137,7 @@
 			<td><?php echo $city['urban_layout_locales_path']; ?></td>
 			<td><?php echo $city['urban_layout_blocks_path']; ?></td>
 			<td><?php echo $city['created']; ?></td>
-			<td><?php echo $city['modified']; ?></td>
+			<td><?php echo $this->Time->niceShort($city['modified']); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'cities', 'action' => 'view', $city['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'cities', 'action' => 'edit', $city['id']), array('escape' => false)); ?>

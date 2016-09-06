@@ -1,3 +1,35 @@
+#container{
+	position:relative;
+}
+#file-manager{
+	position:absolute;
+	top:0;
+	right:25px;
+	cursor:pointer;
+}
+
+#file-manager:hover{
+	text-decoration: underline;
+}
+#container.file-manager-on{
+	left:0;
+	top:0;
+	height:100vh;
+	width:50vw;
+	overflow:auto;
+	resize: both;
+}
+#file-manager-iframe{
+	  resize: both;
+
+	overflow:auto;
+	position:fixed;
+	right:0;
+	top:0;
+	height:100vh;
+	width:50vw;
+	border:none;
+}
 
 
 .admin-photo{

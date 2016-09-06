@@ -209,7 +209,7 @@
 <tr>
 		<th><?php echo __('Modified'); ?></th>
 		<td>
-			<?php echo h($city['City']['modified']); ?>
+			<?php echo $this->Time->niceShort($city['City']['modified']); ?>
 			&nbsp;
 		</td>
 </tr>
