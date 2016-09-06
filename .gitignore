@@ -12,6 +12,7 @@
 
 /app/webroot/photos
 /app/webroot/file-manager/userfiles
+/userfiles
 
 .htaccess
 
