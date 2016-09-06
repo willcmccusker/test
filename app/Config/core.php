@@ -233,9 +233,9 @@ Configure::write('Routing.prefixes', array('admin', 'API'));
     'defaults' => 'cake',
     'timeout' => 24 * 60 * 60,    // Timeout in minutes
     'autoRegenerate' => true,
-    'ini' => array(
-      'session.cookie_secure' => false
-    )
+    // 'ini' => array(
+    //   'session.cookie_secure' => false
+    // )
 ));
 
 /**
