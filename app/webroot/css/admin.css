@@ -23,6 +23,8 @@
 	width:50vw;
 	overflow:auto;
 	resize: both;
+		max-width:999999px;
+	margin:0;
 }
 #file-manager-iframe{
 	  resize: both;
