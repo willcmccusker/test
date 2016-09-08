@@ -22,6 +22,10 @@ function auth()
     // IMPORTANT : by default Read and Write access is granted to everyone.
     // You can insert your own code over here to check if the user is authorized.
     // If you use a session variable, you've got to start the session first (session_start())
+    session_name('CAKEPHP');
+	session_start(); 
+//	return true;
+	return isset($_SESSION["Auth"]["User"]["id"]);
     return true;
 }
 
