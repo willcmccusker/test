@@ -11,7 +11,7 @@
 *.mo
 
 /app/webroot/photos
-/app/webroot/file-manager/userfiles
+/app/webroot/file-manager
 /userfiles
 
 .htaccess
