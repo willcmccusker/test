@@ -26,7 +26,8 @@ module.exports = function(grunt) {
         },
         uglifyFiles : {
           'dist/js/app.min.js': [
-            'src/js/zepto.min.js', 
+            'src/js/jquery-3.1.0.min.js', 
+            'src/js/stupidtable.min.js',
             'src/js/list.ignore.js',
             'src/js/app.js',
           ]

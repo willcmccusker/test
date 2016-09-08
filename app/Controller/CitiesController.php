@@ -20,7 +20,7 @@ class CitiesController extends AppController {
 	public function beforeFilter() {
 			parent::beforeFilter();
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
-			$this->Auth->allow('API_index', 'index','map','view', 'data');
+			$this->Auth->allow('API_index', 'index','map','view', 'data', 'admin_import');
 	}
 
 
@@ -90,13 +90,23 @@ class CitiesController extends AppController {
 		$cities = $this->City->find("all", array(
 			"recursive"=>0
 			));
-		usort($cities, function($a, $b) {
-			if($a["Region"]["name"] == $b["Region"]["name"]){
-			    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
-			}else{
-			    return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
-			}
-		});
+		switch($render){
+			case("map"):
+
+			break;
+			case("data"):
+
+			break;
+			default:
+			usort($cities, function($a, $b) {
+				if($a["Region"]["name"] == $b["Region"]["name"]){
+				    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
+				}else{
+				    return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
+				}
+			});
+		}
+
 		// $cities = Hash::sort($cities, '{n}.Region.name', 'asc');
 		$this->set(compact("cities"));
 		$this->render($render);
