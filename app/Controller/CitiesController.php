@@ -64,7 +64,7 @@ class CitiesController extends AppController {
 			"order"=>$order,
 			"limit"=>$limit,
 			"offset"=>$offset,
-			"recursive"=>1
+			"recursive"=>2
 			));
 		$this->set("data", $cities);
 		$this->render(false);
@@ -74,7 +74,13 @@ class CitiesController extends AppController {
 			"conditions"=>array(
 				"City.id"=>$id
 				),
-			"recursive"=>0
+			"contain"=>array(
+				"World"=>array("DataSet"),
+				"DataSet",
+				"Region"=>array("DataSet"),
+				"GDP"=>array("DataSet"),
+				"CitySize"=>array("DataSet")
+				)
 			));
 		$this->set("data", $city);
 		$this->render(false);
