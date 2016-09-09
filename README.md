@@ -9,3 +9,7 @@ password: doorkeep-tacit-ramp-uppity
 
 
 (optionally install filemanager inside of /app/webroot/file-manager/ from https://github.com/servocoder/RichFilemanager)
+
+
+API example:
+http://dev.atlasofurbanexpansion.org/API/cities/id/1
