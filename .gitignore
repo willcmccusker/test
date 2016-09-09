@@ -13,6 +13,7 @@
 /app/webroot/photos
 /app/webroot/file-manager
 /userfiles
+/app/webroot/bower_components
 
 .htaccess
 

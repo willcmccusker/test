@@ -12,6 +12,8 @@ $tablet-max-width : 950px;
 @import "grid";
 @import "tiny-autocomplete";
 
+@import "plottable";
+
 .cityheader{
 	padding-left:5px;
 }
@@ -33,4 +35,9 @@ ul.list{
 
 table th{
 	cursor: pointer;
+}
+
+
+svg{
+	height: 600px;
 }

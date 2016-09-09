@@ -28,6 +28,8 @@ module.exports = function(grunt) {
           'dist/js/app.min.js': [
             'src/js/jquery-3.1.0.min.js', 
             'src/js/stupidtable.min.js',
+            'src/js/d3.min.js',
+            'src/js/plottable.min.js',
             'src/js/list.ignore.js',
             'src/js/app.js',
           ]
@@ -47,9 +49,9 @@ module.exports = function(grunt) {
           },
           dist: {
             options: {
-              mangle: true,
+              mangle: false,
               compress: true,
-              wrap: true,
+              wrap: false,
               sourceMap: false,
               banner: '/*\n <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },

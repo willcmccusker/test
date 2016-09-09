@@ -20,7 +20,7 @@ class CitiesController extends AppController {
 	public function beforeFilter() {
 			parent::beforeFilter();
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
-			$this->Auth->allow('API_index', 'index','map','view', 'data', 'admin_import');
+			$this->Auth->allow('API_index','API_id', 'index','map','view', 'data', 'admin_import');
 	}
 
 
