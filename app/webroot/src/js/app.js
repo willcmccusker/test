@@ -48,6 +48,7 @@ $(document).ready(function(){
 				break;
 				case("data"):
 					//table
+					$("table").stupidtable();
 				break;
 				case("view"):
 					//graphs
@@ -68,3 +69,5 @@ $(document).ready(function(){
 			console.log(model);
 	}
 });
+
+
