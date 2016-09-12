@@ -272,8 +272,8 @@ var makeGraph = function(prefix, city){
 
 	var title = new Plottable.Components.TitleLabel(prefix);
 
-	var cityData = [{x:1, y : city.DataSet[prefix+"_t1_t2"], label: "Pre-1990"}, {x:2, y : city.DataSet[prefix+"_t2_t3"], label: "1990-2015"}];
-	var xScale_city = new Plottable.Scales.Category().domain(["Pre-1990", "1990-2015"]);
+	var cityData = [{x:1, y : parseFloat(city.DataSet[prefix+"_t1_t2"]), label: "T1-T2"}, {x:2, y : parseFloat(city.DataSet[prefix+"_t2_t3"]), label: "T2-T3"}];
+	var xScale_city = new Plottable.Scales.Category().domain(["T1-T2", "T2-T3"]);
 	var xAxis_city = new Plottable.Axes.Category(xScale_city, "bottom");
 	var plot_city = new Plottable.Plots.Bar()
 	.labelsEnabled(true)
@@ -284,8 +284,8 @@ var makeGraph = function(prefix, city){
 	var label_city = new Plottable.Components.AxisLabel(city.City.name, 0);
 
 
-	var regionData = [{x:5, y : city.Region.DataSet[prefix+"_t1_t2"], label: "Pre-1990"}, {x:6, y : city.Region.DataSet[prefix+"_t2_t3"], label: "1990-2015"}];
-	var xScale_region = new Plottable.Scales.Category().domain(["Pre-1990", "1990-2015"]);
+	var regionData = [{x:3, y : parseFloat(city.Region.DataSet[prefix+"_t1_t2"]), label: "T1-T2"}, {x:4, y : parseFloat(city.Region.DataSet[prefix+"_t2_t3"]), label: "T2-T3"}];
+	var xScale_region = new Plottable.Scales.Category().domain(["T1-T2", "T2-T3"]);
 	var xAxis_region = new Plottable.Axes.Category(xScale_region, "bottom");
 	var plot_region = new Plottable.Plots.Bar()
 	.labelsEnabled(true)
@@ -296,6 +296,18 @@ var makeGraph = function(prefix, city){
 	var label_region = new Plottable.Components.AxisLabel(city.Region.name, 0);
 
 
+	var worldData = [{x:5, y : parseFloat(city.GDP.DataSet[prefix+"_t1_t2"]), label: "T1-T2"}, {x:6, y : parseFloat(city.GDP.DataSet[prefix+"_t2_t3"]), label: "T2-T3"}];
+	var xScale_world = new Plottable.Scales.Category().domain(["T1-T2", "T2-T3"]);
+	var xAxis_world = new Plottable.Axes.Category(xScale_world, "bottom");
+	var plot_world = new Plottable.Plots.Bar()
+	.labelsEnabled(true)
+	.animated(true)
+	.x(function(d) { return d.label; }, xScale_world)
+	.y(function(d) { return d.y; }, yScale)
+	.attr("fill", function(d) { return d.x % 2 == 1 ? "#0000FF" : "#FF0000" ;}, colorScale);
+	var label_world = new Plottable.Components.AxisLabel("World", 0);
+
+
 
 	console.log(JSON.stringify(cityData));
 	console.log(JSON.stringify(regionData));
@@ -303,9 +315,9 @@ var makeGraph = function(prefix, city){
 
 	var chart = new Plottable.Components.Table([
 	  [title],
-	  [yAxis, plot_city, plot_region],
-	  [null, xAxis_city, xAxis_region],
-	  [null, label_city, label_region]
+	  [yAxis, plot_city, plot_region, plot_world],
+	  [null, xAxis_city, xAxis_region, xAxis_world],
+	  [null, label_city, label_region, label_world]
 	]);
 
 	chart.renderTo("svg#"+prefix+"-plottable");
@@ -313,6 +325,7 @@ var makeGraph = function(prefix, city){
 	setTimeout(function(){
 		plot_city.addDataset(new Plottable.Dataset(cityData)).labelsEnabled();
 		plot_region.addDataset(new Plottable.Dataset(regionData)).labelsEnabled();
+		plot_world.addDataset(new Plottable.Dataset(worldData)).labelsEnabled();
 	}, 1000);
 
 	window.addEventListener("resize", function() {
