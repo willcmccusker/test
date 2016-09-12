@@ -52,9 +52,10 @@ $(document).ready(function(){
 				break;
 				case("view"):
 					//graphs
-					// makeGraph("density_change", city);
-
-
+					makeGraph("density_change", city);
+					makeChart("density_change", city);
+					makePlotly("density_change", city);
+					makeChartist("density_change", city);
 				break;
 				default:
 			}
@@ -74,6 +75,191 @@ $(document).ready(function(){
 	console.log(model);
 	console.log(controller);
 });
+
+
+var makeChartist = function(prefix, city){
+	var data = {
+		labels : [city.City.name, city.Region.name, "World"],
+		series : [
+			[city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.World.DataSet[prefix+"_t1_t2"]],
+			[city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.World.DataSet[prefix+"_t2_t3"]],
+		],
+		axisX: {
+			labelInterpolationFnc: function (value) {
+				return value;
+			}
+		}
+	};
+
+	var options = {
+		seriesBarDistance: 55
+	};
+	var chart = new Chartist.Bar('#'+prefix+"-chartist", data, options);
+chart.on('draw', function(context) {
+	  if(context.type === 'bar') {
+			console.log(context);
+			context.element.attr({
+				style : 'stroke: '+ (context.seriesIndex % 2 === 0 ? "red" : "blue")+";"
+			});
+		}
+
+});
+
+};
+
+var makePlotly = function(prefix, city){
+	console.log(prefix+'-plotly');
+	var trace1 = {
+	  x: [city.City.name, city.Region.name, 'World'],
+	  y: [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.World.DataSet[prefix+"_t1_t2"]],
+	  name: 'T1-T2',
+	  type: 'bar'
+	};
+
+	var trace2 = {
+	  x: [city.City.name, city.Region.name, 'World'],
+	  y: [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.World.DataSet[prefix+"_t2_t3"]],
+	  name: 'T2-T3',
+	  type: 'bar'
+	};
+
+	var data = [trace1, trace2];
+
+	var layout = {barmode: 'group'};
+
+	Plotly.newPlot(prefix+'-plotly', data, layout, {displayModeBar: false});
+};
+
+
+googleChartsReady = function(){
+	makeGoogleChart("density_change", city);
+};
+
+
+var makeGoogleChart = function(prefix, city){
+ // var data = new google.visualization.DataTable();
+ // data.addColumn('string', "Location");
+ // data.addColumn('number', "T1-T2");
+ // data.addColumn('number', "T2-T3");
+ // data.addColumn('style', "Style");
+ // var tableData = [
+ //        [city.City.name, parseFloat(city.DataSet[prefix+"_t1_t2"]), parseFloat(city.DataSet[prefix+"_t1_t2"])],
+ //        [city.Region.name, parseFloat(city.Region.DataSet[prefix+"_t1_t2"]), parseFloat(city.Region.DataSet[prefix+"_t1_t2"])],
+ //        ["World", parseFloat(city.GDP.DataSet[prefix+"_t1_t2"]), parseFloat(city.GDP.DataSet[prefix+"_t1_t2"])],
+ //  ];
+ //  console.log(tableData);
+ // data.addRows(tableData);  
+
+  var jsonTable = {
+  'cols' : [
+	  {id:"", "label" : "", "type" : "string"},
+	  {id:"", "label" : "T1-T2", "type" : "number"},
+	  {id:"", "label" : "T2-T3", "type" : "number"},
+  ],
+	"rows" : [
+		{"c" : [
+			{"v" : city.City.name, "f" : null},
+			{"v" : parseFloat(city.DataSet[prefix+"_t1_t2"]), "f" : null},
+			{"v" : parseFloat(city.DataSet[prefix+"_t2_t3"]), "f" : null},
+		]},
+		{"c" : [
+			{"v" : city.Region.name, "f" : null},
+			{"v" : parseFloat(city.Region.DataSet[prefix+"_t1_t2"]), "f" : null},
+			{"v" : parseFloat(city.Region.DataSet[prefix+"_t2_t3"]), "f" : null},
+		]},
+		{"c" : [
+			{"v" : "World", "f" : null},
+			{"v" : parseFloat(city.GDP.DataSet[prefix+"_t1_t2"]), "f" : null},
+			{"v" : parseFloat(city.GDP.DataSet[prefix+"_t2_t3"]), "f" : null},
+		]},
+	]};
+	console.log(jsonTable);
+	var data = new google.visualization.DataTable(jsonTable);
+
+
+  
+      var view = new google.visualization.DataView(data);
+
+      var options = {
+          	'width':500,
+            'height':500,
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          },
+          vAxis:{
+          	// format : "percent"
+          }
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById(prefix+"-googleChart"));
+      chart.draw(data, options);
+
+
+};
+
+var makeChart = function(prefix, city){
+	var ctx = $("#"+prefix+"-chartjs");
+	var myChart = new Chart(ctx, {
+	    type: 'bar',
+	    data: {
+	        labels: [city.City.name, city.Region.name, "World"],
+	        datasets: [{
+	            label: 'T1-T2',
+	            backgroundColor: "rgba(255,0,0,0.2)",
+	            borderWidth : 1,
+	            borderColor: "rgba(255,0,0,1)",
+	            data : [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.World.DataSet[prefix+"_t1_t2"]]
+	        },{
+	            label: 'T2-T3',
+	            backgroundColor: "rgba(0,0,255,0.2)",
+	            borderWidth : 1,
+	            borderColor: "rgba(0,0,255,1)",
+	            data : [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"],  city.World.DataSet[prefix+"_t2_t3"]]
+	        }
+	        ]
+	    },
+	    options: {
+
+	    	bar : {
+	    		categoryPercentage : 0.5,
+	    		barPercentage : 1,
+		    	gridLines : {
+		    		display: false
+		    	},
+	    	},
+	    	gridLines : {
+		    		display: false
+		    	},
+	    	tooltips : {
+	    		display : true
+	    	},
+	    	title: {
+	    		display: true,
+	    		text: prefix
+	    	},
+	    	responsive : true,
+
+	        scales: {
+	        	yAxes:[{
+	        		scaleLabel : {
+	        			display: true,
+	        			labelString:"Precentage of Change"
+	        		},
+	        		height : 500
+	        	}],
+	            xAxes: [{
+	                ticks: {
+	                    // beginAtZero:true
+	                },
+	                gridLines : {
+			    		display: false
+			    	},
+	            }]
+	        }
+	    }
+	});
+};
 
 
 
@@ -122,7 +308,7 @@ var makeGraph = function(prefix, city){
 	  [null, label_city, label_region]
 	]);
 
-	chart.renderTo("svg#"+prefix);
+	chart.renderTo("svg#"+prefix+"-plottable");
 
 	setTimeout(function(){
 		plot_city.addDataset(new Plottable.Dataset(cityData)).labelsEnabled();

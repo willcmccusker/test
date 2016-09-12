@@ -12,5 +12,8 @@
     "grunt-jsx": "^0.1.8",
     "grunt-wrap": "^0.3.0",
     "jshint-stylish": "latest"
+  },
+  "dependencies": {
+    "chart.js": "^2.2.2"
   }
 }

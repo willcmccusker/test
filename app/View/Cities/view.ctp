@@ -1,5 +1,9 @@
 <script>
 var city = <?= json_encode($city);?>;
 </script>
-<svg id='density_change'></svg>
+<div id="density_change-chartist"  class="ct-chart ct-perfect-fourth"></div>
+<div id="density_change-plotly" ></div>
+<div id="density_change-googleChart"></div>
+<svg id='density_change-plottable'></svg>
+<div class='holder'><canvas id="density_change-chartjs" ></canvas></div>
 <? debug($city);?>
