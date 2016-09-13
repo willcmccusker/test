@@ -25,7 +25,15 @@
 
 		echo $this->Html->css('/dist/css/style.css');
 		echo $this->Html->script('/dist/js/app.min.js');
+?>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+		  google.charts.load('current', {packages: ['corechart']});
+        // google.charts.load('current', {'packages':['bar']});
 
+  google.charts.setOnLoadCallback(googleChartsReady);
+</script>
+<?
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
