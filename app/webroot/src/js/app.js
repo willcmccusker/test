@@ -81,8 +81,8 @@ var makeChartist = function(prefix, city){
 	var data = {
 		labels : [city.City.name, city.Region.name, "World"],
 		series : [
-			[city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.World.DataSet[prefix+"_t1_t2"]],
-			[city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.World.DataSet[prefix+"_t2_t3"]],
+			[city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.GDP.DataSet[prefix+"_t1_t2"]],
+			[city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.GDP.DataSet[prefix+"_t2_t3"]],
 		],
 		axisX: {
 			labelInterpolationFnc: function (value) {
@@ -111,16 +111,22 @@ var makePlotly = function(prefix, city){
 	console.log(prefix+'-plotly');
 	var trace1 = {
 	  x: [city.City.name, city.Region.name, 'World'],
-	  y: [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.World.DataSet[prefix+"_t1_t2"]],
+	  y: [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.GDP.DataSet[prefix+"_t1_t2"]],
 	  name: 'T1-T2',
-	  type: 'bar'
+	  type: 'bar',
+  	  marker: {
+		  color: '#FF0000'
+		}
 	};
 
 	var trace2 = {
 	  x: [city.City.name, city.Region.name, 'World'],
-	  y: [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.World.DataSet[prefix+"_t2_t3"]],
+	  y: [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.GDP.DataSet[prefix+"_t2_t3"]],
 	  name: 'T2-T3',
-	  type: 'bar'
+	  type: 'bar',
+	  marker: {
+		  color: '#0000FF'
+		}
 	};
 
 	var data = [trace1, trace2];
@@ -173,29 +179,63 @@ var makeGoogleChart = function(prefix, city){
 			{"v" : parseFloat(city.GDP.DataSet[prefix+"_t2_t3"]), "f" : null},
 		]},
 	]};
-	console.log(jsonTable);
 	var data = new google.visualization.DataTable(jsonTable);
+	var view = new google.visualization.DataView(data);
+
+	var options = {
+	  	'width':500,
+	    'height':500,
+	  chart: {
+	    title: 'Company Performance',
+	    subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+	  },
+	  vAxis:{
+	  	// format : "percent"
+	  }
+	};
+
+	var chart = new google.visualization.ColumnChart(document.getElementById(prefix+"-googleChart"));
+	chart.draw(data, options);
 
 
-  
-      var view = new google.visualization.DataView(data);
-
-      var options = {
-          	'width':500,
-            'height':500,
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+	data2 = new google.visualization.DataTable();
+	data2.addColumn('date', 'Year');
+	data2.addColumn('number', 'Density');
+	data2.addRows([
+		[ new Date(1980, 0, 1), 2457970], [new Date(1990, 0, 1), 2956780], [new Date(2000, 0, 1), 3890876]
+		]);
+	options2 = {
+		legend: {position: 'none'},
+		width : 600,
+		height: 500,
+		pointSize : 5,
+        hAxis: {
+        	gridlines : {
+        		count : 4
+        	},
+          title: 'Year',
+          viewWindow : {
+          	max : new Date(2005, 1, 1),
+          	min : new Date(1975, 1, 1)
           },
-          vAxis:{
-          	// format : "percent"
-          }
+        },
+        vAxis: {
+
+        	gridlines : {
+        		count : 5
+        	},
+          title: 'Density',
+          format : 'short',
+		viewWindow : {
+			max : 5500000,
+			min : 0
+		}
+        },
+        backgroundColor: '#ffffff'
       };
 
-      var chart = new google.visualization.ColumnChart(document.getElementById(prefix+"-googleChart"));
-      chart.draw(data, options);
-
-
+      var chart2 = new google.visualization.LineChart(document.getElementById('density_line-googleChart'));
+      chart2.draw(data2, options2);
 };
 
 var makeChart = function(prefix, city){
@@ -209,13 +249,13 @@ var makeChart = function(prefix, city){
 	            backgroundColor: "rgba(255,0,0,0.2)",
 	            borderWidth : 1,
 	            borderColor: "rgba(255,0,0,1)",
-	            data : [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.World.DataSet[prefix+"_t1_t2"]]
+	            data : [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.GDP.DataSet[prefix+"_t1_t2"]]
 	        },{
 	            label: 'T2-T3',
 	            backgroundColor: "rgba(0,0,255,0.2)",
 	            borderWidth : 1,
 	            borderColor: "rgba(0,0,255,1)",
-	            data : [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"],  city.World.DataSet[prefix+"_t2_t3"]]
+	            data : [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"],  city.GDP.DataSet[prefix+"_t2_t3"]]
 	        }
 	        ]
 	    },
@@ -246,11 +286,15 @@ var makeChart = function(prefix, city){
 	        			display: true,
 	        			labelString:"Precentage of Change"
 	        		},
-	        		height : 500
+	        		height : 500,
+
+	                ticks: {
+	                    beginAtZero:true
+	                },
 	        	}],
 	            xAxes: [{
 	                ticks: {
-	                    // beginAtZero:true
+	                    beginAtZero:true
 	                },
 	                gridLines : {
 			    		display: false
