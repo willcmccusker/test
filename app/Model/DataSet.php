@@ -5,11 +5,11 @@ App::uses('AppModel', 'Model');
  *
  * @property City $City
  * @property CitySize $CitySize
- * @property GDP $GDP
  * @property Region $Region
  * @property World $World
  */
 class DataSet extends AppModel {
+
 
 
 
@@ -28,9 +28,7 @@ class DataSet extends AppModel {
 		if (($handle = fopen($filename, "r")) !== FALSE) {
 
 			$this->query('TRUNCATE data_sets;');
-
 			$this->query('TRUNCATE cities;');
-
 			$this->query('TRUNCATE city_sizes;');
 			$this->query('TRUNCATE g_d_ps;');
 			$this->query('TRUNCATE regions;');
@@ -40,21 +38,27 @@ class DataSet extends AppModel {
 			$GDPs = array();
 			$regions = array();			
 
-			$_n = 6;
+			$_n = 7;
 
 		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		        $row++;
-		    	if($row < 3) continue;
+		    	if($row < 6) continue;
 
-		        $offset = 20;
+		        $offset = 16;
 
 		        $dataset = array("DataSet"=>array());
 		        $i = 0;
 		        foreach($this->validate as $field=>$bs){
 		        	$key = $i + $offset;
+	        		$data[$key] = $data[$key] == "-" ? 0 : $data[$key];
+	        		$data[$key] = $data[$key] == "" ? 0 : $data[$key];
 		        	if(isset($bs["decimal"])){
 		        		$data[$key] = (float) str_replace("N/A", "", $data[$key]);
+		        		$data[$key] = (float) str_replace("%", "", $data[$key]);
+		        	}else{
+		        		$data[$key] = (int) str_replace(",", "", $data[$key]);
 		        	}
+
 		        	$dataset["DataSet"][$field] = $data[$key];
 		        	$i++;
 		        }
@@ -67,11 +71,8 @@ class DataSet extends AppModel {
 		        	$dataset_id = $this->getLastInsertID();
 		        }
 
-		        $city = array("City"=>array());
 
-
-
-		        switch($data[1]){
+		        switch($data[0]){
 		        	case("WORLD"):
 		        		$world = array("World"=>array(
 		        			"year"=>2016,
@@ -86,15 +87,15 @@ class DataSet extends AppModel {
 		        			$world_id = $this->World->getLastInsertID();
 		        		}
 		        	break;
-		        	case("REGIONS"):
+		        	case("REGION"):
 			        	$foo = $data[$_n];
 						preg_match('#\((.*?)\)#', $foo, $match);
 
 						$name = trim(str_replace($match[0], "", $foo));
 						$abbrev = $match[1];
-						$data[$_n] = $name;
+						// $data[$_n] = $name;
 
-						$region = array("Region"=>array("name"=>$data[$_n], "slug"=>Inflector::slug($data[$_n]), "abbreviation"=>$abbrev, "data_set_id"=>$dataset_id));
+						$region = array("Region"=>array("name"=>$name, "slug"=>Inflector::slug($name), "abbreviation"=>$abbrev, "data_set_id"=>$dataset_id));
 		        		$this->Region->create();
 		        		if(!$this->Region->save($region)){
 		        			debug($region);
@@ -137,7 +138,7 @@ class DataSet extends AppModel {
 		        			$GDPs[$data[$_n]] = $GDP_id;
 		        		}
 		        	break;
-		        	case("CITY"):
+		        	default:
 			        	$city = array("City"=>array());
 		        		foreach($this->City->validate as $field=>$bs){
 		        			switch($field){
@@ -153,10 +154,10 @@ class DataSet extends AppModel {
 			        				$col = 8;
 		        				break;
 		        				case("latitude"):
-			        				$col = 2;
+			        				$col = 1;
 		        				break;
 		        				case("longitude"):
-			        				$col = 3;
+			        				$col = 2;
 		        				break;
 		        				case("population"):
 			        				$col = 10;
@@ -164,13 +165,13 @@ class DataSet extends AppModel {
 			        				$col = false;
 		        				break;
 		        				case("photo_path"):
-			        				$col = 9;
+			        				$col = 5;
 		        				break;
 		        				case("p_d_f_path"):
-			        				$col = 4;
+			        				$col = 3;
 		        				break;
 		        				case("g_i_s_path"):
-			        				$col = 5;
+			        				$col = 4;
 		        				break;
 		        				case("world_id"):
 			        				$col = false;
@@ -178,16 +179,16 @@ class DataSet extends AppModel {
 		        				break;
 		        				case("region_id"):
 			        				$col = false;
-			        				if(!isset($regions[$data[7]])){
-			        					debug($data[7]);
+			        				if(!isset($regions[$data[9]])){
+			        					debug($data[9]);
 			        					debug($regions);
 			        					debug($data);
 										throw new NotFoundException(__('Invalid region'));
 			        				}
-			        				$region_id = $regions[$data[7]];
+			        				$region_id = $regions[$data[9]];
 			        				$city["City"][$field] = $region_id;
 		        				break;
-		        				case("g_d_p_id"):
+		        				/*case("g_d_p_id"):
 			        				$col = false;
 			        				if(!isset($GDPs[$data[12]])){
 			        					debug($data[12]);
@@ -208,31 +209,10 @@ class DataSet extends AppModel {
 			        				}
 			        				$citySize_id = $citySizes[$data[11]];
 			        				$city["City"][$field] = $citySize_id;
-		        				break;
+		        				break;*/
 		        				case("data_set_id"):
 		        					$col = false;
 		        					$city["City"][$field] = $dataset_id;
-	        					break;
-	        					case("urban_extent_t1_path"):
-	        						$col = 13;
-	        					break;
-	        					case("urban_extent_t2_path"):
-	        						$col = 14;
-	        					break;
-	        					case("urban_extent_t3_path"):
-	        						$col = 15;
-	        					break;
-	        					case("urban_layout_arterial_roads_path"):
-	        						$col = 16;
-	        					break;
-	        					case("urban_layout_medians_path"):
-	        						$col = 17;
-	        					break;
-	        					case("urban_layout_locales_path"):
-	        						$col = 18;
-	        					break;
-	        					case("urban_layout_blocks_path"):
-	        						$col = 19;
 	        					break;
 	        					default:
 	        						$col = false;
@@ -248,14 +228,12 @@ class DataSet extends AppModel {
 		        			throw new NotFoundException("Invalid City");
 		        		}
 		        	break;
-		        	default:
-			        	debug("INVALID TYPE");
-		        		die($data[1]);
 		        }
 		    }
 		    fclose($handle);
 		}
 	}
+
 
 
 
@@ -265,7 +243,37 @@ class DataSet extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'density_change_t1_t2' => array(
+		'population_t1' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'population_t2' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'population_t3' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'population_change_t1_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -275,7 +283,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'density_change_t2_t3' => array(
+		'population_change_t2_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -285,7 +293,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'fragmentation_t1_t2' => array(
+		'urban_extent_composition_urban_t1' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -295,7 +303,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'fragmentation_t2_t3' => array(
+		'urban_extent_composition_urban_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -305,7 +313,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'population_growth_t1_t2' => array(
+		'urban_extent_composition_urban_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -315,7 +323,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'population_growth_t2_t3' => array(
+		'urban_extent_composition_suburban_t1' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -325,7 +333,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'urban_expansion_a_t1_t2' => array(
+		'urban_extent_composition_suburban_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -335,7 +343,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'urban_expansion_a_t2_t3' => array(
+		'urban_extent_composition_suburban_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -345,7 +353,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'average_block_size_t1_t2' => array(
+		'urban_extent_composition_rural_t1' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -355,7 +363,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'average_block_size_t2_t3' => array(
+		'urban_extent_composition_rural_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -365,7 +373,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'gridded_t1_t2' => array(
+		'urban_extent_composition_rural_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -375,7 +383,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'gridded_t2_t3' => array(
+		'urban_extent_composition_open_t1' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -385,7 +393,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'roads_and_boulevards_t1_t2' => array(
+		'urban_extent_composition_open_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -395,7 +403,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'roads_and_boulevards_t2_t3' => array(
+		'urban_extent_composition_open_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -405,7 +413,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'residential_planned_before_development_t1_t2' => array(
+		'urban_extent_change_t1_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -415,7 +423,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'residential_planned_before_development_t2_t3' => array(
+		'urban_extent_change_t2_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -425,7 +433,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'streets_less_than_4m_t1_t2' => array(
+		'density_built_up_t1' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -435,7 +443,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'streets_less_than_4m_t2_t3' => array(
+		'density_built_up_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -445,7 +453,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'walking_distance_of_arterial_road_t1_t2' => array(
+		'density_built_up_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -455,7 +463,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'walking_distance_of_arterial_road_t2_t3' => array(
+		'density_built_up_change_t1_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -465,7 +473,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'urban_built_up_t1' => array(
+		'density_built_up_change_t2_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -475,7 +483,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'suburban_built_up_t2' => array(
+		'density_urban_extent_t1' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -485,7 +493,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'suburban_built_up_t3' => array(
+		'density_urban_extent_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -495,7 +503,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'suburban_built_up_t1' => array(
+		'density_urban_extent_t3' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -505,7 +513,7 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'urban_built_up_t2' => array(
+		'density_urban_extent_change_t1_t2' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -515,7 +523,387 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'urban_built_up_t3' => array(
+		'density_urban_extent_change_t2_t3' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_in_built_up_area_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_in_built_up_area_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_average_width_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_average_width_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_under_4m_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_under_4m_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_4_8m_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_4_8m_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_8_12m_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_8_12m_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_12_16m_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_12_16m_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_over_16m_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'roads_width_over_16m_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_density_all_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_density_all_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_density_wide_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_density_wide_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_density_narrow_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_density_narrow_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_walking_all_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_walking_all_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_walking_wide_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_walking_wide_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_walking_narrow_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_walking_narrow_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_beeline_all_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_beeline_all_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_beeline_wide_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_beeline_wide_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_beeline_narrow_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'arterial_roads_beeline_narrow_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_plots_average_block_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_plots_average_block_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_plots_average_informal_plot_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_plots_average_informal_plot_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_plots_average_formal_plot_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_plots_average_formal_plot_1990_2015' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -550,19 +938,6 @@ class DataSet extends AppModel {
 		),
 		'CitySize' => array(
 			'className' => 'CitySize',
-			'foreignKey' => 'data_set_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'GDP' => array(
-			'className' => 'GDP',
 			'foreignKey' => 'data_set_id',
 			'dependent' => false,
 			'conditions' => '',

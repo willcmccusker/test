@@ -48,20 +48,14 @@
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('longitude'); ?></th> -->
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('population'); ?></th> -->
 						<th nowrap><?php echo $this->Paginator->sort('photo_path'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('flag_path'); ?></th>
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('p_d_f_path'); ?></th> -->
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('g_i_s_path'); ?></th> -->
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('world_id'); ?></th> -->
 						<th nowrap><?php echo $this->Paginator->sort('region_id'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('g_d_p_id'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('city_size_id'); ?></th>
+<!-- 						<th nowrap><?php echo $this->Paginator->sort('g_d_p_id'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('city_size_id'); ?></th> -->
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('data_set_id'); ?></th> -->
-<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t1_path'); ?></th> -->
-<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t2_path'); ?></th> -->
-<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_extent_t3_path'); ?></th> -->
-<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_arterial_roads_path'); ?></th> -->
-<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_medians_path'); ?></th> -->
-<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_locales_path'); ?></th> -->
-<!-- 						<th nowrap><?php echo $this->Paginator->sort('urban_layout_blocks_path'); ?></th> -->
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('created'); ?></th> -->
 						<th nowrap><?php echo $this->Paginator->sort('modified'); ?></th>
 						<th class="actions"></th>
@@ -81,7 +75,11 @@
 						<td nowrap><?php 
 
 						$thumb = "/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F".urlencode($city["City"]["photo_path"])."&mode=getimage&thumbnail=true&config=filemanager.config.json&time=".time();
-						echo $this->Html->image($thumb); ?><br><?= $city['City']['photo_path'];?>&nbsp;</td>
+						echo $this->Html->image($thumb); ?><br><?= $city['City']['photo_path'];?>&nbsp;</td>						
+						<td nowrap><?php 
+
+						$thumb = "/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F".urlencode($city["City"]["flag_path"])."&mode=getimage&thumbnail=true&config=filemanager.config.json&time=".time();
+						echo $this->Html->image($thumb); ?><br><?= $city['City']['flag_path'];?>&nbsp;</td>
 <!-- 						<td nowrap><?php echo h($city['City']['p_d_f_path']); ?>&nbsp;</td> -->
 <!-- 						<td nowrap><?php echo h($city['City']['g_i_s_path']); ?>&nbsp;</td> -->
 								<!-- <td>
@@ -90,22 +88,15 @@
 								<td>
 			<?php echo $this->Html->link($city['Region']['name'], array('controller' => 'regions', 'action' => 'view', $city['Region']['id'])); ?>
 		</td>
-								<td>
+<!-- 								<td>
 			<?php echo $this->Html->link($city['GDP']['name'], array('controller' => 'g_d_ps', 'action' => 'view', $city['GDP']['id'])); ?>
 		</td>
 								<td>
 			<?php echo $this->Html->link($city['CitySize']['name'], array('controller' => 'city_sizes', 'action' => 'view', $city['CitySize']['id'])); ?>
-		</td>
+		</td> -->
 							<!-- 	<td>
 			<?php echo $this->Html->link($city['DataSet']['id'], array('controller' => 'data_sets', 'action' => 'view', $city['DataSet']['id'])); ?>
 		</td> -->
-<!-- 						<td nowrap><?php echo h($city['City']['urban_extent_t1_path']); ?>&nbsp;</td> -->
-<!-- 						<td nowrap><?php echo h($city['City']['urban_extent_t2_path']); ?>&nbsp;</td> -->
-<!-- 						<td nowrap><?php echo h($city['City']['urban_extent_t3_path']); ?>&nbsp;</td> -->
-<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_arterial_roads_path']); ?>&nbsp;</td> -->
-<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_medians_path']); ?>&nbsp;</td> -->
-<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_locales_path']); ?>&nbsp;</td> -->
-<!-- 						<td nowrap><?php echo h($city['City']['urban_layout_blocks_path']); ?>&nbsp;</td> -->
 <!-- 						<td nowrap><?php echo h($city['City']['created']); ?>&nbsp;</td> -->
 						<td nowrap><?php echo $this->Time->niceShort($city['City']['modified']); ?>&nbsp;</td>
 						<td class="actions">

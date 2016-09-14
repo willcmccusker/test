@@ -23,8 +23,6 @@
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('City'), array('controller' => 'cities', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('City Sizes'), array('controller' => 'city_sizes', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('City Size'), array('controller' => 'city_sizes', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('G D Ps'), array('controller' => 'g_d_ps', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('G D P'), array('controller' => 'g_d_ps', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Regions'), array('controller' => 'regions', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('Region'), array('controller' => 'regions', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Worlds'), array('controller' => 'worlds', 'action' => 'index'), array('escape' => false)); ?> </li>
@@ -40,32 +38,73 @@
 				<thead>
 					<tr>
 						<th nowrap><?php echo $this->Paginator->sort('id'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('density_change_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('density_change_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('fragmentation_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('fragmentation_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('population_growth_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('population_growth_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_expansion_a_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_expansion_a_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('average_block_size_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('average_block_size_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('gridded_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('gridded_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('roads_and_boulevards_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('roads_and_boulevards_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('residential_planned_before_development_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('residential_planned_before_development_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('streets_less_than_4m_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('streets_less_than_4m_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('walking_distance_of_arterial_road_t1_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('walking_distance_of_arterial_road_t2_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('suburban_built_up_t1'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('suburban_built_up_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('suburban_built_up_t3'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_built_up_t1'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_built_up_t2'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('urban_built_up_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('population_t1'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('population_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('population_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('population_change_t1_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('population_change_t2_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_urban_t1'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_urban_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_urban_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_suburban_t1'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_suburban_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_suburban_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_rural_t1'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_rural_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_rural_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_open_t1'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_open_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_composition_open_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_change_t1_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('urban_extent_change_t2_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_built_up_t1'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_built_up_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_built_up_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_built_up_change_t1_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_built_up_change_t2_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_urban_extent_t1'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_urban_extent_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_urban_extent_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_urban_extent_change_t1_t2'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('density_urban_extent_change_t2_t3'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_in_built_up_area_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_in_built_up_area_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_average_width_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_average_width_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_under_4m_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_under_4m_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_4_8m_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_4_8m_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_8_12m_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_8_12m_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_12_16m_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_12_16m_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_over_16m_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('roads_width_over_16m_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_density_all_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_density_all_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_density_wide_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_density_wide_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_density_narrow_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_density_narrow_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_walking_all_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_walking_all_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_walking_wide_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_walking_wide_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_walking_narrow_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_walking_narrow_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_beeline_all_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_beeline_all_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_beeline_wide_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_beeline_wide_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_beeline_narrow_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('arterial_roads_beeline_narrow_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('blocks_plots_average_block_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('blocks_plots_average_block_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('blocks_plots_average_informal_plot_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('blocks_plots_average_informal_plot_1990_2015'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('blocks_plots_average_formal_plot_pre_1990'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('blocks_plots_average_formal_plot_1990_2015'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -73,32 +112,73 @@
 				<?php foreach ($dataSets as $dataSet): ?>
 					<tr>
 						<td nowrap><?php echo h($dataSet['DataSet']['id']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['density_change_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['density_change_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['fragmentation_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['fragmentation_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['population_growth_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['population_growth_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['urban_expansion_a_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['urban_expansion_a_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['average_block_size_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['average_block_size_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['gridded_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['gridded_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['roads_and_boulevards_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['roads_and_boulevards_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['residential_planned_before_development_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['residential_planned_before_development_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['streets_less_than_4m_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['streets_less_than_4m_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['walking_distance_of_arterial_road_t1_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['walking_distance_of_arterial_road_t2_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['suburban_built_up_t1']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['suburban_built_up_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['suburban_built_up_t3']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['urban_built_up_t1']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['urban_built_up_t2']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($dataSet['DataSet']['urban_built_up_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['population_t1']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['population_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['population_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['population_change_t1_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['population_change_t2_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_urban_t1']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_urban_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_urban_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_suburban_t1']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_suburban_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_suburban_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_rural_t1']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_rural_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_rural_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_open_t1']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_open_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_composition_open_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_change_t1_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['urban_extent_change_t2_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_built_up_t1']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_built_up_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_built_up_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_built_up_change_t1_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_built_up_change_t2_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_urban_extent_t1']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_urban_extent_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_urban_extent_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_urban_extent_change_t1_t2']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['density_urban_extent_change_t2_t3']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_in_built_up_area_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_in_built_up_area_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_average_width_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_average_width_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_under_4m_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_under_4m_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_4_8m_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_4_8m_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_8_12m_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_8_12m_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_12_16m_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_12_16m_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_over_16m_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['roads_width_over_16m_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_density_all_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_density_all_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_density_wide_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_density_wide_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_density_narrow_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_density_narrow_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_walking_all_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_walking_all_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_walking_wide_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_walking_wide_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_walking_narrow_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_walking_narrow_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_beeline_all_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_beeline_all_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_beeline_wide_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_beeline_wide_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_beeline_narrow_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['arterial_roads_beeline_narrow_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['blocks_plots_average_block_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['blocks_plots_average_block_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['blocks_plots_average_informal_plot_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['blocks_plots_average_informal_plot_1990_2015']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['blocks_plots_average_formal_plot_pre_1990']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($dataSet['DataSet']['blocks_plots_average_formal_plot_1990_2015']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $dataSet['DataSet']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $dataSet['DataSet']['id']), array('escape' => false)); ?>

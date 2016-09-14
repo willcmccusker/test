@@ -28,10 +28,10 @@ module.exports = function(grunt) {
           'dist/js/app.min.js': [
             'src/js/jquery-3.1.0.min.js', 
             'src/js/stupidtable.min.js',
-            'src/js/plotly.min.js',
-            'src/js/d3.min.js',
-            'src/js/chartist.min.js',
-            'src/js/plottable.min.js',
+            // 'src/js/plotly.min.js',
+            // 'src/js/d3.min.js',
+            // 'src/js/chartist.min.js',
+            // 'src/js/plottable.min.js',
             'src/js/chart.ignore.js',
             'src/js/list.ignore.js',
             'src/js/app.js',
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
               mangle: false,
               compress: false,
               wrap: false,
-              sourceMap: true,
+              sourceMap: false,
               banner: '/*\n <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
           },
           dist: {
             options: {
-              mangle: false,
+              mangle: true,
               compress: true,
               wrap: false,
               sourceMap: false,
