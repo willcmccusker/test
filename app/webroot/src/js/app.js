@@ -98,7 +98,8 @@ var makeStacked = function(prefix, city, vert){
 	vert = typeof(vert) == "undefined" ? false : true;
 	var ctx = $("#"+prefix);
 	var field = prefix.replace("_stacked_bar", "");
-
+	console.log(city.DataSet);
+	console.log(field);
 	var data = vert ? {
 		labels : ["Pre-1990", "1990-2015"],
 		datasets:[
@@ -107,7 +108,7 @@ var makeStacked = function(prefix, city, vert){
 				borderWidth : 0,
 				borderColor : 'rgba(94, 151, 246, 1)',
 				label : '<4m',
-				data : [city.DataSet[field+"_under_4_pre_1990"], city.DataSet[field+"_under_4_1990_2015"] ]
+				data : [city.DataSet[field+"_under_4m_pre_1990"], city.DataSet[field+"_under_4m_1990_2015"] ]
 			},
 			{
 				backgroundColor : 'rgba(28, 68, 135, 1)',
@@ -135,7 +136,7 @@ var makeStacked = function(prefix, city, vert){
 				borderWidth : 0,
 				borderColor : 'rgba(171, 71, 188, 1)',
 				label : '>16m',
-				data : [city.DataSet[field+"_over_16_pre_1990"], city.DataSet[field+"_over_16_1990_2015"] ]
+				data : [city.DataSet[field+"_over_16m_pre_1990"], city.DataSet[field+"_over_16m_1990_2015"] ]
 			}
 		]
 
@@ -217,9 +218,9 @@ var makeStacked = function(prefix, city, vert){
 		stacked : true,
 		ticks: {
 			beginAtZero:true,
-			max : 100,
+			max : vert ? 1 : 100,
 			callback: function(value, index, values) {
-				return  value+"%";
+				return  vert ? Math.floor(value*100)/100 : value+"%";
 			}
 		},
 		gridLines : {
