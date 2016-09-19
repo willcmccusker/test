@@ -90,7 +90,7 @@
 	</div>
 	<div class='grid'>
 		<div class='col-1-2 mob-1-1'>
-			<canvas id='urban_extent_change_bar' class='city-graphic'></canvas>
+			<canvas id='urban_extent_change_bar' class='city-graphic' data-title="Avg. Annual % Change"></canvas>
 		</div>
 		<div class='col-1-2 mob-1-1'>
 		</div>
@@ -104,18 +104,18 @@
 </div>
 <div class='grid'>
 	<div class='col-1-2 mob-1-1'>
-		<canvas id='density_built_up_line' class='city-graphic'></canvas>
+		<canvas id='density_built_up_line' class='city-graphic' data-title='Built-up Area Density'></canvas>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<div id='density_built_up_change_bar' class='city-graphic'></div>
+		<canvas id='density_built_up_change_bar' class='city-graphic' data-title="Built-up Area Avg. Annual % Change"></canvas>
 	</div>
 </div>
 <div class='grid'>
 	<div class='col-1-2 mob-1-1'>
-		<div id='density_urban_extent_line' class='city-graphic'></div>
+		<canvas id='density_urban_extent_line' class='city-graphic' data-title='Urban Extent Density'></canvas>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<div id='density_urban_extent_change_bar' class='city-graphic'></div>
+		<canvas id='density_urban_extent_change_bar' class='city-graphic' data-title='Urban Extent Avg. Annual % Change'></canvas>
 	</div>
 </div>
 <div class='lightgrey-bg'>
@@ -152,15 +152,15 @@
 		<div id='roads_map' class='city-graphic'></div>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<div id='roads_in_built_up_area_bar' class='city-graphic'></div>
+		<canvas id='roads_in_built_up_area_bar' class='city-graphic' data-title='Share of built up area occupied by roads and boulevards'></canvas>
 	</div>
 </div>
 <div class='grid'>
 	<div class='col-1-2 mob-1-1'>
-		<div id='roads_average_width_bar' class='city-graphic'></div>
+		<canvas id='roads_average_width_bar' class='city-graphic' data-title='Average Street Width'></canvas>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<div id='roads_width_stacked_bar' class='city-graphic'></div>
+		<canvas id='roads_width_stacked_bar' class='city-graphic', data-title='Street Width Composition'></canvas>
 	</div>
 </div>
 <div class='lightgrey-bg'>
@@ -175,15 +175,15 @@
 			<div id='arterial_map' class='city-graphic'></div>
 		</div>
 		<div class='col-1-2 mob-1-1'>
-			<div id='arterial_roads_density_bar' class='city-graphic'></div>
+			<canvas id='arterial_roads_density_bar' class='city-graphic'></canvas>
 		</div>
 	</div>
 	<div class='grid'>
 		<div class='col-1-2 mob-1-1'>
-			<div id='arterial_roads_walking_bar' class='city-graphic'></div>
+			<canvas id='arterial_roads_walking_bar' class='city-graphic'></canvas>
 		</div>
 		<div class='col-1-2 mob-1-1'>
-			<div id='arterial_roads_beeline_bar' class='city-graphic'></div>
+			<canvas id='arterial_roads_beeline_bar' class='city-graphic'></canvas>
 		</div>
 	</div>
 </div>
@@ -198,12 +198,12 @@
 		<div id='blocks_map' class='city-graphic'></div>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<div id='blocks_plots_average_block_bar' class='city-graphic'></div>
+		<canvas id='blocks_plots_average_block_bar' class='city-graphic'></canvas>
 	</div>
 </div>
 <div class='grid'>
 	<div class='col-1-2 mob-1-1'>
-		<div id='blocks_plots_average_bar' class='city-graphic'></div>
+		<canvas id='blocks_plots_average_bar' class='city-graphic'></canvas>
 	</div>
 	<div class='col-1-2 mob-1-1'>
 	</div>
