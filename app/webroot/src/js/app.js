@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	console.log(Chart.defaults.global);
+	// console.log(Chart.defaults.global);
 	// Chart.defaults.global.bar.backgroundColor = '#F0F0F0';
 	// Chart.defaults.global.defaultColor = "#F0F0F0";
 	// Chart.defaults.global.legend.fullWidth = false;
@@ -70,6 +70,13 @@ $(document).ready(function(){
 					makeChart("roads_in_built_up_area_bar", city, true);
 					makeChart("roads_average_width_bar", city, true);
 					makeStacked("roads_width_stacked_bar", city, true);
+
+					makeRoadChart("arterial_roads_density_bar", city);
+					makeRoadChart("arterial_roads_walking_bar", city);
+					makeRoadChart("arterial_roads_beeline_bar", city);
+
+					makeChart("blocks_plots_average_block_bar", city, true);
+					makeBlockChart("blocks_plots_average_bar", city);
 					// makePlotly("density_built_up_change", city);
 					// makeChartist("density_built_up_change", city);
 				break;
@@ -98,8 +105,7 @@ var makeStacked = function(prefix, city, vert){
 	vert = typeof(vert) == "undefined" ? false : true;
 	var ctx = $("#"+prefix);
 	var field = prefix.replace("_stacked_bar", "");
-	console.log(city.DataSet);
-	console.log(field);
+
 	var data = vert ? {
 		labels : ["Pre-1990", "1990-2015"],
 		datasets:[
@@ -175,7 +181,6 @@ var makeStacked = function(prefix, city, vert){
 		]
 	};
 
-	console.log(data);
 
 	//legendTemplate takes a template as a string, you can populate the template with values from your dataset 
 	// var options = {
@@ -307,9 +312,163 @@ var makeLine = function(prefix, city){
 	});
 };
 
+var makeBlockChart = function(prefix, city){
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_bar", "");
+	var data = {
+		labels : ["Informal", "Formal"],
+		datasets: [
+			{
+				label : "Pre-1990",
+				backgroundColor: 'rgba(142, 179, 237, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(142, 179, 237, 1)',
+				data: [city.DataSet[field+"_informal_plot_pre_1990"], city.Region.DataSet[field+"_formal_plot_pre_1990"]]
+			},
+			{
+				label : "Narrow",
+				backgroundColor: 'rgba(28, 68, 135, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(28, 68, 135, 1)',
+				data: [city.DataSet[field+"_informal_plot_1990_2015"], city.Region.DataSet[field+"_formal_plot_1990_2015"]]
+			},
+		]
+	};
+	var yAxes = [{
+		scaleLabel : {
+			display: false,
+			labelString: "",
+		},
+		ticks: {
+			beginAtZero:true,
+			// max : max,
+			callback: function(value, index, values) {
+				return Math.floor(value*100)/100 ;
+			}
+		},
+	}];
+	var xAxes = [{
+		ticks: {
+			beginAtZero:true
+		},
+		gridLines : {
+			display: false
+		},
+	}];
+	var myChart = new Chart(ctx, {
+		type:  'bar',
+		data: data,
+		options: {
+			legend : {
+				position: "right",
+				labels : {
+					boxWidth : 10,
+					// generateLabels: function(chart, e){console.log(e);console.log(chart);}
+				}
+			},
+			responsive : true,
+			maintainAspectRation : true,
+			gridLines : {
+					display: false
+				},
+			tooltips : {
+				display : true
+			},
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			scales: {
+				yAxes: yAxes,
+				xAxes: xAxes
+			}
+		}
+	});
+};
+
+var makeRoadChart = function(prefix, city){
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_bar", "");
+	var data = {
+		labels : [city.City.name, "Region", "World"],
+		datasets: [
+			{
+				label : "Wide",
+				backgroundColor: 'rgba(142, 179, 237, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(142, 179, 237, 1)',
+				data: [city.DataSet[field+"_wide_1990_2015"], city.Region.DataSet[field+"_wide_pre_1990"], city.World.DataSet[field+"_wide_pre_1990"]]
+			},
+			{
+				label : "Narrow",
+				backgroundColor: 'rgba(28, 68, 135, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(28, 68, 135, 1)',
+				data: [city.DataSet[field+"_narrow_1990_2015"], city.Region.DataSet[field+"_narrow_1990_2015"], city.World.DataSet[field+"_narrow_1990_2015"]]
+			},
+			{
+				label : "All",
+				backgroundColor: 'rgba(242, 166, 1, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(242, 166, 1, 1)',
+				data: [city.DataSet[field+"_all_1990_2015"], city.Region.DataSet[field+"_all_1990_2015"], city.World.DataSet[field+"_all_1990_2015"]]
+			},
+		]
+	};
+	var xAxes = [{
+		scaleLabel : {
+			display: false,
+			labelString: "",
+		},
+		ticks: {
+			beginAtZero:true,
+			// max : max,
+			callback: function(value, index, values) {
+				return Math.floor(value*100)/100 ;
+			}
+		},
+	}];
+	var yAxes = [{
+		ticks: {
+			beginAtZero:true
+		},
+		gridLines : {
+			display: false
+		},
+	}];
+	var myChart = new Chart(ctx, {
+		type:  'horizontalBar',
+		data: data,
+		options: {
+			legend : {
+				position: "right",
+				labels : {
+					boxWidth : 10,
+					// generateLabels: function(chart, e){console.log(e);console.log(chart);}
+				}
+			},
+			responsive : true,
+			maintainAspectRation : true,
+			gridLines : {
+					display: false
+				},
+			tooltips : {
+				display : true
+			},
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			scales: {
+				yAxes: yAxes,
+				xAxes: xAxes
+			}
+		}
+	});
+};
+
 var makeChart = function(prefix, city, side){
 	side = typeof(side) == "undefined" ? false : true;
-	console.log(side);
 	var ctx = $("#"+prefix);
 	var field = prefix.replace("_bar", "");
 	var suffix_1 = side ? "_pre_1990" : "_t1_t2";

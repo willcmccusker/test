@@ -175,15 +175,15 @@
 			<div id='arterial_map' class='city-graphic'></div>
 		</div>
 		<div class='col-1-2 mob-1-1'>
-			<canvas id='arterial_roads_density_bar' class='city-graphic'></canvas>
+			<canvas id='arterial_roads_density_bar' class='city-graphic' data-title='Density of Arterial Roads 1990 - 2015'></canvas>
 		</div>
 	</div>
 	<div class='grid'>
 		<div class='col-1-2 mob-1-1'>
-			<canvas id='arterial_roads_walking_bar' class='city-graphic'></canvas>
+			<canvas id='arterial_roads_walking_bar' class='city-graphic' data-title='Share of area within walking distance of arterial roads 1990-2015'></canvas>
 		</div>
 		<div class='col-1-2 mob-1-1'>
-			<canvas id='arterial_roads_beeline_bar' class='city-graphic'></canvas>
+			<canvas id='arterial_roads_beeline_bar' class='city-graphic' data-title='Beeline distance to arterial road 1990-2015'></canvas>
 		</div>
 	</div>
 </div>
@@ -198,12 +198,12 @@
 		<div id='blocks_map' class='city-graphic'></div>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<canvas id='blocks_plots_average_block_bar' class='city-graphic'></canvas>
+		<canvas id='blocks_plots_average_block_bar' class='city-graphic' data-title='Average Block Size'></canvas>
 	</div>
 </div>
 <div class='grid'>
 	<div class='col-1-2 mob-1-1'>
-		<canvas id='blocks_plots_average_bar' class='city-graphic'></canvas>
+		<canvas id='blocks_plots_average_bar' class='city-graphic' data-title='Average Plot Size'></canvas>
 	</div>
 	<div class='col-1-2 mob-1-1'>
 	</div>
