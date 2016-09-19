@@ -1,5 +1,6 @@
 <? $this->assign('title', "Data");?>
-
+<div class='grid'>
+<div class='col-1-1'>
 <table>
 	<thead>
 		<tr>
@@ -30,3 +31,5 @@
 	<?endforeach;?>
 	</tbody>
 </table>
+</div>
+</div>

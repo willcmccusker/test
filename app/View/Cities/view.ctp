@@ -90,7 +90,7 @@
 	</div>
 	<div class='grid'>
 		<div class='col-1-2 mob-1-1'>
-			<div id='urban_extent_change_bar' class='city-graphic'></div>
+			<canvas id='urban_extent_change_bar' class='city-graphic'></canvas>
 		</div>
 		<div class='col-1-2 mob-1-1'>
 		</div>

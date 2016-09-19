@@ -59,6 +59,7 @@ $(document).ready(function(){
 					makeLine("population_line", city);
 					makeChart("population_change_bar", city);
 					makeStacked("urban_extent_composition_stacked_bar", city);
+					makeChart("urban_extent_change_bar", city);
 					// makePlotly("density_built_up_change", city);
 					// makeChartist("density_built_up_change", city);
 				break;
