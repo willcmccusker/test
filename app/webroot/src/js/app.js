@@ -1,5 +1,8 @@
 $(document).ready(function(){
-
+	// console.log(Chart.defaults.global);
+	// Chart.defaults.global.bar.backgroundColor = '#F0F0F0';
+	// Chart.defaults.global.defaultColor = "#F0F0F0";
+	// Chart.defaults.global.legend.fullWidth = false;
 	var route = window.location.href.split("//")[1].split("/").filter(function(e){ return e === 0 || e; });
 	var model = false;
 	var controller = "index";
@@ -44,7 +47,7 @@ $(document).ready(function(){
 			switch(controller){
 				case("index"):
 					//filter list
-					var cityList = new List('cityList', {valueNames: [ 'city', 'region' ]});
+					var cityList = new List('cityList', {valueNames: ['country', 'city', 'region' ], sortFunction: sortCities});
 				break;
 				case("data"):
 					//table
@@ -52,10 +55,30 @@ $(document).ready(function(){
 				break;
 				case("view"):
 					//graphs
-					makeGraph("density_change", city);
-					makeChart("density_change", city);
-					makePlotly("density_change", city);
-					makeChartist("density_change", city);
+					// makeGraph("density_built_up_change", city);
+					makeLine("population_line", city);
+					makeChart("population_change_bar", city);
+
+					makeStacked("urban_extent_composition_stacked_bar", city);
+					makeChart("urban_extent_change_bar", city);
+
+					makeLine("density_built_up_line", city);
+					makeChart("density_built_up_change_bar", city);
+					makeLine("density_urban_extent_line", city);
+					makeChart("density_urban_extent_change_bar", city);
+
+					makeChart("roads_in_built_up_area_bar", city, true);
+					makeChart("roads_average_width_bar", city, true);
+					makeStacked("roads_width_stacked_bar", city, true);
+
+					makeRoadChart("arterial_roads_density_bar", city);
+					makeRoadChart("arterial_roads_walking_bar", city);
+					makeRoadChart("arterial_roads_beeline_bar", city);
+
+					makeChart("blocks_plots_average_block_bar", city, true);
+					makeBlockChart("blocks_plots_average_bar", city);
+					// makePlotly("density_built_up_change", city);
+					// makeChartist("density_built_up_change", city);
 				break;
 				default:
 			}
@@ -76,318 +99,464 @@ $(document).ready(function(){
 	console.log(controller);
 });
 
+var sortCities = function(a, b, c){
+	console.log(a);
+	console.log(b);
+	console.log(c);
+};
 
-var makeChartist = function(prefix, city){
-	var data = {
-		labels : [city.City.name, city.Region.name, "World"],
-		series : [
-			[city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.GDP.DataSet[prefix+"_t1_t2"]],
-			[city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.GDP.DataSet[prefix+"_t2_t3"]],
-		],
-		axisX: {
-			labelInterpolationFnc: function (value) {
-				return value;
+
+var makeStacked = function(prefix, city, vert){
+	vert = typeof(vert) == "undefined" ? false : true;
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_stacked_bar", "");
+
+	var data = vert ? {
+		labels : ["Pre-1990", "1990-2015"],
+		datasets:[
+			{
+				backgroundColor : 'rgba(94, 151, 246, 1)',
+				borderWidth : 0,
+				borderColor : 'rgba(94, 151, 246, 1)',
+				label : '<4m',
+				data : [city.DataSet[field+"_under_4m_pre_1990"], city.DataSet[field+"_under_4m_1990_2015"] ]
+			},
+			{
+				backgroundColor : 'rgba(28, 68, 135, 1)',
+				borderWidth : 0,
+				borderColor : 'rgba(28, 68, 135, 1)',
+				label : '4-8m',
+				data : [city.DataSet[field+"_4_8m_pre_1990"], city.DataSet[field+"_4_8m_1990_2015"] ]
+			},
+			{
+				backgroundColor : 'rgba(242, 166, 1, 1)',
+				borderWidth : 0,
+				borderColor : 'rgba(242, 166, 1, 1)',
+				label : '8-12m',
+				data : [city.DataSet[field+"_8_12m_pre_1990"], city.DataSet[field+"_8_12m_1990_2015"] ]
+			},
+			{
+				backgroundColor : 'rgba(14, 157, 88, 1)',
+				borderWidth : 0,
+				borderColor : 'rgba(14, 157, 88, 1)',
+				label : '12-16m',
+				data : [city.DataSet[field+"_12_16m_pre_1990"], city.DataSet[field+"_12_16m_1990_2015"] ]
+			},
+			{
+				backgroundColor : 'rgba(171, 71, 188, 1)',
+				borderWidth : 0,
+				borderColor : 'rgba(171, 71, 188, 1)',
+				label : '>16m',
+				data : [city.DataSet[field+"_over_16m_pre_1990"], city.DataSet[field+"_over_16m_1990_2015"] ]
+			}
+		]
+
+	}
+	: {
+		labels : ["T1", "T2", "T3"],
+		datasets:[
+			{
+				backgroundColor: "rgba(120, 172, 255, 1)",
+				borderWidth : 0,
+				borderColor: "rgba(120, 172, 255 ,1)",
+				label: ["Urban", "Built Up"],
+				data : [city.DataSet[field+"_urban_t1"], city.DataSet[field+"_urban_t2"], city.DataSet[field+"_urban_t3"]]
+			},
+			{
+				backgroundColor: "rgba(28, 68, 135, 1)",
+				borderWidth : 0,
+				borderColor: "rgba(28, 68, 135, 1)",
+				label: ["Suburban", "Built Up"],
+				data : [city.DataSet[field+"_suburban_t1"], city.DataSet[field+"_suburban_t2"], city.DataSet[field+"_suburban_t3"]]
+			},
+			{
+				backgroundColor: "rgba(242, 166, 1,1)",
+				borderWidth : 0,
+				borderColor: "rgba(242, 166, 1,1)",
+				label: ["Rural Built Up"],
+				data : [city.DataSet[field+"_rural_t1"], city.DataSet[field+"_rural_t2"], city.DataSet[field+"_rural_t3"]]
+			},
+			{
+				backgroundColor: "rgba(14, 157, 88, 1)",
+				borderWidth : 0,
+				borderColor: "rgba(14, 157, 88, 1)",
+				label: ["Urbanized", "Open Space"],
+				data : [city.DataSet[field+"_open_t1"], city.DataSet[field+"_open_t2"], city.DataSet[field+"_open_t3"]]
+			}
+		]
+	};
+
+
+	//legendTemplate takes a template as a string, you can populate the template with values from your dataset 
+	// var options = {
+	// legendTemplate : '<ul>'
+	// 				+'<% for (var i=0; i<datasets.length; i++) { %>'
+	// 				+'<li>'
+	// 				+'<span style=\"background-color:<%=datasets[i].lineColor%>\"></span>'
+	// 				+'<% if (datasets[i].label) { %><%= datasets[i].label %><% } %>'
+	// 				+'</li>'
+	// 			+'<% } %>'
+	// 			+'</ul>'
+	// }
+
+	//don't forget to pass options in when creating new Chart
+	// var lineChart = new Chart(element).Line(data, options);
+
+	//then you just need to generate the legend
+	// var legend = lineChart.generateLegend();
+
+	//and append it to your page somewhere
+	// $('#chart').append(legend);
+
+	var yAxes = [{
+		scaleLabel : {
+			display: false,
+			labelString: "",
+		},
+		ticks: {
+			beginAtZero:true
+		},
+		stacked : true,
+		gridLines : {
+			display: false
+		},
+		categoryPercentage : 0.6,
+		barPercentage : 1,
+		
+	}];
+	var xAxes = [{
+		stacked : true,
+		ticks: {
+			beginAtZero:true,
+			max : vert ? 1 : 100,
+			callback: function(value, index, values) {
+				return  vert ? Math.floor(value*100)/100 : value+"%";
+			}
+		},
+		gridLines : {
+			display: false
+		},
+	}];
+	var myChart = new Chart(ctx, {
+		type: vert ? 'bar' : 'horizontalBar',
+		data: data,
+		options: {
+			legend : {
+				// display: false,
+				position: "right",
+				labels : {
+					boxWidth : 10,
+					// generateLabels: function(chart, e){console.log(e);console.log(chart);}
+				}
+			},
+			tooltips : {
+				display : true
+			},
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			responsive : true,
+			scales: {
+				yAxes: vert ? xAxes : yAxes,
+				xAxes: vert ? yAxes : xAxes
 			}
 		}
-	};
-
-	var options = {
-		seriesBarDistance: 55
-	};
-	var chart = new Chartist.Bar('#'+prefix+"-chartist", data, options);
-chart.on('draw', function(context) {
-	  if(context.type === 'bar') {
-			console.log(context);
-			context.element.attr({
-				style : 'stroke: '+ (context.seriesIndex % 2 === 0 ? "red" : "blue")+";"
-			});
-		}
-
-});
-
+	});
 };
 
-var makePlotly = function(prefix, city){
-	console.log(prefix+'-plotly');
-	var trace1 = {
-	  x: [city.City.name, city.Region.name, 'World'],
-	  y: [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.GDP.DataSet[prefix+"_t1_t2"]],
-	  name: 'T1-T2',
-	  type: 'bar',
-  	  marker: {
-		  color: '#FF0000'
-		}
-	};
-
-	var trace2 = {
-	  x: [city.City.name, city.Region.name, 'World'],
-	  y: [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"], city.GDP.DataSet[prefix+"_t2_t3"]],
-	  name: 'T2-T3',
-	  type: 'bar',
-	  marker: {
-		  color: '#0000FF'
-		}
-	};
-
-	var data = [trace1, trace2];
-
-	var layout = {barmode: 'group'};
-
-	Plotly.newPlot(prefix+'-plotly', data, layout, {displayModeBar: false});
-};
-
-
-googleChartsReady = function(){
-	makeGoogleChart("density_change", city);
-};
-
-
-var makeGoogleChart = function(prefix, city){
- // var data = new google.visualization.DataTable();
- // data.addColumn('string', "Location");
- // data.addColumn('number', "T1-T2");
- // data.addColumn('number', "T2-T3");
- // data.addColumn('style', "Style");
- // var tableData = [
- //        [city.City.name, parseFloat(city.DataSet[prefix+"_t1_t2"]), parseFloat(city.DataSet[prefix+"_t1_t2"])],
- //        [city.Region.name, parseFloat(city.Region.DataSet[prefix+"_t1_t2"]), parseFloat(city.Region.DataSet[prefix+"_t1_t2"])],
- //        ["World", parseFloat(city.GDP.DataSet[prefix+"_t1_t2"]), parseFloat(city.GDP.DataSet[prefix+"_t1_t2"])],
- //  ];
- //  console.log(tableData);
- // data.addRows(tableData);  
-
-  var jsonTable = {
-  'cols' : [
-	  {id:"", "label" : "", "type" : "string"},
-	  {id:"", "label" : "T1-T2", "type" : "number"},
-	  {id:"", "label" : "T2-T3", "type" : "number"},
-  ],
-	"rows" : [
-		{"c" : [
-			{"v" : city.City.name, "f" : null},
-			{"v" : parseFloat(city.DataSet[prefix+"_t1_t2"]), "f" : null},
-			{"v" : parseFloat(city.DataSet[prefix+"_t2_t3"]), "f" : null},
-		]},
-		{"c" : [
-			{"v" : city.Region.name, "f" : null},
-			{"v" : parseFloat(city.Region.DataSet[prefix+"_t1_t2"]), "f" : null},
-			{"v" : parseFloat(city.Region.DataSet[prefix+"_t2_t3"]), "f" : null},
-		]},
-		{"c" : [
-			{"v" : "World", "f" : null},
-			{"v" : parseFloat(city.GDP.DataSet[prefix+"_t1_t2"]), "f" : null},
-			{"v" : parseFloat(city.GDP.DataSet[prefix+"_t2_t3"]), "f" : null},
-		]},
-	]};
-	var data = new google.visualization.DataTable(jsonTable);
-	var view = new google.visualization.DataView(data);
-
-	var options = {
-	  	'width':500,
-	    'height':500,
-	  chart: {
-	    title: 'Company Performance',
-	    subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-	  },
-	  vAxis:{
-	  	// format : "percent"
-	  }
-	};
-
-	var chart = new google.visualization.ColumnChart(document.getElementById(prefix+"-googleChart"));
-	chart.draw(data, options);
-
-
-	data2 = new google.visualization.DataTable();
-	data2.addColumn('date', 'Year');
-	data2.addColumn('number', 'Density');
-	data2.addRows([
-		[ new Date(1980, 0, 1), 2457970], [new Date(1990, 0, 1), 2956780], [new Date(2000, 0, 1), 3890876]
-		]);
-	options2 = {
-		legend: {position: 'none'},
-		width : 600,
-		height: 500,
-		pointSize : 5,
-        hAxis: {
-        	gridlines : {
-        		count : 4
-        	},
-          title: 'Year',
-          viewWindow : {
-          	max : new Date(2005, 1, 1),
-          	min : new Date(1975, 1, 1)
-          },
-        },
-        vAxis: {
-
-        	gridlines : {
-        		count : 5
-        	},
-          title: 'Density',
-          format : 'short',
-		viewWindow : {
-			max : 5500000,
-			min : 0
-		}
-        },
-        backgroundColor: '#ffffff'
-      };
-
-      var chart2 = new google.visualization.LineChart(document.getElementById('density_line-googleChart'));
-      chart2.draw(data2, options2);
-};
-
-var makeChart = function(prefix, city){
-	var ctx = $("#"+prefix+"-chartjs");
+var makeLine = function(prefix, city){
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_line", "");
+	var data = {
+			labels : ["", "T1", "T2", "T3", ""],
+			datasets: [{
+				pointRadius: 5,	
+				borderJoinStyle : "miter",
+				lineTension : 0,
+				borderWidth : 3,
+				borderColor : "black",
+				pointBorderColor : "black",
+				pointBorderWidth : 1,	
+				fill : false,	
+				label : ctx.data("title"),
+				data : [null, city.DataSet[field+"_t1"], city.DataSet[field+"_t2"], city.DataSet[field+"_t3"], null]
+			}]
+		};
+	var max = Math.max.apply( Math, data.datasets[0].data );
+	var min = Math.min.apply( Math, data.datasets[0].data.filter(Boolean));
+	var log = Math.floor(Math.log(max)/Math.log(10));
+	log = Math.pow(10, log);
 	var myChart = new Chart(ctx, {
-	    type: 'bar',
-	    data: {
-	        labels: [city.City.name, city.Region.name, "World"],
-	        datasets: [{
-	            label: 'T1-T2',
-	            backgroundColor: "rgba(255,0,0,0.2)",
-	            borderWidth : 1,
-	            borderColor: "rgba(255,0,0,1)",
-	            data : [city.DataSet[prefix+"_t1_t2"], city.Region.DataSet[prefix+"_t1_t2"], city.GDP.DataSet[prefix+"_t1_t2"]]
-	        },{
-	            label: 'T2-T3',
-	            backgroundColor: "rgba(0,0,255,0.2)",
-	            borderWidth : 1,
-	            borderColor: "rgba(0,0,255,1)",
-	            data : [city.DataSet[prefix+"_t2_t3"], city.Region.DataSet[prefix+"_t2_t3"],  city.GDP.DataSet[prefix+"_t2_t3"]]
-	        }
-	        ]
-	    },
-	    options: {
-
-	    	bar : {
-	    		categoryPercentage : 0.5,
-	    		barPercentage : 1,
-		    	gridLines : {
-		    		display: false
-		    	},
-	    	},
-	    	gridLines : {
-		    		display: false
-		    	},
-	    	tooltips : {
-	    		display : true
-	    	},
-	    	title: {
-	    		display: true,
-	    		text: prefix
-	    	},
-	    	responsive : true,
-
-	        scales: {
-	        	yAxes:[{
-	        		scaleLabel : {
-	        			display: true,
-	        			labelString:"Precentage of Change"
-	        		},
-	        		height : 500,
-
-	                ticks: {
-	                    beginAtZero:true
-	                },
-	        	}],
-	            xAxes: [{
-	                ticks: {
-	                    beginAtZero:true
-	                },
-	                gridLines : {
-			    		display: false
-			    	},
-	            }]
-	        }
-	    }
+		type : "line",
+		data : data,
+		options: {
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			legend : {
+				display: false
+			},
+			scales : {
+				yAxes : [{
+					ticks: {
+						min : 0,
+						max : Math.ceil((max + min)/log) * log,
+						callback: function(value, index, values) {
+							if(parseInt(value) > 1000){
+								return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+							} else {
+								return  value;
+							}
+						}
+					}
+				}]
+			}
+		}
 	});
 };
 
-
-
-var makeGraph = function(prefix, city){
-	console.log(city);
-	var colorScale = new Plottable.Scales.Color();
-
-	var yScale = new Plottable.Scales.Linear();
-	var yAxis = new Plottable.Axes.Numeric(yScale, "left");
-
-	var title = new Plottable.Components.TitleLabel(prefix);
-
-	var cityData = [{x:1, y : parseFloat(city.DataSet[prefix+"_t1_t2"]), label: "T1-T2"}, {x:2, y : parseFloat(city.DataSet[prefix+"_t2_t3"]), label: "T2-T3"}];
-	var xScale_city = new Plottable.Scales.Category().domain(["T1-T2", "T2-T3"]);
-	var xAxis_city = new Plottable.Axes.Category(xScale_city, "bottom");
-	var plot_city = new Plottable.Plots.Bar()
-	.labelsEnabled(true)
-	.animated(true)
-	.x(function(d) { return d.label; }, xScale_city)
-	.y(function(d) { return d.y; }, yScale)
-	.attr("fill", function(d) { return d.x % 2 == 1 ? "#0000FF" : "#FF0000" ;}, colorScale);
-	var label_city = new Plottable.Components.AxisLabel(city.City.name, 0);
-
-
-	var regionData = [{x:3, y : parseFloat(city.Region.DataSet[prefix+"_t1_t2"]), label: "T1-T2"}, {x:4, y : parseFloat(city.Region.DataSet[prefix+"_t2_t3"]), label: "T2-T3"}];
-	var xScale_region = new Plottable.Scales.Category().domain(["T1-T2", "T2-T3"]);
-	var xAxis_region = new Plottable.Axes.Category(xScale_region, "bottom");
-	var plot_region = new Plottable.Plots.Bar()
-	.labelsEnabled(true)
-	.animated(true)
-	.x(function(d) { return d.label; }, xScale_region)
-	.y(function(d) { return d.y; }, yScale)
-	.attr("fill", function(d) { return d.x % 2 == 1 ? "#0000FF" : "#FF0000" ;}, colorScale);
-	var label_region = new Plottable.Components.AxisLabel(city.Region.name, 0);
-
-
-	var worldData = [{x:5, y : parseFloat(city.GDP.DataSet[prefix+"_t1_t2"]), label: "T1-T2"}, {x:6, y : parseFloat(city.GDP.DataSet[prefix+"_t2_t3"]), label: "T2-T3"}];
-	var xScale_world = new Plottable.Scales.Category().domain(["T1-T2", "T2-T3"]);
-	var xAxis_world = new Plottable.Axes.Category(xScale_world, "bottom");
-	var plot_world = new Plottable.Plots.Bar()
-	.labelsEnabled(true)
-	.animated(true)
-	.x(function(d) { return d.label; }, xScale_world)
-	.y(function(d) { return d.y; }, yScale)
-	.attr("fill", function(d) { return d.x % 2 == 1 ? "#0000FF" : "#FF0000" ;}, colorScale);
-	var label_world = new Plottable.Components.AxisLabel("World", 0);
-
-
-
-	console.log(JSON.stringify(cityData));
-	console.log(JSON.stringify(regionData));
-
-
-	var chart = new Plottable.Components.Table([
-	  [title],
-	  [yAxis, plot_city, plot_region, plot_world],
-	  [null, xAxis_city, xAxis_region, xAxis_world],
-	  [null, label_city, label_region, label_world]
-	]);
-
-	chart.renderTo("svg#"+prefix+"-plottable");
-
-	setTimeout(function(){
-		plot_city.addDataset(new Plottable.Dataset(cityData)).labelsEnabled();
-		plot_region.addDataset(new Plottable.Dataset(regionData)).labelsEnabled();
-		plot_world.addDataset(new Plottable.Dataset(worldData)).labelsEnabled();
-	}, 1000);
-
-	window.addEventListener("resize", function() {
-	  chart.redraw();
+var makeBlockChart = function(prefix, city){
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_bar", "");
+	var data = {
+		labels : ["Informal", "Formal"],
+		datasets: [
+			{
+				label : "Pre-1990",
+				backgroundColor: 'rgba(142, 179, 237, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(142, 179, 237, 1)',
+				data: [city.DataSet[field+"_informal_plot_pre_1990"], city.Region.DataSet[field+"_formal_plot_pre_1990"]]
+			},
+			{
+				label : "Narrow",
+				backgroundColor: 'rgba(28, 68, 135, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(28, 68, 135, 1)',
+				data: [city.DataSet[field+"_informal_plot_1990_2015"], city.Region.DataSet[field+"_formal_plot_1990_2015"]]
+			},
+		]
+	};
+	var yAxes = [{
+		scaleLabel : {
+			display: false,
+			labelString: "",
+		},
+		ticks: {
+			beginAtZero:true,
+			// max : max,
+			callback: function(value, index, values) {
+				return Math.floor(value*100)/100 ;
+			}
+		},
+	}];
+	var xAxes = [{
+		ticks: {
+			beginAtZero:true
+		},
+		gridLines : {
+			display: false
+		},
+	}];
+	var myChart = new Chart(ctx, {
+		type:  'bar',
+		data: data,
+		options: {
+			legend : {
+				position: "right",
+				labels : {
+					boxWidth : 10,
+					// generateLabels: function(chart, e){console.log(e);console.log(chart);}
+				}
+			},
+			responsive : true,
+			maintainAspectRation : true,
+			gridLines : {
+					display: false
+				},
+			tooltips : {
+				display : true
+			},
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			scales: {
+				yAxes: yAxes,
+				xAxes: xAxes
+			}
+		}
 	});
-
-
-
-	// var xScale_region
-
-
-	// var xScale_population
-
-
-	// var xScale_GDP
-
-
 };
+
+var makeRoadChart = function(prefix, city){
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_bar", "");
+	var data = {
+		labels : [city.City.name, "Region", "World"],
+		datasets: [
+			{
+				label : "Wide",
+				backgroundColor: 'rgba(142, 179, 237, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(142, 179, 237, 1)',
+				data: [city.DataSet[field+"_wide_1990_2015"], city.Region.DataSet[field+"_wide_pre_1990"], city.World.DataSet[field+"_wide_pre_1990"]]
+			},
+			{
+				label : "Narrow",
+				backgroundColor: 'rgba(28, 68, 135, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(28, 68, 135, 1)',
+				data: [city.DataSet[field+"_narrow_1990_2015"], city.Region.DataSet[field+"_narrow_1990_2015"], city.World.DataSet[field+"_narrow_1990_2015"]]
+			},
+			{
+				label : "All",
+				backgroundColor: 'rgba(242, 166, 1, 0.2)',
+				borderWidth : 1,
+				borderColor : 'rgba(242, 166, 1, 1)',
+				data: [city.DataSet[field+"_all_1990_2015"], city.Region.DataSet[field+"_all_1990_2015"], city.World.DataSet[field+"_all_1990_2015"]]
+			},
+		]
+	};
+	var xAxes = [{
+		scaleLabel : {
+			display: false,
+			labelString: "",
+		},
+		ticks: {
+			beginAtZero:true,
+			// max : max,
+			callback: function(value, index, values) {
+				return Math.floor(value*100)/100 ;
+			}
+		},
+	}];
+	var yAxes = [{
+		ticks: {
+			beginAtZero:true
+		},
+		gridLines : {
+			display: false
+		},
+	}];
+	var myChart = new Chart(ctx, {
+		type:  'horizontalBar',
+		data: data,
+		options: {
+			legend : {
+				position: "right",
+				labels : {
+					boxWidth : 10,
+					// generateLabels: function(chart, e){console.log(e);console.log(chart);}
+				}
+			},
+			responsive : true,
+			maintainAspectRation : true,
+			gridLines : {
+					display: false
+				},
+			tooltips : {
+				display : true
+			},
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			scales: {
+				yAxes: yAxes,
+				xAxes: xAxes
+			}
+		}
+	});
+};
+
+var makeChart = function(prefix, city, side){
+	side = typeof(side) == "undefined" ? false : true;
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_bar", "");
+	var suffix_1 = side ? "_pre_1990" : "_t1_t2";
+	var suffix_2 = side ? "_1990_2015" : "_t2_t3";
+	var data = {
+		labels: [city.City.name, "Region",/*city.Region.name.split(" "),*/ "World"],
+		datasets: [{
+			label: side ? "Pre-1990" : 'T1-T2',
+			backgroundColor: "rgba(255,0,0,0.2)",
+			borderWidth : 1,
+			borderColor: "rgba(255,0,0,1)",
+			data : [city.DataSet[field+suffix_1], city.Region.DataSet[field+suffix_1], city.World.DataSet[field+suffix_1]]
+		},{
+			label: side ? "1990-2015" : 'T2-T3',
+			backgroundColor: "rgba(0,0,255,0.2)",
+			borderWidth : 1,
+			borderColor: "rgba(0,0,255,1)",
+			data : [city.DataSet[field+suffix_2], city.Region.DataSet[field+suffix_2],  city.World.DataSet[field+suffix_2]]
+		}
+		]
+	};
+
+	var max1 = Math.max.apply( Math, data.datasets[0].data );
+	var max2 = Math.max.apply( Math, data.datasets[0].data );
+	var max = max1 > max2 ? max1 : max2;
+	var log = Math.floor(Math.log(max)/Math.log(10));
+	log = Math.pow(10, log);
+	max = Math.floor((max * 1.9)/log) * log;
+
+	var yAxes = [{
+		scaleLabel : {
+			display: false,
+			labelString: "",
+		},
+		ticks: {
+			beginAtZero:true,
+			// max : max,
+			callback: function(value, index, values) {
+				return  side ? Math.floor(value*100)/100 : value+"%";
+			}
+		},
+		// stacked : true,
+	}];
+	var xAxes = [{
+		// stacked : true,
+		ticks: {
+			beginAtZero:true
+		},
+		gridLines : {
+			display: false
+		},
+	}];
+	var myChart = new Chart(ctx, {
+		type: side ? 'horizontalBar' : 'bar',
+		data: data,
+		options: {
+			legend : {
+				position: "right",
+				labels : {
+					boxWidth : 10,
+					// generateLabels: function(chart, e){console.log(e);console.log(chart);}
+				}
+			},
+			responsive : true,
+			maintainAspectRation : true,
+			gridLines : {
+					display: false
+				},
+			tooltips : {
+				display : true
+			},
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			scales: {
+				yAxes: side ? xAxes : yAxes,
+				xAxes: side ? yAxes : xAxes
+			}
+		}
+	});
+};
+
 
 
 

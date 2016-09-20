@@ -23,8 +23,6 @@
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New City'), array('controller' => 'cities', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List City Sizes'), array('controller' => 'city_sizes', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New City Size'), array('controller' => 'city_sizes', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List G D Ps'), array('controller' => 'g_d_ps', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New G D P'), array('controller' => 'g_d_ps', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Regions'), array('controller' => 'regions', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Region'), array('controller' => 'regions', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Worlds'), array('controller' => 'worlds', 'action' => 'index'), array('escape' => false)); ?> </li>
@@ -46,184 +44,471 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Density Change T1 T2'); ?></th>
+		<th><?php echo __('Population T1'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['density_change_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['population_t1']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Density Change T2 T3'); ?></th>
+		<th><?php echo __('Population T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['density_change_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['population_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Fragmentation T1 T2'); ?></th>
+		<th><?php echo __('Population T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['fragmentation_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['population_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Fragmentation T2 T3'); ?></th>
+		<th><?php echo __('Population Change T1 T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['fragmentation_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['population_change_t1_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Population Growth T1 T2'); ?></th>
+		<th><?php echo __('Population Change T2 T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['population_growth_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['population_change_t2_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Population Growth T2 T3'); ?></th>
+		<th><?php echo __('Urban Extent Composition Urban T1'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['population_growth_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_urban_t1']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Urban Expansion A T1 T2'); ?></th>
+		<th><?php echo __('Urban Extent Composition Urban T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['urban_expansion_a_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_urban_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Urban Expansion A T2 T3'); ?></th>
+		<th><?php echo __('Urban Extent Composition Urban T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['urban_expansion_a_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_urban_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Average Block Size T1 T2'); ?></th>
+		<th><?php echo __('Urban Extent Composition Suburban T1'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['average_block_size_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_suburban_t1']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Average Block Size T2 T3'); ?></th>
+		<th><?php echo __('Urban Extent Composition Suburban T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['average_block_size_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_suburban_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Gridded T1 T2'); ?></th>
+		<th><?php echo __('Urban Extent Composition Suburban T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['gridded_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_suburban_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Gridded T2 T3'); ?></th>
+		<th><?php echo __('Urban Extent Composition Rural T1'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['gridded_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_rural_t1']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Roads And Boulevards T1 T2'); ?></th>
+		<th><?php echo __('Urban Extent Composition Rural T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['roads_and_boulevards_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_rural_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Roads And Boulevards T2 T3'); ?></th>
+		<th><?php echo __('Urban Extent Composition Rural T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['roads_and_boulevards_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_rural_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Residential Planned Before Development T1 T2'); ?></th>
+		<th><?php echo __('Urban Extent Composition Open T1'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['residential_planned_before_development_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_open_t1']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Residential Planned Before Development T2 T3'); ?></th>
+		<th><?php echo __('Urban Extent Composition Open T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['residential_planned_before_development_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_open_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Streets Less Than 4m T1 T2'); ?></th>
+		<th><?php echo __('Urban Extent Composition Open T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['streets_less_than_4m_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_composition_open_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Streets Less Than 4m T2 T3'); ?></th>
+		<th><?php echo __('Urban Extent Change T1 T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['streets_less_than_4m_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_change_t1_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Walking Distance Of Arterial Road T1 T2'); ?></th>
+		<th><?php echo __('Urban Extent Change T2 T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['walking_distance_of_arterial_road_t1_t2']); ?>
+			<?php echo h($dataSet['DataSet']['urban_extent_change_t2_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Walking Distance Of Arterial Road T2 T3'); ?></th>
+		<th><?php echo __('Density Built Up T1'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['walking_distance_of_arterial_road_t2_t3']); ?>
+			<?php echo h($dataSet['DataSet']['density_built_up_t1']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Suburban Built Up T1'); ?></th>
+		<th><?php echo __('Density Built Up T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['suburban_built_up_t1']); ?>
+			<?php echo h($dataSet['DataSet']['density_built_up_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Suburban Built Up T2'); ?></th>
+		<th><?php echo __('Density Built Up T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['suburban_built_up_t2']); ?>
+			<?php echo h($dataSet['DataSet']['density_built_up_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Suburban Built Up T3'); ?></th>
+		<th><?php echo __('Density Built Up Change T1 T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['suburban_built_up_t3']); ?>
+			<?php echo h($dataSet['DataSet']['density_built_up_change_t1_t2']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Urban Built Up T1'); ?></th>
+		<th><?php echo __('Density Built Up Change T2 T3'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['urban_built_up_t1']); ?>
+			<?php echo h($dataSet['DataSet']['density_built_up_change_t2_t3']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Urban Built Up T2'); ?></th>
+		<th><?php echo __('Density Urban Extent T1'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['urban_built_up_t2']); ?>
+			<?php echo h($dataSet['DataSet']['density_urban_extent_t1']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Urban Built Up T3'); ?></th>
+		<th><?php echo __('Density Urban Extent T2'); ?></th>
 		<td>
-			<?php echo h($dataSet['DataSet']['urban_built_up_t3']); ?>
+			<?php echo h($dataSet['DataSet']['density_urban_extent_t2']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Density Urban Extent T3'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['density_urban_extent_t3']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Density Urban Extent Change T1 T2'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['density_urban_extent_change_t1_t2']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Density Urban Extent Change T2 T3'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['density_urban_extent_change_t2_t3']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads In Built Up Area Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_in_built_up_area_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads In Built Up Area 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_in_built_up_area_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Average Width Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_average_width_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Average Width 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_average_width_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width Under 4m Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_under_4m_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width Under 4m 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_under_4m_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width 4 8m Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_4_8m_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width 4 8m 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_4_8m_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width 8 12m Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_8_12m_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width 8 12m 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_8_12m_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width 12 16m Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_12_16m_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width 12 16m 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_12_16m_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width Over 16m Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_over_16m_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Roads Width Over 16m 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['roads_width_over_16m_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Density All Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_density_all_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Density All 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_density_all_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Density Wide Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_density_wide_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Density Wide 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_density_wide_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Density Narrow Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_density_narrow_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Density Narrow 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_density_narrow_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Walking All Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_walking_all_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Walking All 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_walking_all_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Walking Wide Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_walking_wide_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Walking Wide 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_walking_wide_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Walking Narrow Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_walking_narrow_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Walking Narrow 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_walking_narrow_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Beeline All Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_beeline_all_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Beeline All 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_beeline_all_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Beeline Wide Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_beeline_wide_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Beeline Wide 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_beeline_wide_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Beeline Narrow Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_beeline_narrow_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Arterial Roads Beeline Narrow 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['arterial_roads_beeline_narrow_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks Plots Average Block Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['blocks_plots_average_block_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks Plots Average Block 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['blocks_plots_average_block_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks Plots Average Informal Plot Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['blocks_plots_average_informal_plot_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks Plots Average Informal Plot 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['blocks_plots_average_informal_plot_1990_2015']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks Plots Average Formal Plot Pre 1990'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['blocks_plots_average_formal_plot_pre_1990']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks Plots Average Formal Plot 1990 2015'); ?></th>
+		<td>
+			<?php echo h($dataSet['DataSet']['blocks_plots_average_formal_plot_1990_2015']); ?>
 			&nbsp;
 		</td>
 </tr>
@@ -250,7 +535,13 @@
 		<th><?php echo __('Latitude'); ?></th>
 		<th><?php echo __('Longitude'); ?></th>
 		<th><?php echo __('Population'); ?></th>
+		<th><?php echo __('Extent'); ?></th>
+		<th><?php echo __('Density'); ?></th>
+		<th><?php echo __('T1'); ?></th>
+		<th><?php echo __('T2'); ?></th>
+		<th><?php echo __('T3'); ?></th>
 		<th><?php echo __('Photo Path'); ?></th>
+		<th><?php echo __('Flag Path'); ?></th>
 		<th><?php echo __('P D F Path'); ?></th>
 		<th><?php echo __('G I S Path'); ?></th>
 		<th><?php echo __('World Id'); ?></th>
@@ -258,13 +549,6 @@
 		<th><?php echo __('G D P Id'); ?></th>
 		<th><?php echo __('City Size Id'); ?></th>
 		<th><?php echo __('Data Set Id'); ?></th>
-		<th><?php echo __('Urban Extent T1 Path'); ?></th>
-		<th><?php echo __('Urban Extent T2 Path'); ?></th>
-		<th><?php echo __('Urban Extent T3 Path'); ?></th>
-		<th><?php echo __('Urban Layout Arterial Roads Path'); ?></th>
-		<th><?php echo __('Urban Layout Medians Path'); ?></th>
-		<th><?php echo __('Urban Layout Locales Path'); ?></th>
-		<th><?php echo __('Urban Layout Blocks Path'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"></th>
@@ -281,7 +565,13 @@
 			<td><?php echo $city['latitude']; ?></td>
 			<td><?php echo $city['longitude']; ?></td>
 			<td><?php echo $city['population']; ?></td>
+			<td><?php echo $city['extent']; ?></td>
+			<td><?php echo $city['density']; ?></td>
+			<td><?php echo $city['t1']; ?></td>
+			<td><?php echo $city['t2']; ?></td>
+			<td><?php echo $city['t3']; ?></td>
 			<td><?php echo $city['photo_path']; ?></td>
+			<td><?php echo $city['flag_path']; ?></td>
 			<td><?php echo $city['p_d_f_path']; ?></td>
 			<td><?php echo $city['g_i_s_path']; ?></td>
 			<td><?php echo $city['world_id']; ?></td>
@@ -289,13 +579,6 @@
 			<td><?php echo $city['g_d_p_id']; ?></td>
 			<td><?php echo $city['city_size_id']; ?></td>
 			<td><?php echo $city['data_set_id']; ?></td>
-			<td><?php echo $city['urban_extent_t1_path']; ?></td>
-			<td><?php echo $city['urban_extent_t2_path']; ?></td>
-			<td><?php echo $city['urban_extent_t3_path']; ?></td>
-			<td><?php echo $city['urban_layout_arterial_roads_path']; ?></td>
-			<td><?php echo $city['urban_layout_medians_path']; ?></td>
-			<td><?php echo $city['urban_layout_locales_path']; ?></td>
-			<td><?php echo $city['urban_layout_blocks_path']; ?></td>
 			<td><?php echo $city['created']; ?></td>
 			<td><?php echo $city['modified']; ?></td>
 			<td class="actions">
@@ -352,45 +635,6 @@
 
 	<div class="actions">
 		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New City Size'), array('controller' => 'city_sizes', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-	</div>
-	</div><!-- end col md 12 -->
-</div>
-<div class="related row">
-	<div class="col-md-12">
-	<h3><?php echo __('Related G D Ps'); ?></h3>
-	<?php if (!empty($dataSet['GDP'])): ?>
-	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
-	<thead>
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Slug'); ?></th>
-		<th><?php echo __('Data Set Id'); ?></th>
-		<th><?php echo __('City Count'); ?></th>
-		<th class="actions"></th>
-	</tr>
-	<thead>
-	<tbody>
-	<?php foreach ($dataSet['GDP'] as $gDP): ?>
-		<tr>
-			<td><?php echo $gDP['id']; ?></td>
-			<td><?php echo $gDP['name']; ?></td>
-			<td><?php echo $gDP['slug']; ?></td>
-			<td><?php echo $gDP['data_set_id']; ?></td>
-			<td><?php echo $gDP['city_count']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'g_d_ps', 'action' => 'view', $gDP['id']), array('escape' => false)); ?>
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'g_d_ps', 'action' => 'edit', $gDP['id']), array('escape' => false)); ?>
-				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'g_d_ps', 'action' => 'delete', $gDP['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $gDP['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</tbody>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New G D P'), array('controller' => 'g_d_ps', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 	</div>
 	</div><!-- end col md 12 -->
 </div>

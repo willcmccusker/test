@@ -63,7 +63,25 @@
 					<?php echo $this->Form->input('population', array('class' => 'form-control', 'placeholder' => 'Population'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Form->input('extent', array('class' => 'form-control', 'placeholder' => 'Extent'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('density', array('class' => 'form-control', 'placeholder' => 'Density'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('t1', array('class' => 'form-control', 'placeholder' => 'T1'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('t2', array('class' => 'form-control', 'placeholder' => 'T2'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('t3', array('class' => 'form-control', 'placeholder' => 'T3'));?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->input('photo_path', array('class' => 'form-control', 'placeholder' => 'Photo Path'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('flag_path', array('class' => 'form-control', 'placeholder' => 'Flag Path'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('p_d_f_path', array('class' => 'form-control', 'placeholder' => 'P D F Path'));?>
@@ -85,27 +103,6 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('data_set_id', array('class' => 'form-control', 'placeholder' => 'Data Set Id'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('urban_extent_t1_path', array('class' => 'form-control', 'placeholder' => 'Urban Extent T1 Path'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('urban_extent_t2_path', array('class' => 'form-control', 'placeholder' => 'Urban Extent T2 Path'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('urban_extent_t3_path', array('class' => 'form-control', 'placeholder' => 'Urban Extent T3 Path'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('urban_layout_arterial_roads_path', array('class' => 'form-control', 'placeholder' => 'Urban Layout Arterial Roads Path'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('urban_layout_medians_path', array('class' => 'form-control', 'placeholder' => 'Urban Layout Medians Path'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('urban_layout_locales_path', array('class' => 'form-control', 'placeholder' => 'Urban Layout Locales Path'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('urban_layout_blocks_path', array('class' => 'form-control', 'placeholder' => 'Urban Layout Blocks Path'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>

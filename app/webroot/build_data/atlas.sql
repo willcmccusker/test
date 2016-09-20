@@ -1,11 +1,30 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:3306
+-- Generation Time: Sep 14, 2016 at 04:07 PM
+-- Server version: 5.5.34-log
+-- PHP Version: 5.3.28
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+--
+-- Database: `atlas`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
 
 DROP TABLE IF EXISTS `cities`;
 CREATE TABLE `cities` (
@@ -17,7 +36,13 @@ CREATE TABLE `cities` (
   `latitude` decimal(7,4) NOT NULL,
   `longitude` decimal(7,4) NOT NULL,
   `population` int(11) NOT NULL,
+  `extent` int(11) NOT NULL,
+  `density` int(11) NOT NULL,
+  `t1` date NOT NULL,
+  `t2` date NOT NULL,
+  `t3` date NOT NULL,
   `photo_path` varchar(255) NOT NULL,
+  `flag_path` varchar(45) NOT NULL,
   `p_d_f_path` varchar(255) NOT NULL,
   `g_i_s_path` varchar(255) NOT NULL,
   `world_id` int(11) NOT NULL,
@@ -25,17 +50,16 @@ CREATE TABLE `cities` (
   `g_d_p_id` int(11) NOT NULL,
   `city_size_id` int(11) NOT NULL,
   `data_set_id` int(11) NOT NULL,
-  `urban_extent_t1_path` varchar(255) NOT NULL,
-  `urban_extent_t2_path` varchar(255) NOT NULL,
-  `urban_extent_t3_path` varchar(255) NOT NULL,
-  `urban_layout_arterial_roads_path` varchar(255) NOT NULL,
-  `urban_layout_medians_path` varchar(255) NOT NULL,
-  `urban_layout_locales_path` varchar(255) NOT NULL,
-  `urban_layout_blocks_path` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city_sizes`
+--
 
 DROP TABLE IF EXISTS `city_sizes`;
 CREATE TABLE `city_sizes` (
@@ -48,47 +72,106 @@ CREATE TABLE `city_sizes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_sets`
+--
+
 DROP TABLE IF EXISTS `data_sets`;
 CREATE TABLE `data_sets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `density_change_t1_t2` decimal(14,10) NOT NULL,
-  `density_change_t2_t3` decimal(14,10) NOT NULL,
-  `fragmentation_t1_t2` decimal(14,10) NOT NULL,
-  `fragmentation_t2_t3` decimal(14,10) NOT NULL,
-  `population_growth_t1_t2` decimal(14,10) NOT NULL,
-  `population_growth_t2_t3` decimal(14,10) NOT NULL,
-  `urban_expansion_a_t1_t2` decimal(14,10) NOT NULL,
-  `urban_expansion_a_t2_t3` decimal(14,10) NOT NULL,
-  `average_block_size_t1_t2` decimal(14,10) NOT NULL,
-  `average_block_size_t2_t3` decimal(14,10) NOT NULL,
-  `gridded_t1_t2` decimal(14,10) NOT NULL,
-  `gridded_t2_t3` decimal(14,10) NOT NULL,
-  `roads_and_boulevards_t1_t2` decimal(14,10) NOT NULL,
-  `roads_and_boulevards_t2_t3` decimal(14,10) NOT NULL,
-  `residential_planned_before_development_t1_t2` decimal(14,10) NOT NULL,
-  `residential_planned_before_development_t2_t3` decimal(14,10) NOT NULL,
-  `streets_less_than_4m_t1_t2` decimal(14,10) NOT NULL,
-  `streets_less_than_4m_t2_t3` decimal(14,10) NOT NULL,
-  `walking_distance_of_arterial_road_t1_t2` decimal(14,10) NOT NULL,
-  `walking_distance_of_arterial_road_t2_t3` decimal(14,10) NOT NULL,
-  `suburban_built_up_t1` decimal(10,2) NOT NULL,
-  `suburban_built_up_t2` decimal(10,2) NOT NULL,
-  `suburban_built_up_t3` decimal(10,2) NOT NULL,
-  `urban_built_up_t1` decimal(10,2) NOT NULL,
-  `urban_built_up_t2` decimal(10,2) NOT NULL,
-  `urban_built_up_t3` decimal(10,2) NOT NULL,
+  `population_t1` int(10) unsigned NOT NULL,
+  `population_t2` int(10) unsigned NOT NULL,
+  `population_t3` int(10) unsigned NOT NULL,
+  `population_change_t1_t2` decimal(5,2) NOT NULL,
+  `population_change_t2_t3` decimal(5,2) NOT NULL,
+  `urban_extent_composition_urban_t1` decimal(5,2) NOT NULL,
+  `urban_extent_composition_urban_t2` decimal(5,2) NOT NULL,
+  `urban_extent_composition_urban_t3` decimal(5,2) NOT NULL,
+  `urban_extent_composition_suburban_t1` decimal(5,2) NOT NULL,
+  `urban_extent_composition_suburban_t2` decimal(5,2) NOT NULL,
+  `urban_extent_composition_suburban_t3` decimal(5,2) NOT NULL,
+  `urban_extent_composition_rural_t1` decimal(5,2) NOT NULL,
+  `urban_extent_composition_rural_t2` decimal(5,2) NOT NULL,
+  `urban_extent_composition_rural_t3` decimal(5,2) NOT NULL,
+  `urban_extent_composition_open_t1` decimal(5,2) NOT NULL,
+  `urban_extent_composition_open_t2` decimal(5,2) NOT NULL,
+  `urban_extent_composition_open_t3` decimal(5,2) NOT NULL,
+  `urban_extent_change_t1_t2` decimal(5,2) NOT NULL,
+  `urban_extent_change_t2_t3` decimal(5,2) NOT NULL,
+  `density_built_up_t1` decimal(6,2) NOT NULL,
+  `density_built_up_t2` decimal(6,2) NOT NULL,
+  `density_built_up_t3` decimal(6,2) NOT NULL,
+  `density_built_up_change_t1_t2` decimal(5,2) NOT NULL,
+  `density_built_up_change_t2_t3` decimal(5,2) NOT NULL,
+  `density_urban_extent_t1` decimal(6,2) NOT NULL,
+  `density_urban_extent_t2` decimal(6,2) NOT NULL,
+  `density_urban_extent_t3` decimal(6,2) NOT NULL,
+  `density_urban_extent_change_t1_t2` decimal(5,2) NOT NULL,
+  `density_urban_extent_change_t2_t3` decimal(5,2) NOT NULL,
+  `roads_in_built_up_area_pre_1990` decimal(3,2) NOT NULL,
+  `roads_in_built_up_area_1990_2015` decimal(3,2) NOT NULL,
+  `roads_average_width_pre_1990` decimal(5,2) NOT NULL,
+  `roads_average_width_1990_2015` decimal(5,2) NOT NULL,
+  `roads_width_under_4m_pre_1990` decimal(3,2) NOT NULL,
+  `roads_width_under_4m_1990_2015` decimal(3,2) NOT NULL,
+  `roads_width_4_8m_pre_1990` decimal(3,2) NOT NULL,
+  `roads_width_4_8m_1990_2015` decimal(3,2) NOT NULL,
+  `roads_width_8_12m_pre_1990` decimal(3,2) NOT NULL,
+  `roads_width_8_12m_1990_2015` decimal(3,2) NOT NULL,
+  `roads_width_12_16m_pre_1990` decimal(3,2) NOT NULL,
+  `roads_width_12_16m_1990_2015` decimal(3,2) NOT NULL,
+  `roads_width_over_16m_pre_1990` decimal(3,2) NOT NULL,
+  `roads_width_over_16m_1990_2015` decimal(3,2) NOT NULL,
+  `arterial_roads_density_all_pre_1990` decimal(4,2) NOT NULL,
+  `arterial_roads_density_all_1990_2015` decimal(4,2) NOT NULL,
+  `arterial_roads_density_wide_pre_1990` decimal(4,2) NOT NULL,
+  `arterial_roads_density_wide_1990_2015` decimal(4,2) NOT NULL,
+  `arterial_roads_density_narrow_pre_1990` decimal(4,2) NOT NULL,
+  `arterial_roads_density_narrow_1990_2015` decimal(4,2) NOT NULL,
+  `arterial_roads_walking_all_pre_1990` decimal(4,2) NOT NULL,
+  `arterial_roads_walking_all_1990_2015` decimal(4,2) NOT NULL,
+  `arterial_roads_walking_wide_pre_1990` decimal(4,2) NOT NULL,
+  `arterial_roads_walking_wide_1990_2015` decimal(4,2) NOT NULL,
+  `arterial_roads_walking_narrow_pre_1990` decimal(4,2) NOT NULL,
+  `arterial_roads_walking_narrow_1990_2015` decimal(4,2) NOT NULL,
+  `arterial_roads_beeline_all_pre_1990` decimal(6,2) NOT NULL,
+  `arterial_roads_beeline_all_1990_2015` decimal(6,2) NOT NULL,
+  `arterial_roads_beeline_wide_pre_1990` decimal(6,2) NOT NULL,
+  `arterial_roads_beeline_wide_1990_2015` decimal(6,2) NOT NULL,
+  `arterial_roads_beeline_narrow_pre_1990` decimal(6,2) NOT NULL,
+  `arterial_roads_beeline_narrow_1990_2015` decimal(6,2) NOT NULL,
+  `blocks_plots_average_block_pre_1990` decimal(5,2) NOT NULL,
+  `blocks_plots_average_block_1990_2015` decimal(5,2) NOT NULL,
+  `blocks_plots_average_informal_plot_pre_1990` decimal(6,2) NOT NULL,
+  `blocks_plots_average_informal_plot_1990_2015` decimal(6,2) NOT NULL,
+  `blocks_plots_average_formal_plot_pre_1990` decimal(6,2) NOT NULL,
+  `blocks_plots_average_formal_plot_1990_2015` decimal(6,2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=220 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `g_d_ps`
+--
 
 DROP TABLE IF EXISTS `g_d_ps`;
 CREATE TABLE `g_d_ps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `slug` varchar(45) NOT NULL,
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `regions`
+--
 
 DROP TABLE IF EXISTS `regions`;
 CREATE TABLE `regions` (
@@ -101,6 +184,12 @@ CREATE TABLE `regions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -108,7 +197,13 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `worlds`
+--
 
 DROP TABLE IF EXISTS `worlds`;
 CREATE TABLE `worlds` (

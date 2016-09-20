@@ -95,9 +95,51 @@
 		</td>
 </tr>
 <tr>
+		<th><?php echo __('Extent'); ?></th>
+		<td>
+			<?php echo h($city['City']['extent']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Density'); ?></th>
+		<td>
+			<?php echo h($city['City']['density']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('T1'); ?></th>
+		<td>
+			<?php echo h($city['City']['t1']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('T2'); ?></th>
+		<td>
+			<?php echo h($city['City']['t2']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('T3'); ?></th>
+		<td>
+			<?php echo h($city['City']['t3']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
 		<th><?php echo __('Photo Path'); ?></th>
 		<td>
 			<?php echo h($city['City']['photo_path']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Flag Path'); ?></th>
+		<td>
+			<?php echo h($city['City']['flag_path']); ?>
 			&nbsp;
 		</td>
 </tr>
@@ -151,55 +193,6 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Urban Extent T1 Path'); ?></th>
-		<td>
-			<?php echo h($city['City']['urban_extent_t1_path']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Urban Extent T2 Path'); ?></th>
-		<td>
-			<?php echo h($city['City']['urban_extent_t2_path']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Urban Extent T3 Path'); ?></th>
-		<td>
-			<?php echo h($city['City']['urban_extent_t3_path']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Urban Layout Arterial Roads Path'); ?></th>
-		<td>
-			<?php echo h($city['City']['urban_layout_arterial_roads_path']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Urban Layout Medians Path'); ?></th>
-		<td>
-			<?php echo h($city['City']['urban_layout_medians_path']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Urban Layout Locales Path'); ?></th>
-		<td>
-			<?php echo h($city['City']['urban_layout_locales_path']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Urban Layout Blocks Path'); ?></th>
-		<td>
-			<?php echo h($city['City']['urban_layout_blocks_path']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
 		<th><?php echo __('Created'); ?></th>
 		<td>
 			<?php echo h($city['City']['created']); ?>
@@ -209,7 +202,7 @@
 <tr>
 		<th><?php echo __('Modified'); ?></th>
 		<td>
-			<?php echo $this->Time->niceShort($city['City']['modified']); ?>
+			<?php echo h($city['City']['modified']); ?>
 			&nbsp;
 		</td>
 </tr>

@@ -38,6 +38,7 @@ public function beforeSave($options = array()) {
 			));
 		if(!empty($user)){
 			$this->delete($user["User"]["id"]);
+			$user = array();
 		}
 
 		if(empty($user)){

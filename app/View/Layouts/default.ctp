@@ -26,13 +26,7 @@
 		echo $this->Html->css('/dist/css/style.css');
 		echo $this->Html->script('/dist/js/app.min.js');
 ?>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-		  google.charts.load('current', {packages: ['corechart']});
-        // google.charts.load('current', {'packages':['bar']});
-
-  google.charts.setOnLoadCallback(googleChartsReady);
-</script>
+<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><script type="text/javascript">google.charts.load('current', {packages: ['corechart']});google.charts.setOnLoadCallback(googleChartsReady);</script> -->
 <?
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -40,14 +34,9 @@
 
 	?>
 </head>
-<body>
-	<? echo $this->element("header"); ?>
-	<div id="container" class='grid'>
-		<div id="content" class='col-1-1'>
-			<?php echo $this->fetch('content'); ?>
-		</div>
-	</div>
-	 <? 
-	 // echo $this->element('sql_dump'); ?>
+<body><? 
+	echo $this->element("header");
+	echo $this->fetch('content');
+// echo $this->element('sql_dump'); ?>
 </body>
 </html>
