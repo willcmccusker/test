@@ -47,7 +47,7 @@ $(document).ready(function(){
 			switch(controller){
 				case("index"):
 					//filter list
-					var cityList = new List('cityList', {valueNames: [ 'city', 'region' ]});
+					var cityList = new List('cityList', {valueNames: ['country', 'city', 'region' ], sortFunction: sortCities});
 				break;
 				case("data"):
 					//table
@@ -99,6 +99,11 @@ $(document).ready(function(){
 	console.log(controller);
 });
 
+var sortCities = function(a, b, c){
+	console.log(a);
+	console.log(b);
+	console.log(c);
+};
 
 
 var makeStacked = function(prefix, city, vert){
@@ -297,7 +302,7 @@ var makeLine = function(prefix, city){
 				yAxes : [{
 					ticks: {
 						min : 0,
-						max : Math.floor((max + min)/log) * log,
+						max : Math.ceil((max + min)/log) * log,
 						callback: function(value, index, values) {
 							if(parseInt(value) > 1000){
 								return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
