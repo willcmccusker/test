@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Sep 14, 2016 at 04:07 PM
+-- Generation Time: Sep 21, 2016 at 05:15 PM
 -- Server version: 5.5.34-log
 -- PHP Version: 5.3.28
 
@@ -26,8 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `cities`
 --
 
-DROP TABLE IF EXISTS `cities`;
-CREATE TABLE `cities` (
+CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `cityid` int(11) NOT NULL,
@@ -61,8 +60,7 @@ CREATE TABLE `cities` (
 -- Table structure for table `city_sizes`
 --
 
-DROP TABLE IF EXISTS `city_sizes`;
-CREATE TABLE `city_sizes` (
+CREATE TABLE IF NOT EXISTS `city_sizes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `number` int(11) NOT NULL,
@@ -70,7 +68,7 @@ CREATE TABLE `city_sizes` (
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -78,8 +76,7 @@ CREATE TABLE `city_sizes` (
 -- Table structure for table `data_sets`
 --
 
-DROP TABLE IF EXISTS `data_sets`;
-CREATE TABLE `data_sets` (
+CREATE TABLE IF NOT EXISTS `data_sets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `population_t1` int(10) unsigned NOT NULL,
   `population_t2` int(10) unsigned NOT NULL,
@@ -149,7 +146,7 @@ CREATE TABLE `data_sets` (
   `blocks_plots_average_formal_plot_pre_1990` decimal(6,2) NOT NULL,
   `blocks_plots_average_formal_plot_1990_2015` decimal(6,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=220 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=210 ;
 
 -- --------------------------------------------------------
 
@@ -157,8 +154,7 @@ CREATE TABLE `data_sets` (
 -- Table structure for table `g_d_ps`
 --
 
-DROP TABLE IF EXISTS `g_d_ps`;
-CREATE TABLE `g_d_ps` (
+CREATE TABLE IF NOT EXISTS `g_d_ps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `slug` varchar(45) NOT NULL,
@@ -173,8 +169,7 @@ CREATE TABLE `g_d_ps` (
 -- Table structure for table `regions`
 --
 
-DROP TABLE IF EXISTS `regions`;
-CREATE TABLE `regions` (
+CREATE TABLE IF NOT EXISTS `regions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `abbreviation` varchar(5) NOT NULL,
@@ -187,17 +182,31 @@ CREATE TABLE `regions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `texts`
+--
+
+CREATE TABLE IF NOT EXISTS `texts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) NOT NULL,
+  `content` text NOT NULL,
+  `slug` varchar(45) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -205,8 +214,7 @@ CREATE TABLE `users` (
 -- Table structure for table `worlds`
 --
 
-DROP TABLE IF EXISTS `worlds`;
-CREATE TABLE `worlds` (
+CREATE TABLE IF NOT EXISTS `worlds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `year` int(11) NOT NULL,
   `data_set_id` int(11) NOT NULL,
