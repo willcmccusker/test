@@ -17,22 +17,24 @@ class DataSet extends AppModel {
 	public function import(){
 
 
-		$sql = file_get_contents( APP . '/webroot/build_data/atlas.sql');
-		$this->query($sql);
-         
-        $this->User = ClassRegistry::init('User');
-		$this->User->begin();
+
 
 		$row = 0;
 		$filename = APP . "/webroot/build_data/data.csv";
 		if (($handle = fopen($filename, "r")) !== FALSE) {
 
-			$this->query('TRUNCATE data_sets;');
-			$this->query('TRUNCATE cities;');
-			$this->query('TRUNCATE city_sizes;');
-			$this->query('TRUNCATE g_d_ps;');
-			$this->query('TRUNCATE regions;');
-			$this->query('TRUNCATE worlds;');
+			$this->query('DROP TABLE data_sets;');
+			$this->query('DROP TABLE cities;');
+			$this->query('DROP TABLE city_sizes;');
+			$this->query('DROP TABLE g_d_ps;');
+			$this->query('DROP TABLE regions;');
+			$this->query('DROP TABLE worlds;');
+			
+			$sql = file_get_contents( APP . '/webroot/build_data/atlas.sql');
+			$this->query($sql);
+	         
+	        $this->User = ClassRegistry::init('User');
+			$this->User->begin();
 
 			$citySizes = array();
 			$GDPs = array();
