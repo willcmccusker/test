@@ -1,5 +1,5 @@
 
-$max-width : 1080px;
+$max-width : 100vw;
 $padding : 20px;
 $mobile-padding : 10px;
 $mobile-max-width : 767px;
@@ -9,28 +9,98 @@ $tablet-max-width : 950px;
 
 $grey : lightgrey;
 $lightgrey : #F0F0F0;
+$bodytype : #666666;
+$detail : #999999;
 
 @import "functions";
 @import "grid";
 @import "tiny-autocomplete";
 
+@font-face {
+	font-family: 'DINNextLTProRegular';
+	src: url('/fonts/DINNextLTPro-Regular.eot');
+	src: url('/fonts/DINNextLTPro-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Regular.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINNextLTProLight';
+	src: url('/fonts/DINNextLTPro-Light.eot');
+	src: url('/fonts/DINNextLTPro-Light.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Light.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINNextLTProMedium';
+	src: url('/fonts/DINNextLTPro-Medium.eot');
+	src: url('/fonts/DINNextLTPro-Medium.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Medium.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINNextLTProUltraLight';
+	src: url('/fonts/DINNextLTPro-UltraLight.eot');
+	src: url('/fonts/DINNextLTPro-UltraLight.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-UltraLight.woff') format('woff'),
+		url('/fonts/DINNextLTPro-UltraLight.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Akkurat';
+	src: url('/fonts/Akkurat.eot');
+	src: url('/fonts/Akkurat.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Akkurat.woff') format('woff'),
+		url('/fonts/Akkurat.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 // @import "plottable";
 //@import "chartist";
 
 body{
-	font-family: arial;
+	font-family: 'DINNextLTProLight';
 	padding:0;
 	margin:0;
 	line-height:1.5;
+	color: $bodytype;
 }
 *{
 	box-sizing: border-box;
+}
+a {
+	color:$bodytype;
 }
 
 .display-none{
 	display:none;
 }
 
+ul.cityNav li a, .header a {
+	text-decoration:none;
+}
+
+
+.header {
+	padding-top:5px;
+}
+
+.countryName, .regionName {
+	border-bottom:1px solid #ccc;
+}
 
 .cityheader{
 	padding-left:5px;
@@ -38,6 +108,38 @@ body{
 .citylist{
 	padding-left:40px;
 }
+
+ul {
+	padding:0;
+	margin:0;
+}
+
+ul#headerMenu li {
+	list-style-type:none;
+	padding:0 10px;
+	margin:0;
+	float:left;
+}
+
+.cityNavHeader {
+	font-family:"DINNextLTProRegular";
+}
+
+ul.cityNav {
+	float:left;
+	margin-right:50px;
+}
+
+ul.cityNav li {
+	list-style-type:none;
+	padding:0 0px;
+	margin:0;
+}
+
+ul.cityNav li a {
+	cursor: pointer;
+}
+
 ul.list{
 	list-style-type: none;
  @include xPrefix(columns, 3);
@@ -59,11 +161,21 @@ table th{
 
 
 .h1{
-	font-size:48px;
+	font-size:64px;
+	font-family:"Akkurat";
+}
+
+h1#site-title {
+	font-family:"DINNextLTProRegular";
+	font-size:16px;
+	padding:0;
+	margin:0;
 }
 
 .h2{
-	font-size:24px;
+	font-size:22px;
+	font-family:"DINNextLTProLight";
+	color:#4b4b4;
 }
 
 
@@ -74,24 +186,12 @@ table th{
 	background-color: $lightgrey;
 }
 
-
 .cityHeader{
-	color:white;
 	position:relative;
-	text-align:center;
+	min-height:100vh;
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
-	min-height:50vh;
-	table{
-		margin:auto;
-	}
-	*{
-		z-index:2;
-	}
-	a, a:hover, a:active, a:visited{
-		color: white;
-	}
 }
 .cityHeader:after{
 	content: "";
@@ -100,9 +200,31 @@ table th{
 	left:0px;
 	width:100%;
 	height:100%;
-	background-color: black;
-	opacity:0.2;
 	z-index:1;
+}
+
+.cityImage img {
+	width:33vw;
+	position:absolute;
+	right:0px;
+}
+
+.graphSection {
+	margin-bottom:180px;
+}
+
+.graphMainContainer {
+	background-color: #2d2d2d;
+	}
+.sectionHeader {
+	font-size:36px;
+	font-family:"DINNextLTProUltraLight";
+	border-bottom: 1px solid #3f3f3f;
+	padding-top:20px;
+}
+
+.sectionText {
+	color:$detail;
 }
 
 .city-graphic{
@@ -141,3 +263,40 @@ table th{
 	}
 }
 
+.map-placeholder {
+	width:100%;
+	background-color:#292929;
+	}
+
+.citySummaryTable {
+	font-size:30px;
+	font-family:"DINNextLTProUltraLight";
+}
+
+.cityNavContainer {
+	position:absolute;
+	bottom:100px;
+}
+
+.table-label {
+	padding-right:30px;
+}
+
+.tableSmallText {
+	font-size:18px;
+}
+
+.flag {
+	display:none;
+}
+
+.align-right {
+	text-align: right
+}
+
+.container-1 input#search{
+  width: 50%;
+  height: 30px;
+  border: none;
+  font-size: 10pt;
+}
