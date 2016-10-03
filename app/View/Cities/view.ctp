@@ -98,11 +98,11 @@
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 							zoom: 11
 						});
-						var outline = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
-						var urban = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
-						var suburban = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
-						var rural = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
-						var openSpace = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
+						var outline = L.tileLayer('/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+						var urban = L.tileLayer('/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
+						var suburban = L.tileLayer('/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
+						var rural = L.tileLayer('/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
+						var openSpace = L.tileLayer('/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
 
 						$('.layerToggle').change(function() {
 							var layer = eval($(this).prop('name'));
