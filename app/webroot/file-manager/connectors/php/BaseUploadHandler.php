@@ -137,6 +137,7 @@ class BaseUploadHandler
                     'auto_orient' => true
                 ),
                 // Uncomment the following to create medium sized images:
+
                 'medium' => array(
                     'max_width' => 800,
                     'max_height' => 600,
@@ -151,6 +152,7 @@ class BaseUploadHandler
                     //'upload_url' => $this->get_full_url().'/thumb/',
                     // Uncomment the following to force the max
                     // dimensions and e.g. create square thumbnails:
+
                     'crop' => true,
                     'max_width' => 80,
                     'max_height' => 80

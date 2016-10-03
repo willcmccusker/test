@@ -57,6 +57,7 @@ class LocalUploadHandler extends BaseUploadHandler
                 'max_height' => $images['thumbnail']['maxHeight'],
             );
         }
+
         // image medium settings
         if(isset($images['medium']) && $images['medium']['enabled'] === true) {
             $this->options['image_versions']['medium'] = array(
@@ -86,7 +87,6 @@ class LocalUploadHandler extends BaseUploadHandler
                 $this->destroy_image_object($file_path);
             }
         }
-        die("??");
     }
 
     public function create_thumbnail_image($image_path)

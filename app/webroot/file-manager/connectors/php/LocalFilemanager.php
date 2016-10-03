@@ -91,6 +91,7 @@ class LocalFilemanager extends BaseFilemanager
 		$data = array(
 			'images_only' => $this->config['upload']['imagesOnly'] || (isset($this->refParams['type']) && strtolower($this->refParams['type'])=='images'),
 		) + $settings;
+
 		if(isset($data['upload_dir'])) {
 			$data['thumbnails_dir'] = rtrim($this->get_thumbnail_path($data['upload_dir']), '/');
 			$data['mediums_dir'] = rtrim($this->get_medium_path($data['upload_dir']), '/');
@@ -592,11 +593,13 @@ class LocalFilemanager extends BaseFilemanager
 	/**
 	 * @inheritdoc
 	 */
+
 	public function getimage($size)
 	{
 		$current_path = $this->getFullPath($this->get['path'], true);
 
 		Log::info('loading image "' . $current_path . '"');
+
 
 		// if $size is set to true we return the thumbnail
 		if($size === "thumbnail" && $this->config['images']['thumbnail']['enabled'] === true) {
