@@ -67,7 +67,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="population" class='sectionSubHeader h2'>Population</div>
-				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
+				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<canvas id='population_line' class='city-graphic' data-title="Population" height="200px"></canvas>
@@ -81,7 +81,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div class='sectionSubHeader h2' id='urban_extent'>Urban Extent</div>
-				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
+				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<div id='urban_extent_t1_map' class='city-graphic'></div>
@@ -117,7 +117,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div class='sectionSubHeader h2' id='density'>Density</div>
-				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
+				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<canvas id='density_built_up_line' class='city-graphic' data-title='Built-up Area Density'></canvas>
@@ -141,7 +141,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div class='sectionSubHeader h2' id='composition_of_added_area'>Composition of Added Area</div>
-				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
+				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 				</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<div id='composition_t1_t2_map' class='city-graphic'></div>
@@ -164,7 +164,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div class='sectionSubHeader h2' id='roads'>Roads</div>
-				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
+				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<div id='roads_map' class='city-graphic'></div>
@@ -189,7 +189,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div class='sectionSubHeader h2' id='arterial_roads'>Arterial Roads</div>
-				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
+				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<div id='arterial_map' class='city-graphic'></div>
@@ -214,7 +214,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div class='sectionSubHeader h2' id='blocks_and_plots'>Blocks and Plots</div>
-				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
+				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<div id='blocks_map' class='city-graphic'></div>
