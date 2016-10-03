@@ -1,40 +1,211 @@
 
-$max-width : 960px;
-$padding : 20px;
-$mobile-padding : 10px;
+$max-width : 1080px;
+$max-width-wide : 1920px;
+$padding : 50px;
+$mobile-padding : 20px;
 $mobile-max-width : 767px;
 $tablet-min-width : 768px;
 $tablet-max-width : 950px;
 
+/*type color variables */
 
-$grey : lightgrey;
-$lightgrey : #F0F0F0;
+$lightgrey : #333333;
+$lightgrey2 : #F0F0F0;
+$lightgrey3 :  #f5f5f5;
+$bodytype : #666666;
+
+/*border color variables */
+
+$border-lightgrey : #d6d6d6;
+$border-darkgrey : #333333;
+
+/*type size variables */
+
+$smalltype : 8px;
+$regulartype : 12px;
+$largetype : 16px;
+$largetype2 : 22px;
+$largetype3 : 36px;
+$largetype4 : 64px;
 
 @import "functions";
 @import "grid";
 @import "tiny-autocomplete";
 
+@font-face {
+	font-family: 'DINNextLTProRegular';
+	src: url('/fonts/DINNextLTPro-Regular.eot');
+	src: url('/fonts/DINNextLTPro-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Regular.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINNextLTProLight';
+	src: url('/fonts/DINNextLTPro-Light.eot');
+	src: url('/fonts/DINNextLTPro-Light.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Light.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINNextLTProMedium';
+	src: url('/fonts/DINNextLTPro-Medium.eot');
+	src: url('/fonts/DINNextLTPro-Medium.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Medium.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINNextLTProUltraLight';
+	src: url('/fonts/DINNextLTPro-UltraLight.eot');
+	src: url('/fonts/DINNextLTPro-UltraLight.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-UltraLight.woff') format('woff'),
+		url('/fonts/DINNextLTPro-UltraLight.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Akkurat';
+	src: url('/fonts/Akkurat.eot');
+	src: url('/fonts/Akkurat.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Akkurat.woff') format('woff'),
+		url('/fonts/Akkurat.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 // @import "plottable";
 //@import "chartist";
 
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
 body{
-	font-family: arial;
-	padding:0;
-	margin:0;
+	font-family: 'DINNextLTProLight';
 	line-height:1.5;
+	color: $bodytype;
 }
 *{
 	box-sizing: border-box;
 }
-
-
-.cityheader{
-	padding-left:5px;
+a {
+	color:$bodytype;
+	text-decoration: none;
 }
-.citylist{
-	padding-left:40px;
+
+.display-none{
+	display:none;
+}
+
+.text-align-center{
+	text-align: center;
+}
+.text-align-right{
+	text-align:right;
+}
+
+.header {
+	padding-top:5px;
+}
+
+.countryName, .regionName {
+	border-bottom:1px solid #ccc;
+}
+
+.headerMenu {
+	li {
+	list-style-type:none;
+	padding:0 10px;
+	margin:0;
+	float:left;
+	}
+}
+
+.cityNavHeader {
+	font-family:"DINNextLTProRegular";
+}
+
+.cityNav {
+	// position:absolute;
+	// bottom:100px;
+	ul {
+	margin-right:50px;
+	}
+	li {
+	list-style-type:none;
+	padding:0 0px;
+	margin:0;
+	float:left;
+	}
+	a {
+	cursor: pointer;
+	}
 }
 ul.list{
+	list-style-type: none;
  @include xPrefix(columns, 3);
 }
 @for $i from 1 through 8{
@@ -47,47 +218,34 @@ ul.list{
 }
 
 
-
 table th{
 	cursor: pointer;
 }
 
-
 .h1{
-	font-size:48px;
+	font-size:$largetype4;
+	font-family:"Akkurat";
+	color:#000;
+}
+
+h1#site-title {
+	font-family:"DINNextLTProRegular";
+	font-size:16px;
 }
 
 .h2{
-	font-size:24px;
+	font-family:"DINNextLTProLight";
+	font-size:$largetype2;
 }
-
-
-.grey-bg{
-	background-color: $grey;
-}
-.lightgrey-bg{
-	background-color: $lightgrey;
-}
-
 
 .cityHeader{
-	color:white;
 	position:relative;
-	text-align:center;
+	min-height:100vh;
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
-	min-height:50vh;
-	table{
-		margin:auto;
-	}
-	*{
-		z-index:2;
-	}
-	a, a:hover, a:active, a:visited{
-		color: white;
-	}
 }
+/*
 .cityHeader:after{
 	content: "";
 	position:absolute;
@@ -95,9 +253,33 @@ table th{
 	left:0px;
 	width:100%;
 	height:100%;
-	background-color: black;
-	opacity:0.2;
 	z-index:1;
+} */
+
+.cityImage img {
+	width:100%;
+	position:absolute;
+	padding-right: #{$padding/2};
+	right:0px;
+}
+
+.graphSection {
+	margin-bottom:180px;
+}
+
+.graphMainContainer {
+	background-color: $lightgrey3;
+}
+
+.sectionHeader {
+	font-size:$largetype3;
+	font-family:"DINNextLTProUltraLight";
+	border-bottom: 1px solid #3f3f3f;
+	padding-top:20px;
+}
+
+.sectionText {
+	color:$lightgrey;
 }
 
 .city-graphic{
@@ -105,10 +287,6 @@ table th{
 	// padding:20px;
 	// min-height:450px;
 }
-
-
-
-
 
 
 
@@ -136,10 +314,66 @@ table th{
 	}
 }
 
+<<<<<<< HEAD
 #worldmap{
 	position:absolute;
 	top:30px;
 	bottom:0;
 	left:0;
 	width:100%
+}
+=======
+.map-placeholder {
+	width:100%;
+	background-color:#292929;
+	}
+
+.citySummaryTable {
+	font-size:30px;
+	font-family:"DINNextLTProUltraLight";
+}
+
+.table-label {
+	padding-right:30px;
+}
+
+.tableSmallText {
+	font-size:18px;
+}
+
+.flag img{
+	// display:none;
+	width:100px;
+}
+
+.align-right {
+	text-align: right
+}
+
+/* Search */
+
+.searchbox input#search{
+  width: 50%;
+  height: 30px;
+  border: none;
+  font-size: 10pt;
+  text-align:right;
+}
+
+/* Data Page */
+
+#data-table {
+	width:100%;
+}
+
+#data-table th, #data-table td {
+	padding:5px 15px 20px 2px;
+	border-bottom: 1px solid $border-lightgrey;
+	text-align: left;
+}
+
+#cityList h3 {
+	padding: 25px 0 0px 0;
+	margin:0 0 10px 0;
+	border-bottom: 1px solid $border-darkgrey;
 }

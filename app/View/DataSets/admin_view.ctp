@@ -9,29 +9,8 @@
 
 	<div class="row">
 
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading"><?php echo __('Actions'); ?></div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit Data Set'), array('action' => 'edit', $dataSet['DataSet']['id']), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete Data Set'), array('action' => 'delete', $dataSet['DataSet']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $dataSet['DataSet']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Data Sets'), array('action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Data Set'), array('action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Cities'), array('controller' => 'cities', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New City'), array('controller' => 'cities', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List City Sizes'), array('controller' => 'city_sizes', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New City Size'), array('controller' => 'city_sizes', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Regions'), array('controller' => 'regions', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Region'), array('controller' => 'regions', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Worlds'), array('controller' => 'worlds', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New World'), array('controller' => 'worlds', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div><!-- end body -->
-				</div><!-- end panel -->
-			</div><!-- end actions -->
-		</div><!-- end col md 3 -->
+				<?echo $this->Element("menu");?>
+
 
 		<div class="col-md-9">			
 			<table cellpadding="0" cellspacing="0" class="table table-striped">

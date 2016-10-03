@@ -12,23 +12,32 @@
 			<button class="sort" data-sort="region">
 				Sort by region
 			</button> -->
-			
 			<ul class='list'>
+<!-- 			<div class='list grid'> -->
+			<!-- <div class='col-1-3 tab-1-2 mob-1-1'> -->
+		<?$i = 0;
+		$region = false;
+		foreach($cities as $city):
+			if($region != $city["Region"]["name"]){
+				// echo $i == 2  || $i == 5 ? "</div>" : "";
+				// echo $i == 2 ? "<div class='col-1-3 tab-1-2 mob-1-1'>" : ($i == 5 ? "<div class='col-1-3 tab-1-1 mob-1-1'>" : "");
+				$i++;
+				$region = $city["Region"]["name"];
+			}?>
 
-		<?$i = 0;$region = false;foreach($cities as $city):if($region != $city["Region"]["name"]){$i++;$region = $city["Region"]["name"];}?>
-
-			<li class='region-<?=$i;?>'>
+			<div class='region-<?=$i;?>'>
+				<div class='display-none country'><?=$city["City"]["country"];?></div> 
 				<h3 class='region '><?=$region;?></h3>
 				<div class='city'>
 					<a href='/cities/view/<?=$city["City"]["slug"];?>'>
 						<?=$city["City"]["name"];?> — <?=$city["City"]["country"];?>
 					</a>
 				</div>
-			</li>
+			</div>
 
 		<?endforeach;?>
-
-			</ul>
+		</ul>
+<!-- 			</div> -->
 
 		</div>
 	</div>

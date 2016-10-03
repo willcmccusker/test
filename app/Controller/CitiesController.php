@@ -106,7 +106,11 @@ class CitiesController extends AppController {
 			default:
 			usort($cities, function($a, $b) {
 				if($a["Region"]["name"] == $b["Region"]["name"]){
-				    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
+					if($a["City"]["country"] == $b["City"]["country"]){
+					    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
+					}else{
+					    return strcasecmp($a["City"]["country"], $b["City"]["country"]);
+					}
 				}else{
 				    return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
 				}

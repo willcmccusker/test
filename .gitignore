@@ -11,7 +11,10 @@
 *.mo
 
 /app/webroot/photos
-/app/webroot/file-manager
+/app/webroot/file-manager/*
+!/app/webroot/file-manager/connectors/
+/app/webroot/file-manager/connectors/*
+!/app/webroot/file-manager/connectors/php/
 /userfiles
 /app/webroot/bower_components
 

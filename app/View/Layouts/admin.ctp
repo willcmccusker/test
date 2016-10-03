@@ -18,7 +18,7 @@ $cakeDescription = __d('cake_dev', 'Atlas');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -31,10 +31,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		// echo $this->Html->css('cake.generic');
 		echo $this->Html->css('admin');
 		echo $this->Html->css('bootstrap3.min');
+		echo $this->Html->css('/summernote/summernote');
 		// echo $this->Html->css('bootstrap-responsive.min'); 
 
 		echo $this->Html->script('jquery-3.1.0.min');
 		echo $this->Html->script('bootstrap3.min');
+		echo $this->Html->script('/summernote/summernote.min');
 		echo $this->Html->script("admin.js");
 
 		echo $this->fetch('meta');
@@ -61,6 +63,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		</div>
 	</div>
 	<?php 
-	echo $this->element('sql_dump'); ?>
+	// echo $this->element('sql_dump'); ?>
 </body>
 </html>
