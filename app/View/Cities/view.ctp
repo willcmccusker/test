@@ -83,7 +83,7 @@
 				<div class='sectionSubHeader h2' id='urban_extent'>Urban Extent</div>
 				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 			</div>
-			<div class='col-2-5 mob-1-1'>
+			<div class='col-4-5 mob-1-1'>
 				<ul>
 					<li> <label><input class="layerToggle" type="checkbox" name="urban"/> urban </label>
 					<li> <label><input class="layerToggle" type="checkbox" name="suburban"/> suburban </label>
@@ -115,31 +115,18 @@
 					</script>
 				</div>
 			</div>
-			<div class='col-2-5 mob-1-1'>
-				<div id='urban_extent_t2_map' class='city-graphic'></div>
-				<canvas class='map-placeholder'></canvas>
-			</div>
 		</div>
 		<div class='grid wide'>
 			<div class='col-1-5 mob-1-1'>
-			</div>
-			<div class='col-2-5 mob-1-1'>
-				<div id='urban_extent_t3_map' class='city-graphic'></div>
-				<canvas class='map-placeholder'></canvas>
 			</div>
 			<div class='col-2-5 mob-1-1'>
 				<canvas id='urban_extent_composition_stacked_bar' class='city-graphic' data-title="Urban Composition"></canvas>
-			</div>
-		</div>
-		<div class='grid wide'>
-			<div class='col-1-5 mob-1-1'>
-			</div>
-			<div class='col-2-5 mob-1-1'>
 			</div>
 			<div class='col-2-5 mob-1-1'>
 				<canvas id='urban_extent_change_bar' class='city-graphic' data-title="Avg. Annual % Change"></canvas>
 			</div>
 		</div>
+		
 	</div>
 	<div class='graphSection'>
 		<div class='grid wide'>
