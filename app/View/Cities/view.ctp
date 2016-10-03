@@ -3,13 +3,13 @@
 </script>
 <div class='cityHeader'>
 	<div class='grid'>
-		<div class='col-2-3'>
+		<div class='col-2-3 mob-1-1'>
 			<div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div>
 			<div class='h1'><?= $city["City"]["name"];?></div>
 			<div class="countryName"><?= $city["City"]["country"];?></div>
 			<div class="regionName"><?= $city["Region"]["name"];?></div>
 		</div>
-		<div class='col-1-3'>
+		<div class='col-1-3 mob-1-1'>
 			<div class="cityImage"><img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";></div>
 		</div>
 	</div>
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	<div class='grid cityNav'>
-		<div class='col-2-3'>
+		<div class='col-2-3 mob-1-1'>
 			<ul>
 			<div class="cityNavHeader">Areas and Densities</div>
 				<li><?= $this->Html->link("Population", "#population", array("class"=>"navJump"));?></li>
@@ -49,7 +49,7 @@
 				<li><?= $this->Html->link("Blocks and Plots", "#blocks_and_plots", array("class"=>"navJump"));?></li>
 			</ul>
 		</div>
-		<div class='col-1-3'></div>
+		<div class='col-1-3 mob-1-1'></div>
 	</div>
 </div>
 <div class='graphMainContainer'>
@@ -62,7 +62,7 @@
 </div>
 <div class='graphSection'>
 <div class='grid wide'>
-	<div class='col-1-5'>
+	<div class='col-1-5 mob-1-1'>
 		<div id="population" class='sectionSubHeader h2'>Population</div>
 		<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 	</div>
@@ -76,7 +76,7 @@
 </div>
 <div class='graphSection'>
 	<div class='grid wide'>
-		<div class='col-1-5'>
+		<div class='col-1-5 mob-1-1'>
 			<div class='sectionSubHeader h2' id='urban_extent'>Urban Extent</div>
 			<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 		</div>
@@ -112,7 +112,7 @@
 </div>
 <div class='graphSection'>
 <div class='grid wide'>
-	<div class='col-1-5'>
+	<div class='col-1-5 mob-1-1'>
 		<div class='sectionSubHeader h2' id='density'>Density</div>
 		<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 	</div>
@@ -136,7 +136,7 @@
 </div>
 <div class='graphSection'>
 	<div class='grid wide'>
-		<div class='col-1-5'>
+		<div class='col-1-5 mob-1-1'>
 			<div class='sectionSubHeader h2' id='composition_of_added_area'>Composition of Added Area</div>
 			<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 			</div>
@@ -152,14 +152,14 @@
 </div>
 <div class='section-header'>
 	<div class='grid'>
-		<div class='col-3-3'>
+		<div class='col-1-1'>
 			<div class='sectionHeader'>Blocks and Roads</div>
 		</div>
 	</div>
 </div>
 <div class='graphSection'>
 <div class='grid wide'>
-	<div class='col-1-5'>
+	<div class='col-1-5 mob-1-1'>
 		<div class='sectionSubHeader h2' id='roads'>Roads</div>
 		<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 	</div>
@@ -184,7 +184,7 @@
 </div>
 <div class='graphSection'>
 	<div class='grid wide'>
-		<div class='col-1-5'>
+		<div class='col-1-5 mob-1-1'>
 			<div class='sectionSubHeader h2' id='arterial_roads'>Arterial Roads</div>
 			<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 		</div>
@@ -209,7 +209,7 @@
 </div>
 <div class='graphSection'>
 <div class='grid wide'>
-	<div class='col-1-5'>
+	<div class='col-1-5 mob-1-1'>
 		<div class='sectionSubHeader h2' id='blocks_and_plots'>Blocks and Plots</div>
 		<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 	</div>
