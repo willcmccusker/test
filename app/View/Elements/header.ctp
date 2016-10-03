@@ -1,5 +1,5 @@
 
-<div class='grid header'>
+<div class='grid wide header'>
 	<div class='col-1-3 mob-1-1'>
 		<h1 id="site-title"><?= $this->Html->link("The Atlas of Urban Expansion", array("controller"=>"/"));?></h1>
 	</div>
