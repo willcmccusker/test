@@ -10,6 +10,7 @@ $tablet-max-width : 950px;
 /*type color variables */
 
 $lightgrey : #333333;
+$lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
 $lightgrey3 :  #f5f5f5;
 $bodytype : #666666;
@@ -279,7 +280,7 @@ h1#site-title {
 }
 
 .sectionText {
-	color:$lightgrey;
+	color:$lightgrey1;
 }
 
 .city-graphic{
