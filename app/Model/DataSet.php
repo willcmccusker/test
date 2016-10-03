@@ -31,7 +31,6 @@ class DataSet extends AppModel {
 			
 			$sql = file_get_contents( APP . '/webroot/build_data/atlas.sql');
 			$this->query($sql);
-	         die("?");
 	        $this->User = ClassRegistry::init('User');
 			$this->User->begin();
 
