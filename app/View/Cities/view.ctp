@@ -2,7 +2,7 @@
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
 <div class='cityHeader'>
-	<div class='grid'>
+	<div class='grid wide'>
 		<div class='col-2-3 mob-1-1'>
 			<div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div>
 			<div class='h1'><?= $city["City"]["name"];?></div>
@@ -13,7 +13,7 @@
 			<div class="cityImage"><img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";></div>
 		</div>
 	</div>
-	<div class='grid'>
+	<div class='grid wide'>
 		<div class='col-1-1'>
 			<table class='citySummaryTable'>
 				<tr>
@@ -33,7 +33,7 @@
 			</table>
 		</div>
 	</div>
-	<div class='grid cityNav'>
+	<div class='grid cityNav wide'>
 		<div class='col-2-3 mob-1-1'>
 			<ul>
 			<div class="cityNavHeader">Areas and Densities</div>
