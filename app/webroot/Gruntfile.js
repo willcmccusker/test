@@ -42,9 +42,10 @@ module.exports = function(grunt) {
             options: {
               mangle: false,
               compress: false,
+              beautify : true,
               wrap: false,
-              sourceMap: false,
-              banner: '/*\n <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+              sourceMap: true,
+              banner: '/*\n <%= pkg.name %>-dev <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             
             files: "<%= uglifyFiles %>"
@@ -52,11 +53,11 @@ module.exports = function(grunt) {
           },
           dist: {
             options: {
-              mangle: true,
-              compress: true,
+              mangle: false,
+              compress: false,
               wrap: false,
               sourceMap: false,
-              banner: '/*\n <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+              banner: '/*\n <%= pkg.name %>-dist <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             
             files: "<%= uglifyFiles %>"

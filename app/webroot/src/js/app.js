@@ -160,14 +160,14 @@ var makeStacked = function(prefix, city, vert){
 				backgroundColor: "rgba(154,116,109,1.0)",
 				borderWidth : 0,
 				borderColor: "rgba(120, 172, 255 ,1)",
-				label: ["Urban", "Built Up"],
+				label: ["Urban Built Up"],
 				data : [city.DataSet[field+"_urban_t1"], city.DataSet[field+"_urban_t2"], city.DataSet[field+"_urban_t3"]]
 			},
 			{
 				backgroundColor: "rgba(162,144,147,1.0)",
 				borderWidth : 0,
 				borderColor: "rgba(87, 145, 117, 1)",
-				label: ["Suburban", "Built Up"],
+				label: ["Suburban Built Up"],
 				data : [city.DataSet[field+"_suburban_t1"], city.DataSet[field+"_suburban_t2"], city.DataSet[field+"_suburban_t3"]]
 			},
 			{
@@ -181,7 +181,7 @@ var makeStacked = function(prefix, city, vert){
 				backgroundColor: "rgba(232,221,161,1.0)",
 				borderWidth : 0,
 				borderColor: "rgba(39, 48, 56, 1)",
-				label: ["Urbanized", "Open Space"],
+				label: ["Urbanized Open Space"],
 				data : [city.DataSet[field+"_open_t1"], city.DataSet[field+"_open_t2"], city.DataSet[field+"_open_t3"]]
 			}
 		]
@@ -345,16 +345,8 @@ var makeLine = function(prefix, city){
 
 					},
 					ticks: {
-		                userCallback: function(value, index, values) {
-		                	console.log(value);
-		                	console.log(index);
-		                	console.log(values);
-		                  //show ticks 10 minutes apart
-		                  if (index % 10 === 0) {
-		                    return value;
-		                  } else {
-		                    return null;
-		                  }
+		                callback: function(value, index, values) {
+			                return value;
 		                }
 					}
 				}]
