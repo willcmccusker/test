@@ -84,8 +84,36 @@
 				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 			</div>
 			<div class='col-2-5 mob-1-1'>
-				<div id='urban_extent_t1_map' class='city-graphic'></div>
-				<canvas class='map-placeholder'></canvas>
+				<ul>
+					<li> <label><input class="layerToggle" type="checkbox" name="urban"/> urban </label>
+					<li> <label><input class="layerToggle" type="checkbox" name="suburban"/> suburban </label>
+					<li> <label><input class="layerToggle" type="checkbox" name="rural"/> rural </label>
+					<li> <label><input class="layerToggle" type="checkbox" name="openSpace"/> openSpace </label>
+				</ul>
+
+				<div id='urban_extent_t1_map' class='city-graphic' style="height:400px;">
+					<script>
+						L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+						var map = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
+							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
+							zoom: 11
+						});
+						var outline = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+						var urban = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
+						var suburban = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
+						var rural = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
+						var openSpace = L.tileLayer('http://localhost:8888/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
+
+						$('.layerToggle').change(function() {
+							var layer = eval($(this).prop('name'));
+							if($(this).is(':checked')) {
+								map.addLayer(layer);
+							}else{
+								map.removeLayer(layer);
+							}
+						});
+					</script>
+				</div>
 			</div>
 			<div class='col-2-5 mob-1-1'>
 				<div id='urban_extent_t2_map' class='city-graphic'></div>
@@ -176,7 +204,7 @@
 		</div>
 		<div class='grid wide'>
 			<div class='col-1-5 mob-1-1'>
-			</div>	
+			</div>
 			<div class='col-2-5 mob-1-1'>
 				<canvas id='roads_average_width_bar' class='city-graphic' data-title='Average Street Width'></canvas>
 			</div>
