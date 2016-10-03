@@ -10,7 +10,10 @@
 			<div class="regionName"><?= $city["Region"]["name"];?></div>
 		</div>
 		<div class='col-1-3 mob-1-1'>
-			<div class="cityImage"><img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";></div>
+			<div class="cityImage">
+			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
+			<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">
+			</div>
 		</div>
 	</div>
 	<div class='grid wide'>
@@ -67,10 +70,10 @@
 				<div class='sectionText'>This is a placeholder for dynamic descriptive text of the following graphics.</div>
 			</div>
 			<div class='col-2-5 mob-1-1'>
-				<canvas id='population_line' class='city-graphic' data-title="Population" height="200px"></canvas>
+				<canvas id='population_line' class='city-graphic' data-title="Population" ></canvas>
 			</div>
 			<div class='col-2-5 mob-1-1'>
-				<canvas id='population_change_bar' class='city-graphic' data-title="Avg. Annual % Change" height="200px"></canvas>
+				<canvas id='population_change_bar' class='city-graphic' data-title="Avg. Annual % Change" ></canvas>
 			</div>
 		</div>
 	</div>
