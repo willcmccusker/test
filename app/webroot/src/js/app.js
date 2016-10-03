@@ -331,15 +331,15 @@ var makeBlockChart = function(prefix, city){
 			{
 				label : "Pre-1990",
 				backgroundColor: 'rgba(229,223,227,1.0)',
-				borderWidth : 1,
-				borderColor : 'rgba(142, 179, 237, 1)',
+				borderWidth : 0,
+				borderColor : 'rgba(142, 179, 237, 0)',
 				data: [city.DataSet[field+"_informal_plot_pre_1990"], city.Region.DataSet[field+"_formal_plot_pre_1990"]]
 			},
 			{
 				label : "Narrow",
 				backgroundColor: 'rgba(176,171,174,1.0)',
-				borderWidth : 1,
-				borderColor : 'rgba(87, 145, 117, 1)',
+				borderWidth : 0,
+				borderColor : 'rgba(87, 145, 117, 0)',
 				data: [city.DataSet[field+"_informal_plot_1990_2015"], city.Region.DataSet[field+"_formal_plot_1990_2015"]]
 			},
 		]
@@ -497,13 +497,13 @@ var makeChart = function(prefix, city, side){
 			label: side ? "Pre-1990" : 'T1-T2',
 			backgroundColor: "rgba(229,223,227,1.0)",
 			borderWidth : 0,
-			borderColor: "rgba(255,0,0,1)",
+			borderColor: "rgba(255,0,0,0)",
 			data : [city.DataSet[field+suffix_1], city.Region.DataSet[field+suffix_1], city.World.DataSet[field+suffix_1]]
 		},{
 			label: side ? "1990-2015" : 'T2-T3',
 			backgroundColor: "rgba(176,171,174,1.0)",
 			borderWidth : 0,
-			borderColor: "rgba(172,254,165,1.0)",
+			borderColor: "rgba(172,254,165,0)",
 			data : [city.DataSet[field+suffix_2], city.Region.DataSet[field+suffix_2],  city.World.DataSet[field+suffix_2]]
 		}
 		]
@@ -527,7 +527,7 @@ var makeChart = function(prefix, city, side){
 			beginAtZero:true,
 			// max : max,
 			callback: function(value, index, values) {
-				return  side ? Math.floor(value*100)/100 : value+"%";
+				return  side ? Math.floor(value*100)/100 : (Math.floor(value*100)/100)+"%";
 			}
 		},
 		// stacked : true,
