@@ -240,7 +240,7 @@ h1#site-title {
 
 .cityHeader{
 	position:relative;
-	// min-height:100vh;
+	min-height:100vh;
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
@@ -258,8 +258,8 @@ h1#site-title {
 
 .cityImage img {
 	width:100%;
-	// position:absolute;
-	// right:0px;
+	position:absolute;
+	right:0px;
 }
 
 .graphSection {
