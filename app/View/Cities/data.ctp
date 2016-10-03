@@ -1,7 +1,7 @@
 <? $this->assign('title', "Data");?>
 <div class='grid data-page'>
 <div class='col-1-1'>
-<table class='data-table'>
+<table id="data-table">
 	<thead>
 		<tr>
 			<th data-sort="string">City</th>
