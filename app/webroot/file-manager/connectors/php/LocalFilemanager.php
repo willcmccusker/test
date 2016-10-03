@@ -91,15 +91,10 @@ class LocalFilemanager extends BaseFilemanager
 		$data = array(
 			'images_only' => $this->config['upload']['imagesOnly'] || (isset($this->refParams['type']) && strtolower($this->refParams['type'])=='images'),
 		) + $settings;
-<<<<<<< HEAD
 
 		if(isset($data['upload_dir'])) {
 			$data['thumbnails_dir'] = rtrim($this->get_thumbnail_path($data['upload_dir']), '/');
-=======
-		if(isset($data['upload_dir'])) {
-			$data['thumbnails_dir'] = rtrim($this->get_thumbnail_path($data['upload_dir']), '/');
 			$data['mediums_dir'] = rtrim($this->get_medium_path($data['upload_dir']), '/');
->>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
 		}
 
 		return new LocalUploadHandler(array(
@@ -598,26 +593,14 @@ class LocalFilemanager extends BaseFilemanager
 	/**
 	 * @inheritdoc
 	 */
-<<<<<<< HEAD
-	public function getimage($thumbnail)
-=======
+
 	public function getimage($size)
->>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
 	{
 		$current_path = $this->getFullPath($this->get['path'], true);
 
 		Log::info('loading image "' . $current_path . '"');
 
-<<<<<<< HEAD
-		// if $thumbnail is set to true we return the thumbnail
-		if($thumbnail === true && $this->config['images']['thumbnail']['enabled'] === true) {
-			// get thumbnail (and create it if needed)
-			$returned_path = $this->get_thumbnail($current_path);
-		} else {
-			$returned_path = $current_path;
-		}
 
-=======
 		// if $size is set to true we return the thumbnail
 		if($size === "thumbnail" && $this->config['images']['thumbnail']['enabled'] === true) {
 			// get thumbnail (and create it if needed)
@@ -629,7 +612,6 @@ class LocalFilemanager extends BaseFilemanager
 			$returned_path = $current_path;
 		}
 		// die($returned_path);
->>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
 		header("Content-type: image/octet-stream");
 		header("Content-Transfer-Encoding: binary");
 		header("Content-length: " . $this->get_real_filesize($returned_path));
@@ -1311,8 +1293,6 @@ class LocalFilemanager extends BaseFilemanager
 		}
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Return Medium path from given path, works for both file and dir path
 	 * @param string $path
@@ -1370,5 +1350,4 @@ class LocalFilemanager extends BaseFilemanager
 		}
 	}
 
->>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
 }

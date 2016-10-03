@@ -137,19 +137,11 @@ class BaseUploadHandler
                     'auto_orient' => true
                 ),
                 // Uncomment the following to create medium sized images:
-<<<<<<< HEAD
-                /*
-                'medium' => array(
-                    'max_width' => 800,
-                    'max_height' => 600
-                ),
-                */
-=======
+
                 'medium' => array(
                     'max_width' => 800,
                     'max_height' => 600,
                 ),
->>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
                 'thumbnail' => array(
                     // Uncomment the following to use a defined directory for the thumbnails
                     // instead of a subdirectory based on the version identifier.
@@ -160,11 +152,8 @@ class BaseUploadHandler
                     //'upload_url' => $this->get_full_url().'/thumb/',
                     // Uncomment the following to force the max
                     // dimensions and e.g. create square thumbnails:
-<<<<<<< HEAD
-                    //'crop' => true,
-=======
+
                     'crop' => true,
->>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
                     'max_width' => 80,
                     'max_height' => 80
                 )
