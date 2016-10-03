@@ -10,7 +10,10 @@
 			<div class="regionName"><?= $city["Region"]["name"];?></div>
 		</div>
 		<div class='col-1-3 mob-1-1'>
-			<div class="cityImage"><img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";></div>
+			<div class="cityImage">
+			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
+			<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">
+			</div>
 		</div>
 	</div>
 	<div class='grid wide'>

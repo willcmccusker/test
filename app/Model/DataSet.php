@@ -40,13 +40,13 @@ class DataSet extends AppModel {
 			$GDPs = array();
 			$regions = array();			
 
-			$_n = 7;
+			$_n = 11;
 
 		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		        $row++;
 		    	if($row < 6) continue;
 
-		        $offset = 16;
+		        $offset = 20;
 
 		        $dataset = array("DataSet"=>array());
 		        $i = 0;
@@ -153,7 +153,7 @@ class DataSet extends AppModel {
 			        				$col = 0;
 		        				break;
 		        				case("country"):
-			        				$col = 8;
+			        				$col = 12;
 		        				break;
 		        				case("latitude"):
 			        				$col = 1;
@@ -162,12 +162,15 @@ class DataSet extends AppModel {
 			        				$col = 2;
 		        				break;
 		        				case("population"):
-			        				$col = 10;
+			        				$col = 14;
 			        				$city["City"]["population"] = str_replace(",", "", $data[$col]);
 			        				$col = false;
 		        				break;
 		        				case("photo_path"):
-			        				$col = 5;
+			        				$col = 9;
+		        				break;
+		        				case("flag_path"):
+			        				$col = 10;
 		        				break;
 		        				case("p_d_f_path"):
 			        				$col = 3;
@@ -175,19 +178,34 @@ class DataSet extends AppModel {
 		        				case("g_i_s_path"):
 			        				$col = 4;
 		        				break;
+		        				case("extent"):
+			        				$col = 15;
+		        				break;
+		        				case("density"):
+			        				$col = 16;
+		        				break;
+		        				case("t1"):
+			        				$col = 17;
+		        				break;
+		        				case("t2"):
+			        				$col = 18;
+		        				break;
+		        				case("t3"):
+			        				$col = 19;
+		        				break;
 		        				case("world_id"):
 			        				$col = false;
 			        				$city["City"][$field] = $world_id;
 		        				break;
 		        				case("region_id"):
 			        				$col = false;
-			        				if(!isset($regions[$data[9]])){
-			        					debug($data[9]);
+			        				if(!isset($regions[$data[13]])){
+			        					debug($data[13]);
 			        					debug($regions);
 			        					debug($data);
 										throw new NotFoundException(__('Invalid region'));
 			        				}
-			        				$region_id = $regions[$data[9]];
+			        				$region_id = $regions[$data[13]];
 			        				$city["City"][$field] = $region_id;
 		        				break;
 		        				/*case("g_d_p_id"):
@@ -220,6 +238,10 @@ class DataSet extends AppModel {
 	        						$col = false;
 		        			}
 		        			if($col !== false){
+		        				$foo = str_replace(',', '', $data[$col]);
+								if(is_numeric($foo)){
+								    $data[$col] = $foo;
+								}
 	        					$city["City"][$field] = $data[$col];
 		        			}
 		        		}
