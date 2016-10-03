@@ -27,7 +27,7 @@
  */
 	Router::connect('/', array('controller' => 'cities', 'action' => 'map'));
 	Router::connect('/data', array('controller' => 'cities', 'action' => 'data'));
-	Router::connect('/about', array('controller' => 'pages', 'action' => 'display', "about"));
+	Router::connect('/about', array('controller' => 'texts', 'action' => 'about'));
 
 
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin'=>true));

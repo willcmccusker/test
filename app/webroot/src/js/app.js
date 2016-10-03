@@ -330,14 +330,14 @@ var makeBlockChart = function(prefix, city){
 		datasets: [
 			{
 				label : "Pre-1990",
-				backgroundColor: 'rgba(142, 179, 237, 1.0)',
+				backgroundColor: 'rgba(229,223,227,1.0)',
 				borderWidth : 1,
 				borderColor : 'rgba(142, 179, 237, 1)',
 				data: [city.DataSet[field+"_informal_plot_pre_1990"], city.Region.DataSet[field+"_formal_plot_pre_1990"]]
 			},
 			{
 				label : "Narrow",
-				backgroundColor: 'rgba(28, 68, 135, 1.0)',
+				backgroundColor: 'rgba(176,171,174,1.0)',
 				borderWidth : 1,
 				borderColor : 'rgba(87, 145, 117, 1)',
 				data: [city.DataSet[field+"_informal_plot_1990_2015"], city.Region.DataSet[field+"_formal_plot_1990_2015"]]
@@ -495,13 +495,13 @@ var makeChart = function(prefix, city, side){
 		labels: [city.City.name, "Region",/*city.Region.name.split(" "),*/ "World"],
 		datasets: [{
 			label: side ? "Pre-1990" : 'T1-T2',
-			backgroundColor: "rgba(98,158,164,1.0)",
+			backgroundColor: "rgba(229,223,227,1.0)",
 			borderWidth : 0,
 			borderColor: "rgba(255,0,0,1)",
 			data : [city.DataSet[field+suffix_1], city.Region.DataSet[field+suffix_1], city.World.DataSet[field+suffix_1]]
 		},{
 			label: side ? "1990-2015" : 'T2-T3',
-			backgroundColor: "rgba(215,121,107,1.0)",
+			backgroundColor: "rgba(176,171,174,1.0)",
 			borderWidth : 0,
 			borderColor: "rgba(172,254,165,1.0)",
 			data : [city.DataSet[field+suffix_2], city.Region.DataSet[field+suffix_2],  city.World.DataSet[field+suffix_2]]

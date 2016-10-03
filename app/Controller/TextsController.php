@@ -16,7 +16,11 @@ class TextsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session', 'Flash');
-
+	public function beforeFilter() {
+			parent::beforeFilter();
+			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
+			$this->Auth->allow('about');
+	}
 /**
  * admin_index method
  *
@@ -110,4 +114,22 @@ class TextsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+
+	public function about(){
+		$text = $this->Text->find("first", array(
+			"conditions"=>array(
+				"Text.slug"=>"about"
+				)
+			));
+		if(empty($text)){
+			throw new NotFoundException(__('Invalid text'));
+		}
+		$this->set(compact("text"));
+		$this->render("/Pages/about");
+	}
+
+
+
+
 }
