@@ -340,8 +340,8 @@ var makeLine = function(prefix, city){
 						displayFormats : {
 							quarter : 'MMM YYYY'
 						},
-						min : dateMin,
-						max : dateMax,
+						min : new Date("1975-01-01"),//dateMin,
+						max : new Date("2030-01-01")//dateMax,
 
 					},
 					ticks: {
