@@ -57,12 +57,44 @@ class LocalUploadHandler extends BaseUploadHandler
                 'max_height' => $images['thumbnail']['maxHeight'],
             );
         }
+<<<<<<< HEAD
+=======
+        // image medium settings
+        if(isset($images['medium']) && $images['medium']['enabled'] === true) {
+            $this->options['image_versions']['medium'] = array(
+                'upload_dir' => $this->fmData['mediums_dir'],
+                'crop' => $images['medium']['crop'],
+                'max_width' => $images['medium']['maxWidth'],
+                'max_height' => $images['medium']['maxHeight'],
+            );
+        }
+>>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
 
         $this->error_messages['accept_file_types'] = $this->fm->lang('INVALID_FILE_TYPE');
         $this->error_messages['max_file_size'] = sprintf($this->fm->lang('UPLOAD_FILES_SMALLER_THAN'), (round($this->fm->config['upload']['fileSizeLimit'] / 1000 / 1000, 2)) . ' ' . $this->fm->lang('mb'));
         $this->error_messages['max_storage_size'] = sprintf($this->fm->lang('STORAGE_SIZE_EXCEED'), (round($this->fm->config['options']['fileRootSizeLimit'] / 1000 / 1000, 2)) . ' ' . $this->fm->lang('mb'));
     }
 
+<<<<<<< HEAD
+=======
+    public function create_medium_image($image_path)
+    {
+        $file_name = basename($image_path);
+        $file_path = $this->get_upload_path($file_name);
+        if ($this->is_valid_image_file($file_path)) {
+            $version = 'medium';
+            print_r($this->options['image_versions']);
+            if(isset($this->options['image_versions'][$version])) {
+                $medium_options = $this->options['image_versions'][$version];
+                $this->create_scaled_image($file_name, $version, $medium_options);
+                // Free memory:
+                $this->destroy_image_object($file_path);
+            }
+        }
+        die("??");
+    }
+
+>>>>>>> 7bbccd3a1a98f5f40df6272c30085f057a249eaf
     public function create_thumbnail_image($image_path)
     {
         $file_name = basename($image_path);

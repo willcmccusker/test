@@ -54,6 +54,12 @@ abstract class BaseFilemanager
         // https://github.com/servocoder/RichFilemanager/issues/7
         setlocale(LC_CTYPE, 'en_US.UTF-8');
 
+        // fix for undefined timezone in php.ini
+        // https://github.com/servocoder/RichFilemanager/issues/43
+        if(!ini_get('date.timezone')) {
+            date_default_timezone_set('GMT');
+        }
+
         $this->fm_path = isset($config['fmPath']) && !empty($config['fmPath'])
             ? $config['fmPath']
             : dirname(dirname(dirname(__FILE__)));
@@ -233,8 +239,8 @@ abstract class BaseFilemanager
 
                     case 'getimage':
                         if($this->getvar('path')) {
-                            $thumbnail = isset($_GET['thumbnail']);
-                            $this->getimage($thumbnail);
+                            $size = isset($_GET['thumbnail']) ? "thumbnail" :(isset($_GET['medium']) ? "medium" : "large");
+                            $this->getimage($size);
                         }
                         break;
 
