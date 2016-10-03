@@ -342,7 +342,7 @@ var makeLine = function(prefix, city){
 						},
 						min : dateMin,
 						max : dateMax,
-						
+
 					},
 					ticks: {
 		                userCallback: function(value, index, values) {
@@ -535,13 +535,13 @@ var makeChart = function(prefix, city, side){
 	var data = {
 		labels: [city.City.name, "Region",/*city.Region.name.split(" "),*/ "World"],
 		datasets: [{
-			label: side ? "Pre-1990" : city.City.t1+"-"+city.City.t2,//'T1-T2',
+			label: side ? "Pre-1990" : city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4),//'T1-T2',
 			backgroundColor: "rgba(229,223,227,1.0)",
 			borderWidth : 0,
 			borderColor: "rgba(255,0,0,0)",
 			data : [city.DataSet[field+suffix_1], city.Region.DataSet[field+suffix_1], city.World.DataSet[field+suffix_1]]
 		},{
-			label: side ? "1990-2015" : city.City.t2+"-"+city.City.t3,//'T2-T3',
+			label: side ? "1990-2015" : city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4),//'T2-T3',
 			backgroundColor: "rgba(176,171,174,1.0)",
 			borderWidth : 0,
 			borderColor: "rgba(172,254,165,0)",
