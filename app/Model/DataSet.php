@@ -22,17 +22,15 @@ class DataSet extends AppModel {
 		$row = 0;
 		$filename = APP . "/webroot/build_data/data.csv";
 		if (($handle = fopen($filename, "r")) !== FALSE) {
-
-			$this->query('DROP TABLE data_sets;');
-			$this->query('DROP TABLE cities;');
-			$this->query('DROP TABLE city_sizes;');
-			$this->query('DROP TABLE g_d_ps;');
-			$this->query('DROP TABLE regions;');
-			$this->query('DROP TABLE worlds;');
+			$this->query('DROP TABLE IF EXISTS data_sets;');
+			$this->query('DROP TABLE IF EXISTS cities;');
+			$this->query('DROP TABLE IF EXISTS city_sizes;');
+			$this->query('DROP TABLE IF EXISTS g_d_ps;');
+			$this->query('DROP TABLE IF EXISTS regions;');
+			$this->query('DROP TABLE IF EXISTS worlds;');
 			
 			$sql = file_get_contents( APP . '/webroot/build_data/atlas.sql');
 			$this->query($sql);
-	         
 	        $this->User = ClassRegistry::init('User');
 			$this->User->begin();
 

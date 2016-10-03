@@ -53,7 +53,7 @@
 <!-- 						<td nowrap><?php echo h($city['City']['population']); ?>&nbsp;</td> -->
 						<td nowrap><?php 
 
-						$thumb = "/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F".urlencode($city["City"]["photo_path"])."&mode=getimage&medium=true&config=filemanager.config.json&time=".time();
+						$thumb = "/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F".urlencode($city["City"]["photo_path"])."&mode=getimage&thumbnail=true&config=filemanager.config.json&time=".time();
 						echo $this->Html->image($thumb); ?><br><?= $city['City']['photo_path'];?>&nbsp;</td>						
 						<td nowrap><?php 
 

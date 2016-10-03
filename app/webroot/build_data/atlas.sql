@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Oct 03, 2016 at 06:39 PM
+-- Generation Time: Oct 03, 2016 at 07:45 PM
 -- Server version: 5.5.34-log
 -- PHP Version: 5.3.28
 
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `cities`
 --
 
-CREATE TABLE `cities` (
+CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `cityid` int(11) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `cities` (
 -- Table structure for table `city_sizes`
 --
 
-CREATE TABLE `city_sizes` (
+CREATE TABLE IF NOT EXISTS `city_sizes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `number` int(11) NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE `city_sizes` (
 -- Table structure for table `data_sets`
 --
 
-CREATE TABLE `data_sets` (
+CREATE TABLE IF NOT EXISTS `data_sets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `population_t1` int(10) unsigned NOT NULL,
   `population_t2` int(10) unsigned NOT NULL,
@@ -154,7 +154,7 @@ CREATE TABLE `data_sets` (
 -- Table structure for table `g_d_ps`
 --
 
-CREATE TABLE `g_d_ps` (
+CREATE TABLE IF NOT EXISTS `g_d_ps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `slug` varchar(45) NOT NULL,
@@ -169,7 +169,7 @@ CREATE TABLE `g_d_ps` (
 -- Table structure for table `regions`
 --
 
-CREATE TABLE `regions` (
+CREATE TABLE IF NOT EXISTS `regions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `abbreviation` varchar(5) NOT NULL,
@@ -182,25 +182,10 @@ CREATE TABLE `regions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `texts`
---
-
-CREATE TABLE `texts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) NOT NULL,
-  `content` text NOT NULL,
-  `slug` varchar(45) NOT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -214,7 +199,7 @@ CREATE TABLE `users` (
 -- Table structure for table `worlds`
 --
 
-CREATE TABLE `worlds` (
+CREATE TABLE IF NOT EXISTS `worlds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `year` int(11) NOT NULL,
   `data_set_id` int(11) NOT NULL,
