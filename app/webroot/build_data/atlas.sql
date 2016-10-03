@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Oct 03, 2016 at 03:28 PM
+-- Generation Time: Oct 03, 2016 at 06:39 PM
 -- Server version: 5.5.34-log
 -- PHP Version: 5.3.28
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `cities`
 --
 
-DROP TABLE IF EXISTS `cities`;
 CREATE TABLE `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -53,7 +52,7 @@ CREATE TABLE `cities` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=401 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=601 ;
 
 -- --------------------------------------------------------
 
@@ -61,7 +60,6 @@ CREATE TABLE `cities` (
 -- Table structure for table `city_sizes`
 --
 
-DROP TABLE IF EXISTS `city_sizes`;
 CREATE TABLE `city_sizes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -78,7 +76,6 @@ CREATE TABLE `city_sizes` (
 -- Table structure for table `data_sets`
 --
 
-DROP TABLE IF EXISTS `data_sets`;
 CREATE TABLE `data_sets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `population_t1` int(10) unsigned NOT NULL,
@@ -149,7 +146,7 @@ CREATE TABLE `data_sets` (
   `blocks_plots_average_formal_plot_pre_1990` decimal(6,2) NOT NULL,
   `blocks_plots_average_formal_plot_1990_2015` decimal(6,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=419 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=628 ;
 
 -- --------------------------------------------------------
 
@@ -157,7 +154,6 @@ CREATE TABLE `data_sets` (
 -- Table structure for table `g_d_ps`
 --
 
-DROP TABLE IF EXISTS `g_d_ps`;
 CREATE TABLE `g_d_ps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -173,7 +169,6 @@ CREATE TABLE `g_d_ps` (
 -- Table structure for table `regions`
 --
 
-DROP TABLE IF EXISTS `regions`;
 CREATE TABLE `regions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -182,7 +177,7 @@ CREATE TABLE `regions` (
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 -- --------------------------------------------------------
 
@@ -190,7 +185,6 @@ CREATE TABLE `regions` (
 -- Table structure for table `texts`
 --
 
-DROP TABLE IF EXISTS `texts`;
 CREATE TABLE `texts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
@@ -206,14 +200,13 @@ CREATE TABLE `texts` (
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -221,13 +214,12 @@ CREATE TABLE `users` (
 -- Table structure for table `worlds`
 --
 
-DROP TABLE IF EXISTS `worlds`;
 CREATE TABLE `worlds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `year` int(11) NOT NULL,
   `data_set_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
