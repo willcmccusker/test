@@ -259,6 +259,7 @@ h1#site-title {
 .cityImage img {
 	width:100%;
 	position:absolute;
+	padding-right: #{$padding/2};
 	right:0px;
 }
 
@@ -346,6 +347,7 @@ h1#site-title {
   height: 30px;
   border: none;
   font-size: 10pt;
+  text-align:right;
 }
 
 /* Data Page */
