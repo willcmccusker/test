@@ -131,35 +131,35 @@ var makeStacked = function(prefix, city, vert){
 		labels : ["Pre-1990", "1990-2015"],
 		datasets:[
 			{
-				backgroundColor : 'rgba(115,74,86,1)',
+				backgroundColor : '#889A9A',
 				borderWidth : 0,
 				borderColor : 'rgba(94, 151, 246, 1)',
 				label : '<4m',
 				data : [city.DataSet[field+"_under_4m_pre_1990"], city.DataSet[field+"_under_4m_1990_2015"] ]
 			},
 			{
-				backgroundColor : 'rgba(117,113,137,1)',
+				backgroundColor : '#93AFA9',
 				borderWidth : 0,
 				borderColor : 'rgba(87, 145, 117, 1)',
 				label : '4-8m',
 				data : [city.DataSet[field+"_4_8m_pre_1990"], city.DataSet[field+"_4_8m_1990_2015"] ]
 			},
 			{
-				backgroundColor : 'rgba(98,158,164,1)',
+				backgroundColor : '#9FC3B5',
 				borderWidth : 0,
 				borderColor : 'rgba(242, 166, 1, 1)',
 				label : '8-12m',
 				data : [city.DataSet[field+"_8_12m_pre_1990"], city.DataSet[field+"_8_12m_1990_2015"] ]
 			},
 			{
-				backgroundColor : 'rgba(120,197,154,1)',
+				backgroundColor : '#AED7C0',
 				borderWidth : 0,
 				borderColor : 'rgba(39, 48, 56, 1)',
 				label : '12-16m',
 				data : [city.DataSet[field+"_12_16m_pre_1990"], city.DataSet[field+"_12_16m_1990_2015"] ]
 			},
 			{
-				backgroundColor : 'rgba(204,226,129,1)',
+				backgroundColor : '#BFECCA',
 				borderWidth : 0,
 				borderColor : 'rgba(171, 71, 188, 1)',
 				label : '>16m',
@@ -172,28 +172,28 @@ var makeStacked = function(prefix, city, vert){
 		labels : ["T1", "T2", "T3"],
 		datasets:[
 			{
-				backgroundColor: "rgba(154,116,109,1.0)",
+				backgroundColor: "#B4A4AF",
 				borderWidth : 0,
 				borderColor: "rgba(120, 172, 255 ,1)",
 				label: ["Urban Built Up"],
 				data : [city.DataSet[field+"_urban_t1"], city.DataSet[field+"_urban_t2"], city.DataSet[field+"_urban_t3"]]
 			},
 			{
-				backgroundColor: "rgba(162,144,147,1.0)",
+				backgroundColor: "#BDB8C2",
 				borderWidth : 0,
 				borderColor: "rgba(87, 145, 117, 1)",
 				label: ["Suburban Built Up"],
 				data : [city.DataSet[field+"_suburban_t1"], city.DataSet[field+"_suburban_t2"], city.DataSet[field+"_suburban_t3"]]
 			},
 			{
-				backgroundColor: "rgba(159,175,168,1.0)",
+				backgroundColor: "#C6CCD4",
 				borderWidth : 0,
 				borderColor: "rgba(151, 194, 125, 1)",
 				label: ["Rural Built Up"],
 				data : [city.DataSet[field+"_rural_t1"], city.DataSet[field+"_rural_t2"], city.DataSet[field+"_rural_t3"]]
 			},
 			{
-				backgroundColor: "rgba(232,221,161,1.0)",
+				backgroundColor: "#CDE0E4",
 				borderWidth : 0,
 				borderColor: "rgba(39, 48, 56, 1)",
 				label: ["Urbanized Open Space"],
@@ -456,21 +456,21 @@ var makeRoadChart = function(prefix, city){
 		datasets: [
 			{
 				label : "Wide",
-				backgroundColor: 'rgba(142, 179, 237, 1.0)',
+				backgroundColor: '#F1E0DE',
 				borderWidth : 0,
 				borderColor : 'rgba(142, 179, 237, 1)',
 				data: [city.DataSet[field+"_wide_1990_2015"], city.Region.DataSet[field+"_wide_pre_1990"], city.World.DataSet[field+"_wide_pre_1990"]]
 			},
 			{
 				label : "Narrow",
-				backgroundColor: 'rgba(28, 68, 135, 1.0)',
+				backgroundColor: '#E1C6C4',
 				borderWidth : 0,
 				borderColor : 'rgba(87, 145, 117, 1)',
 				data: [city.DataSet[field+"_narrow_1990_2015"], city.Region.DataSet[field+"_narrow_1990_2015"], city.World.DataSet[field+"_narrow_1990_2015"]]
 			},
 			{
 				label : "All",
-				backgroundColor: 'rgba(242, 166, 1, 1.0)',
+				backgroundColor: '#CEADA9',
 				borderWidth : 0,
 				borderColor : 'rgba(242, 166, 1, 1)',
 				data: [city.DataSet[field+"_all_1990_2015"], city.Region.DataSet[field+"_all_1990_2015"], city.World.DataSet[field+"_all_1990_2015"]]
@@ -543,13 +543,13 @@ var makeChart = function(prefix, city, side){
 		labels: [city.City.name, "Region",/*city.Region.name.split(" "),*/ "World"],
 		datasets: [{
 			label: side ? "Pre-1990" : city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4),//'T1-T2',
-			backgroundColor: "rgba(229,223,227,1.0)",
+			backgroundColor: "#C8C0C3",
 			borderWidth : 0,
 			borderColor: "rgba(255,0,0,0)",
 			data : [city.DataSet[field+suffix_1], city.Region.DataSet[field+suffix_1], city.World.DataSet[field+suffix_1]]
 		},{
 			label: side ? "1990-2015" : city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4),//'T2-T3',
-			backgroundColor: "rgba(176,171,174,1.0)",
+			backgroundColor: "#F1E4DE",
 			borderWidth : 0,
 			borderColor: "rgba(172,254,165,0)",
 			data : [city.DataSet[field+suffix_2], city.Region.DataSet[field+suffix_2],  city.World.DataSet[field+suffix_2]]
