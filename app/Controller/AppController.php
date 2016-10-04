@@ -92,7 +92,6 @@ class AppController extends Controller {
         } 
         if(!isset($this->City)){
             App::uses('City', 'Model');
-
             $this->City = new City;
         }
         $cities = $this->City->find("all", array(

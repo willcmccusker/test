@@ -101,6 +101,14 @@ class CitiesController extends AppController {
 
 			break;
 			case("data"):
+	            App::uses('Text', 'Model');
+	            $this->Text = new Text;
+	            $dataText = $this->Text->find("first", array(
+	            	"conditions"=>array(
+	            		"Text.slug"=>"data"
+	            		)
+	            	));
+	            $this->set(compact("dataText"));
 				usort($cities, function($a, $b) {
                     return strcasecmp($a["City"]["name"], $b["City"]["name"]);
 		        });
