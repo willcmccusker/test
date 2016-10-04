@@ -19,15 +19,28 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
- 
+
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
+  Router::parseExtensions('png');
 	Router::connect('/', array('controller' => 'cities', 'action' => 'map'));
 	Router::connect('/data', array('controller' => 'cities', 'action' => 'data'));
 	Router::connect('/about', array('controller' => 'texts', 'action' => 'about'));
+
+  Router::connect(
+    '/tiles/show/:layer/:z/:x/:y',
+    array('controller' => 'tiles', 'action' => 'show'),
+    array(
+      'layer' => '\w+',
+      'z' => '\d+',
+      'x' => '\d+',
+      'y' => '\d+',
+      'ext' => 'png'
+    )
+  );
 
 
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin'=>true));

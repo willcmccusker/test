@@ -42,15 +42,3 @@
 		</div>
 	</div>
 </div>
-<div class='grid'>
-	<div class='col-1-2 mob-1-1'>
-	example usage of grid, col element.
-	col-1-2  = 1/2 width 
-	mob-1-1 = full width but only on mobile
-	tab-1-2 = half width on tablet
-
-	</div>
-	<div class='col-1-2 mob-1-1'>
-	yaaaaaaaay
-	</div>
-</div>
