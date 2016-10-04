@@ -12,7 +12,8 @@
 		<div class='col-1-3 mob-1-1'>
 			<div class="cityImage">
 			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
-			<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">
+			<!--<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">-->
+			<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>";>
 			</div>
 		</div>
 	</div>
