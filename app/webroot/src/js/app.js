@@ -6,6 +6,7 @@ var searchPopup = function(){
 	}else{
 		poppedUp = true;
 	}
+	$("#citySearch input").focus();
 	$("body").addClass("no-scroll");
 	$("#citySearch").addClass("poppedUp");
 	$(".closeCitySearch").off("click").on("click", function(){
@@ -14,6 +15,7 @@ var searchPopup = function(){
 	console.log("search");
 };
 var searchPopdown = function(){
+	$("#citySearch input").val("").blur();
 	$("body").removeClass("no-scroll");
 	$("#citySearch").removeClass("poppedUp");
 	poppedUp = false;
@@ -23,6 +25,22 @@ $(document).ready(function(){
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();
 	});
+
+	$(document).on("keydown", function(e) {
+		console.log(e.keyCode);
+		if (e.keyCode == 27 && poppedUp) { 
+			searchPopdown();
+			return;
+		}
+	    var regex = new RegExp("^[a-zA-Z0-9]+$");
+	    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+	    if (regex.test(str) && !poppedUp) {
+		     	searchPopup();
+	    }
+
+	});
+
+
 	var citySearch = new List('citySearch', {valueNames: ['popup-city-country', 'popup-city-city', 'popup-city-region' ]});
 	
 	citySearch.on("updated", function(){
