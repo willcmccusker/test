@@ -3,7 +3,7 @@
 	<div class='col-1-3 mob-1-1'>
 		<h1 id="site-title"><?= $this->Html->link("The Atlas of Urban Expansion", array("controller"=>"/"));?></h1>
 	</div>
-	<div class='col-1-3 mob-1-1 headerMenu'>
+	<div class='col-1-3 mob-1-1 headerMenu center-align'>
 		<ul>
 		<li><?= $this->Html->link("Cities", array("controller"=>"cities", "action"=>"index"));?></li>
 		<li><?= $this->Html->link("About", array("controller"=>"about"));?></li>

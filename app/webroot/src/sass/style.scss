@@ -181,6 +181,9 @@ a {
 }
 
 .headerMenu {
+	ul{
+		display:inline-block;
+	}
 	li {
 	list-style-type:none;
 	padding:0 10px;
@@ -328,6 +331,9 @@ h1#site-title {
 	left:0;
 	width:100%
 }
+.leaflet-control-attribution{
+	display:none;
+}
 .map-placeholder {
 	width:100%;
 	background-color:#292929;
@@ -352,6 +358,9 @@ h1#site-title {
 	width:100px;
 }
 
+.center-align{
+	text-align:center;
+}
 .align-right {
 	text-align: right
 }
