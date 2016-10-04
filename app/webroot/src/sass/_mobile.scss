@@ -1,0 +1,22 @@
+/* mobile */
+/* mobile */
+/* mobile */
+@media only screen and (min-width : 0px) and (max-width : $mobile-max-width)  {
+	.hide-on-desktop{
+		display:block;
+	}
+	th.hide-on-desktop,
+	td.hide-on-desktop{
+		display: table-cell;
+	}
+	.hide-on-mobile{
+		display:none;
+	}
+
+}
+@media only screen and (min-width : 0px) and (max-width : $mobile-max-width) and (orientation : portrait) {
+
+}
+@media only screen and (min-width : 0px) and (max-width : $mobile-max-width) and (orientation : landscape) {
+
+}

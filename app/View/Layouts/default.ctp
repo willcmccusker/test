@@ -44,6 +44,8 @@
 		echo $this->Html->css('/dist/css/style.css');
 		echo $this->Html->script('/dist/js/app.min.js');
 ?>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
 <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><script type="text/javascript">google.charts.load('current', {packages: ['corechart']});google.charts.setOnLoadCallback(googleChartsReady);</script> -->
 <?
 		echo $this->fetch('meta');
@@ -55,6 +57,6 @@
 <body><?
 	echo $this->element("header");
 	echo $this->fetch('content');
-// echo $this->element('sql_dump'); ?>
+	//echo $this->element('sql_dump'); ?>
 </body>
 </html>

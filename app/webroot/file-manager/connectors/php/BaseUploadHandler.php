@@ -153,7 +153,7 @@ class BaseUploadHandler
                     // Uncomment the following to force the max
                     // dimensions and e.g. create square thumbnails:
 
-                    'crop' => true,
+                    'crop' => false,
                     'max_width' => 80,
                     'max_height' => 80
                 )

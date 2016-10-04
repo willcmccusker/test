@@ -551,8 +551,12 @@
 			<td><?php echo $city['t3']; ?></td>
 			<td><?php echo $city['photo_path']; ?></td>
 			<td><?php echo $city['flag_path']; ?></td>
-			<td><?php echo $city['p_d_f_path']; ?></td>
-			<td><?php echo $city['g_i_s_path']; ?></td>
+			<td><?php echo $city['areas_and_densities_p_d_f_path']; ?></td>
+			<td><?php echo $city['areas_and_densities_g_i_s_path']; ?></td>
+			<td><?php echo $city['blocks_and_roads_p_d_f_path']; ?></td>
+			<td><?php echo $city['blocks_and_roads_g_i_s_path']; ?></td>
+			<td><?php echo $city['historical_data_p_d_f_path']; ?></td>
+			<td><?php echo $city['historical_data_g_i_s_path']; ?></td>
 			<td><?php echo $city['world_id']; ?></td>
 			<td><?php echo $city['region_id']; ?></td>
 			<td><?php echo $city['g_d_p_id']; ?></td>

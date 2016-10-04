@@ -1,8 +1,30 @@
+
+var poppedUp = false;
+var searchPopup = function(){
+	if(poppedUp){
+		return false;
+	}else{
+		poppedUp = true;
+	}
+	$("body").addClass("no-scroll");
+	$("#citySearch").addClass("poppedUp");
+	$(".closeCitySearch").off("click").on("click", function(){
+		searchPopdown();
+	});
+	console.log("search");
+};
+var searchPopdown = function(){
+	$("body").removeClass("no-scroll");
+	$("#citySearch").removeClass("poppedUp");
+	poppedUp = false;
+};
+
 $(document).ready(function(){
-
-
-
-	var citySearch = new List('citySearch', {valueNames: ['country', 'city', 'region' ], sortFunction: sortCities});
+	$("#citySearch input").on("focus click", function(){
+		searchPopup();
+	});
+	var citySearch = new List('citySearch', {valueNames: ['popup-city-country', 'popup-city-city', 'popup-city-region' ]});
+	
 	citySearch.on("updated", function(){
 		if($("#citySearch input").val() !== ""){
 			$("#citySearch").removeClass("unlisted");
@@ -68,6 +90,20 @@ $(document).ready(function(){
 				case("data"):
 					//table
 					$("table").stupidtable();
+					$(".show-methodology").click(function(){
+						if($(this).html() == "Show Methodology"){
+							$(this).html("Hide Methodology");
+						}else{
+							$(this).html("Show Methodology");
+						}
+						$(".methodology").slideToggle();
+					});
+					$(".show-links").click(function(){
+						var next = $(this).next(".expansion-links");
+						$(next).css("z-index", 2);
+						$(".hide-on-desktop .expansion-links").not(next).css("z-index", 1).slideUp();
+						$(next).slideToggle();
+					});
 				break;
 				case("view"):
 					//graphs

@@ -161,17 +161,32 @@ a {
 	color:$bodytype;
 	text-decoration: none;
 }
+.no-scroll{
+	overflow: hidden;
+}
+.center-align{
+	text-align:center;
+}
+.align-right {
+	text-align: right;
+}
 
 .display-none{
 	display:none;
 }
-
 .text-align-center{
 	text-align: center;
 }
 .text-align-right{
 	text-align:right;
 }
+.hide-on-desktop{
+	display:none;
+}
+
+
+
+
 
 .header {
 	padding-top:5px;
@@ -224,20 +239,6 @@ h2.countryName {
 	}
 }
 
-#citySearch{
-	position:relative;
-	ul{
-		padding: 5px;
-		position:absolute;
-		right:0;
-		background-color: rgba(255,255,255,0.8);
-		z-index:1;
-		margin-top:5px;
-	}
-}
-#citySearch.unlisted ul{
-	display:none;
-}
 
 #cityList ul.list{
 	list-style-type: none;
@@ -383,27 +384,144 @@ h1#site-title {
 	width:100px;
 }
 
-.center-align{
-	text-align:center;
-}
-.align-right {
-	text-align: right
-}
+
+
 
 /* Search */
 
-.searchbox input#search{
-  width: 50%;
-  height: 30px;
-  border: none;
-  font-size: 10pt;
-  text-align:right;
+#citySearch input:focus{
+    outline: none;
+}
+#citySearch:not(.poppedUp){
+	 input#search{
+	  width: 50%;
+	  height: 30px;
+	  border: none;
+	  font-size: 10pt;
+	  text-align:right;
+	}
 }
 
-/* Data Page */
+#citySearch{
+	position:relative;
+	ul{
+		position:fixed;
+		top:0px;
+		left:0px;
+		width:calc(100% - #{$padding});
+		height:100%;
+		overflow:auto;
+		margin-top:110px;
+	    text-align: left;
+		padding-top:32px;
+	    .popup-city-city{
+	    	display:inline-block;
+	    	font-size:32px;
+	    }
+	    li{
+	    	padding:#{$padding/2};
+	    }
+	    li:hover{
+	    	background-color:rgba(0,0,0,0.1);
+	    }
+	    img{
+	    	height:32px;
+	    	display: inline;
+	    }
+	}
+}
+#citySearch .closeHolder{
+	position:fixed;
+	top: #{$padding/2};
+	right: #{$padding/2};
+	display:none;
+}
 
+#citySearch .closeCitySearch{
+
+	width: 50px;
+	height:50px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+
+	// @include xPrefix(transform, scale(3));
+
+	&:hover {
+		&::before, &::after {
+			background: grey;
+		}
+	}
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		top: 50%;
+		left: 0;
+		margin-top: -1px;
+		background: #000;
+	}
+	&::before {
+		@include xPrefix(transform, rotate(45deg));
+	}
+	&::after {
+		@include xPrefix(transform, rotate(-45deg));
+	}
+}
+.leaflet-bottom, .leaflet-top{
+	z-index:2 !important;
+}
+
+
+#citySearch.poppedUp{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 9;
+    .closeHolder{
+    	display:block;
+    }
+    input{
+    	border:none;
+    	padding:5px;
+    	padding-top:50px;
+    	padding:50px #{$padding/2} 0px;
+    	width:100%;
+    	font-size:48px;
+    	border-bottom:3px solid black;
+    	background-color:white;
+    }
+}
+
+#citySearch.unlisted ul{
+	display:none;
+}
+
+
+
+/* Data Page */
+.show-methodology{
+	cursor: pointer;
+	color: blue;
+}
+.hide-on-desktop .expansion-links{
+	position:absolute;
+    right: 0px;
+    text-align: right;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid black;
+}
 #data-table {
 	width:100%;
+	tr{
+		position:relative;
+	}
 }
 
 #data-table th, #data-table td {
@@ -417,3 +535,7 @@ h1#site-title {
 	margin:0 0 10px 0;
 	border-bottom: 1px solid $border-darkgrey;
 }
+
+
+
+@import "mobile";

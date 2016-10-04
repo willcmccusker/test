@@ -59,10 +59,22 @@
 					<?php echo $this->Form->input('flag_path', array('class' => 'form-control', 'placeholder' => 'Flag Path'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('p_d_f_path', array('class' => 'form-control', 'placeholder' => 'P D F Path'));?>
+					<?php echo $this->Form->input('areas_and_densities_p_d_f_path', array('class' => 'form-control', 'placeholder' => 'Areas And Densities P D F Path'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('g_i_s_path', array('class' => 'form-control', 'placeholder' => 'G I S Path'));?>
+					<?php echo $this->Form->input('areas_and_densities_g_i_s_path', array('class' => 'form-control', 'placeholder' => 'Areas And Densities G I S Path'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('blocks_and_roads_p_d_f_path', array('class' => 'form-control', 'placeholder' => 'Blocks and Roads P D F Path'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('blocks_and_roads_g_i_s_path', array('class' => 'form-control', 'placeholder' => 'Blocks and Roads G I S Path'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('historical_data_p_d_f_path', array('class' => 'form-control', 'placeholder' => 'Historical Data P D F Path'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('historical_data_g_i_s_path', array('class' => 'form-control', 'placeholder' => 'Historical Data G I S Path'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('world_id', array('class' => 'form-control', 'placeholder' => 'World Id'));?>

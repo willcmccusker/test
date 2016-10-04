@@ -108,13 +108,18 @@ class CitiesController extends AppController {
 	            		"Text.slug"=>"data"
 	            		)
 	            	));
-	            $this->set(compact("dataText"));
-				usort($cities, function($a, $b) {
-                    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
-		        });
+	            $methodologyText = $this->Text->find("first", array(
+	            	"conditions"=>array(
+	            		"Text.slug"=>"methodology"
+	            		)
+	            	));
+	            $this->set(compact("methodologyText", "dataText"));
+				
+			break;
+			case("index"):
+
 			break;
 			default:
-			
 		}
 
 		// $cities = Hash::sort($cities, '{n}.Region.name', 'asc');
