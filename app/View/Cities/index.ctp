@@ -15,7 +15,19 @@
 			<ul class='list'>
 <!-- 			<div class='list grid'> -->
 			<!-- <div class='col-1-3 tab-1-2 mob-1-1'> -->
-		<?$i = 0;
+		<?
+		usort($cities, function($a, $b) {
+            if($a["Region"]["name"] == $b["Region"]["name"]){
+                if($a["City"]["country"] == $b["City"]["country"]){
+                    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
+                }else{
+                    return strcasecmp($a["City"]["country"], $b["City"]["country"]);
+                }
+            }else{
+                return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
+            }
+        });
+		$i = 0;
 		$region = false;
 		foreach($cities as $city):
 			if($region != $city["Region"]["name"]){

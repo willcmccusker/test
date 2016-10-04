@@ -22,15 +22,15 @@ class DataSet extends AppModel {
 		$row = 0;
 		$filename = APP . "/webroot/build_data/data.csv";
 		if (($handle = fopen($filename, "r")) !== FALSE) {
-			$this->query('DROP TABLE IF EXISTS data_sets;');
-			$this->query('DROP TABLE IF EXISTS cities;');
-			$this->query('DROP TABLE IF EXISTS city_sizes;');
-			$this->query('DROP TABLE IF EXISTS g_d_ps;');
-			$this->query('DROP TABLE IF EXISTS regions;');
-			$this->query('DROP TABLE IF EXISTS worlds;');
+			// $this->query('DROP TABLE IF EXISTS data_sets;', false);
+			// $this->query('DROP TABLE IF EXISTS cities;', false);
+			// $this->query('DROP TABLE IF EXISTS city_sizes;', false);
+			// $this->query('DROP TABLE IF EXISTS g_d_ps;', false);
+			// $this->query('DROP TABLE IF EXISTS regions;', false);
+			// $this->query('DROP TABLE IF EXISTS worlds;', false);
 			
 			$sql = file_get_contents( APP . '/webroot/build_data/atlas.sql');
-			$this->query($sql);
+			$this->query($sql, false);
 	        $this->User = ClassRegistry::init('User');
 			$this->User->begin();
 
@@ -170,11 +170,23 @@ class DataSet extends AppModel {
 		        				case("flag_path"):
 			        				$col = 10;
 		        				break;
-		        				case("p_d_f_path"):
+		        				case("areas_and_densities_p_d_f_path"):
 			        				$col = 3;
 		        				break;
-		        				case("g_i_s_path"):
+		        				case("areas_and_densities_g_i_s_path"):
 			        				$col = 4;
+		        				break;
+		        				case("blocks_and_roads_p_d_f_path"):
+			        				$col = 5;
+		        				break;
+		        				case("blocks_and_roads_g_i_s_path"):
+			        				$col = 6;
+		        				break;
+		        				case("historical_data_p_d_f_path"):
+			        				$col = 7;
+		        				break;
+		        				case("historical_data_g_i_s_path"):
+			        				$col = 8;
 		        				break;
 		        				case("extent"):
 			        				$col = 15;

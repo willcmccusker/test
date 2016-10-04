@@ -95,19 +95,10 @@ class AppController extends Controller {
             $this->City = new City;
         }
         $cities = $this->City->find("all", array(
-            "recursive"=>0
+            "recursive"=>0,
+            "order"=>array("City.name"=>"ASC")
         ));
-        usort($cities, function($a, $b) {
-            if($a["Region"]["name"] == $b["Region"]["name"]){
-                if($a["City"]["country"] == $b["City"]["country"]){
-                    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
-                }else{
-                    return strcasecmp($a["City"]["country"], $b["City"]["country"]);
-                }
-            }else{
-                return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
-            }
-        });
+        
         $this->set(compact("cities"));
 
     }

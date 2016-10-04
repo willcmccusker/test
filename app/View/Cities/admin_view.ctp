@@ -120,16 +120,44 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('P D F Path'); ?></th>
+		<th><?php echo __('Areas and Densities P D F Path'); ?></th>
 		<td>
-			<?php echo h($city['City']['p_d_f_path']); ?>
+			<?php echo h($city['City']['areas_and_densities_p_d_f_path']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('G I S Path'); ?></th>
+		<th><?php echo __('Areas and Densities G I S Path'); ?></th>
 		<td>
-			<?php echo h($city['City']['g_i_s_path']); ?>
+			<?php echo h($city['City']['areas_and_densities_g_i_s_path']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks and Roads P D F Path'); ?></th>
+		<td>
+			<?php echo h($city['City']['blocks_and_roads_p_d_f_path']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Blocks and Roads G I S Path'); ?></th>
+		<td>
+			<?php echo h($city['City']['blocks_and_roads_g_i_s_path']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Historical Data P D F Path'); ?></th>
+		<td>
+			<?php echo h($city['City']['historical_data_p_d_f_path']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Historical Data G I S Path'); ?></th>
+		<td>
+			<?php echo h($city['City']['historical_data_g_i_s_path']); ?>
 			&nbsp;
 		</td>
 </tr>
