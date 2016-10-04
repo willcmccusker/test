@@ -32,13 +32,11 @@ html, body{
 	float: left;
 	width:100%;
 	min-height:1px;
-	padding:0 $padding 0 0;
+	padding:0 #{$padding/2};
 }
 [class*='col-']:last-of-type {
-	padding:0 #{$padding/2} 0 0;
 }
 [class*='col-']:first-of-type {
-	padding:0 $padding 0 #{$padding/2};
 }
 .grid:after {
 	content: "";
@@ -75,10 +73,12 @@ html, body{
 		width:100%;
 	}
 	[class*='col-'] {
-	  padding-left: #{$mobile-padding / 2} !important;
-	  padding-right: #{$mobile-padding / 2} !important;
+	  padding: 0 #{$mobile-padding / 2};
 	}
 
+	.grid{
+		padding: 0 #{$mobile-padding/2};
+	}
 
 	@for $i from 1 through 12{
 		@for $j from 1 through 12{
@@ -106,8 +106,7 @@ html, body{
 @media only screen and (min-width : 0) and (max-width : $tablet-max-width)  {
 
 	[class*='col-'] {
-	  padding-left: #{$mobile-padding / 2};
-	  padding-right: #{$mobile-padding / 2};
+	  padding: 0 #{$mobile-padding / 2};
 	}
 	.tab-0{
 		width:0%;
