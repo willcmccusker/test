@@ -123,7 +123,7 @@ class LocalFilemanager extends BaseFilemanager
 		// check if file is readable
 		if(!$this->has_system_permission($current_path, array('r'))) {
 			$this->error(sprintf($this->lang('NOT_ALLOWED_SYSTEM')));
-		}
+		}		
 
 		if(!$handle = @opendir($current_path)) {
 			$this->error(sprintf($this->lang('UNABLE_TO_OPEN_DIRECTORY'), $this->get['path']));
@@ -137,14 +137,14 @@ class LocalFilemanager extends BaseFilemanager
 
 			foreach($files_list as $file) {
 				$file_path = $this->get['path'] . $file;
-
 				if(is_dir($current_path . $file)) {
+
 					if(!in_array($file, $this->config['exclude']['unallowed_dirs']) && !preg_match($this->config['exclude']['unallowed_dirs_REGEXP'], $file)) {
 						$array[$file_path . '/'] = $this->get_file_info($file_path . '/');
 					}
 				} else if (!in_array($file, $this->config['exclude']['unallowed_files']) && !preg_match($this->config['exclude']['unallowed_files_REGEXP'], $file)) {
-					$item = $this->get_file_info($file_path);
 
+					$item = $this->get_file_info($file_path);
 					if(!isset($this->refParams['type']) || (isset($this->refParams['type']) && strtolower($this->refParams['type']) === 'images' && in_array(strtolower($item['File Type']), array_map('strtolower', $this->config['images']['imagesExt'])))) {
 						if($this->config['upload']['imagesOnly']== false || ($this->config['upload']['imagesOnly'] === true && in_array(strtolower($item['File Type']), array_map('strtolower', $this->config['images']['imagesExt'])))) {
 							$array[$file_path] = $item;
