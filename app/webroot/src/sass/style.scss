@@ -318,12 +318,24 @@ h1#site-title {
 	color:$lightgrey1;
 }
 
+div[id$="_map"]{
+	background-color: black;
+}
 .city-graphic{
+	position:relative;
+	height:400px;
 	// background-color: $lightgrey;
 	// padding:20px;
 	// min-height:450px;
+	// ul{
+	// 	position: absolute;
+	// 	z-index: 5;
+	// 	right: 35px;
+	// 	top: 10px;
+	// 	padding: 5px;
+	// 	background-color: white;
+	// }
 }
-
 
 
 
@@ -498,6 +510,7 @@ h1#site-title {
     }
 }
 
+#citySearch:not(.poppedUp) ul,
 #citySearch.unlisted ul{
 	display:none;
 }

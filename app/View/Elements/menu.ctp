@@ -4,7 +4,7 @@
 					<div class="panel-heading"><?php echo __('Actions'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Import Cities and Data'), array('action' => 'import'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Import Cities and Data'), array('controller'=>'cities', 'action' => 'import'), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('List Cities'), array('controller'=>'cities', 'action' => 'index'), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('New City'), array('controller'=>'cities', 'action' => 'add'), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List '.__('Regions'), array('controller' => 'regions', 'action' => 'index'), array('escape' => false)); ?> </li>
