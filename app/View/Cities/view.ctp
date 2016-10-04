@@ -6,8 +6,8 @@
 		<div class='col-2-3 mob-1-1'>
 			<div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<div class="countryName"><?= $city["City"]["country"];?></div>
-			<div class="regionName"><?= $city["Region"]["name"];?></div>
+			<h2 class="countryName"><?= $city["City"]["country"];?></h2>
+			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
 		</div>
 		<div class='col-1-3 mob-1-1'>
 			<div class="cityImage">

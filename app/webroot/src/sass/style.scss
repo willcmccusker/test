@@ -25,7 +25,8 @@ $border-darkgrey : #333333;
 $smalltype : 8px;
 $regulartype : 12px;
 $largetype : 16px;
-$largetype2 : 22px;
+$largetype1 : 20px;
+$largetype2 : 24px;
 $largetype3 : 36px;
 $largetype4 : 64px;
 
@@ -176,8 +177,15 @@ a {
 	padding-top:5px;
 }
 
-.countryName, .regionName {
+h2.countryName, h2.regionName {
 	border-bottom:1px solid #ccc;
+	display:block;
+	font-family: "DINNextLTProUltraLight";
+	font-size: $largetype;
+	padding:10px 0;
+}
+h2.countryName {
+	border-top:1px solid #ccc;
 }
 
 .headerMenu {
@@ -197,6 +205,7 @@ a {
 }
 
 .cityNav {
+	background-color: $lightgrey1;
 	position:absolute;
 	bottom:100px;
 	ul {
