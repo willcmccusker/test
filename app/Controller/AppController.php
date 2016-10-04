@@ -90,6 +90,27 @@ class AppController extends Controller {
         	$this->response->type('json');
             $this->layout = 'api';
         } 
+        if(!isset($this->City)){
+            App::uses('City', 'Model');
+
+            $this->City = new City;
+        }
+        $cities = $this->City->find("all", array(
+            "recursive"=>0
+        ));
+        usort($cities, function($a, $b) {
+            if($a["Region"]["name"] == $b["Region"]["name"]){
+                if($a["City"]["country"] == $b["City"]["country"]){
+                    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
+                }else{
+                    return strcasecmp($a["City"]["country"], $b["City"]["country"]);
+                }
+            }else{
+                return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
+            }
+        });
+        $this->set(compact("cities"));
+
     }
 
 	public function isAuthorized($user) {

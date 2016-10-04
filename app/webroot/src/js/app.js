@@ -1,4 +1,18 @@
 $(document).ready(function(){
+
+
+
+	var citySearch = new List('citySearch', {valueNames: ['country', 'city', 'region' ], sortFunction: sortCities});
+	citySearch.on("updated", function(){
+		if($("#citySearch input").val() !== ""){
+			$("#citySearch").removeClass("unlisted");
+		}else{
+			$("#citySearch").addClass("unlisted");
+		}
+	});
+
+
+
 	// console.log(Chart.defaults.global);
 	// Chart.defaults.global.bar.backgroundColor = '#F0F0F0';
 	// Chart.defaults.global.defaultColor = "#F0F0F0";
@@ -48,7 +62,8 @@ $(document).ready(function(){
 			switch(controller){
 				case("index"):
 					//filter list
-					var cityList = new List('cityList', {valueNames: ['country', 'city', 'region' ], sortFunction: sortCities});
+					// var cityList = new List('cityList', {valueNames: ['country', 'city', 'region' ], sortFunction: sortCities});
+
 				break;
 				case("data"):
 					//table

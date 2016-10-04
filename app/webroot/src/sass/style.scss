@@ -207,9 +207,25 @@ a {
 	cursor: pointer;
 	}
 }
-ul.list{
+
+#citySearch{
+	position:relative;
+	ul{
+		padding: 5px;
+		position:absolute;
+		right:0;
+		background-color: rgba(255,255,255,0.8);
+		z-index:1;
+		margin-top:5px;
+	}
+}
+#citySearch.unlisted ul{
+	display:none;
+}
+
+#cityList ul.list{
 	list-style-type: none;
- @include xPrefix(columns, 3);
+	@include xPrefix(columns, 3);
 }
 @for $i from 1 through 8{
 	.region-#{$i} .region{

@@ -93,28 +93,20 @@ class CitiesController extends AppController {
  * @return void
  */
 	public function index($render = "index") {
-		$cities = $this->City->find("all", array(
-			"recursive"=>0
-			));
+		// debug($this->viewVars);
+		$cities = $this->viewVars["cities"];
+
 		switch($render){
 			case("map"):
 
 			break;
 			case("data"):
-
+				usort($cities, function($a, $b) {
+                    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
+		        });
 			break;
 			default:
-			usort($cities, function($a, $b) {
-				if($a["Region"]["name"] == $b["Region"]["name"]){
-					if($a["City"]["country"] == $b["City"]["country"]){
-					    return strcasecmp($a["City"]["name"], $b["City"]["name"]);
-					}else{
-					    return strcasecmp($a["City"]["country"], $b["City"]["country"]);
-					}
-				}else{
-				    return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
-				}
-			});
+			
 		}
 
 		// $cities = Hash::sort($cities, '{n}.Region.name', 'asc');

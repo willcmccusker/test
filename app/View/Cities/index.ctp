@@ -3,7 +3,7 @@
 	<div class='col-1-1'>
 		<div id='cityList'>
 
-			<input class="search" placeholder="Search" />
+			<!-- <input class="search" placeholder="Search" /> -->
 
 		<!-- 	<button class="sort" data-sort="city">
 				Sort by city
