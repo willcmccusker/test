@@ -3,7 +3,7 @@ $max-width : 1080px;
 $max-width-wide : 1920px;
 $padding : 50px;
 $mobile-padding : 20px;
-$mobile-max-width : 767px;
+$mobile-max-width : 768px;
 $tablet-min-width : 768px;
 $tablet-max-width : 950px;
 
@@ -30,9 +30,11 @@ $largetype2 : 24px;
 $largetype3 : 36px;
 $largetype4 : 64px;
 
+
 @import "functions";
+@import "mapbox";
 @import "grid";
-@import "tiny-autocomplete";
+// @import "tiny-autocomplete";
 
 @font-face {
 	font-family: 'DINNextLTProLight';
@@ -346,12 +348,12 @@ h1#site-title {
 	color:$lightgrey1;
 }
 
-div[id$="_map"]{
+.city-map{
 	background-color: black;
+	height:400px;
 }
 .city-graphic{
 	position:relative;
-	height:400px;
 	// background-color: $lightgrey;
 	// padding:20px;
 	// min-height:450px;

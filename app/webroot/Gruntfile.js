@@ -26,23 +26,31 @@ module.exports = function(grunt) {
         },
         uglifyFiles : {
           'dist/js/app.min.js': [
+
             'src/js/jquery-3.1.0.min.js', 
-            'src/js/stupidtable.min.js',
+
+
+            'topojson.min.js',
+            // 'mapbox.ignore.js',
             // 'src/js/plotly.min.js',
             // 'src/js/d3.min.js',
             // 'src/js/chartist.min.js',
             // 'src/js/plottable.min.js',
+
+            'src/js/stupidtable.min.js',
+            'src/js/jquery.waypoints.min.js',
             'src/js/chart.ignore.js',
             'src/js/list.ignore.js',
+
             'src/js/app.js',
           ]
         },
         uglify: {
           dev : {
             options: {
-              mangle: false,
-              compress: false,
-              beautify : true,
+              mangle: true,
+              compress: true,
+              beautify : false,
               wrap: false,
               sourceMap: true,
               banner: '/*\n <%= pkg.name %>-dev <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
