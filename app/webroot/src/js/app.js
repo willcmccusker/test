@@ -115,6 +115,9 @@ $(document).ready(function(){
 		console.log(e.keyCode);
 		if(e.keyCode == 91){
 			tab = true;
+			setTimeout(function(){
+				tab = false;
+			}, 1000);
 			return;
 		}
 		if (e.keyCode == 27 && poppedUp) { 
