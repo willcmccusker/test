@@ -194,6 +194,10 @@ a {
 
 .footer {
 	background-color:#bfbfbf;
+	color:#fff;
+}
+	
+	
 
 h2.countryName, h2.regionName {
 	border-bottom:1px solid #ccc;
@@ -551,6 +555,4 @@ div[id$="_map"]{
 	border-bottom: 1px solid $border-darkgrey;
 }
 
-
-
-/* @import "mobile"; */
+@import "mobile";
