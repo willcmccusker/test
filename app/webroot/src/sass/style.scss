@@ -9,6 +9,8 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
+$headerbgcolor : #fff;
+$headercolor : #000;
 $lightgrey : #333333;
 $lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
@@ -213,8 +215,20 @@ a {
 
 
 .header {
+	font-family: "OfficeCodeLight";
+	font-size:14px;
+	color:$headercolor;
 	padding-top:5px;
+	background-color: $headerbgcolor;
+	padding-bottom:0 !important;
+	margin-bottom:20px;
+	border-bottom: 1px solid $lightgrey1;
+	a {
+		color: $headercolor;
+	}
 }
+
+
 
 .footer {
 	background-color:#bfbfbf;
@@ -244,7 +258,7 @@ h2.countryName {
 	}
 	li {
 	list-style-type:none;
-	padding:0 10px;
+	padding:0 30px 0 0;
 	margin:0;
 	float:left;
 	}
@@ -298,7 +312,6 @@ table th{
 }
 
 h1#site-title {
-	font-family:"DINNextLTProLight";
 	font-size:16px;
 }
 
@@ -443,10 +456,10 @@ h1#site-title {
 #citySearch:not(.poppedUp){
 	 input#search{
 	  width: 50%;
-	  height: 30px;
 	  border: none;
 	  font-size: 10pt;
 	  text-align:right;
+	  background-color: $headerbgcolor;
 	}
 }
 
