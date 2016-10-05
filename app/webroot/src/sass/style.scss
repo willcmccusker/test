@@ -26,7 +26,7 @@ $border-darkgrey : #333333;
 
 $smalltype : 8px;
 $Lighttype : 12px;
-$largetype : 16px;
+$defaulttype : 16px;
 $largetype1 : 20px;
 $largetype2 : 24px;
 $largetype3 : 36px;
@@ -228,8 +228,6 @@ a {
 	}
 }
 
-
-
 .footer {
 	background-color:#bfbfbf;
 	color:#fff;
@@ -245,7 +243,7 @@ h2.countryName, h2.regionName {
 	border-bottom:1px solid #ccc;
 	display:block;
 	font-family: "DINNextLTProUltraLight";
-	font-size: $largetype;
+	font-size: $defaulttype;
 	padding:10px 0;
 }
 h2.countryName {
@@ -298,6 +296,10 @@ h2.countryName {
 	.region-#{$i} ~ .region-#{$i} .region{
 		display:none;
 	}
+}
+
+.statLabel {
+	font-size:$defaulttype;
 }
 
 

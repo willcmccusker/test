@@ -8,24 +8,22 @@
 			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
 			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
 			<div class='citySummaryTable'>
-				<div class='navLabels'>
-					<div class="table-label">Population</div>
+				<div class='statLabel'>
+					<div class="statLabel">Population</div>
 				</div>
-				<div class='navValue'>
+				<div class='statValue'>
 					<div><?= number_format($city["City"]["population"]);?></div>
 				</div>
-				<br>
-				<div class='navLabels'>
+				<div class='statLabel'>
 					<div class="table-label">Urban Extent</div>
 				</div>
-				<div class='navValue'>
+				<div class='statValue'>
 					<div><?= number_format($city["City"]["extent"]);?> hectares</div>
 				</div>
-				<br>
-				<div class='navLabels'>
+				<div class='statLabel'>
 					<div class="table-label">Density</div>
 				</div>
-				<div class='navValue'>
+				<div class='statValue'>
 					<div><?= $city["City"]["density"];?> persons/hectare</div>
 				</div>
 			</div>
