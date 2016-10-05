@@ -4,9 +4,8 @@
 <div class='cityHeader'>
 	<div class='grid wide'>
 		<div class='col-2-3 mob-1-1'>
-			<div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<h2 class="countryName"><?= $city["City"]["country"];?></h2>
+			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
 			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
 		</div>
 		<div class='col-1-3 mob-1-1'>
@@ -250,12 +249,16 @@
 		</div>
 	</div>
 	<div class='footer grid wide'>
-	<div class='col-1-1 tab-1-1 mob-1-1'>
-		<ul>
-		<li><a href="/">Atlas of Urban Expansion</a></li>
+	<div class='col-1-2 tab-1-1 mob-1-1'>
+		<p><a href="/">Atlas of Urban Expansion</a></p><p>Monitoring Global Urban Expansion As of 2010, the world contained 4,245 cities with 100,000 or more people. To better understand them, the Monitoring Global Urban Expansion initiative tracks a stratified global sample of 200 of these cities &mdash; collecting and analyzing evidence on the quantity and quality of urban expansion. The initiative is a partnership involving the United Nations Human Settlements Programme (UN Habitat) and the Lincoln Institute of Land Policy.</p>
+		</div>
+		<div class='col-1-2 tab-1-1 mob-1-1'>
+<img src='/file-manager/userfiles/logos/logo_block.png' alt="logo_block" width="500" />
+	<ul>
+		<li>&copy; Atlas of Urban Expansion</li>
+		<li><a href="#">Contact</a></li>
 	</ul>
-		<img src='/file-manager/userfiles/logos/logo_block.png' alt="logo_block" width="654" />
-		<p class"footer-text">Monitoring Global Urban Expansion As of 2010, the world contained 4,245 cities with 100,000 or more people. To better understand them, the Monitoring Global Urban Expansion initiative tracks a stratified global sample of 200 of these cities?collecting and analyzing evidence on the quantity and quality of urban expansion. The initiative is a partnership involving the United Nations Human Settlements Programme (UN Habitat) and the Lincoln Institute of Land Policy.</p>
+	</div>
 	</div>
 	</div>
 </div>
