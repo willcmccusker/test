@@ -318,12 +318,12 @@ h1#site-title {
 	color:$lightgrey1;
 }
 
-div[id$="_map"]{
+.city-map{
 	background-color: black;
+	height:400px;
 }
 .city-graphic{
 	position:relative;
-	height:400px;
 	// background-color: $lightgrey;
 	// padding:20px;
 	// min-height:450px;

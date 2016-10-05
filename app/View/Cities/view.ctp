@@ -89,9 +89,10 @@
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
-				<div id='urban_extent_t1_map' class='city-graphic'>
+				<div id='urban_extent_t1_map' class='city-map'>
 
 					<script>
+						/*
 						L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 						var map = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
@@ -110,7 +111,7 @@
 							}else{
 								map.removeLayer(layer);
 							}
-						});
+						});*/
 					</script>
 				</div>
 			</div>
@@ -158,7 +159,7 @@
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 				</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
-				<div id='composition_t1_t2_map' class='city-graphic'></div>
+				<div id='composition_t1_t2_map' class='city-map'></div>
 			</div>
 		</div>
 	</div>
@@ -176,7 +177,7 @@
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
-				<div id='roads_map' class='city-graphic'></div>
+				<div id='roads_map' class='city-map'></div>
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -206,7 +207,7 @@
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
-				<div id='arterial_map' class='city-graphic'></div>
+				<div id='arterial_map' class='city-map'></div>
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -234,7 +235,7 @@
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
-				<div id='blocks_map' class='city-graphic'></div>
+				<div id='blocks_map' class='city-map'></div>
 			</div>
 		</div>
 		<div class='grid wide'>

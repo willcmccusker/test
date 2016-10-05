@@ -1,5 +1,7 @@
-
+var tab = false;
 var poppedUp = false;
+var ready = false;
+var drawComplete = true;
 var searchPopup = function(){
 	if(poppedUp){
 		return false;
@@ -20,14 +22,114 @@ var searchPopdown = function(){
 	$("#citySearch").removeClass("poppedUp");
 	poppedUp = false;
 };
+var running = false;
+/*var buildGraph = function(that){
+	if(typeof($(that.element).data("built")) === "undefined"){
+		var id = that.element.id;
+		$(that.element).data("built", true);
+		switchGraph(id);
+		Waypoint.refreshAll();
+	}
+};*/
+
+var buildGraphsInterval = setInterval(function(){
+	if($(".city-graphic.done").length == $(".city-graphic").length){
+		clearInterval(buildGraphsInterval);
+	}else{
+		if($(".city-graphic.ready:not(.done)").length > 0){
+			$(".city-graphic.ready:not(.done)").each(function(){
+				if(!drawComplete){
+
+				}else{
+					$(this).addClass("done");
+					switchGraph($(this).attr("id"));
+				}
+			});
+			console.log("refresh all");
+			Waypoint.refreshAll();	
+		}
+	}
+},600);
+
+var switchGraph = function(id){
+	console.log("build "+id);
+	switch(id){
+		case("population_line"):
+		case("density_built_up_line"):
+		case("density_urban_extent_line"):
+			makeLine(id, city);
+		break;
+		case("population_change_bar"):
+		case("urban_extent_change_bar"):
+		case("density_built_up_change_bar"):
+		case("density_urban_extent_change_bar"):
+			makeChart(id, city);
+		break;
+		case("roads_in_built_up_area_bar"):
+		case("roads_average_width_bar"):
+		case("blocks_plots_average_block_bar"):
+			makeChart(id, city, true);
+		break;
+		case("urban_extent_composition_stacked_bar"):
+			makeStacked(id, city);
+		break;
+		case("roads_width_stacked_bar"):
+			makeStacked(id, city, true);
+		break;
+		case("arterial_roads_density_bar"):
+		case("arterial_roads_walking_bar"):
+		case("arterial_roads_beeline_bar"):
+			makeRoadChart(id, city);
+		break;
+		case("blocks_plots_average_bar"):
+			makeBlockChart(id, city);
+		break;
+		default:
+			console.log(id+" doesn't have a function");
+	}
+};
+var loadFlags = function(){
+	loadNextFlag();
+};
+var loadNextFlag = function(){
+	var lazy = $(".lazyimg").first();
+	if(lazy.length === 0){
+		return;
+	}
+	var img = new Image();
+	img.onload = function(){
+		$(lazy).attr("src", $(lazy).data("src")).removeClass("lazyimg");
+		loadNextFlag();
+	};
+	img.onerror = function(){
+		$(lazy).removeClass("lazyimg");
+		loadNextFlag();
+	};
+	img.src = $(lazy).data("src");
+};
 
 $(document).ready(function(){
+
+	loadFlags();
+
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();
 	});
 
+	$(document).on("keyup", function(e) {
+		if(e.keyCode == 91){
+			tab = false;
+		}
+	});
 	$(document).on("keydown", function(e) {
+		if(tab){
+			return;
+		}
 		console.log(e.keyCode);
+		if(e.keyCode == 91){
+			tab = true;
+			return;
+		}
 		if (e.keyCode == 27 && poppedUp) { 
 			searchPopdown();
 			return;
@@ -58,6 +160,10 @@ $(document).ready(function(){
 	// Chart.defaults.global.defaultColor = "#F0F0F0";
 	// Chart.defaults.global.legend.fullWidth = false;
 	Chart.defaults.global.defaultFontFamily = 'DINNextLTProLight';
+	Chart.defaults.global.animation.onComplete = function(){
+		drawComplete = true;
+	};
+	// Chart.defaults.global.animation.duration = 0;
 	var route = window.location.href.split("//")[1].split("/").filter(function(e){ return e === 0 || e; });
 	var model = false;
 	var controller = "index";
@@ -124,29 +230,18 @@ $(document).ready(function(){
 					});
 				break;
 				case("view"):
+					var wayDown = $('.city-graphic').waypoint(function(direction) {
+						if(direction == "down"){
+							// buildGraph(this);	
+							$(this.element).addClass("ready");
+						}
+					}, {
+						offset: '80%',
+						// enabled: false,
+					});
+
 					//graphs
 					// makeGraph("density_built_up_change", city);
-					makeLine("population_line", city);
-					makeChart("population_change_bar", city);
-
-					makeStacked("urban_extent_composition_stacked_bar", city);
-					makeChart("urban_extent_change_bar", city);
-
-					makeLine("density_built_up_line", city);
-					makeChart("density_built_up_change_bar", city);
-					makeLine("density_urban_extent_line", city);
-					makeChart("density_urban_extent_change_bar", city);
-
-					makeChart("roads_in_built_up_area_bar", city, true);
-					makeChart("roads_average_width_bar", city, true);
-					makeStacked("roads_width_stacked_bar", city, true);
-
-					makeRoadChart("arterial_roads_density_bar", city);
-					makeRoadChart("arterial_roads_walking_bar", city);
-					makeRoadChart("arterial_roads_beeline_bar", city);
-
-					makeChart("blocks_plots_average_block_bar", city, true);
-					makeBlockChart("blocks_plots_average_bar", city);
 					// makePlotly("density_built_up_change", city);
 					// makeChartist("density_built_up_change", city);
 				break;
