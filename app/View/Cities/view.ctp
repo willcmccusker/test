@@ -7,17 +7,6 @@
 			<div class='h1'><?= $city["City"]["name"];?></div>
 			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
 			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
-		</div>
-		<div class='col-1-3 mob-1-1'>
-			<div class="cityImage">
-			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
-			<!--<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">-->
-			<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>";>
-			</div>
-		</div>
-	</div>
-	<div class='grid wide'>
-		<div class='col-1-1'>
 			<table class='citySummaryTable'>
 				<tr>
 					<td class="table-label">Population</td>
@@ -30,14 +19,21 @@
 					<td colspan="1"></td>
 				</tr>
 					<td class="table-label">Density</td>
-					<td><?= $city["City"]["density"];?> persons/hectares</td>
+					<td><?= $city["City"]["density"];?> persons/hectare</td>
 					<td colspan="1"></td>
 				</tr>
 			</table>
 		</div>
+		<div class='col-1-3 mob-1-1'>
+			<div class="cityImage">
+			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
+			<!--<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">-->
+			<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>";>
+			</div>
+		</div>
 	</div>
 	<div class='grid cityNav wide'>
-		<div class='col-3-3 mob-1-1'>
+		<div class='col-1-1'>
 			<ul>
 			<div class="cityNavHeader">Areas and Densities</div>
 				<li><?= $this->Html->link("Population", "#population", array("class"=>"navJump"));?></li>
