@@ -23,7 +23,7 @@ $border-darkgrey : #333333;
 /*type size variables */
 
 $smalltype : 8px;
-$regulartype : 12px;
+$Lighttype : 12px;
 $largetype : 16px;
 $largetype1 : 20px;
 $largetype2 : 24px;
@@ -35,11 +35,11 @@ $largetype4 : 64px;
 @import "tiny-autocomplete";
 
 @font-face {
-	font-family: 'DINNextLTProRegular';
-	src: url('/fonts/DINNextLTPro-Regular.eot');
-	src: url('/fonts/DINNextLTPro-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-Regular.woff') format('woff'),
-		url('/fonts/DINNextLTPro-Regular.ttf') format('truetype');
+	font-family: 'DINNextLTProLight';
+	src: url('/fonts/DINNextLTPro-Light.eot');
+	src: url('/fonts/DINNextLTPro-Light.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Light.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Light.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -55,11 +55,11 @@ $largetype4 : 64px;
 }
 
 @font-face {
-	font-family: 'DINNextLTProMedium';
-	src: url('/fonts/DINNextLTPro-Medium.eot');
-	src: url('/fonts/DINNextLTPro-Medium.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-Medium.woff') format('woff'),
-		url('/fonts/DINNextLTPro-Medium.ttf') format('truetype');
+	font-family: 'DINNextLTProLight';
+	src: url('/fonts/DINNextLTPro-Light.eot');
+	src: url('/fonts/DINNextLTPro-Light.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-Light.woff') format('woff'),
+		url('/fonts/DINNextLTPro-Light.ttf') format('truetype');
 	font-weight: 500;
 	font-style: normal;
 }
@@ -80,6 +80,26 @@ $largetype4 : 64px;
 	src: url('/fonts/Akkurat.eot?#iefix') format('embedded-opentype'),
 		url('/fonts/Akkurat.woff') format('woff'),
 		url('/fonts/Akkurat.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OfficeCodeRegular';
+	src: url('/fonts/OfficeCodePro-Regular.eot');
+	src: url('/fonts/OfficeCodePro-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/OfficeCodePro-Regular.woff') format('woff'),
+		url('/fonts/OfficeCodePro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OfficeCodeLight';
+	src: url('/fonts/OfficeCodePro-Light.eot');
+	src: url('/fonts/OfficeCodePro-Light.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/OfficeCodePro-Light.woff') format('woff'),
+		url('/fonts/OfficeCodePro-Light.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -226,13 +246,9 @@ h2.countryName {
 	}
 }
 
-.cityNavHeader {
-	font-family:"DINNextLTProRegular";
-}
-
 .cityNav {
 	position:absolute;
-	bottom:100px;
+	bottom:70px;
 	ul {
 	margin-right:51px;
 	float: left;
@@ -243,7 +259,10 @@ h2.countryName {
 	float:left;
 	}
 	a {
-	padding: 4px 8px;
+	font-family:"OfficeCodeLight";
+	font-size:12px;
+	text-transform: uppercase;
+	padding: 6px 12px;
 	background-color: $lightgrey3;
 	cursor: pointer;
 	}
@@ -275,7 +294,7 @@ table th{
 }
 
 h1#site-title {
-	font-family:"DINNextLTProRegular";
+	font-family:"DINNextLTProLight";
 	font-size:16px;
 }
 
