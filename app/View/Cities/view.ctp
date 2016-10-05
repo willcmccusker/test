@@ -6,8 +6,13 @@
 		<div class='col-2-3 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
 			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
-			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
+			<div class="statLabel">
+				<div class="table-label">Region</div>
+			</div>
 			<div class='citySummaryTable'>
+				<div class='statValue'>
+					<div><?= $city["Region"]["name"];?></div>
+				</div>
 				<div class='statLabel'>
 					<div class="statLabel">Population</div>
 				</div>

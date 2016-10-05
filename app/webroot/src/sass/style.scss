@@ -1,7 +1,7 @@
 
 $max-width : 1080px;
 $max-width-wide : 1920px;
-$padding : 50px;
+$padding : 25px;
 $mobile-padding : 20px;
 $mobile-max-width : 768px;
 $tablet-min-width : 768px;
@@ -24,7 +24,7 @@ $border-darkgrey : #333333;
 
 /*type size variables */
 
-$smalltype : 8px;
+$smalltype : 12px;
 $Lighttype : 12px;
 $defaulttype : 16px;
 $largetype1 : 20px;
@@ -107,6 +107,15 @@ $largetype4 : 64px;
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'DINNextLTPro-MediumCond';
+	src: url('/fonts/DINNextLTPro-MediumCond.eot');
+	src: url('/fonts/DINNextLTPro-MediumCond.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/DINNextLTPro-MediumCond.woff') format('woff'),
+		url('/fonts/DINNextLTPro-MediumCond.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
 
 
 // @import "plottable";
@@ -215,8 +224,7 @@ a {
 
 
 .header {
-	font-family: "OfficeCodeLight";
-	font-size:14px;
+	font-size:$defaulttype;
 	color:$headercolor;
 	padding-top:5px;
 	background-color: $headerbgcolor;
@@ -276,7 +284,7 @@ h2.countryName {
 	}
 	a {
 	font-family:"OfficeCodeLight";
-	font-size:12px;
+	font-size:$smalltype;
 	text-transform: uppercase;
 	padding: 6px 12px;
 	background-color: $lightgrey3;
@@ -302,6 +310,10 @@ h2.countryName {
 	font-size:$defaulttype;
 }
 
+.statValue {
+	border-bottom:1px solid #ccc;	
+}
+
 
 table th{
 	cursor: pointer;
@@ -314,7 +326,8 @@ table th{
 }
 
 h1#site-title {
-	font-size:16px;
+	font-family: "DINNextLTPro-MediumCond";
+	font-size:$defaulttype;
 }
 
 .h2{
@@ -423,7 +436,7 @@ h1#site-title {
 	}
 
 .citySummaryTable {
-	font-size:30px;
+	font-size:$largetype3;
 	font-family:"DINNextLTProUltraLight";
 }
 
@@ -433,7 +446,7 @@ h1#site-title {
 }
 
 .tableSmallText {
-	font-size:18px;
+	font-size:$defaulttype;
 }
 
 .flag {
@@ -479,7 +492,7 @@ h1#site-title {
 		padding-top:32px;
 	    .popup-city-city{
 	    	display:inline-block;
-	    	font-size:32px;
+	    	font-size:$largetype3;
 	    }
 	    li{
 	    	padding:#{$padding/2};
@@ -555,7 +568,7 @@ h1#site-title {
     	padding-top:50px;
     	padding:50px #{$padding/2} 0px;
     	width:100%;
-    	font-size:48px;
+    	font-size:$largetype4;
     	border-bottom:3px solid black;
     	background-color:white;
     }
