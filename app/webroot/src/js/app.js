@@ -1,6 +1,5 @@
 var tab = false;
 var poppedUp = false;
-var ready = false;
 var drawComplete = true;
 var searchPopup = function(){
 	if(poppedUp){
@@ -22,15 +21,6 @@ var searchPopdown = function(){
 	$("#citySearch").removeClass("poppedUp");
 	poppedUp = false;
 };
-var running = false;
-/*var buildGraph = function(that){
-	if(typeof($(that.element).data("built")) === "undefined"){
-		var id = that.element.id;
-		$(that.element).data("built", true);
-		switchGraph(id);
-		Waypoint.refreshAll();
-	}
-};*/
 
 var buildGraphsInterval = setInterval(function(){
 	if($(".city-graphic.done").length == $(".city-graphic").length){
@@ -197,10 +187,7 @@ $(document).ready(function(){
 	});
 
 	switch(model){
-		case(false):
-			//map
-			console.log("map");
-		break;
+
 		case("cities"):
 			switch(controller){
 				case("index"):
@@ -227,6 +214,8 @@ $(document).ready(function(){
 					});
 				break;
 				case("view"):
+
+
 					var wayDown = $('.city-graphic').waypoint(function(direction) {
 						if(direction == "down"){
 							// buildGraph(this);	
@@ -241,9 +230,27 @@ $(document).ready(function(){
 					// makeGraph("density_built_up_change", city);
 					// makePlotly("density_built_up_change", city);
 					// makeChartist("density_built_up_change", city);
+				
+
 				break;
 				default:
 			}
+		/* falls through */
+		case(false):
+			//map
+			L.TopoJSON = L.GeoJSON.extend({
+			  addData: function(jsonData) {
+			    if (jsonData.type === "Topology") {
+			      for (var key in jsonData.objects) {
+			        geojson = topojson.feature(jsonData, jsonData.objects[key]);
+			        L.GeoJSON.prototype.addData.call(this, geojson);
+			      }
+			    }
+			    else {
+			      L.GeoJSON.prototype.addData.call(this, jsonData);
+			    }
+			  }
+			});
 		break;
 		case("pages"):
 			switch(controller){

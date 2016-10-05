@@ -1,3 +1,24 @@
+
+
+/* tablet */
+/* tablet */
+/* tablet */
+@media only screen and (min-width : 0px) and (max-width : $tablet-max-width)  {
+
+
+}
+@media only screen and (min-width : 0px) and (max-width : $tablet-max-width) and (orientation : portrait) {
+
+}
+@media only screen and (min-width : 0px) and (max-width : $tablet-max-width) and (orientation : landscape) {
+
+}
+
+
+
+
+
+
 /* mobile */
 /* mobile */
 /* mobile */
@@ -12,7 +33,14 @@
 	.hide-on-mobile{
 		display:none;
 	}
-
+	.cityImage img {
+		position:relative;
+		padding-right: 0;
+	}
+	.cityNav {
+		position:relative;
+		bottom:0px;
+	}
 }
 @media only screen and (min-width : 0px) and (max-width : $mobile-max-width) and (orientation : portrait) {
 

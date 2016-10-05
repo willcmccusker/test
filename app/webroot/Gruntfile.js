@@ -26,15 +26,22 @@ module.exports = function(grunt) {
         },
         uglifyFiles : {
           'dist/js/app.min.js': [
+
             'src/js/jquery-3.1.0.min.js', 
-            'src/js/stupidtable.min.js',
-            'src/js/jquery.waypoints.min.js',
+
+
+            'topojson.min.js',
+            // 'mapbox.ignore.js',
             // 'src/js/plotly.min.js',
             // 'src/js/d3.min.js',
             // 'src/js/chartist.min.js',
             // 'src/js/plottable.min.js',
+
+            'src/js/stupidtable.min.js',
+            'src/js/jquery.waypoints.min.js',
             'src/js/chart.ignore.js',
             'src/js/list.ignore.js',
+
             'src/js/app.js',
           ]
         },

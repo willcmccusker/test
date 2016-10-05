@@ -92,11 +92,11 @@
 				<div id='urban_extent_t1_map' class='city-map'>
 
 					<script>
-						/*
+						
 						L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 						var map = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
-							zoom: 11
+							zoom: 9
 						});
 						var outline = L.tileLayer('/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
 						var urban = L.tileLayer('/tiles/show/<?= strtolower($city['City']['name']) ?>-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
@@ -111,7 +111,7 @@
 							}else{
 								map.removeLayer(layer);
 							}
-						});*/
+						});
 					</script>
 				</div>
 			</div>
