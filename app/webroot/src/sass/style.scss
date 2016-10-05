@@ -559,10 +559,15 @@ div[id$="_map"]{
 	text-align: left;
 }
 
+/* Index */
 #cityList h3 {
+	font-family: "DINNextLTProUltraLight";
+	font-size: $largetype2;
 	padding: 25px 0 0px 0;
-	margin:0 0 10px 0;
-	border-bottom: 1px solid $border-darkgrey;
+}
+
+#cityList .city:hover {
+	background-color:$lightgrey3;
 }
 
 @import "mobile";
