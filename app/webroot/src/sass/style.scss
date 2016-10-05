@@ -192,6 +192,17 @@ a {
 	padding-top:5px;
 }
 
+.footer {
+	background-color:#bfbfbf;
+	color:#fff;
+	padding:15px 0 50px 0;
+}
+
+.footer a {
+	color:#fff;
+	text-decoration: none;
+}	
+
 h2.countryName, h2.regionName {
 	border-bottom:1px solid #ccc;
 	display:block;
@@ -220,7 +231,6 @@ h2.countryName {
 }
 
 .cityNav {
-	background-color: $lightgrey1;
 	position:absolute;
 	bottom:100px;
 	ul {
@@ -310,7 +320,7 @@ h1#site-title {
 .sectionHeader {
 	font-size:$largetype3;
 	font-family:"DINNextLTProUltraLight";
-	border-bottom: 1px solid #3f3f3f;
+	border-bottom: 1px solid $lightgrey1;
 	padding-top:20px;
 }
 
@@ -391,9 +401,15 @@ div[id$="_map"]{
 	font-size:18px;
 }
 
+.flag {
+	float:left;
+	width:35px;
+	margin-right:20px;
+}
+
 .flag img{
 	// display:none;
-	width:100px;
+	width:35px;
 }
 
 
@@ -543,12 +559,15 @@ div[id$="_map"]{
 	text-align: left;
 }
 
+/* Index */
 #cityList h3 {
+	font-family: "DINNextLTProUltraLight";
+	font-size: $largetype2;
 	padding: 25px 0 0px 0;
-	margin:0 0 10px 0;
-	border-bottom: 1px solid $border-darkgrey;
 }
 
-
+#cityList .city:hover {
+	background-color:$lightgrey3;
+}
 
 @import "mobile";

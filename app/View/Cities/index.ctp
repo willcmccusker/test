@@ -1,5 +1,5 @@
 <? $this->assign('title', "Cities");?>
-<div class='grid'>
+<div class='grid wide'>
 	<div class='col-1-1'>
 		<div id='cityList'>
 

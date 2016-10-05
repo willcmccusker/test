@@ -4,15 +4,15 @@
 <div class='cityHeader'>
 	<div class='grid wide'>
 		<div class='col-2-3 mob-1-1'>
-			<div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<h2 class="countryName"><?= $city["City"]["country"];?></h2>
+			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
 			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
 		</div>
 		<div class='col-1-3 mob-1-1'>
 			<div class="cityImage">
 			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
-			<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">
+			<!--<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">-->
+			<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>";>
 			</div>
 		</div>
 	</div>
@@ -247,5 +247,18 @@
 				<canvas id='blocks_plots_average_bar' class='city-graphic' data-title='Average Plot Size'></canvas>
 			</div>
 		</div>
+	</div>
+	<div class='footer grid wide'>
+	<div class='col-1-2 tab-1-1 mob-1-1'>
+		<p><a href="/">Atlas of Urban Expansion</a></p><p>Monitoring Global Urban Expansion As of 2010, the world contained 4,245 cities with 100,000 or more people. To better understand them, the Monitoring Global Urban Expansion initiative tracks a stratified global sample of 200 of these cities &mdash; collecting and analyzing evidence on the quantity and quality of urban expansion. The initiative is a partnership involving the United Nations Human Settlements Programme (UN Habitat) and the Lincoln Institute of Land Policy.</p>
+		</div>
+		<div class='col-1-2 tab-1-1 mob-1-1'>
+<img src='/file-manager/userfiles/logos/logo_block.png' alt="logo_block" width="500" />
+	<ul>
+		<li>&copy; Atlas of Urban Expansion</li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+	</div>
+	</div>
 	</div>
 </div>
