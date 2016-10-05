@@ -1,7 +1,7 @@
 
 $max-width : 1080px;
 $max-width-wide : 1920px;
-$padding : 25px;
+$padding : 50px;
 $mobile-padding : 20px;
 $mobile-max-width : 768px;
 $tablet-min-width : 768px;
@@ -309,11 +309,10 @@ h1#site-title {
 
 .cityHeader{
 	position:relative;
-	min-height:calc(100vh - 67px);
+	min-height:100vh;
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
-	padding-bottom:200px;
 }
 /*
 .cityHeader:after{
@@ -412,15 +411,10 @@ h1#site-title {
 	font-size:30px;
 	font-family:"DINNextLTProUltraLight";
 }
-.navValue{
-	display:inline-block;
-}
-.navLabels{
-	width:195px;
-	display:inline-block;
-}
+
+
 .table-label {
-	// padding-right:30px;
+	padding-right:30px;
 }
 
 .tableSmallText {
@@ -453,8 +447,6 @@ h1#site-title {
 	  border: none;
 	  font-size: 10pt;
 	  text-align:right;
-	  position:relative;
-	  bottom:5px;
 	}
 }
 
