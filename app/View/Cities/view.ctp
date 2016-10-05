@@ -30,7 +30,7 @@
 					<td colspan="1"></td>
 				</tr>
 					<td class="table-label">Density</td>
-					<td><?= $city["City"]["density"];?> </td>
+					<td><?= $city["City"]["density"];?> persons/hectares</td>
 					<td colspan="1"></td>
 				</tr>
 			</table>
