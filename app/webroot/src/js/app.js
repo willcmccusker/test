@@ -88,9 +88,6 @@ var switchGraph = function(id){
 			console.log(id+" doesn't have a function");
 	}
 };
-var loadFlags = function(){
-	loadNextFlag();
-};
 var loadNextFlag = function(){
 	var lazy = $(".lazyimg").first();
 	if(lazy.length === 0){
@@ -110,7 +107,7 @@ var loadNextFlag = function(){
 
 $(document).ready(function(){
 
-	loadFlags();
+	loadNextFlag();
 
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();

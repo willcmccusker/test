@@ -24,7 +24,7 @@
 							<div class='display-none popup-city-country'><?= $city["City"]["country"];?></div>
 							<div class='popup-city-li'>
 								<div class='popup-city-city'><?= $city["City"]["name"];?></div>
-								<img class='lazyimg' src='/img/empty.png' data-src='/file-manager/userfiles/_thumbs/flags/<?=$city["City"]["flag_path"];?>'>
+								<!-- <img class='lazyimg' src='/img/empty.png' data-src='/file-manager/userfiles/_thumbs/flags/<?=$city["City"]["flag_path"];?>'> -->
 							</div> 
 							<div class='popup-city-region'><?=$city["Region"]["name"];?></div>
 						</a>
