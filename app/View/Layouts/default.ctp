@@ -26,8 +26,10 @@
 	<script>
 
 	</script>
-<!-- 	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
- -->	<?php
+	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+
+
+ 	<?php
 		// echo $this->Html->meta('icon');
 
 		echo $this->Html->css('/dist/css/style.css');
