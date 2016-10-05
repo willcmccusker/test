@@ -7,22 +7,28 @@
 			<div class='h1'><?= $city["City"]["name"];?></div>
 			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
 			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
-			<table class='citySummaryTable'>
-				<tr>
-					<td class="table-label">Population</td>
-					<td><?= number_format($city["City"]["population"]);?></td>
-					<td colspan="1"></td>
-				</tr>
-				<tr>
-					<td class="table-label">Urban Extent</td>
-					<td><?= number_format($city["City"]["extent"]);?> hectares</td>
-					<td colspan="1"></td>
-				</tr>
-					<td class="table-label">Density</td>
-					<td><?= $city["City"]["density"];?> persons/hectare</td>
-					<td colspan="1"></td>
-				</tr>
-			</table>
+			<div class='citySummaryTable'>
+				<div class='navLabels'>
+					<div class="table-label">Population</div>
+				</div>
+				<div class='navValue'>
+					<div><?= number_format($city["City"]["population"]);?></div>
+				</div>
+				<br>
+				<div class='navLabels'>
+					<div class="table-label">Urban Extent</div>
+				</div>
+				<div class='navValue'>
+					<div><?= number_format($city["City"]["extent"]);?> hectares</div>
+				</div>
+				<br>
+				<div class='navLabels'>
+					<div class="table-label">Density</div>
+				</div>
+				<div class='navValue'>
+					<div><?= $city["City"]["density"];?> persons/hectare</div>
+				</div>
+			</div>
 		</div>
 		<div class='col-1-3 mob-1-1'>
 			<div class="cityImage">
