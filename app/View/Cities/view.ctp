@@ -60,11 +60,9 @@
 	</div>
 </div>
 <div class='graphMainContainer'>
-	<div class='section-header'>
-		<div class='grid wide'>
-			<div class='col-1-1'>
-					<div class='sectionHeader'>Areas and Densities</div>
-			</div>
+	<div class='grid wide'>
+		<div class='col-1-1'>
+			<div class='sectionHeader'>Areas and Densities</div>
 		</div>
 	</div>
 	<div class='graphSection'>
@@ -173,13 +171,11 @@
 			</div>
 		</div>
 	</div>
-	<div class='section-header'>
 		<div class='grid wide'>
 			<div class='col-1-1'>
 				<div class='sectionHeader'>Blocks and Roads</div>
 			</div>
 		</div>
-	</div>
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
