@@ -6,26 +6,29 @@
 		<div class='col-2-3 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
 			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
-			<h2 class="regionName"><?= $city["Region"]["name"];?></h2>
 			<div class='citySummaryTable'>
-				<div class='navLabels'>
-					<div class="table-label">Population</div>
+				<div class="statLabel">
+					<div class="table-label">Region</div>
 				</div>
-				<div class='navValue'>
+				<div class='statValue'>
+					<div><?= $city["Region"]["name"];?></div>
+				</div>
+				<div class='statLabel'>
+					<div class="statLabel">Population</div>
+				</div>
+				<div class='statValue'>
 					<div><?= number_format($city["City"]["population"]);?></div>
 				</div>
-				<br>
-				<div class='navLabels'>
+				<div class='statLabel'>
 					<div class="table-label">Urban Extent</div>
 				</div>
-				<div class='navValue'>
+				<div class='statValue'>
 					<div><?= number_format($city["City"]["extent"]);?> hectares</div>
 				</div>
-				<br>
-				<div class='navLabels'>
+				<div class='statLabel'>
 					<div class="table-label">Density</div>
 				</div>
-				<div class='navValue'>
+				<div class='statValue'>
 					<div><?= $city["City"]["density"];?> persons/hectare</div>
 				</div>
 			</div>
@@ -252,16 +255,18 @@
 			</div>
 		</div>
 	</div>
-	<div class='footer grid wide'>
+	<div class='footer'> 
+	<div class='grid wide'>
 	<div class='col-1-2 tab-1-1 mob-1-1'>
-		<p><a href="/">Atlas of Urban Expansion</a></p><p>Monitoring Global Urban Expansion As of 2010, the world contained 4,245 cities with 100,000 or more people. To better understand them, the Monitoring Global Urban Expansion initiative tracks a stratified global sample of 200 of these cities &mdash; collecting and analyzing evidence on the quantity and quality of urban expansion. The initiative is a partnership involving the United Nations Human Settlements Programme (UN Habitat) and the Lincoln Institute of Land Policy.</p>
+		<p>Monitoring Global Urban Expansion</p><p>As of 2010, the world contained 4,245 cities with 100,000 or more people. To better understand them, the Monitoring Global Urban Expansion initiative tracks a stratified global sample of 200 of these cities &mdash; collecting and analyzing evidence on the quantity and quality of urban expansion. The initiative is a partnership involving the United Nations Human Settlements Programme (UN Habitat) and the Lincoln Institute of Land Policy.</p>
 		</div>
 		<div class='col-1-2 tab-1-1 mob-1-1'>
-<img class='lazyimg' src='/img/empty.png' data-src='/file-manager/userfiles/logos/logo_block.png' alt="logo_block" width="500" />
+<img class='lazyimg' src='/file-manager/userfiles/logos/logo_block.png' alt="logo_block" width="500" />
 	<ul>
 		<li>&copy; Atlas of Urban Expansion</li>
 		<li><a href="#">Contact</a></li>
 	</ul>
+	</div>
 	</div>
 	</div>
 	</div>
