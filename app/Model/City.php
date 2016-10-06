@@ -11,6 +11,43 @@ App::uses('AppModel', 'Model');
  */
 class City extends AppModel {
 
+
+
+
+	public function returnPoints(){
+		$cities = $this->find("all", array(
+			"recursive"=>-1
+			));
+
+		$json = array(
+			"type"=>"FeatureCollection",
+			"crs"=>array("type"=>"name", "properties"=>array("name"=>"EPSG:4326")),
+			"generator"=>"BILLY",
+			"features"=>array()
+		);
+		foreach($cities as $city){
+			$json["features"][] = array(
+				"type"=>"Feature",
+				"properties"=>array(
+					"Country"=>$city["City"]["country"],
+					"City"=>$city["City"]["name"],
+					"Latitude"=>$city["City"]["latitude"],
+					"Longitute"=>$city["City"]["longitude"],
+					"Population"=>$city["City"]["population"]
+					),
+				"geometry"=>array(
+					"type"=>"Point",
+					"coordinates"=>array(
+						$city["City"]["longitude"],
+						$city["City"]["latitude"]
+						)
+					)
+				);
+		}
+		return json_encode($json);
+	}
+
+
 /**
  * Display field
  *
