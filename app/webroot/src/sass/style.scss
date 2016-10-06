@@ -245,7 +245,7 @@ a {
 	background-color: $headerbgcolor;
 	margin-bottom:20px;
 	border-bottom: 1px solid $lightgrey;
-	z-index:99;
+	z-index:9999;
 	a {
 		color: $headercolor;
 	}
@@ -448,7 +448,7 @@ h1#site-title {
 
 #worldmap{
 	position:absolute;
-	top:30px;
+	top:64px;
 	bottom:0;
 	left:0;
 	width:100%
@@ -572,7 +572,7 @@ h1#site-title {
 	}
 }
 .leaflet-bottom, .leaflet-top{
-	z-index:2 !important;
+
 }
 
 
@@ -584,7 +584,6 @@ h1#site-title {
     height: 100%;
     overflow: auto;
     background-color: rgba(255,255,255,0.8);
-    z-index: 9;
     .closeHolder{
     	display:block;
     }

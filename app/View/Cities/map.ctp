@@ -8,11 +8,15 @@
 
 // L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 $(document).ready(function(){
+  bounds = new L.LatLngBounds(new L.LatLng(-90, -180), new L.LatLng(90, 180));
+
 var map = L.map('worldmap', {
   maxZoom : 10,
-  minZoom : 0,
-
-}).setView([51.505, -0.09], 2);
+  minZoom : 2,
+  // scrollWheelZoom : false,
+  maxBounds: bounds,
+  maxBoundsViscosity: 1
+}).setView([36, 0], 3);
 
 var activeId = null;
 
