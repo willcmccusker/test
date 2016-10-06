@@ -30,6 +30,7 @@ module.exports = function(grunt) {
             'src/js/jquery-3.1.0.min.js', 
 
 
+            // 'leaflet.min.js',
             'topojson.min.js',
             // 'mapbox.ignore.js',
             // 'src/js/plotly.min.js',
@@ -48,8 +49,8 @@ module.exports = function(grunt) {
         uglify: {
           dev : {
             options: {
-              mangle: true,
-              compress: true,
+              mangle: false,
+              compress: false,
               beautify : false,
               wrap: false,
               sourceMap: true,

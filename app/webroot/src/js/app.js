@@ -254,6 +254,8 @@ $(document).ready(function(){
 			    }
 			  }
 			});
+
+			
 		break;
 		case("pages"):
 			switch(controller){

@@ -135,6 +135,12 @@ class CitiesController extends AppController {
 		$regions = new File(APP."webroot/file-manager/userfiles/json/all/simple-regions.geojson");
 		$regions_json = $regions->read(true, 'r');
 		$this->set('regions', $regions_json);
+
+		$countries = new File(APP."webroot/file-manager/userfiles/json/all/simple-countries.geojson");
+		$countries_json = $countries->read(true, 'r');
+		$this->set('countries', $countries_json);
+
+
 		$this->index("map");
 	}
 

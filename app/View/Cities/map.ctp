@@ -6,9 +6,13 @@
 
 <script>
 
-L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+// L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+$(document).ready(function(){
+var map = L.map('worldmap', {
+  maxZoom : 10,
+  minZoom : 0,
 
-var map = L.mapbox.map('worldmap', 'mapbox.light');
+}).setView([51.505, -0.09], 2);
 
 var activeId = null;
 
@@ -34,7 +38,8 @@ function regionStyle(feature) {
   };
 }
 
-L.geoJson(<?= $regions ?>, {style: regionStyle}).addTo(map);
+
+var outline = L.tileLayer('/tiles/show/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
 
 L.geoJson(<?= $points ?>, {
   pointToLayer: function (feature, latlng) {
@@ -56,5 +61,5 @@ L.geoJson(<?= $points ?>, {
     });
   }
 }).addTo(map);
-
+});
 </script>
