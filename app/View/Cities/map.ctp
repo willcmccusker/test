@@ -11,7 +11,7 @@ $(document).ready(function(){
   bounds = new L.LatLngBounds(new L.LatLng(-90, -180), new L.LatLng(90, 180));
 
 var map = L.map('worldmap', {
-  maxZoom : 10,
+  maxZoom : 5,
   minZoom : 2,
   // scrollWheelZoom : false,
   maxBounds: bounds,
