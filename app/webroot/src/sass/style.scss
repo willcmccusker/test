@@ -195,6 +195,7 @@ body{
 	font-family: 'DINNextLTProLight';
 	line-height:1.5;
 	color: $bodytype;
+	padding-top:85px;
 }
 *{
 	box-sizing: border-box;
@@ -238,6 +239,7 @@ a {
 
 .header {
 	position: fixed;
+	top:0px;
 	font-size:$defaulttype;
 	color:$headercolor;
 	padding-top:20px;
@@ -619,14 +621,50 @@ h1#site-title {
     padding: 5px;
     border: 1px solid black;
 }
-#data-table {
+#data-table{
+	.page-holder{
+		text-align:center;
+		.pagination{
+			display:inline-block;
+			li{
+				margin:10px;
+				display:inline-block;
+				&.active{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+.show-links{
+	cursor: pointer;
+	position:relative;
+	&::after{
+		content: "";
+	    width: 0px;
+	    height: 0px;
+	    top: 50%;
+	    margin-top: -5px;
+	    margin-left: 5px;
+	    position: absolute;
+	    border-top: 5px solid transparent;
+	    border-bottom: 5px solid transparent;
+	    border-left: 5px solid black;
+	    @include xPrefix(transition, 500ms all ease);
+	}
+	&.showing-link::after{
+		@include xPrefix(transform, rotate(90DEG));
+	}
+}
+
+.data-table {
 	width:100%;
 	tr{
 		position:relative;
 	}
 }
 
-#data-table th, #data-table td {
+.data-table th, .data-table td {
 	padding:5px 15px 20px 2px;
 	border-bottom: 1px solid $border-lightgrey;
 	text-align: left;
