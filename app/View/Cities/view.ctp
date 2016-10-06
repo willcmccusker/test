@@ -70,7 +70,8 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-				<h3 class='sectionSubHeader' id="population">Population</h3>
+				<div id="population" class='anchorPoint'></div>
+				<h3 class='sectionSubHeader' >Population</h3>
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
@@ -84,7 +85,8 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-				<h3 class='sectionSubHeader' id='urban_extent'>Urban Extent</h3>
+				<div id="urban_extent" class='anchorPoint'></div>
+				<h3 class='sectionSubHeader' >Urban Extent</h3>
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 				<ul>
 					<li> <label><input class="layerToggle" type="checkbox" name="urban"/> urban </label>
@@ -137,7 +139,8 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-				<h3 class='sectionSubHeader' id='density'>Density</h3>
+					<div id="density" class='anchorPoint'></div>
+				<h3 class='sectionSubHeader' >Density</h3>
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
@@ -161,7 +164,8 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-				<h3 class='sectionSubHeader' id='composition_of_added_area'>Composition of Added Area</h3>
+					<div id="composition_of_added_area" class='anchorPoint'></div>
+				<h3 class='sectionSubHeader' >Composition of Added Area</h3>
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 				</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -179,7 +183,8 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-				<h3 class='sectionSubHeader' id='roads'>Roads</h3>
+				<div id="roads" class='anchorPoint'></div>
+				<h3 class='sectionSubHeader' >Roads</h3>
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -209,7 +214,8 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-				<h3 class='sectionSubHeader' id='arterial_roads'>Arterial Roads</h3>
+				<div id="arterial_roads" class='anchorPoint'></div>
+				<h3 class='sectionSubHeader' >Arterial Roads</h3>
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -237,7 +243,8 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-				<h3 class='sectionSubHeader' id='blocks_and_plots'>Blocks and Plots</h3>
+				<div id="blocks_and_plots" class='anchorPoint'></div>
+				<h3 class='sectionSubHeader' >Blocks and Plots</h3>
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>

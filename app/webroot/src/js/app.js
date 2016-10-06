@@ -1,3 +1,4 @@
+var testChart;
 var tab = false;
 var poppedUp = false;
 var drawComplete = true;
@@ -34,11 +35,28 @@ var buildGraphsInterval = setInterval(function(){
 					switchGraph($(this).attr("id"));
 				}
 			});
-			console.log("refresh all");
 			Waypoint.refreshAll();	
 		}
 	}
 },600);
+
+// var refreshData = function(id){
+// 	var chart = $("#"+id).data("chart");
+// 	var data = jQuery.extend(true, {}, chart.config.data);
+// 	console.log(data);
+// 	$(chart.data.datasets).each(function(){
+// 		this.data = [];
+// 	});
+// 	console.log(chart.config.data);
+// 	chart.config.options.animation.onComplete = function(){
+// 		console.log("animaiton complete");
+// 		console.log(data);
+// 		console.log(chart.config);
+// 		chart.config.data.datasets = data.datasets;
+// 		chart.update();
+// 	};
+// 	chart.update();
+// };
 
 var switchGraph = function(id){
 	console.log("build "+id);
@@ -152,6 +170,7 @@ $(document).ready(function(){
 	// Chart.defaults.global.defaultColor = "#F0F0F0";
 	// Chart.defaults.global.legend.fullWidth = false;
 	Chart.defaults.global.defaultFontFamily = 'DINNextLTProLight';
+	Chart.defaults.global.animation.dynamicDisplay = true;
 	Chart.defaults.global.animation.onComplete = function(){
 		drawComplete = true;
 	};
@@ -197,7 +216,6 @@ $(document).ready(function(){
 			switch(controller){
 				case("index"):
 					//filter list
-					// var cityList = new List('cityList', {valueNames: ['country', 'city', 'region' ], sortFunction: sortCities});
 
 				break;
 				case("data"):
@@ -244,6 +262,18 @@ $(document).ready(function(){
 						// enabled: false,
 					});
 
+					$('a[href*="#"]:not([href="#"])').click(function() {
+					    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+					      var target = $(this.hash);
+					      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+					      if (target.length) {
+					        $('html, body').animate({
+					          scrollTop: target.offset().top
+					        }, 1000);
+					        return false;
+					      }
+					    }
+					  });
 					//graphs
 					// makeGraph("density_built_up_change", city);
 					// makePlotly("density_built_up_change", city);
@@ -288,11 +318,6 @@ $(document).ready(function(){
 	console.log(controller);
 });
 
-var sortCities = function(a, b, c){
-	console.log(a);
-	console.log(b);
-	console.log(c);
-};
 
 
 var makeStacked = function(prefix, city, vert){
@@ -456,6 +481,7 @@ var makeStacked = function(prefix, city, vert){
 			}
 		}
 	});
+	$(ctx).data("chart", myChart);
 };
 
 var makeLine = function(prefix, city){
@@ -541,6 +567,7 @@ var makeLine = function(prefix, city){
 			}
 		}
 	});
+	$(ctx).data("chart", myChart);
 };
 
 var makeBlockChart = function(prefix, city){
@@ -619,6 +646,8 @@ var makeBlockChart = function(prefix, city){
 			}
 		}
 	});
+	$(ctx).data("chart", myChart);
+
 };
 
 var makeRoadChart = function(prefix, city){
@@ -704,6 +733,7 @@ var makeRoadChart = function(prefix, city){
 			}
 		}
 	});
+	$(ctx).data("chart", myChart);
 };
 
 var makeChart = function(prefix, city, side){
@@ -793,6 +823,7 @@ var makeChart = function(prefix, city, side){
 			}
 		}
 	});
+	$(ctx).data("chart", myChart);
 };
 
 
