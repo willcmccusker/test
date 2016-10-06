@@ -318,9 +318,12 @@ h2.countryName {
 }
 
 
-#cityList ul.list{
-	list-style-type: none;
-	@include xPrefix(columns, 3);
+#cityList {
+	padding-top:20px;
+	ul.list{
+		list-style-type: none;
+		@include xPrefix(columns, 3);
+	}
 }
 @for $i from 1 through 8{
 	.region-#{$i} .region{
