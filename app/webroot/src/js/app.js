@@ -559,6 +559,7 @@ var makeLine = function(prefix, city){
 
 					},
 					ticks: {
+		                maxTicksLimit:10,
 		                callback: function(value, index, values) {
 			                return value;
 		                }

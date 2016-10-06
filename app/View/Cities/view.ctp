@@ -14,19 +14,19 @@
 					<div><?= $city["Region"]["name"];?></div>
 				</div>
 				<div class='statLabel'>
-					<div class="statLabel">Population</div>
+					<div class="statLabel"><?= substr($city["City"]["t3"], 0,4);?> Population</div>
 				</div>
 				<div class='statValue'>
 					<div><?= number_format($city["City"]["population"]);?></div>
 				</div>
 				<div class='statLabel'>
-					<div class="table-label">Urban Extent</div>
+					<div class="table-label"><?= substr($city["City"]["t3"], 0,4);?> Urban Extent</div>
 				</div>
 				<div class='statValue'>
 					<div><?= number_format($city["City"]["extent"]);?> hectares</div>
 				</div>
 				<div class='statLabel'>
-					<div class="table-label">Density</div>
+					<div class="table-label"><?= substr($city["City"]["t3"], 0,4);?> Density</div>
 				</div>
 				<div class='statValue'>
 					<div><?= $city["City"]["density"];?> persons/hectare</div>
