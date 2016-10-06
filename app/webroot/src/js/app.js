@@ -91,6 +91,9 @@ var switchGraph = function(id){
 		case("blocks_plots_average_bar"):
 			makeBlockChart(id, city);
 		break;
+		case("blocks_and_plots_composition_special_stacked"):
+			makeSpecialStacked(id, city);
+		break;
 		default:
 			console.log(id+" doesn't have a function");
 	}
@@ -318,6 +321,112 @@ $(document).ready(function(){
 	console.log(controller);
 });
 
+var makeSpecialStacked = function(prefix, city){
+	var ctx = $("#"+prefix);
+	var field = prefix.replace("_special_stacked", "");
+
+	var datasets = [
+		{
+			suffix :"_atomistic_", 
+			bgColor : "#889A9A",
+			borderColor : "rgba(94, 151, 246, 1)",
+			label : "Share of Residential in Atomistic Settlements"
+		},
+		{
+			suffix :"_informal_", 
+			bgColor : "#93AFA9",
+			borderColor : "rgba(94, 151, 246, 1)",
+			label : "Share of Residential in Informal Settlements"
+		},
+		{
+			suffix :"_formal_", 
+			bgColor : "#9FC3B5",
+			borderColor : "rgba(94, 151, 246, 1)",
+			label : "Share of Residential in Formal Settlements"
+		},
+		{
+			suffix :"_housing_",
+			bgColor : "#AED7C0",
+			borderColor : "rgba(94, 151, 246, 1)",
+			label : "Share of Residential in Housing Settlements"
+		}];
+
+	var data_1990 = {
+		labels : ["City", "Region", "World"],
+		datasets : []
+	};
+
+	$(datasets).each(function(){
+		data_1990.datasets.push({
+			backgroundColor : this.bgColor, 
+			borderWidth : 0,
+			borderColor : this.borderColor,
+			label : this.label,
+			data : [city.DataSet[field+this.suffix+"pre_1990"], city.Region.DataSet[field+this.suffix+"pre_1990"],  city.World.DataSet[field+this.suffix+"pre_1990"]]
+		});
+	});
+
+	var yAxes = [{
+		scaleLabel : {
+			fontFamily: "DINNextLTProLight",
+			fontColor: "#4A4A4A",
+			display: false,
+			labelString: "",
+		},
+		ticks: {
+			beginAtZero:true
+		},
+		stacked : true,
+		gridLines : {
+			display: false
+		},
+		categoryPercentage : 0.6,
+		barPercentage : 1,
+		
+	}];
+	var xAxes = [{
+		stacked : true,
+		ticks: {
+			beginAtZero:true,
+			max : 100,
+			callback: function(value, index, values) {
+				return   value+"%";
+			}
+		},
+		gridLines : {
+			display: false
+		},
+	}];
+	var myChart = new Chart(ctx, {
+		type: 'horizontalBar',
+		data: data_1990,
+		options: {
+			legend : {
+				// display: false,
+				position: "right",
+				labels : {
+					fontFamily: "DINNextLTProLight",
+					fontColor: "#4A4A4A",
+					boxWidth : 10,
+					// generateLabels: function(chart, e){console.log(e);console.log(chart);}
+				}
+			},
+			tooltips : {
+				display : true
+			},
+			title: {
+				display: true,
+				text: $(ctx).data("title")
+			},
+			responsive : true,
+			scales: {
+				yAxes: yAxes,
+				xAxes:  xAxes
+			}
+		}
+	});
+	$(ctx).data("chart", myChart);
+};
 
 
 var makeStacked = function(prefix, city, vert){

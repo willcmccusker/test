@@ -251,11 +251,21 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='blocks_plots_average_block_bar' class='city-graphic' data-title='Average Block Size'></canvas>
+				<canvas id='blocks_and_plots_composition_special_stacked' class='city-graphic' data-title='Land Use'></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='blocks_plots_average_bar' class='city-graphic' data-title='Average Plot Size'></canvas>
+				<canvas id='blocks_plots_average_block_bar' class='city-graphic' data-title='Average Block Size'></canvas>
 			</div>
+		</div>
+		<div class='grid wide'>
+		<div class='col-1-5 tab-1-1'></div>
+		<div class='col-2-5 tab-1-2'>
+				<canvas id='blocks_plots_average_bar' class='city-graphic' data-title='Average Plot Size'></canvas>
+		</div>
+		<div class='col-2-5 tab-1-2'>
+
+		</div>
 		</div>
 	</div>
 </div>
+<? debug($city);?>
