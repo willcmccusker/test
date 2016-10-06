@@ -195,7 +195,10 @@ body{
 	font-family: 'DINNextLTProLight';
 	line-height:1.5;
 	color: $bodytype;
-	padding-top:85px;
+	padding-top:65px;
+	padding-bottom:207px;
+	position:relative;
+	min-height:100vh;
 }
 *{
 	box-sizing: border-box;
@@ -245,7 +248,6 @@ a {
 	padding-top:20px;
 	padding-bottom: 20px;
 	background-color: $headerbgcolor;
-	margin-bottom:20px;
 	border-bottom: 1px solid $lightgrey;
 	z-index:9999;
 	a {
@@ -259,6 +261,10 @@ a {
 	color:#fff;
 	line-height: 1.6;
 	padding:15px 0 30px 0;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	left:0px;
 }
 
 .footer a {
@@ -357,9 +363,8 @@ h1#site-title {
 }
 
 .cityHeader{
-	top:80px;
 	position:relative;
-	min-height:100vh;
+	min-height:calc(100vh - 65px);
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
@@ -449,10 +454,11 @@ h1#site-title {
 }
 
 #worldmap{
-	position:absolute;
-	top:64px;
-	bottom:0;
-	left:0;
+	// position:absolute;
+	// top:64px;
+	// bottom:0;
+	// left:0;
+	height:100vh;
 	width:100%
 }
 .leaflet-control-attribution{
@@ -622,6 +628,18 @@ h1#site-title {
     border: 1px solid black;
 }
 #data-table{
+	th:nth-of-type(0),
+	th:nth-of-type(1){
+		width: 30%;
+	}
+	th:nth-of-type(2),
+	th:nth-of-type(3),
+	th:nth-of-type(4){
+		width:20%;
+	}
+	th:last-of-type{
+		width:30%;
+	}
 	.page-holder{
 		text-align:center;
 		.pagination{

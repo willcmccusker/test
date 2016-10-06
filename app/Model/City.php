@@ -31,6 +31,7 @@ class City extends AppModel {
 				"properties"=>array(
 					"Country"=>$city["City"]["country"],
 					"City"=>$city["City"]["name"],
+					"slug"=>$city["City"]["slug"],
 					"Latitude"=>$city["City"]["latitude"],
 					"Longitute"=>$city["City"]["longitude"],
 					"Population"=>$city["City"]["population"]

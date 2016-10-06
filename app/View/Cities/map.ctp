@@ -1,8 +1,6 @@
 <? $this->assign('title', "Atlas");?>
 
-<div class="grid">
-  <div id="worldmap">
-</div>
+  <div id="worldmap"></div>
 
 <script>
 
@@ -13,7 +11,7 @@ $(document).ready(function(){
 var map = L.map('worldmap', {
   maxZoom : 5,
   minZoom : 2,
-  // scrollWheelZoom : false,
+  scrollWheelZoom : false,
   maxBounds: bounds,
   maxBoundsViscosity: 1
 }).setView([36, 0], 3);
@@ -56,7 +54,7 @@ L.geoJson(<?= $points ?>, {
   },
   onEachFeature: function (feature, layer) {
     var cityName = feature.properties.City;
-    var href = '/cities/view/' + cityName.replace(' ', '_');
+    var href = '/cities/view/' + feature.properties.slug;
 
     layer.bindPopup('<p><a href=\"' + href + '\">' + cityName + ", "+ feature.properties.Country + "</a></p>");
     layer.on('mouseover', function(e) {
