@@ -30,6 +30,7 @@ module.exports = function(grunt) {
             'src/js/jquery-3.1.0.min.js', 
 
 
+            // 'leaflet.min.js',
             'topojson.min.js',
             // 'mapbox.ignore.js',
             // 'src/js/plotly.min.js',
@@ -37,10 +38,11 @@ module.exports = function(grunt) {
             // 'src/js/chartist.min.js',
             // 'src/js/plottable.min.js',
 
-            'src/js/stupidtable.min.js',
+            // 'src/js/stupidtable.min.js',
             'src/js/jquery.waypoints.min.js',
             'src/js/chart.ignore.js',
             'src/js/list.ignore.js',
+            'src/js/list.pagination.min.js',
 
             'src/js/app.js',
           ]
@@ -48,8 +50,8 @@ module.exports = function(grunt) {
         uglify: {
           dev : {
             options: {
-              mangle: true,
-              compress: true,
+              mangle: false,
+              compress: false,
               beautify : false,
               wrap: false,
               sourceMap: true,

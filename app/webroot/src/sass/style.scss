@@ -195,6 +195,10 @@ body{
 	font-family: 'DINNextLTProLight';
 	line-height:1.5;
 	color: $bodytype;
+	padding-top:65px;
+	padding-bottom:207px;
+	position:relative;
+	min-height:100vh;
 }
 *{
 	box-sizing: border-box;
@@ -238,14 +242,14 @@ a {
 
 .header {
 	position: fixed;
+	top:0px;
 	font-size:$defaulttype;
 	color:$headercolor;
 	padding-top:20px;
 	padding-bottom: 20px;
 	background-color: $headerbgcolor;
-	margin-bottom:20px;
 	border-bottom: 1px solid $lightgrey;
-	z-index:99;
+	z-index:9999;
 	a {
 		color: $headercolor;
 	}
@@ -257,6 +261,10 @@ a {
 	color:#fff;
 	line-height: 1.6;
 	padding:15px 0 30px 0;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	left:0px;
 }
 
 .footer a {
@@ -355,9 +363,8 @@ h1#site-title {
 }
 
 .cityHeader{
-	top:80px;
 	position:relative;
-	min-height:100vh;
+	min-height:calc(100vh - 65px);
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
@@ -447,10 +454,11 @@ h1#site-title {
 }
 
 #worldmap{
-	position:absolute;
-	top:30px;
-	bottom:0;
-	left:0;
+	// position:absolute;
+	// top:64px;
+	// bottom:0;
+	// left:0;
+	height:100vh;
 	width:100%
 }
 .leaflet-control-attribution{
@@ -572,7 +580,7 @@ h1#site-title {
 	}
 }
 .leaflet-bottom, .leaflet-top{
-	z-index:2 !important;
+
 }
 
 
@@ -584,7 +592,6 @@ h1#site-title {
     height: 100%;
     overflow: auto;
     background-color: rgba(255,255,255,0.8);
-    z-index: 9;
     .closeHolder{
     	display:block;
     }
@@ -620,14 +627,62 @@ h1#site-title {
     padding: 5px;
     border: 1px solid black;
 }
-#data-table {
+#data-table{
+	th:nth-of-type(0),
+	th:nth-of-type(1){
+		width: 30%;
+	}
+	th:nth-of-type(2),
+	th:nth-of-type(3),
+	th:nth-of-type(4){
+		width:20%;
+	}
+	th:last-of-type{
+		width:30%;
+	}
+	.page-holder{
+		text-align:center;
+		.pagination{
+			display:inline-block;
+			li{
+				margin:10px;
+				display:inline-block;
+				&.active{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+.show-links{
+	cursor: pointer;
+	position:relative;
+	&::after{
+		content: "";
+	    width: 0px;
+	    height: 0px;
+	    top: 50%;
+	    margin-top: -5px;
+	    margin-left: 5px;
+	    position: absolute;
+	    border-top: 5px solid transparent;
+	    border-bottom: 5px solid transparent;
+	    border-left: 5px solid black;
+	    @include xPrefix(transition, 500ms all ease);
+	}
+	&.showing-link::after{
+		@include xPrefix(transform, rotate(90DEG));
+	}
+}
+
+.data-table {
 	width:100%;
 	tr{
 		position:relative;
 	}
 }
 
-#data-table th, #data-table td {
+.data-table th, .data-table td {
 	padding:5px 15px 20px 2px;
 	border-bottom: 1px solid $border-lightgrey;
 	text-align: left;

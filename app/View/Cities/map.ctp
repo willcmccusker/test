@@ -1,14 +1,20 @@
 <? $this->assign('title', "Atlas");?>
 
-<div class="grid">
-  <div id="worldmap">
-</div>
+  <div id="worldmap"></div>
 
 <script>
 
-L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+// L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+$(document).ready(function(){
+  bounds = new L.LatLngBounds(new L.LatLng(-90, -180), new L.LatLng(90, 180));
 
-var map = L.mapbox.map('worldmap', 'mapbox.light');
+var map = L.map('worldmap', {
+  maxZoom : 5,
+  minZoom : 2,
+  scrollWheelZoom : false,
+  maxBounds: bounds,
+  maxBoundsViscosity: 1
+}).setView([36, 0], 3);
 
 var activeId = null;
 
@@ -34,7 +40,8 @@ function regionStyle(feature) {
   };
 }
 
-L.geoJson(<?= $regions ?>, {style: regionStyle}).addTo(map);
+
+var outline = L.tileLayer('/tiles/show/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
 
 L.geoJson(<?= $points ?>, {
   pointToLayer: function (feature, latlng) {
@@ -47,7 +54,7 @@ L.geoJson(<?= $points ?>, {
   },
   onEachFeature: function (feature, layer) {
     var cityName = feature.properties.City;
-    var href = '/cities/view/' + cityName.replace(' ', '_');
+    var href = '/cities/view/' + feature.properties.slug;
 
     layer.bindPopup('<p><a href=\"' + href + '\">' + cityName + ", "+ feature.properties.Country + "</a></p>");
     layer.on('mouseover', function(e) {
@@ -56,5 +63,5 @@ L.geoJson(<?= $points ?>, {
     });
   }
 }).addTo(map);
-
+});
 </script>

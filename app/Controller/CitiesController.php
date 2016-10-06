@@ -128,13 +128,21 @@ class CitiesController extends AppController {
 	}
 
 	public function map(){
-		$points = new File(APP."webroot/file-manager/userfiles/json/all/all.geojson");
-		$points_json = $points->read(true, 'r');
+
+		$points_json = $this->City->returnPoints();
+		// $points = new File(APP."webroot/file-manager/userfiles/json/all/all.geojson");
+		// $points_json = $points->read(true, 'r');
 		$this->set('points', $points_json);
 
 		$regions = new File(APP."webroot/file-manager/userfiles/json/all/simple-regions.geojson");
 		$regions_json = $regions->read(true, 'r');
 		$this->set('regions', $regions_json);
+
+		$countries = new File(APP."webroot/file-manager/userfiles/json/all/simple-countries.geojson");
+		$countries_json = $countries->read(true, 'r');
+		$this->set('countries', $countries_json);
+
+
 		$this->index("map");
 	}
 

@@ -22,17 +22,20 @@
 	<title><?php echo $this->fetch('title'); ?></title>
 <!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js"></script>
 	-->
-	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+
+<!-- 	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
 	<script>
 
 	</script>
 	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-
+ -->
 
  	<?php
 		// echo $this->Html->meta('icon');
 
 		echo $this->Html->css('/dist/css/style.css');
+		echo $this->Html->css('leaflet');
+		echo $this->Html->script('/src/js/leaflet.min.js');
 		echo $this->Html->script('/dist/js/app.min.js');
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -48,6 +51,7 @@
 <body><?
 	echo $this->element("header");
 	echo $this->fetch('content');
+	echo $this->element("footer");
 	//echo $this->element('sql_dump'); ?>
 </body>
 </html>
