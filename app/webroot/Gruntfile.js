@@ -40,7 +40,8 @@ module.exports = function(grunt) {
 
             // 'src/js/stupidtable.min.js',
             'src/js/jquery.waypoints.min.js',
-            'src/js/chart.ignore.js',
+            //'src/js/chart.ignore.js',
+            'src/js/Chart.bundle.min.js',
             'src/js/list.ignore.js',
             'src/js/list.pagination.min.js',
 

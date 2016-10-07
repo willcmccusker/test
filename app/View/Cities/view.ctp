@@ -73,10 +73,10 @@
 				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='population_line' class='city-graphic' data-title="Population" height="200px"></canvas>
+				<canvas id='population_line' class='city-graphic'  data-title="Population" ></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='population_change_bar' class='city-graphic' data-title="Avg. Annual % Change" height="200px"></canvas>
+				<canvas id='population_change_bar' class='city-graphic' data-unit="%" data-multiply="false" data-title="Avg. Annual % Change" height="200px"></canvas>
 			</div>
 		</div>
 	</div>
@@ -126,10 +126,10 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='urban_extent_composition_stacked_bar' class='city-graphic' data-title="Urban Composition"></canvas>
+				<canvas id='urban_extent_composition_stacked_bar' class='city-graphic'  data-multiply="false" data-title="Urban Composition"></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='urban_extent_change_bar' class='city-graphic' data-title="Avg. Annual % Change"></canvas>
+				<canvas id='urban_extent_change_bar' class='city-graphic'  data-multiply="false" data-title="Avg. Annual % Change"></canvas>
 			</div>
 		</div>
 		
@@ -145,7 +145,7 @@
 				<canvas id='density_built_up_line' class='city-graphic' data-title='Built-up Area Density'></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='density_built_up_change_bar' class='city-graphic' data-title="Built-up Area Avg. Annual % Change"></canvas>
+				<canvas id='density_built_up_change_bar' class='city-graphic'  data-multiply="false" data-title="Built-up Area Avg. Annual % Change"></canvas>
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -155,7 +155,7 @@
 				<canvas id='density_urban_extent_line' class='city-graphic' data-title='Urban Extent Density'></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='density_urban_extent_change_bar' class='city-graphic' data-title='Urban Extent Avg. Annual % Change'></canvas>
+				<canvas id='density_urban_extent_change_bar' class='city-graphic'  data-multiply="false" data-title='Urban Extent Avg. Annual % Change'></canvas>
 			</div>
 		</div>
 	</div>
@@ -191,7 +191,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='roads_in_built_up_area_bar' class='city-graphic' data-title='Share of built up area occupied by roads and boulevards'></canvas>
+				<canvas id='roads_in_built_up_area_bar' class='city-graphic'  data-multiply="true" data-title='Share of built up area occupied by roads and boulevards'></canvas>
 			</div>
 
 			<div class='col-2-5 tab-1-2 mob-1-1'>
@@ -202,7 +202,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='roads_width_stacked_bar' class='city-graphic', data-title='Street Width Composition'></canvas>
+				<canvas id='roads_width_stacked_bar' class='city-graphic'  data-multiply="true" data-title='Street Width Composition'></canvas>
 			</div>
 			<div class='col-2-5 tab-1-1 mob-1-1'></div>
 		</div>
@@ -251,7 +251,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<canvas id='blocks_and_plots_composition_special_stacked' class='city-graphic' data-title='Land Use'></canvas>
+				<canvas id='blocks_and_plots_composition_special_stacked' class='city-graphic' data-title='Share of Residential Land Use Settlements'></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<canvas id='blocks_plots_average_block_bar' class='city-graphic' data-title='Average Block Size'></canvas>
