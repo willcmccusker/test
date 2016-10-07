@@ -32,6 +32,10 @@ html, body{
 	width:100%;
 	min-height:1px;
 	padding:0 #{$padding/2};
+		&.no-pad{
+			padding-left:0px !important;
+			padding-right:0px !important;
+		}
 }
 [class*='col-']:last-of-type {
 }
@@ -76,7 +80,8 @@ html, body{
 		width:100%;
 	}
 	.grid{
-		padding: 0 #{$mobile-padding/2};
+		padding-left:#{$mobile-padding/2};
+		padding-right:#{$mobile-padding/2};
 	}
 	@for $i from 1 through 12{
 		@for $j from 1 through 12{

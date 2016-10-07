@@ -418,13 +418,44 @@ h1#site-title {
 	font-family: "SabonNextLT-Regular";
 	color:$lightgrey1;
 }
-
+.switchYear{
+	cursor: pointer;
+	&.activeYear{
+		text-decoration: underline;
+	}
+}
+.years{
+	position:absolute;
+}
+.legend-ul{
+	padding-left:20px;
+	margin-top:32px;
+	li{
+		font-size:12px;
+		position:relative;
+	}
+	.legend-click{
+		display:inline-block;
+	    width: 10px;
+	    height: 10px;
+	    margin: 0 5px;
+	    position: absolute;
+	    left: -20px;
+	    margin-top: -7px;
+	    top: 50%;
+	}
+	
+}
 .city-map{
 	background-color: black;
 	height:400px;
 }
 .city-graphic{
-	position:relative;
+	// padding-right:100px;
+	// &.no-legend{
+	// 	padding-right:0px;
+	// }
+	// position:relative;
 	// background-color: $lightgrey;
 	// padding:20px;
 	// min-height:450px;
@@ -472,7 +503,7 @@ h1#site-title {
 	width:100%
 }
 .leaflet-control-attribution{
-	display:none;
+	// display:none;
 }
 .map-placeholder {
 	width:100%;
