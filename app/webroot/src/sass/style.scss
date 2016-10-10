@@ -715,7 +715,7 @@ h1#site-title {
 		width:30%;
 	}
 	.page-holder{
-		text-align:center;
+		display: inline-block;
 		.pagination{
 			display:inline-block;
 			li{
@@ -726,6 +726,11 @@ h1#site-title {
 				}
 			}
 		}
+	}
+	.per-page{
+		display:inline-block;
+		line-height:44px;
+		float:right;
 	}
 }
 .show-links{
