@@ -9,8 +9,8 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
-$headerbgcolor : #000;
-$headercolor : #fff;
+$headerbgcolor : transparent;
+$headercolor : #000;
 $lightgrey : #333333;
 $lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
@@ -270,7 +270,7 @@ a {
 	color:$headercolor;
 	padding: 20px $padding;
 
-	background-color: $headerbgcolor;
+	background-color: transparent;
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
@@ -283,7 +283,7 @@ footer {
 	background-color:#000;
 	color:#fff;
 	line-height: 1.6;
-	padding:75px 0 150px 0;
+	padding:30px 0 150px 0;
 	position:absolute;
 	bottom:0;
 	width:100%;
@@ -324,7 +324,7 @@ h2.countryName {
 	float:left;
 	}
 	a {
-	font-family:"OfficeCodeLight";
+	font-family:Arial;
 	font-size:$smalltype;
 	text-transform: uppercase;
 	padding: 6px 12px;
@@ -356,7 +356,6 @@ h2.countryName {
 }
 
 .statValue {
-	border-bottom:1px solid #ccc;
 	margin-bottom: 4px;	
 }
 
