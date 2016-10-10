@@ -350,7 +350,10 @@ $(document).ready(function(){
 					});
 
 					globalOptions = {
-						deferred : true,
+						deferred : {
+							enabled:true,	
+							delay : 500
+						},
 						maintainAspectRatio: false,
 						// responsiveAnimationDuration : 500,
 						title : {

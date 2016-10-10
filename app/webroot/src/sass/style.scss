@@ -763,10 +763,15 @@ h1#site-title {
 }
 
 /* Index */
-#cityList h3 {
-	font-family: "DINNextLTProUltraLight";
-	font-size: $largetype2;
-	padding: 25px 0 0px 0;
+#cityList {
+	ul > div:first-of-type h3{
+		padding-top:0px;
+	}
+	h3 {
+		font-family: "DINNextLTProUltraLight";
+		font-size: $largetype2;
+		padding: 25px 0 0px 0;
+	}
 }
 
 #cityList .city:hover {
