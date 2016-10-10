@@ -9,8 +9,8 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
-$headerbgcolor : #fff;
-$headercolor : #000;
+$headerbgcolor : #e4e4e4;
+$headercolor : #6d6d6d;
 $lightgrey : #333333;
 $lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
@@ -31,6 +31,7 @@ $largetype1 : 20px;
 $largetype2 : 24px;
 $largetype3 : 36px;
 $largetype4 : 64px;
+
 
 @import "functions";
 @import "grid";
@@ -266,7 +267,7 @@ a {
 	padding: 20px $padding;
 
 	background-color: $headerbgcolor;
-	border-bottom: 1px solid $lightgrey;
+/* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
 		color: $headercolor;
