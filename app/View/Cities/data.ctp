@@ -4,7 +4,7 @@
 		<?= $dataText["Text"]["content"];?>
 	</div>
 </div>
-<div class='grid '>
+<div class='grid wide'>
 	<div class='col-1-1'>
 		<div class='show-methodology'>Show Methodology</div>
 		<div class='methodology display-none'>
@@ -13,7 +13,7 @@
 	</div>
 </div>
 
-<div class='grid  data-page'>
+<div class='grid wide data-page'>
 	<div class='col-1-1'>
 		<div id="data-table">
 			<input class="search" placeholder="Filter" />

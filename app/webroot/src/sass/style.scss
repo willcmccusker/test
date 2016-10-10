@@ -15,7 +15,7 @@ $lightgrey : #333333;
 $lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
 $lightgrey3 :  #f5f5f5;
-$bodytype : #333333;
+$bodytype : #1a1a1a;
 
 /*border color variables */
 
@@ -28,7 +28,7 @@ $smalltype : 12px;
 $Lighttype : 12px;
 $defaulttype : 16px;
 $largetype1 : 20px;
-$largetype2 : 24px;
+$largetype2 : 28px;
 $largetype3 : 36px;
 $largetype4 : 64px;
 
@@ -274,35 +274,47 @@ a {
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
+		font-family: Akkurat;
 		color: $headercolor;
 	}
 }
 
 footer {
-	font-family: "SabonNextLT-Regular";
+	font-family: "DINNextLTProUltraLight";
 	background-color:#000;
-	color:#fff;
+	color:#9C9C9C;
 	line-height: 1.6;
-	padding:30px 0 150px 0;
+	padding:30px 0 30px 0;
 	position:absolute;
 	bottom:0;
 	width:100%;
 	left:0px;
+	p {
+	font-size: 16px;
+	}
+	a {
+	color:#9C9C9C;
+	cursor: pointer;
+	text-decoration: none;
+	}
+	img {
+	padding-bottom: 15px;
+	opacity:.8;
+	}
+	ul li {
+	float:left;
+	padding-right:15px;
+	}
 }
 
-footer a {
-	color:#fff;
-	text-decoration: none;
-}	
+
 
 .countryNameRow, h2.regionName {
 	position: relative;
-	border-bottom:1px solid #ccc;
 	display:block;
 	font-family: "DINNextLTProUltraLight";
 	font-size: $defaulttype;
 	padding:10px 0;
-	float:left;
 	width:100%;
 }
 h2.countryName {
@@ -324,11 +336,13 @@ h2.countryName {
 	float:left;
 	}
 	a {
+	color:#fff;
 	font-family:Arial;
 	font-size:$smalltype;
 	text-transform: uppercase;
 	padding: 6px 12px;
-	background-color: $lightgrey3;
+	background: transparent;
+	border: 1px solid #fff;
 	cursor: pointer;
 	}
 }
@@ -356,7 +370,8 @@ h2.countryName {
 }
 
 .statValue {
-	margin-bottom: 4px;	
+	margin-bottom: 20px;	
+	line-height: 1.1;
 }
 
 
@@ -366,12 +381,12 @@ table th{
 
 .h1{
 	font-size:$largetype4;
-	font-family:"Akkurat";
+	font-family:"Helvetica";
 	color:#fff;
 }
 
 h1#site-title {
-	font-family: "DINNextLTPro-MediumCond";
+	font-family: "Akkurat";
 	font-size:$defaulttype;
 }
 
@@ -437,6 +452,7 @@ h1#site-title {
 
 h3.sectionSubHeader {
 	font-size:$largetype2;
+	font-family: "DINNextLTProUltraLight";
 }
 
 .graphSection p {
@@ -450,6 +466,9 @@ h3.sectionSubHeader {
 	}
 }
 .years{
+	background-color: $lightgrey3;
+	margin-right: 10px;
+	padding: 4px 8px;
 	position:absolute;
 }
 .legend-ul{
@@ -551,12 +570,10 @@ h3.sectionSubHeader {
 
 .flag {
 	min-width:100px;
-	float:left;
 }	
 
 
 .flag img {
-	float:left;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -567,11 +584,6 @@ h3.sectionSubHeader {
 	// display:none;
 	width:35px;
 }
-
-.countryName {
-	float: left;
-}
-
 
 
 /* Search */
@@ -773,12 +785,14 @@ h3.sectionSubHeader {
 
 /* Index */
 #cityList {
+	padding-bottom: 100px;
 	ul > div:first-of-type h3{
 		padding-top:0px;
 	}
 	h3 {
-		font-family: "DINNextLTProUltraLight";
-		font-size: $largetype2;
+		font-family: "Akkurat";
+		font-size: $defaulttype;
+		text-transform: uppercase;
 		padding: 25px 0 0px 0;
 	}
 }
