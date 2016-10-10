@@ -92,6 +92,14 @@
 			<div class='page-holder'>
 				<ul class='pagination'></ul>
 			</div>
+			<div class='per-page'>
+				<select>
+					<option value="10">10 per page</option>
+					<option value="50">50 per page</option>
+					<option value="100">100 per page</option>
+					<option value="200">Show All</option>
+				</select>
+			</div>
 		</div>
 	</div>
 </div>

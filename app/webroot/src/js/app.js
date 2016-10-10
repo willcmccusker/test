@@ -5,6 +5,35 @@ var poppedUp = false;
 var drawComplete = true;
 var chartObjects = {};
 
+var isMobile = function(){
+	return $(window).width() < 768;
+};
+
+var searchPopup = function(){
+	if(poppedUp){
+		return false;
+	}else{
+		poppedUp = true;
+		$(".header").addClass("poppedUp");
+	}
+	$("#citySearch input").focus();
+	$("body").addClass("no-scroll");
+	$("#citySearch").addClass("poppedUp");
+	$(".closeCitySearch").off("click").on("click", function(e){
+		e.stopPropagation();
+		console.log("closeCitySearch");
+		searchPopdown();
+	});
+};
+var searchPopdown = function(){
+	$("#citySearch input").val("").blur();
+	$("body").removeClass("no-scroll");
+	$("#citySearch").removeClass("poppedUp");
+	poppedUp = false;
+	$(".header").removeClass("poppedUp");
+};
+
+
 $(document).ready(function(){
 
 	loadNextFlag();
@@ -12,6 +41,13 @@ $(document).ready(function(){
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();
 	});
+	$("#citySearch").on("click", function(){
+		if(!poppedUp){
+			console.log("citySearch Click up");
+			searchPopup();
+		}
+	});
+
 	$(document).on("keyup", function(e) {
 		if(e.keyCode == 91){
 			tab = false;
@@ -48,6 +84,21 @@ $(document).ready(function(){
 		}else{
 			$("#citySearch").addClass("unlisted");
 		}
+	});
+
+	$("nav").click(function(e){
+		console.log(isMobile());
+		if(!isMobile()){
+			return;
+		}
+		$("nav").toggleClass("navOpen");
+	});
+	$(".region").click(function(){
+		if(!isMobile()){
+			return false;
+		}
+		var className = $(this).parent()[0].className;
+		$("#cityList").toggleClass(className);
 	});
 
 
@@ -102,6 +153,13 @@ $(document).ready(function(){
 							ListPagination({})
 						]
 					 });
+
+					 $(".per-page select").on("change", function(){
+					 	dataList.page = $(this).val();
+					 	dataList.update();
+
+					 });
+
 
 					$(".show-methodology").click(function(){
 						if($(this).html() == "Show Methodology"){
@@ -317,7 +375,10 @@ $(document).ready(function(){
 						responsive : true,
 						defaultFontFamily : "DINNextLTProLight",
 						yAxes : {
-							display: false
+							display: true
+						},
+						xAxes : {
+							display: true
 						}
 					};
 					Chart.defaults.global = MergeRecursive(Chart.defaults.global, globalOptions);
@@ -372,26 +433,6 @@ $(document).ready(function(){
 	}
 
 });
-
-var searchPopup = function(){
-	if(poppedUp){
-		return false;
-	}else{
-		poppedUp = true;
-	}
-	$("#citySearch input").focus();
-	$("body").addClass("no-scroll");
-	$("#citySearch").addClass("poppedUp");
-	$(".closeCitySearch").off("click").on("click", function(){
-		searchPopdown();
-	});
-};
-var searchPopdown = function(){
-	$("#citySearch input").val("").blur();
-	$("body").removeClass("no-scroll");
-	$("#citySearch").removeClass("poppedUp");
-	poppedUp = false;
-};
 
 var loadNextFlag = function(){
 	var lazy = $(".lazyimg").first();

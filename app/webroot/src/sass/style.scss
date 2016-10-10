@@ -241,12 +241,30 @@ a {
 
 
 .header {
+
+	display: flex;
+	// justify-content : flex-start;
+	#site-title{
+	}
+	nav{
+		flex: 1;
+		order: 2;
+		a{
+			margin-left: 30px;
+		}
+	}
+	#citySearch{
+		order: 3;
+		margin-left: auto;
+		// align-self: flex-end;
+	}
 	position: fixed;
+	width:100%;
 	top:0px;
 	font-size:$defaulttype;
 	color:$headercolor;
-	padding-top:20px;
-	padding-bottom: 20px;
+	padding: 20px $padding;
+
 	background-color: $headerbgcolor;
 	border-bottom: 1px solid $lightgrey;
 	z-index:9999;
@@ -255,7 +273,7 @@ a {
 	}
 }
 
-.footer {
+footer {
 	font-family: "SabonNextLT-Regular";
 	background-color:#bfbfbf;
 	color:#fff;
@@ -267,7 +285,7 @@ a {
 	left:0px;
 }
 
-.footer a {
+footer a {
 	color:#fff;
 	text-decoration: none;
 }	
@@ -283,17 +301,7 @@ h2.countryName {
 	border-top:1px solid #ccc;
 }
 
-.headerMenu {
-	ul{
-		display:inline-block;
-	}
-	li {
-	list-style-type:none;
-	padding:0 30px 0 0;
-	margin:0;
-	float:left;
-	}
-}
+
 
 .cityNav {
 	position:absolute;
@@ -554,6 +562,7 @@ h1#site-title {
 }
 
 #citySearch{
+	text-align:right;
 	position:relative;
 	ul{
 		position:fixed;
