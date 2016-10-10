@@ -31,7 +31,7 @@ $(document).ready(function(){
 		    ['para', ['ul', 'ol', 'paragraph']],
 		    ['misc', ['undo', 'redo', 'codeview']],
 		    // ['height', ['height']]
-		    ['insert' ,['picture', 'table']]
+		    ['insert' ,['picture', 'table', 'link']]
 		  ],
 		  maximumFileSize : 20000,
 		  callbacks : {
