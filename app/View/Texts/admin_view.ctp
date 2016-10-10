@@ -56,6 +56,13 @@
 		</td>
 </tr>
 <tr>
+		<th><?php echo __('Type'); ?></th>
+		<td>
+			<?php echo h($text['Text']['type']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
 		<th><?php echo __('Created'); ?></th>
 		<td>
 			<?php echo h($text['Text']['created']); ?>
