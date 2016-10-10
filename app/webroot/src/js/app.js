@@ -32,11 +32,24 @@ var searchPopdown = function(){
 	poppedUp = false;
 	$(".header").removeClass("poppedUp");
 };
-
+var setFooter = function(){
+	if(isMobile()){
+		$("body").css("padding-bottom", "");
+	}else{
+		var h = $("footer").outerHeight();
+		$("body").css("padding-bottom", h);
+	}
+};
 
 $(document).ready(function(){
 
-	loadNextFlag();
+	$(window).resize(function(){
+		setFooter();
+	});
+	setFooter();
+	setTimeout(function(){
+		loadNextFlag();
+	},3000);
 
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();

@@ -22,6 +22,7 @@
 						<th nowrap><?php echo $this->Paginator->sort('id'); ?></th>
  						<th nowrap><?php echo $this->Paginator->sort('title'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('slug'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('type'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('created'); ?></th>
 						<th class="actions"></th>
 					</tr>
@@ -32,6 +33,7 @@
 						<td nowrap><?php echo h($text['Text']['id']); ?>&nbsp;</td>
  						<td nowrap><?php echo h($text['Text']['title']); ?>&nbsp;</td> 
 						<td nowrap><?php echo h($text['Text']['slug']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($text['Text']['type']); ?>&nbsp;</td>
 						<td nowrap><?php echo $this->Time->niceShort($text['Text']['created']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $text['Text']['id']), array('escape' => false)); ?>

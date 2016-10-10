@@ -20,16 +20,6 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title><?php echo $this->fetch('title'); ?></title>
-<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js"></script>
-	-->
-
-<!-- 	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-	<script>
-
-	</script>
-	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
- -->
-
  	<?php
 		// echo $this->Html->meta('icon');
 

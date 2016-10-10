@@ -42,6 +42,11 @@
 .admin-photo{
 	max-height:100px;
 }
+#TextContent{
+	width:100%;
+	height:400px;
+	font-size:1.5em;
+}
 .display-none{
 	display:none;
 }
