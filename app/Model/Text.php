@@ -41,12 +41,12 @@ class Text extends AppModel {
 					case("calcincrease"):
 						$first = $this->pathToValue($valueCat[1], $key);
 						$second = $this->pathToValue($valueCat[2], $key);
-						$value = (float) $second < (float) $first ? "a decreasing" : "an increasing";
+						$value = (float) $second < ((float) $first + 0.00001) ? "a decreasing" : "an increasing";
 					break;
 					case("calc"):
 						$first = $this->pathToValue($valueCat[1], $key);
 						$second = $this->pathToValue($valueCat[2], $key);
-						$value = (((float) $second / (float) $first) - 1) * 100;
+						$value = (((float) $second / ((float) $first + 0.00001) ) - 1) * 100;
 					break;
 					case("popavg"):
 						$first = $this->pathToValue($valueCat[1], $key);
