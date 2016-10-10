@@ -1,11 +1,11 @@
 <script>
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
-<div class='cityHeader'>
+<div class='cityHeader' style="background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)), url(/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>); background-position:center center; background-size:cover; background-repeat:no repeat">
 	<div class='grid wide'>
-		<div class='col-2-3 mob-1-1'>
+		<div class='col-1-1 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
+			<div class="countryNameRow"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><div class="countryName"><?= $city["City"]["country"];?></div></div>
 			<div class='citySummaryTable'>
 				<div class="statLabel">
 					<div class="table-label">Region</div>
@@ -31,13 +31,6 @@
 				<div class='statValue'>
 					<div><?= $city["City"]["density"];?> persons/hectare</div>
 				</div>
-			</div>
-		</div>
-		<div class='col-1-3 mob-1-1'>
-			<div class="cityImage">
-			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
-			<!--<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">-->
-			<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>";>
 			</div>
 		</div>
 	</div>

@@ -9,8 +9,8 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
-$headerbgcolor : #e4e4e4;
-$headercolor : #6d6d6d;
+$headerbgcolor : #000;
+$headercolor : #fff;
 $lightgrey : #333333;
 $lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
@@ -31,6 +31,7 @@ $largetype1 : 20px;
 $largetype2 : 24px;
 $largetype3 : 36px;
 $largetype4 : 64px;
+
 
 
 @import "functions";
@@ -291,12 +292,15 @@ footer a {
 	text-decoration: none;
 }	
 
-h2.countryName, h2.regionName {
+.countryNameRow, h2.regionName {
+	position: relative;
 	border-bottom:1px solid #ccc;
 	display:block;
 	font-family: "DINNextLTProUltraLight";
 	font-size: $defaulttype;
 	padding:10px 0;
+	float:left;
+	width:100%;
 }
 h2.countryName {
 	border-top:1px solid #ccc;
@@ -306,7 +310,7 @@ h2.countryName {
 
 .cityNav {
 	position:absolute;
-	bottom:70px;
+	bottom:10px;
 	ul {
 	margin-right:51px;
 	float: left;
@@ -360,8 +364,8 @@ table th{
 
 .h1{
 	font-size:$largetype4;
-	font-family:"DINNextLTProLight";
-	color:#000;
+	font-family:"Akkurat";
+	color:#fff;
 }
 
 h1#site-title {
@@ -378,6 +382,12 @@ h1#site-title {
 	padding-top:20px;
 	position:relative;
 	min-height:calc(100vh - 65px);
+	background-position: center center;
+	background-size:cover;
+	background-repeat: no-repeat;
+	color:#fff;
+}
+.cityHeader{
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
@@ -534,8 +544,15 @@ h1#site-title {
 }
 
 .flag {
+	min-width:100px;
 	float:left;
-	width:35px;
+}	
+
+.flag img {
+	float:left;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 	margin-right:20px;
 }
 
@@ -544,6 +561,9 @@ h1#site-title {
 	width:35px;
 }
 
+.countryName {
+	float: left;
+}
 
 
 
