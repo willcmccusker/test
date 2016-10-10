@@ -5,7 +5,7 @@
 	<div class='grid wide'>
 		<div class='col-1-1 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<div class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></div>
+			<div class="countryNameRow"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><div class="countryName"><?= $city["City"]["country"];?></div></div>
 			<div class='citySummaryTable'>
 				<div class="statLabel">
 					<div class="table-label">Region</div>

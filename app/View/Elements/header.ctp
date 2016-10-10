@@ -2,7 +2,7 @@
 <header class='header'>
 	<div id='site-title'>
 		<h1 id="site-title">
-			<?= $this->Html->link("The Atlas of Urban Expansion", array("controller"=>"/"));?>
+			<?= $this->Html->link("Atlas of Urban Expansion", array("controller"=>"/"));?>
 		</h1>
 	</div>
 	<nav class='menu-icon'>

@@ -9,8 +9,8 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
-$headerbgcolor : #e4e4e4;
-$headercolor : #6d6d6d;
+$headerbgcolor : #000;
+$headercolor : #fff;
 $lightgrey : #333333;
 $lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
@@ -292,7 +292,7 @@ footer a {
 	text-decoration: none;
 }	
 
-.countryName, h2.regionName {
+.countryNameRow, h2.regionName {
 	position: relative;
 	border-bottom:1px solid #ccc;
 	display:block;
@@ -310,7 +310,7 @@ h2.countryName {
 
 .cityNav {
 	position:absolute;
-	bottom:70px;
+	bottom:10px;
 	ul {
 	margin-right:51px;
 	float: left;
@@ -364,7 +364,7 @@ table th{
 
 .h1{
 	font-size:$largetype4;
-	font-family:"DINNextLTProLight";
+	font-family:"Akkurat";
 	color:#fff;
 }
 
@@ -545,6 +545,7 @@ h1#site-title {
 
 .flag {
 	min-width:100px;
+	float:left;
 }	
 
 .flag img {
@@ -558,6 +559,10 @@ h1#site-title {
 .flag img{
 	// display:none;
 	width:35px;
+}
+
+.countryName {
+	float: left;
 }
 
 
