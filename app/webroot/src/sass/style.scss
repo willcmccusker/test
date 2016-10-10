@@ -9,8 +9,8 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
-$headerbgcolor : #fff;
-$headercolor : #000;
+$headerbgcolor : #e4e4e4;
+$headercolor : #6d6d6d;
 $lightgrey : #333333;
 $lightgrey1 : #c4c4c4;
 $lightgrey2 : #F0F0F0;
@@ -248,7 +248,7 @@ a {
 	padding-top:20px;
 	padding-bottom: 20px;
 	background-color: $headerbgcolor;
-	border-bottom: 1px solid $lightgrey;
+/* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
 		color: $headercolor;
