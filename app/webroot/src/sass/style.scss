@@ -32,6 +32,7 @@ $largetype2 : 24px;
 $largetype3 : 36px;
 $largetype4 : 64px;
 
+
 @import "functions";
 @import "grid";
 // @import "tiny-autocomplete";
@@ -241,12 +242,30 @@ a {
 
 
 .header {
+
+	display: flex;
+	// justify-content : flex-start;
+	#site-title{
+	}
+	nav{
+		flex: 1;
+		order: 2;
+		a{
+			margin-left: 30px;
+		}
+	}
+	#citySearch{
+		order: 3;
+		margin-left: auto;
+		// align-self: flex-end;
+	}
 	position: fixed;
+	width:100%;
 	top:0px;
 	font-size:$defaulttype;
 	color:$headercolor;
-	padding-top:20px;
-	padding-bottom: 20px;
+	padding: 20px $padding;
+
 	background-color: $headerbgcolor;
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
@@ -255,7 +274,7 @@ a {
 	}
 }
 
-.footer {
+footer {
 	font-family: "SabonNextLT-Regular";
 	background-color:#bfbfbf;
 	color:#fff;
@@ -267,7 +286,7 @@ a {
 	left:0px;
 }
 
-.footer a {
+footer a {
 	color:#fff;
 	text-decoration: none;
 }	
@@ -283,17 +302,7 @@ h2.countryName {
 	border-top:1px solid #ccc;
 }
 
-.headerMenu {
-	ul{
-		display:inline-block;
-	}
-	li {
-	list-style-type:none;
-	padding:0 30px 0 0;
-	margin:0;
-	float:left;
-	}
-}
+
 
 .cityNav {
 	position:absolute;
@@ -384,12 +393,18 @@ h1#site-title {
 	z-index:1;
 } */
 
+.anchorPoint{
+	position:relative;
+	top:-85px;
+}
+
+
 .cityImage img {
 	width:100%;
 }
 
 .graphSection {
-	margin-bottom:180px;
+	padding-bottom:180px;
 }
 
 .graphMainContainer {
@@ -412,13 +427,44 @@ h1#site-title {
 	font-family: "SabonNextLT-Regular";
 	color:$lightgrey1;
 }
-
+.switchYear{
+	cursor: pointer;
+	&.activeYear{
+		text-decoration: underline;
+	}
+}
+.years{
+	position:absolute;
+}
+.legend-ul{
+	padding-left:20px;
+	margin-top:32px;
+	li{
+		font-size:12px;
+		position:relative;
+	}
+	.legend-click{
+		display:inline-block;
+	    width: 10px;
+	    height: 10px;
+	    margin: 0 5px;
+	    position: absolute;
+	    left: -20px;
+	    margin-top: -7px;
+	    top: 50%;
+	}
+	
+}
 .city-map{
 	background-color: black;
 	height:400px;
 }
 .city-graphic{
-	position:relative;
+	// padding-right:100px;
+	// &.no-legend{
+	// 	padding-right:0px;
+	// }
+	// position:relative;
 	// background-color: $lightgrey;
 	// padding:20px;
 	// min-height:450px;
@@ -466,7 +512,7 @@ h1#site-title {
 	width:100%
 }
 .leaflet-control-attribution{
-	display:none;
+	// display:none;
 }
 .map-placeholder {
 	width:100%;
@@ -517,6 +563,7 @@ h1#site-title {
 }
 
 #citySearch{
+	text-align:right;
 	position:relative;
 	ul{
 		position:fixed;

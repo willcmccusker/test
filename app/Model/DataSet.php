@@ -49,6 +49,7 @@ class DataSet extends AppModel {
 		        $dataset = array("DataSet"=>array());
 		        $i = 0;
 		        foreach($this->validate as $field=>$bs){
+
 		        	$key = $i + $offset;
 	        		$data[$key] = $data[$key] == "-" ? 0 : $data[$key];
 	        		$data[$key] = $data[$key] == "" ? 0 : $data[$key];
@@ -940,6 +941,86 @@ class DataSet extends AppModel {
 		'blocks_plots_average_formal_plot_1990_2015' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_atomistic_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_atomistic_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_informal_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_informal_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_formal_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_formal_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_housing_pre_1990' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'blocks_and_plots_composition_housing_1990_2015' => array(
+			'decimal' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
