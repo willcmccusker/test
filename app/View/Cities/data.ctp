@@ -1,13 +1,4 @@
 <? $this->assign('title', "Data");?>
-<div class='grid'>
-<div class='col-1-1'>
-<a href='/file-manager/userfiles/special/Areas and Densities PDF.pdf' target="_blank">Areas and Densities PDF</a>
-|
-<a href='/file-manager/userfiles/special/Blocks and Roads PDF' target="_blank">Blocks and Roads PDF</a>
-|
-<a href='/build_data/data.csv' target="_blank">Download CSV</a>
-</div>
-</div>
 <div class='grid '>
 	<div class='col-1-1'>
 		<?= $dataText["Text"]["content"];?>
