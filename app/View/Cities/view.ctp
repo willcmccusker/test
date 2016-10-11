@@ -1,11 +1,18 @@
 <script>
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
-<div class='cityHeader' style="background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)), url(/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>); background-position:center center; background-size:cover; background-repeat:no repeat">
+<div class='cityHeader' style="background-image: url(/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>); ">
 	<div class='grid wide'>
 		<div class='col-1-1 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<div class="countryNameRow"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><div class="countryName"><?= $city["City"]["country"];?></div></div>
+			<div class="countryNameRow">
+				<div class='flag'>
+					<?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?>
+				</div>
+				<div class="countryName">
+					<?= $city["City"]["country"];?>
+				</div>
+			</div>
 			<div class='citySummaryTable'>
 				<div class="statLabel">
 					<div class="table-label">Region</div>
