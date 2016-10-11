@@ -171,11 +171,11 @@
 					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t2" data-target="addedArea" /> T2 </label>
 				</ul>
 				<ul>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" name="builtUp" data-target="addedArea"/> Built-up area </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" name="infill" data-target="addedArea"/> Infill </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" name="extension" data-target="addedArea"/> Extension </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" name="leapfrog" data-target="addedArea"/> Leapfog </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" name="inclusion" data-target="addedArea"/> Inclusion </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> Built-up area </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="infill" data-target="addedArea"/> Infill </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="extension" data-target="addedArea"/> Extension </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> Leapfog </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="inclusion" data-target="addedArea"/> Inclusion </label>
 				</ul>
 				</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -190,17 +190,17 @@
 
 
 				var addedArea_t1_outline = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
-				var addedArea_t1_builtUp = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t1_infill = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t1_extension = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t1_leapfrog = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t1_inclusion = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
+				var addedArea_t1_builtUp = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t1_infill = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t1_extension = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t1_leapfrog = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t1_inclusion = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true });
 				var addedArea_t2_outline = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t2/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t2_builtUp = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t2_infill = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t2_extension = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t2_leapfrog = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
-				var addedArea_t2_inclusion = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true, opacity: 0 });
+				var addedArea_t2_builtUp = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t2_infill = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t2_extension = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t2_leapfrog = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true });
+				var addedArea_t2_inclusion = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true });
 
 				var addedArea_t1_layer = L.layerGroup([addedArea_t1_outline, addedArea_t1_builtUp, addedArea_t1_infill, addedArea_t1_extension, addedArea_t1_leapfrog, addedArea_t1_inclusion]).addTo(addedArea);
 				var addedArea_t2_layer = L.layerGroup([addedArea_t2_outline, addedArea_t2_builtUp, addedArea_t2_infill, addedArea_t2_extension, addedArea_t2_leapfrog, addedArea_t2_inclusion]);
