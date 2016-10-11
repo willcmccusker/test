@@ -7,7 +7,7 @@ if ($handle = opendir($path)) {
     while (false !== ($file = readdir($handle))) {
         if ('.' === $file) continue;
         if ('..' === $file) continue;
-
+        if(strrpos($file, ".mp4") < 0) continue;
 
         $video = '<video controls preload="none" poster="/file-manager/userfiles/data_page/Animations/'.str_replace(".mp4", ".jpg", $file).'">
 				<source src="/file-manager/userfiles/data_page/Animations/'.$file.'" type="video/mp4">
