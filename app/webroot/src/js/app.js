@@ -47,9 +47,7 @@ $(document).ready(function(){
 		setFooter();
 	});
 	setFooter();
-	setTimeout(function(){
-		loadNextFlag();
-	},3000);
+	loadNextFlag();
 
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();
@@ -322,6 +320,7 @@ $(document).ready(function(){
 
 					var waypoints = $('.city-map').waypoint({
 						handler: function(direction) {
+							// alert("now");
 						    if(this.element.id == 'urban_extent_t1_map' && !$(this.element).hasClass("leaflet-container")){
 								var map = L.map('urban_extent_t1_map', {
 									center: [city.City.latitude, city.City.longitude],
@@ -354,7 +353,7 @@ $(document).ready(function(){
 								});
 						    }
 						},
-						offset : "110%"
+						offset : "100%"
 					});
 
 					
@@ -362,7 +361,7 @@ $(document).ready(function(){
 					globalOptions = {
 						deferred : {
 							enabled:true,	
-							delay : 500
+							// delay : 500
 						},
 						maintainAspectRatio: false,
 						// responsiveAnimationDuration : 500,
@@ -461,13 +460,17 @@ $(document).ready(function(){
 });
 
 var loadNextFlag = function(){
-	var lazy = $(".lazyimg").first();
+	var lazy = $(".lazyimg").last();
 	if(lazy.length === 0){
 		return;
 	}
 	var img = new Image();
 	img.onload = function(){
-		$(lazy).attr("src", $(lazy).data("src")).removeClass("lazyimg");
+		if($(lazy).is("img")){
+			$(lazy).attr("src", $(lazy).data("src")).removeClass("lazyimg");
+		}else{
+			$(lazy).css("background-image", "url('"+img.src+"')").removeClass("lazyimg");
+		}
 		loadNextFlag();
 	};
 	img.onerror = function(){
