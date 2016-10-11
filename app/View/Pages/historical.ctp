@@ -8,22 +8,23 @@ if ($handle = opendir($path)) {
         if ('.' === $file) continue;
         if ('..' === $file) continue;
         if($i%2 == 0){
+
+        	$video = '<video controls preload="none" poster="/file-manager/userfiles/data_page/Animations/'.str_replace(".mp4", ".jpg", $file).'">
+				<source src="/file-manager/userfiles/data_page/Animations/$file;" type="video/mp4">
+			</video>';
+
+
         	?>
 	<div class='grid'>
 		<div class='col-1-5'></div>
 		<div class='col-2-5'>
 		<?=$file;?>
-			<video controls preload="none">
-				<source src="/file-manager/userfiles/data_page/Animations/<?=$file;?>" type="video/mp4">
-			</video>
+		<?=$video;?>
 		</div>
     	<?}elseif($i%2 == 1){?>
 			<div class='col-2-5'>
 			<?=$file;?>
-				<video controls preload="none">
-					<source src="/file-manager/userfiles/data_page/Animations/<?=$file;?>" type="video/mp4">
-				</video>
-			</div>
+			<?=$video;?>
 		</div>
         <?}
 
