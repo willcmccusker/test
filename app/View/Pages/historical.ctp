@@ -18,12 +18,10 @@ if ($handle = opendir($path)) {
 	<div class='grid'>
 		<div class='col-1-5'></div>
 		<div class='col-2-5'>
-		<?=$file;?>
 		<?=$video;?>
 		</div>
     	<?}elseif($i%2 == 1){?>
 			<div class='col-2-5'>
-			<?=$file;?>
 			<?=$video;?>
 		</div>
         <?}
