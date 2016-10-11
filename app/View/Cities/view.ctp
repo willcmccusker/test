@@ -2,12 +2,13 @@
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
 <div class='cityHeader' style="background-image: url(/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>); ">
+	<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>" style="width:1px; height:1px; opacity:0; position:absolute;">
 	<div class='grid wide'>
 		<div class='col-1-1 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
 			<div class="countryNameRow">
 				<div class='flag'>
-					<?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?>
+					<?= $this->Html->image("/file-manager/userfiles/flags/".str_replace(".png", ".jpg", $city["City"]["flag_path"]));?>
 				</div>
 				<div class="countryName">
 					<?= $city["City"]["country"];?>
