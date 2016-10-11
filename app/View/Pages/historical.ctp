@@ -12,13 +12,15 @@ if ($handle = opendir($path)) {
 	<div class='grid'>
 		<div class='col-1-5'></div>
 		<div class='col-2-5'>
-			<video controls>
+		<?=$file;?>
+			<video controls preload="none">
 				<source src="/file-manager/userfiles/data_page/Animations/<?=$file;?>" type="video/mp4">
 			</video>
 		</div>
     	<?}elseif($i%2 == 1){?>
 			<div class='col-2-5'>
-				<video controls>
+			<?=$file;?>
+				<video controls preload="none">
 					<source src="/file-manager/userfiles/data_page/Animations/<?=$file;?>" type="video/mp4">
 				</video>
 			</div>
