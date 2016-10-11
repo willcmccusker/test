@@ -37,7 +37,7 @@
 					<div class="table-label"><?= substr($city["City"]["t3"], 0,4);?> Density</div>
 				</div>
 				<div class='statValue'>
-					<div><?= $city["City"]["density"];?> persons/hectare</div>
+					<div><?= number_format($city["City"]["density"], 0);?> persons/hectare</div>
 				</div>
 			</div>
 		</div>
@@ -82,10 +82,10 @@
 				<canvas id='population_line' class='city-graphic no-legend'  data-title="Population"  height="350px" data-unit=""></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='population_change_bar' class='city-graphic' data-unit="%" data-title="Avg. Annual % Change" height="350px"></canvas>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>
 		</div>
 	</div>
@@ -113,13 +113,13 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='urban_extent_composition_stacked_bar' class='city-graphic'  data-title="Urban Composition" height="350px"></canvas>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='urban_extent_change_bar' class='city-graphic'  data-title="Avg. Annual % Change" height="350px"></canvas>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -140,10 +140,10 @@
 				<canvas id='density_built_up_line' class='city-graphic' data-title='Built-up Area Density (Persons/Hectare)' data-unit=" Persons/Hectare" height="350px"></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='density_built_up_change_bar' class='city-graphic' data-title="Built-up Area Avg. Annual % Change" height="350px"></canvas>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>				
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>				
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -153,10 +153,10 @@
 				<canvas id='density_urban_extent_line' class='city-graphic' data-title='Urban Extent Density (Persons/Hectare)' data-unit=" Persons/Hectare" height="350px"></canvas>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='density_urban_extent_change_bar' class='city-graphic'   data-title='Urban Extent Avg. Annual % Change' height="350px"></canvas>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>
 		</div>
 	</div>
@@ -192,27 +192,27 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='roads_in_built_up_area_bar' class='city-graphic'  data-multiply="100" data-title='Share of built up area occupied by roads and boulevards'  data-unit="%"" data-multiply="100" height="350px"></canvas>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>
 
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='roads_average_width_bar' class='city-graphic' data-title='Average Street Width' height="350px"  data-unit="m" ></canvas>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>		
 		</div>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='roads_width_stacked_bar' class='city-graphic'  data-title='Street Width Composition' height="350px"></canvas>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>
 			<div class='col-2-5 tab-1-1 mob-1-1'></div>
 		</div>
@@ -232,7 +232,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='position-relative col-3-4 mob-1-1 no-pad'>
+				<div class='position-relative col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='arterial_roads_density_bar' class='city-graphic' data-title='Density of Arterial Roads (km/km2)' data-unit=" km/km2" height="350px"></canvas>
 					<div class='years' >
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
@@ -242,7 +242,7 @@
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
 			</div>
 			<div class='position-relative col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='arterial_roads_walking_bar' class='city-graphic' data-title='Share of Area Within Walking Distance of Arterial Roads' data-unit="%" data-multiply="100" height="350px"></canvas>
 
 					<div class='years'>
@@ -256,7 +256,7 @@
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'></div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='position-relative col-3-4 mob-1-1 no-pad'>
+				<div class='position-relative col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='arterial_roads_beeline_bar' data-unit="m" class='city-graphic' data-title='Beeline Distance to Arterial Roads' height="350px"></canvas>
 
 					<div class='years'>
@@ -264,7 +264,7 @@
 						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
-				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'></div>
 		</div>
@@ -284,7 +284,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='position-relative col-3-4 mob-1-1 no-pad'>
+				<div class='position-relative col-3-4 mob-1-1 no-pad year-switch-graphic '>
 					<canvas id='blocks_and_plots_composition_special_stacked' class='city-graphic' data-title='Share of Residential Land Use Settlements' height="350px"></canvas>
 
 					<div class='years'>
@@ -295,7 +295,7 @@
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
-				<div class='col-3-4 mob-1-1 no-pad'>
+				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='blocks_plots_average_block_bar' class='city-graphic' data-title='Average Block Size (hectares)' data-unit=' hectares' height="350px"></canvas>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -304,10 +304,10 @@
 		<div class='grid wide'>
 		<div class='col-1-5 tab-1-1'></div>
 		<div class='col-2-5 tab-1-2 mob-1-1'>
-			<div class='col-3-4 mob-1-1 no-pad'>
+			<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
 				<canvas id='blocks_plots_average_bar' class='city-graphic' data-title='Average Plot Size (m&sup2;)' data-unit=' m&sup2;' height="350px"></canvas>
 			</div>
-			<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
+			<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 		</div>
 		<div class='col-2-5 tab-1-2 mob-1-1'>
 

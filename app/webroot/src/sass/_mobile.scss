@@ -33,10 +33,17 @@
 	.hide-on-mobile{
 		display:none;
 	}
-	.cityImage img {
-		position:relative;
-		padding-right: 0;
+
+	.header{
+		background-color: white;
 	}
+
+	#worldmap{
+		margin:0px 25px;
+		width: calc(100% - 50px);
+	}
+
+
 	.cityNav {
 		position:relative;
 		bottom:0px;
