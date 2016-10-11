@@ -12,7 +12,7 @@
 		<div class='col-1-7 tab-1-1 mob-1-1'>
 		</div>
 		<div class='col-3-7 tab-1-1 mob-1-1'>
-			<img onload="setFooter();" class='lazyimg' src='/img/logo_block.png' alt="logo_block" width="500px" />
+			<img onload="setFooter();" class='lazyimg' src='/img/logo_block.jpg' alt="logo_block" width="500px" />
 		</div>
 	</div>
 </footer>

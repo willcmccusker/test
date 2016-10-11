@@ -1,6 +1,8 @@
+
 for file in "photos/*"; do convert  -limit memory 2MB -limit map 4MB "$file" -resize 800x600 _med/"$file// / }"; done
 for file in photos/*; do convert -limit memory 2MB -limit map 4MB "$file" -resize 800x600 "_med/${file// / }"; done
 
+mogrify -format jpg *.png
 
 for file in photos/*; do convert  -limit memory 2MB -limit map 4MB "$file" -resize 80x80 _thumbs/"${file// /}"; done
 for file in flags/*; do convert "$file" -resize 10x10 _thumbs/"${file// /}"; done

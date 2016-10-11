@@ -325,11 +325,14 @@ $(document).ready(function(){
 						    if(this.element.id == 'urban_extent_t1_map' && !$(this.element).hasClass("leaflet-container")){
 								var map = L.map('urban_extent_t1_map', {
 									center: [city.City.latitude, city.City.longitude],
-									zoom: 10,
+									zoom: 11,
+									maxZoom: 16,
+									minZoom: 10,
 									scrollWheelZoom : false
 								});
 								var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-									maxZoom: 19,
+									maxZoom: 16,
+									minZoom: 10,
 									attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 								}).addTo(map);
 
