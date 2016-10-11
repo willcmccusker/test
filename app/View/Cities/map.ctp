@@ -58,7 +58,7 @@ L.geoJson(<?= $points ?>, {
     var href = '/cities/view/' + feature.properties.slug;
 
     layer.bindPopup('<p><a href=\"' + href + '\">' + cityName + ", "+ feature.properties.Country + "</a></p>");
-    layer.on('mouseover', function(e) {
+    layer.on('mouseover click', function(e) {
       e.target.feature.properties.active = true;
       layer.openPopup();
     });
