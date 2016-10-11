@@ -17,7 +17,7 @@ class DataSet extends AppModel {
 	public function import(){
 
 
-
+		$this->generateValidationRules();
 
 		$row = 0;
 		$filename = APP . "/webroot/build_data/data.csv";
@@ -42,7 +42,7 @@ class DataSet extends AppModel {
 
 		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		        $row++;
-		    	if($row < 6) continue;
+		    	if($row < 7) continue;
 
 		        $offset = 20;
 
@@ -269,7 +269,26 @@ class DataSet extends AppModel {
 		}
 	}
 
+	public function beforeValidate() {
+		$this->generateValidationRules();
+		return true;
+	}
+	public function beforeFind() {
+		$this->generateValidationRules();
+		return true;
+	}
 
+
+	public function generateValidationRules(){
+		$columns = array_keys($this->getColumnTypes());
+		$this->validate = array();
+		foreach($columns as $column){
+			if($column == "id"){
+				continue;
+			}
+			$this->validate[$column] = array("numeric"=>array("rule"=> array("numeric")));
+		}
+	}
 
 
 /**

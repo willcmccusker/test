@@ -157,7 +157,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 					<div id="composition_of_added_area" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Composition of Added Area</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p><?= $dynamicTexts["composition_of_added_area"]["Text"]["content"];?></p>
 				</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='composition_t1_t2_map' class='city-map'></div>

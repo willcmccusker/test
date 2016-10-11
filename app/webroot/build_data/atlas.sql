@@ -8,7 +8,7 @@ SET time_zone = "+00:00";
 
 
 DROP TABLE IF EXISTS `cities`;
-CREATE TABLE IF NOT EXISTS `cities` (
+CREATE TABLE `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `cityid` int(11) NOT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE IF NOT EXISTS `cities` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=801 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1201 ;
 
 DROP TABLE IF EXISTS `city_sizes`;
-CREATE TABLE IF NOT EXISTS `city_sizes` (
+CREATE TABLE `city_sizes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `number` int(11) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `city_sizes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 DROP TABLE IF EXISTS `data_sets`;
-CREATE TABLE IF NOT EXISTS `data_sets` (
+CREATE TABLE `data_sets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `population_t1` int(10) unsigned NOT NULL,
   `population_t2` int(10) unsigned NOT NULL,
@@ -129,11 +129,31 @@ CREATE TABLE IF NOT EXISTS `data_sets` (
   `blocks_and_plots_composition_formal_1990_2015` int(3) NOT NULL,
   `blocks_and_plots_composition_housing_pre_1990` int(3) NOT NULL,
   `blocks_and_plots_composition_housing_1990_2015` int(3) NOT NULL,
+  `added_area_total_t1_t2` int(6) NOT NULL,
+  `added_area_total_t2_t3` int(6) NOT NULL,
+  `added_area_total_percent_t1_t2` decimal(4,1) NOT NULL,
+  `added_area_total_percent_t2_t3` decimal(4,1) NOT NULL,
+  `added_area_infill_t1_t2` int(6) NOT NULL,
+  `added_area_infill_t2_t3` int(6) NOT NULL,
+  `added_area_infill_percent_t1_t2` int(3) NOT NULL,
+  `added_area_infill_percent_t2_t3` int(3) NOT NULL,
+  `added_area_extension_t1_t2` int(6) NOT NULL,
+  `added_area_extension_t2_t3` int(6) NOT NULL,
+  `added_area_extension_percent_t1_t2` int(3) NOT NULL,
+  `added_area_extension_percent_t2_t3` int(3) NOT NULL,
+  `added_area_leapfrog_t1_t2` int(6) NOT NULL,
+  `added_area_leapfrog_t2_t3` int(6) NOT NULL,
+  `added_area_leapfrog_percent_t1_t2` int(3) NOT NULL,
+  `added_area_leapfrog_percent_t2_t3` int(3) NOT NULL,
+  `added_area_inclusion_t1_t2` int(6) NOT NULL,
+  `added_area_inclusion_t2_t3` int(6) NOT NULL,
+  `added_area_inclusion_percent_t1_t2` int(3) NOT NULL,
+  `added_area_inclusion_percent_t2_t3` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=847 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1265 ;
 
 DROP TABLE IF EXISTS `g_d_ps`;
-CREATE TABLE IF NOT EXISTS `g_d_ps` (
+CREATE TABLE `g_d_ps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `slug` varchar(45) NOT NULL,
@@ -143,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `g_d_ps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 DROP TABLE IF EXISTS `regions`;
-CREATE TABLE IF NOT EXISTS `regions` (
+CREATE TABLE `regions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `abbreviation` varchar(5) NOT NULL,
@@ -151,24 +171,24 @@ CREATE TABLE IF NOT EXISTS `regions` (
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=57 ;
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 DROP TABLE IF EXISTS `worlds`;
-CREATE TABLE IF NOT EXISTS `worlds` (
+CREATE TABLE `worlds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `year` int(11) NOT NULL,
   `data_set_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

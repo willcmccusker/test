@@ -62,7 +62,8 @@ class Text extends AppModel {
 			}else{
 				$value = $this->pathToValue($match, $key);
 			}
-			if(!$value){
+			if($value === false){
+				debug($value);
 				debug($match);
 				die(" convert text error");
 			}
