@@ -321,36 +321,48 @@ $(document).ready(function(){
 					var waypoints = $('.city-map').waypoint({
 						handler: function(direction) {
 							// alert("now");
-						    if(this.element.id == 'urban_extent_t1_map' && !$(this.element).hasClass("leaflet-container")){
-								var map = L.map('urban_extent_t1_map', {
-									center: [city.City.latitude, city.City.longitude],
-									zoom: 11,
-									maxZoom: 16,
-									minZoom: 10,
-									scrollWheelZoom : false
-								});
-								var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-									maxZoom: 16,
-									minZoom: 10,
-									attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-								}).addTo(map);
+							if($(this.element).hasClass("leaflet-container")){
+								return;
+							}
+							switch(this.element.id){
+								case("urban_extent_t1_map"):
 
-								var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
-								var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
-								var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
-								var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
-								var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
+									var map = L.map('urban_extent_t1_map', {
+										center: [city.City.latitude, city.City.longitude],
+										zoom: 11,
+										maxZoom: 16,
+										minZoom: 10,
+										scrollWheelZoom : false
+									});
+									var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+										maxZoom: 16,
+										minZoom: 10,
+										attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+									}).addTo(map);
 
-								$('.layerToggle').change(function() {
-									/* jshint ignore:start */
-									var layer = eval($(this).prop('name'));
-									/* jshint ignore:end */
-									if($(this).is(':checked')) {
-										map.addLayer(layer);
-									}else{
-										map.removeLayer(layer);
-									}
-								});
+									var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+									var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
+									var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
+									var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
+									var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
+
+									$('.layerToggle').change(function() {
+										/* jshint ignore:start */
+										var layer = eval($(this).prop('name'));
+										/* jshint ignore:end */
+										if($(this).is(':checked')) {
+											map.addLayer(layer);
+										}else{
+											map.removeLayer(layer);
+										}
+									});
+								break;
+								case("roads_map"):
+									make_roads_map();
+								break;
+								case("composition_of_added_area_map"):
+									make_composition_of_added_area_map();
+								break;
 						    }
 						},
 						offset : "100%"

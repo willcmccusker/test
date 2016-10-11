@@ -183,29 +183,34 @@
 			</div>
 			<script>
 				L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
-				var addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light', {
-					center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
-					zoom: 11
-				});
+
+				var make_composition_of_added_area_map = function(){
+
+					var addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light', {
+						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
+						zoom: 11,
+						scrollWheelZoom : false
+					});
 
 
-				var addedArea_t1_outline = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
-				var addedArea_t1_builtUp = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t1_infill = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t1_extension = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t1_leapfrog = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t1_inclusion = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t2_outline = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t2/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t2_builtUp = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t2_infill = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t2_extension = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t2_leapfrog = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true });
-				var addedArea_t2_inclusion = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
+					var addedArea_t1_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t1_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t1_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t1_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t1_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t2/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t2_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t2_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t2_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t2_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					var addedArea_t2_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true });
 
-				var addedArea_t1_layer = L.layerGroup([addedArea_t1_outline, addedArea_t1_builtUp, addedArea_t1_infill, addedArea_t1_extension, addedArea_t1_leapfrog, addedArea_t1_inclusion]).addTo(addedArea);
-				var addedArea_t2_layer = L.layerGroup([addedArea_t2_outline, addedArea_t2_builtUp, addedArea_t2_infill, addedArea_t2_extension, addedArea_t2_leapfrog, addedArea_t2_inclusion]);
+					var addedArea_t1_layer = L.layerGroup([addedArea_t1_outline, addedArea_t1_builtUp, addedArea_t1_infill, addedArea_t1_extension, addedArea_t1_leapfrog, addedArea_t1_inclusion]).addTo(addedArea);
+					var addedArea_t2_layer = L.layerGroup([addedArea_t2_outline, addedArea_t2_builtUp, addedArea_t2_infill, addedArea_t2_extension, addedArea_t2_leapfrog, addedArea_t2_inclusion]);
 
-				var style = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(addedArea);
+					var style = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(addedArea);
+				}
 		</script>
 		</div>
 	</div>
@@ -225,17 +230,20 @@
 				<div id='roads_map' class='city-map'></div>
 				<script src="/file-manager/userfiles/json/<?= $city['City']['slug'] ?>/locales_t0.json" type="text/javascript"></script>
 				<script>
+
+				var make_roads_map = function(){
 					var roadsMap = L.mapbox.map('roads_map', 'mapbox.satellite', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
-						zoom: 12
+						zoom: 14,
+						scrollWheelZoom : false
 					});
 
-					var t1_outline = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(roadsMap)
-					var t1_roads = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true});
-					var t1_locales = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t0/{z}/{x}/{y}.png', {tms: true});
+					var t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(roadsMap)
+					var t1_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true});
+					var t1_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t0/{z}/{x}/{y}.png', {tms: true});
 
-					var t2_roads = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t2/{z}/{x}/{y}.png', {tms: true});
-					var t2_locales = L.tileLayer('http://localhost:8888/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t2/{z}/{x}/{y}.png', {tms: true})
+					var t2_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t2/{z}/{x}/{y}.png', {tms: true});
+					var t2_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t2/{z}/{x}/{y}.png', {tms: true})
 
 					var t1Roads = L.layerGroup([t1_roads, t1_locales]).addTo(roadsMap);
 					var t2Roads = L.layerGroup([t2_roads, t2_locales]);
@@ -251,7 +259,7 @@
 							});
 						}
 					}).addTo(roadsMap);
-
+				};
 			$('.roadsPeriod').change(function() {
 				var prefix = $('.roadsPeriod:checked').val();
 
