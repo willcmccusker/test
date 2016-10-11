@@ -31,9 +31,11 @@
 	Router::connect('/about', array('controller' => 'texts', 'action' => 'about'));
 
   Router::connect(
-    '/tiles/show/:layer/:z/:x/:y',
+    '/tiles/show/:city/:map/:layer/:z/:x/:y',
     array('controller' => 'tiles', 'action' => 'show'),
     array(
+      'city' => '\w+',
+      'map' => '\w+',
       'layer' => '\w+',
       'z' => '\d+',
       'x' => '\d+',
