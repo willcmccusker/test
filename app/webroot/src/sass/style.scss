@@ -9,13 +9,14 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
-$headerbgcolor : #000;
-$headercolor : #fff;
+$headerbgcolor : transparent;
+$headercolor : #000;
+$lightgrey0 : #666666;
 $lightgrey : #333333;
-$lightgrey1 : #c4c4c4;
+$lightgrey1 : #afafaf;
 $lightgrey2 : #F0F0F0;
 $lightgrey3 :  #f5f5f5;
-$bodytype : #333333;
+$bodytype : #1a1a1a;
 
 /*border color variables */
 
@@ -28,7 +29,7 @@ $smalltype : 12px;
 $Lighttype : 12px;
 $defaulttype : 16px;
 $largetype1 : 20px;
-$largetype2 : 24px;
+$largetype2 : 30px;
 $largetype3 : 36px;
 $largetype4 : 64px;
 
@@ -257,6 +258,9 @@ a {
 		a{
 			margin-left: 30px;
 		}
+		a:hover {
+			color:#142ad1;
+		}
 	}
 	#citySearch{
 		order: 3;
@@ -270,39 +274,51 @@ a {
 	color:$headercolor;
 	padding: 20px $padding;
 
-	background-color: $headerbgcolor;
+	background-color: transparent;
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
+		font-family: Akkurat;
 		color: $headercolor;
 	}
 }
 
 footer {
-	font-family: "SabonNextLT-Regular";
-	background-color:#bfbfbf;
-	color:#fff;
+	font-family: "DINNextLTProUltraLight";
+	background-color:#000;
+	color:#9C9C9C;
 	line-height: 1.6;
-	padding:15px 0 30px 0;
+	padding:30px 0 30px 0;
 	position:absolute;
 	bottom:0;
 	width:100%;
 	left:0px;
+	p {
+	font-size: 16px;
+	}
+	a {
+	color:#9C9C9C;
+	cursor: pointer;
+	text-decoration: none;
+	}
+	img {
+	padding-bottom: 15px;
+	opacity:.8;
+	}
+	ul li {
+	float:left;
+	padding-right:15px;
+	}
 }
 
-footer a {
-	color:#fff;
-	text-decoration: none;
-}	
+
 
 .countryNameRow, h2.regionName {
 	position: relative;
-	border-bottom:1px solid #ccc;
 	display:block;
 	font-family: "DINNextLTProUltraLight";
 	font-size: $defaulttype;
 	padding:10px 0;
-	float:left;
 	width:100%;
 }
 h2.countryName {
@@ -324,12 +340,17 @@ h2.countryName {
 	float:left;
 	}
 	a {
-	font-family:"OfficeCodeLight";
+	color:#fff;
+	font-family:Arial;
 	font-size:$smalltype;
 	text-transform: uppercase;
 	padding: 6px 12px;
-	background-color: $lightgrey3;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,.5);
 	cursor: pointer;
+	}
+	a:hover {
+	background:rgba(255,255,255,0.1);
 	}
 }
 
@@ -356,8 +377,8 @@ h2.countryName {
 }
 
 .statValue {
-	border-bottom:1px solid #ccc;
-	margin-bottom: 4px;	
+	margin-bottom: 20px;	
+	line-height: 1.1;
 }
 
 
@@ -367,12 +388,12 @@ table th{
 
 .h1{
 	font-size:$largetype4;
-	font-family:"Akkurat";
+	font-family:"Helvetica";
 	color:#fff;
 }
 
 h1#site-title {
-	font-family: "DINNextLTPro-MediumCond";
+	font-family: "Akkurat";
 	font-size:$defaulttype;
 }
 
@@ -436,6 +457,11 @@ h1#site-title {
 	margin-bottom: .5em;
 }
 
+h3.sectionSubHeader {
+	font-size:$largetype2;
+	font-family: "DINNextLTProUltraLight";
+}
+
 .graphSection p {
 	font-family: "SabonNextLT-Regular";
 	color:$lightgrey1;
@@ -443,11 +469,18 @@ h1#site-title {
 .switchYear{
 	cursor: pointer;
 	&.activeYear{
-		text-decoration: underline;
+		font-weight: bold;
+		background-color: #ededed;
 	}
 }
-.years{
+.years {
 	position:absolute;
+	font-size: 14px;
+}
+.years span{
+	background-color: #dbdbdb;
+	margin-right: 6px;
+	padding: 4px 8px;
 }
 .legend-ul{
 	padding-left:20px;
@@ -548,11 +581,10 @@ h1#site-title {
 
 .flag {
 	min-width:100px;
-	float:left;
 }	
 
+
 .flag img {
-	float:left;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -563,11 +595,6 @@ h1#site-title {
 	// display:none;
 	width:35px;
 }
-
-.countryName {
-	float: left;
-}
-
 
 
 /* Search */
@@ -676,7 +703,7 @@ h1#site-title {
     	padding:50px #{$padding/2} 0px;
     	width:100%;
     	font-size:$largetype4;
-    	border-bottom:3px solid black;
+    	border-bottom:1px solid #000;
     	background-color:white;
     }
 }
@@ -782,18 +809,36 @@ h1#site-title {
 
 /* Index */
 #cityList {
+	padding-bottom: 100px;
 	ul > div:first-of-type h3{
 		padding-top:0px;
 	}
 	h3 {
-		font-family: "DINNextLTProUltraLight";
-		font-size: $largetype2;
+		font-family: "Akkurat";
+		font-size: $defaulttype;
+		text-transform: uppercase;
 		padding: 25px 0 0px 0;
 	}
 }
 
 #cityList .city:hover {
 	background-color:$lightgrey3;
+}
+
+
+/* Data Page */
+.data-page a {
+	color:#808080;
+	}
+	
+/* About Page */
+
+.about-page h1, h2, h3 {
+	font-family:"DINNextLTProUltraLight" !important;
+}
+
+.about-page h4 {
+	font-family: "Akkurat" !important;
 }
 
 @import "mobile";
