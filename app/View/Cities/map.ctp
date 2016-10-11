@@ -6,7 +6,7 @@
 
 // L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 $(document).ready(function(){
-  
+
   bounds = new L.LatLngBounds(new L.LatLng(-90, -180), new L.LatLng(90, 180));
 
 var map = L.map('worldmap', {
@@ -42,7 +42,7 @@ function regionStyle(feature) {
 }
 
 
-var outline = L.tileLayer('/tiles/show/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+var outline = L.tileLayer('/tiles/show/all/world/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
 
 L.geoJson(<?= $points ?>, {
   pointToLayer: function (feature, latlng) {
