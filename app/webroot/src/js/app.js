@@ -674,6 +674,7 @@ var makeChart = function(prefix, city, side){
 						value *= $(ctx).data("multiply");
 					}
 					value = (Math.floor(value*100)/100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					// value = newValue == 0 ? value : newValue;
 					if($(ctx).data("unit") !== undefined){
 						if($(ctx).data("unit") == "%" || $(ctx).data("unit") == "m"){
 							value += $(ctx).data("unit");
@@ -681,7 +682,9 @@ var makeChart = function(prefix, city, side){
 					}
 					return value;
 				}else{
-					return (Math.floor(value*100)/100)+"%";
+					value = Math.floor(value*100)/100;
+					// value = newValue == 0 ? value : newValue;
+					return value+"%";
 				}
 			}
 		},

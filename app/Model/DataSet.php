@@ -280,13 +280,23 @@ class DataSet extends AppModel {
 
 
 	public function generateValidationRules(){
-		$columns = array_keys($this->getColumnTypes());
+
+		$columns = $this->getColumnTypes();
 		$this->validate = array();
-		foreach($columns as $column){
+		foreach($columns as $column=>$type){
 			if($column == "id"){
 				continue;
 			}
-			$this->validate[$column] = array("numeric"=>array("rule"=> array("numeric")));
+			switch($type){
+				case("integer"):
+					$this->validate[$column] = array("numeric"=>array("rule"=> array("numeric")));
+				break;
+				case("decimal"):
+					$this->validate[$column] = array("decimal"=>array("rule"=> array("decimal")));
+				break;
+				default:
+					die("unknown type: ".$type);
+			}
 		}
 	}
 
