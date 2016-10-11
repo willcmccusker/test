@@ -1,11 +1,11 @@
 <? $this->assign('title', "Data");?>
 <div class='grid wide'>
-	<div class='col-1-1'>
+	<div class='col-2-3 tab-1-1'>
 		<?= $dataText["Text"]["content"];?>
 	</div>
 </div>
 <div class='grid wide'>
-	<div class='col-2-3'>
+	<div class='col-2-3 tab-1-1'>
 		<div class='show-methodology'>Show Methodology</div>
 		<div class='methodology display-none'>
 			<?= $methodologyText["Text"]["content"];?>

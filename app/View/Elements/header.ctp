@@ -8,8 +8,9 @@
 	<nav class='menu-icon'>
 		<div class='nav-holder'>
 			<?= $this->Html->link("Cities", array("controller"=>"cities", "action"=>"index"));?>
-			<?= $this->Html->link("About", array("controller"=>"about"));?>
 			<?= $this->Html->link("Data", array("controller"=>"data"));?>
+			<?= $this->Html->link("Historical Data", array("controller"=>"historical-data"));?>
+			<?= $this->Html->link("About", array("controller"=>"about"));?>
 		</div>
 	</nav>
 	<div id='citySearch' class='unlisted menu-icon'>

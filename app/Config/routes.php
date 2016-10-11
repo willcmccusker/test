@@ -28,7 +28,8 @@
   Router::parseExtensions('png');
 	Router::connect('/', array('controller' => 'cities', 'action' => 'map'));
 	Router::connect('/data', array('controller' => 'cities', 'action' => 'data'));
-	Router::connect('/about', array('controller' => 'texts', 'action' => 'about'));
+  Router::connect('/about', array('controller' => 'texts', 'action' => 'about'));
+  Router::connect('/historical-data', array('controller' => 'pages', 'action' => 'display', 'historical'));
 
   Router::connect(
     '/tiles/show/:layer/:z/:x/:y',
