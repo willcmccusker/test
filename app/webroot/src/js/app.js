@@ -472,6 +472,8 @@ var loadNextFlag = function(){
 	};
 	img.onerror = function(){
 		$(lazy).removeClass("lazyimg");
+		var asset = img.src.replace(/^.*[\\\/]/, '');
+		$(".lazyimg[data-src$='"+asset+"'").removeClass("lazyimg");
 		loadNextFlag();
 	};
 	img.src = $(lazy).data("src");
