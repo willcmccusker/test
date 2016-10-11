@@ -1,20 +1,11 @@
 <? $this->assign('title', "Data");?>
-<div class='grid'>
-<div class='col-1-1'>
-<a href='/file-manager/userfiles/special/Areas and Densities PDF.pdf' target="_blank">Areas and Densities PDF</a>
-|
-<a href='/file-manager/userfiles/special/Blocks and Roads PDF' target="_blank">Blocks and Roads PDF</a>
-|
-<a href='/build_data/data.csv' target="_blank">Download CSV</a>
-</div>
-</div>
-<div class='grid '>
-	<div class='col-1-1'>
+<div class='grid wide'>
+	<div class='col-2-3 tab-1-1'>
 		<?= $dataText["Text"]["content"];?>
 	</div>
 </div>
-<div class='grid '>
-	<div class='col-1-1'>
+<div class='grid wide'>
+	<div class='col-2-3 tab-1-1'>
 		<div class='show-methodology'>Show Methodology</div>
 		<div class='methodology display-none'>
 			<?= $methodologyText["Text"]["content"];?>
@@ -22,7 +13,7 @@
 	</div>
 </div>
 
-<div class='grid  data-page'>
+<div class='grid wide data-page'>
 	<div class='col-1-1'>
 		<div id="data-table">
 			<input class="search" placeholder="Filter" />
@@ -91,6 +82,14 @@
 			</table>
 			<div class='page-holder'>
 				<ul class='pagination'></ul>
+			</div>
+			<div class='per-page'>
+				<select>
+					<option value="10">10 per page</option>
+					<option value="50">50 per page</option>
+					<option value="100">100 per page</option>
+					<option value="200">Show All</option>
+				</select>
 			</div>
 		</div>
 	</div>

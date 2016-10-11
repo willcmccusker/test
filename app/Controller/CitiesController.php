@@ -174,7 +174,17 @@ class CitiesController extends AppController {
 		if(empty($city)){
 			throw new NotFoundException(__('Invalid city'));
 		}
-		$this->set(compact("city"));
+
+		App::uses('Text', 'Model');
+		$this->Text = new Text;
+		$dynamicTexts = $this->Text->find("all", array(
+			"conditions"=>array(
+				"Text.type"=>"dynamic"
+				)
+			));
+		$dynamicTexts = $this->Text->dynam($dynamicTexts, $city);
+
+		$this->set(compact("city", "dynamicTexts"));
 	}
 
 

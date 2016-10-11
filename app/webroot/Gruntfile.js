@@ -16,14 +16,14 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     // configure jshint to validate js files -----------------------------------
-/*        jshint: {
+        jshint: {
           options: {
             multistr : true,
             reporter: require('jshint-stylish') // use jshint-stylish to make our errors look and read good
           },
           // when this task is run, lint the Gruntfile and all js files in src
           build: ['Gruntfile.js', 'src/js/**.js', '!src/js/*.min.js', '!src/js/*.ignore.js', '!src/js/*.jsx']
-        },*/
+        },
         uglifyFiles : {
           'dist/js/app.min.js': [
 
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
             // 'src/js/plottable.min.js',
 
             // 'src/js/stupidtable.min.js',
-            // 'src/js/jquery.waypoints.min.js',
+            'src/js/jquery.waypoints.min.js',
             'src/js/chart.ignore.js',
             'src/js/Chart.Deferred.min.js',
             // 'src/js/Chart.bundle.min.js',
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
           tasks: ['compass'],
           scripts: {
             files : [ 'src/js/*.js'],
-            tasks: [ 'uglify:dev']
+            tasks: ['jshint', 'uglify:dev']
           }
         },
   });
@@ -114,7 +114,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('dev', [  'clean',  'uglify:dev', 'compass']); 
+  grunt.registerTask('dev', [  'clean', 'jshint', 'uglify:dev', 'compass']); 
   grunt.registerTask('dist', [ 'clean', 'uglify:dist', 'compass']); 
 
 };

@@ -37,8 +37,8 @@
  * In development mode, you need to click the flash message to continue.
  */
 
-if($_SERVER['SERVER_ADDR'] == "104.236.126.203"){
-	Configure::write('debug', 1);
+if($_SERVER['SERVER_ADDR'] == "67.205.131.40"){
+	Configure::write('debug', 2);
 }else{
 	Configure::write('debug', 2);
 }

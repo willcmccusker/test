@@ -9,13 +9,14 @@ $tablet-max-width : 950px;
 
 /*type color variables */
 
-$headerbgcolor : #fff;
+$headerbgcolor : transparent;
 $headercolor : #000;
+$lightgrey0 : #666666;
 $lightgrey : #333333;
-$lightgrey1 : #c4c4c4;
+$lightgrey1 : #afafaf;
 $lightgrey2 : #F0F0F0;
 $lightgrey3 :  #f5f5f5;
-$bodytype : #333333;
+$bodytype : #1a1a1a;
 
 /*border color variables */
 
@@ -28,9 +29,11 @@ $smalltype : 12px;
 $Lighttype : 12px;
 $defaulttype : 16px;
 $largetype1 : 20px;
-$largetype2 : 24px;
+$largetype2 : 30px;
 $largetype3 : 36px;
 $largetype4 : 64px;
+
+
 
 @import "functions";
 @import "grid";
@@ -144,7 +147,7 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+table, caption, tbody, tfoot, 
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
@@ -154,7 +157,10 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	vertical-align: bottom;
+}
+table tbody > * {
+	vertical-align:top;
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
@@ -196,9 +202,11 @@ body{
 	line-height:1.5;
 	color: $bodytype;
 	padding-top:65px;
-	padding-bottom:207px;
+	padding-bottom:227px;
 	position:relative;
 	min-height:100vh;
+	opacity:1 !important;
+	@include xPrefix(transition, opacity 1s ease);
 }
 *{
 	box-sizing: border-box;
@@ -241,79 +249,111 @@ a {
 
 
 .header {
+
+	display: flex;
+	// justify-content : flex-start;
+	#site-title{
+	}
+	nav{
+		flex: 1;
+		order: 2;
+		a{
+			margin-left: 30px;
+		}
+		a:hover {
+			color:#142ad1;
+		}
+	}
+	#citySearch{
+		order: 3;
+		margin-left: auto;
+		// align-self: flex-end;
+	}
 	position: fixed;
+	width:100%;
 	top:0px;
 	font-size:$defaulttype;
 	color:$headercolor;
-	padding-top:20px;
-	padding-bottom: 20px;
-	background-color: $headerbgcolor;
-	border-bottom: 1px solid $lightgrey;
+	padding: 20px $padding;
+
+	background-color: transparent;
+/* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
+		font-family: Akkurat;
 		color: $headercolor;
 	}
 }
 
-.footer {
-	font-family: "SabonNextLT-Regular";
-	background-color:#bfbfbf;
-	color:#fff;
+footer {
+	font-family: "DINNextLTProUltraLight";
+	background-color:#000;
+	color:#9C9C9C;
 	line-height: 1.6;
-	padding:15px 0 30px 0;
+	padding:30px 0 30px 0;
 	position:absolute;
 	bottom:0;
 	width:100%;
 	left:0px;
+	p {
+	font-size: 16px;
+	}
+	a {
+	color:#9C9C9C;
+	cursor: pointer;
+	text-decoration: none;
+	}
+	img {
+	padding-bottom: 15px;
+	opacity:.8;
+	}
+	ul li {
+	float:left;
+	padding-right:15px;
+	}
 }
 
-.footer a {
-	color:#fff;
-	text-decoration: none;
-}	
 
-h2.countryName, h2.regionName {
-	border-bottom:1px solid #ccc;
+
+.countryNameRow, h2.regionName {
+	position: relative;
 	display:block;
 	font-family: "DINNextLTProUltraLight";
 	font-size: $defaulttype;
 	padding:10px 0;
+	width:100%;
 }
 h2.countryName {
 	border-top:1px solid #ccc;
 }
 
-.headerMenu {
-	ul{
-		display:inline-block;
-	}
-	li {
-	list-style-type:none;
-	padding:0 30px 0 0;
-	margin:0;
-	float:left;
-	}
-}
+
 
 .cityNav {
 	position:absolute;
-	bottom:70px;
+	bottom:10px;
 	ul {
 	margin-right:51px;
 	float: left;
+	margin-bottom: 10px;
 	}
 	li {
 	list-style-type:none;
-	margin:0 10px 0 0;
+	margin:0 10px 8px 0;
 	float:left;
 	}
 	a {
-	font-family:"OfficeCodeLight";
+	color:#fff;
+	font-family:Arial;
 	font-size:$smalltype;
 	text-transform: uppercase;
 	padding: 6px 12px;
-	background-color: $lightgrey3;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,.5);
 	cursor: pointer;
+	}
+	a:hover {
+	background:rgba(255,255,255,0.1);
 	}
 }
 
@@ -334,15 +374,6 @@ h2.countryName {
 	}
 }
 
-.statLabel {
-	font-size:$smalltype;
-	text-transform: uppercase;
-}
-
-.statValue {
-	border-bottom:1px solid #ccc;
-	margin-bottom: 4px;	
-}
 
 
 table th{
@@ -351,12 +382,13 @@ table th{
 
 .h1{
 	font-size:$largetype4;
-	font-family:"DINNextLTProLight";
-	color:#000;
+	line-height: 1.1;
+	font-family:"Helvetica";
+	color:#fff;
 }
 
 h1#site-title {
-	font-family: "DINNextLTPro-MediumCond";
+	font-family: "Akkurat";
 	font-size:$defaulttype;
 }
 
@@ -366,23 +398,50 @@ h1#site-title {
 }
 
 .cityHeader{
+
 	padding-top:20px;
 	position:relative;
 	min-height:calc(100vh - 65px);
+	background-repeat: no-repeat;
+	color:#fff;
 	background-position: center center;
 	background-size:cover;
 	background-repeat: no-repeat;
+	&::before{
+		content : "";
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:100%;
+		background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8));	
+	}
+	.countryNameRow{
+		> *{
+			display: inline-block;
+		}
+		.flag {
+			img{
+				margin-right:10px;
+				width:35px;
+			}
+		}	
+	}
+	.citySummaryTable {
+		font-size:$largetype3;
+		font-family:"DINNextLTProUltraLight";
+	}
+
+	.statLabel {
+		font-size:$smalltype;
+		text-transform: uppercase;
+	}
+
+	.statValue {
+		margin-bottom: 20px;	
+		line-height: 1.1;
+	}
 }
-/*
-.cityHeader:after{
-	content: "";
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:100%;
-	height:100%;
-	z-index:1;
-} */
 
 .anchorPoint{
 	position:relative;
@@ -414,6 +473,11 @@ h1#site-title {
 	margin-bottom: .5em;
 }
 
+h3.sectionSubHeader {
+	font-size:$largetype2;
+	font-family: "DINNextLTProUltraLight";
+}
+
 .graphSection p {
 	font-family: "SabonNextLT-Regular";
 	color:$lightgrey1;
@@ -421,11 +485,18 @@ h1#site-title {
 .switchYear{
 	cursor: pointer;
 	&.activeYear{
-		text-decoration: underline;
+		font-weight: bold;
+		background-color: #ededed;
 	}
 }
-.years{
+.years {
 	position:absolute;
+	font-size: 14px;
+}
+.years span{
+	background-color: #dbdbdb;
+	margin-right: 6px;
+	padding: 4px 8px;
 }
 .legend-ul{
 	padding-left:20px;
@@ -510,10 +581,7 @@ h1#site-title {
 	background-color:#292929;
 	}
 
-.citySummaryTable {
-	font-size:$largetype3;
-	font-family:"DINNextLTProUltraLight";
-}
+
 
 
 .table-label {
@@ -523,19 +591,6 @@ h1#site-title {
 .tableSmallText {
 	font-size:$defaulttype;
 }
-
-.flag {
-	float:left;
-	width:35px;
-	margin-right:20px;
-}
-
-.flag img{
-	// display:none;
-	width:35px;
-}
-
-
 
 
 /* Search */
@@ -554,6 +609,7 @@ h1#site-title {
 }
 
 #citySearch{
+	text-align:right;
 	position:relative;
 	ul{
 		position:fixed;
@@ -565,19 +621,25 @@ h1#site-title {
 		margin-top:110px;
 	    text-align: left;
 		padding-top:32px;
-	    .popup-city-city{
-	    	display:inline-block;
-	    	font-size:$largetype3;
-	    }
 	    li{
-	    	padding:#{$padding/2};
+	    	padding: #{$padding/2};
+
+		    .popup-city-city{
+		    	display:inline-block;
+		    	font-size:$largetype3;
+		    }
+	    	.popup-city-li{
+	    		line-height:54px;
+			    img{
+			    	height:32px;
+			    	display: inline;
+			    	vertical-align: middle;
+			    }
+	    	}
+
 	    }
 	    li:hover{
 	    	background-color:rgba(0,0,0,0.1);
-	    }
-	    img{
-	    	height:32px;
-	    	display: inline;
 	    }
 	}
 }
@@ -643,7 +705,7 @@ h1#site-title {
     	padding:50px #{$padding/2} 0px;
     	width:100%;
     	font-size:$largetype4;
-    	border-bottom:3px solid black;
+    	border-bottom:1px solid #000;
     	background-color:white;
     }
 }
@@ -682,7 +744,7 @@ h1#site-title {
 		width:30%;
 	}
 	.page-holder{
-		text-align:center;
+		display: inline-block;
 		.pagination{
 			display:inline-block;
 			li{
@@ -693,6 +755,11 @@ h1#site-title {
 				}
 			}
 		}
+	}
+	.per-page{
+		display:inline-block;
+		line-height:44px;
+		float:right;
 	}
 }
 .show-links{
@@ -729,15 +796,51 @@ h1#site-title {
 	text-align: left;
 }
 
+
+
+
+/* historical */
+.historical{
+	video{
+		width:100%;
+		height:320px;
+	}
+}
+
+
+
 /* Index */
-#cityList h3 {
-	font-family: "DINNextLTProUltraLight";
-	font-size: $largetype2;
-	padding: 25px 0 0px 0;
+#cityList {
+	padding-bottom: 100px;
+	ul > div:first-of-type h3{
+		padding-top:0px;
+	}
+	h3 {
+		font-family: "Akkurat";
+		font-size: $defaulttype;
+		text-transform: uppercase;
+		padding: 25px 0 0px 0;
+	}
 }
 
 #cityList .city:hover {
 	background-color:$lightgrey3;
+}
+
+
+/* Data Page */
+.data-page a {
+	color:#808080;
+	}
+	
+/* About Page */
+
+.about-page h1, h2, h3 {
+	font-family:"DINNextLTProUltraLight" !important;
+}
+
+.about-page h4 {
+	font-family: "Akkurat" !important;
 }
 
 @import "mobile";

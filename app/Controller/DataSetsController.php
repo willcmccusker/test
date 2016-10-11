@@ -57,6 +57,9 @@ class DataSetsController extends AppController {
 				$this->Session->setFlash(__('The data set could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
+		$this->DataSet->generateValidationRules();
+		$this->set("fields", $this->DataSet->validate);
+
 	}
 
 /**
@@ -81,6 +84,9 @@ class DataSetsController extends AppController {
 			$options = array('conditions' => array('DataSet.' . $this->DataSet->primaryKey => $id));
 			$this->request->data = $this->DataSet->find('first', $options);
 		}
+		
+		$this->DataSet->generateValidationRules();
+		$this->set("fields", $this->DataSet->validate);
 	}
 
 /**

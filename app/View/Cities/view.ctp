@@ -1,11 +1,19 @@
 <script>
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
-<div class='cityHeader'>
+<div class='cityHeader lazyimg' data-src='/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>' style="background-image: url(/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>); ">
+	<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>" style="width:1px; height:1px; opacity:0; position:absolute;">
 	<div class='grid wide'>
-		<div class='col-2-3 mob-1-1'>
+		<div class='col-1-1 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<h2 class="countryName"><div class='flag'><?= $this->Html->image("/file-manager/userfiles/flags/".$city["City"]["flag_path"]);?></div><?= $city["City"]["country"];?></h2>
+			<div class="countryNameRow">
+				<div class='flag'>
+					<?= $this->Html->image("/file-manager/userfiles/flags/".str_replace(".png", ".jpg", $city["City"]["flag_path"]));?>
+				</div>
+				<div class="countryName">
+					<?= $city["City"]["country"];?>
+				</div>
+			</div>
 			<div class='citySummaryTable'>
 				<div class="statLabel">
 					<div class="table-label">Region</div>
@@ -31,13 +39,6 @@
 				<div class='statValue'>
 					<div><?= $city["City"]["density"];?> persons/hectare</div>
 				</div>
-			</div>
-		</div>
-		<div class='col-1-3 mob-1-1'>
-			<div class="cityImage">
-			<!--<img src="/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>";>-->
-			<!--<img src="/file-manager/connectors/php/filemanager.php?path=%2Fphotos%2F<?= urlencode($city["City"]["photo_path"]);?>&mode=getimage&medium=true&config=filemanager.config.json&time=<?=time();?>">-->
-			<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>";>
 			</div>
 		</div>
 	</div>
@@ -70,7 +71,12 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="population" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Population</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p>
+					<? //debug($dynamicTexts);?>
+					<?= $dynamicTexts["population"]["Text"]["content"];?>
+
+
+				</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<canvas id='population_line' class='city-graphic no-legend'  data-title="Population"  height="350px" data-unit=""></canvas>
@@ -88,7 +94,9 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="urban_extent" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Urban Extent</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p>
+					<?= $dynamicTexts["urban_extent"]["Text"]["content"];?>
+				</p>
 				<ul>
 					<li> <label><input class="layerToggle" type="checkbox" name="urban"/> urban </label>
 					<li> <label><input class="layerToggle" type="checkbox" name="suburban"/> suburban </label>
@@ -122,9 +130,11 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-					<div id="density" class='anchorPoint'></div>
+				<div id="density" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Density</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p>
+					<?= $dynamicTexts["density"]["Text"]["content"];?>
+				</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<canvas id='density_built_up_line' class='city-graphic' data-title='Built-up Area Density (Persons/Hectare)' data-unit=" Persons/Hectare" height="350px"></canvas>
@@ -155,7 +165,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 					<div id="composition_of_added_area" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Composition of Added Area</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p><?= $dynamicTexts["composition_of_added_area"]["Text"]["content"];?></p>
 				<ul>
 					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t1" checked="checked" data-target="addedArea"/> T1 </label>
 					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t2" data-target="addedArea" /> T2 </label>
@@ -209,7 +219,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="roads" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Roads</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p><?= $dynamicTexts["density"]["Text"]["content"];?></p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='roads_map' class='city-map'></div>
@@ -308,7 +318,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="arterial_roads" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Arterial Roads</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='arterial_map' class='city-map'></div>
@@ -322,7 +332,7 @@
 					<canvas id='arterial_roads_density_bar' class='city-graphic' data-title='Density of Arterial Roads (km/km2)' data-unit=" km/km2" height="350px"></canvas>
 					<div class='years' >
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 - 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -333,7 +343,7 @@
 
 					<div class='years'>
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 - 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -347,7 +357,7 @@
 
 					<div class='years'>
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 - 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -360,7 +370,7 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="blocks_and_plots" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Blocks and Plots</h3>
-				<p>This is a placeholder for dynamic descriptive text of the following graphics.</p>
+				<p><?= $dynamicTexts["blocks_and_plots"]["Text"]["content"];?></p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='blocks_map' class='city-map'></div>
@@ -376,7 +386,7 @@
 
 					<div class='years'>
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 - 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>

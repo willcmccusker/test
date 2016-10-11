@@ -17,7 +17,7 @@ class DataSet extends AppModel {
 	public function import(){
 
 
-
+		$this->generateValidationRules();
 
 		$row = 0;
 		$filename = APP . "/webroot/build_data/data.csv";
@@ -42,7 +42,7 @@ class DataSet extends AppModel {
 
 		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		        $row++;
-		    	if($row < 6) continue;
+		    	if($row < 7) continue;
 
 		        $offset = 20;
 
@@ -269,7 +269,36 @@ class DataSet extends AppModel {
 		}
 	}
 
+	public function beforeValidate($options = array()) {
+		$this->generateValidationRules();
+		return true;
+	}
+	public function beforeFind($query) {
+		$this->generateValidationRules();
+		return true;
+	}
 
+
+	public function generateValidationRules(){
+
+		$columns = $this->getColumnTypes();
+		$this->validate = array();
+		foreach($columns as $column=>$type){
+			if($column == "id"){
+				continue;
+			}
+			switch($type){
+				case("integer"):
+					$this->validate[$column] = array("numeric"=>array("rule"=> array("numeric")));
+				break;
+				case("decimal"):
+					$this->validate[$column] = array("decimal"=>array("rule"=> array("decimal")));
+				break;
+				default:
+					die("unknown type: ".$type);
+			}
+		}
+	}
 
 
 /**

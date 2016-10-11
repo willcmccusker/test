@@ -5,13 +5,60 @@ var poppedUp = false;
 var drawComplete = true;
 var chartObjects = {};
 
+var isMobile = function(){
+	return $(window).width() < 768;
+};
+
+var searchPopup = function(){
+	if(poppedUp){
+		return false;
+	}else{
+		poppedUp = true;
+		$(".header").addClass("poppedUp");
+	}
+	$("#citySearch input").focus();
+	$("body").addClass("no-scroll");
+	$("#citySearch").addClass("poppedUp");
+	$(".closeCitySearch").off("click").on("click", function(e){
+		e.stopPropagation();
+		console.log("closeCitySearch");
+		searchPopdown();
+	});
+};
+var searchPopdown = function(){
+	$("#citySearch input").val("").blur();
+	$("body").removeClass("no-scroll");
+	$("#citySearch").removeClass("poppedUp");
+	poppedUp = false;
+	$(".header").removeClass("poppedUp");
+};
+var setFooter = function(){
+	if(isMobile()){
+		$("body").css("padding-bottom", "");
+	}else{
+		var h = $("footer").outerHeight();
+		$("body").css("padding-bottom", h);
+	}
+};
+
 $(document).ready(function(){
 
+	$(window).resize(function(){
+		setFooter();
+	});
+	setFooter();
 	loadNextFlag();
 
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();
 	});
+	$("#citySearch").on("click", function(){
+		if(!poppedUp){
+			console.log("citySearch Click up");
+			searchPopup();
+		}
+	});
+
 	$(document).on("keyup", function(e) {
 		if(e.keyCode == 91){
 			tab = false;
@@ -48,6 +95,21 @@ $(document).ready(function(){
 		}else{
 			$("#citySearch").addClass("unlisted");
 		}
+	});
+
+	$("nav").click(function(e){
+		console.log(isMobile());
+		if(!isMobile()){
+			return;
+		}
+		$("nav").toggleClass("navOpen");
+	});
+	$(".region").click(function(){
+		if(!isMobile()){
+			return false;
+		}
+		var className = $(this).parent()[0].className;
+		$("#cityList").toggleClass(className);
 	});
 
 
@@ -103,6 +165,13 @@ $(document).ready(function(){
 						]
 					 });
 
+					 $(".per-page select").on("change", function(){
+					 	dataList.page = $(this).val();
+					 	dataList.update();
+
+					 });
+
+
 					$(".show-methodology").click(function(){
 						if($(this).html() == "Show Methodology"){
 							$(this).html("Hide Methodology");
@@ -122,7 +191,6 @@ $(document).ready(function(){
 				case("view"):
 
 					charts = {
-
 						"urban_extent_composition_stacked_bar" : {
 							labels : ["T1", "T2", "T3"],
 							datasets:[
@@ -250,36 +318,51 @@ $(document).ready(function(){
 						},
 					};
 
-						var map = L.map('urban_extent_t1_map', {
-							center: [city.City.latitude, city.City.longitude],
-							zoom: 10,
-							scrollWheelZoom : false
-						});
-						var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-							maxZoom: 19,
-							attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-						}).addTo(map);
+					var waypoints = $('.city-map').waypoint({
+						handler: function(direction) {
+							// alert("now");
+						    if(this.element.id == 'urban_extent_t1_map' && !$(this.element).hasClass("leaflet-container")){
+								var map = L.map('urban_extent_t1_map', {
+									center: [city.City.latitude, city.City.longitude],
+									zoom: 11,
+									maxZoom: 16,
+									minZoom: 10,
+									scrollWheelZoom : false
+								});
+								var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+									maxZoom: 16,
+									minZoom: 10,
+									attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+								}).addTo(map);
 
-						var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
-						var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
-						var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
-						var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
-						var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
+								var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+								var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
+								var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
+								var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
+								var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
 
-					$('.layerToggle').change(function() {
-						/* jshint ignore:start */
-						var layer = eval($(this).prop('name'));
-						/* jshint ignore:end */
-
-						if($(this).is(':checked')) {
-							map.addLayer(layer);
-						}else{
-							map.removeLayer(layer);
-						}
+								$('.layerToggle').change(function() {
+									/* jshint ignore:start */
+									var layer = eval($(this).prop('name'));
+									/* jshint ignore:end */
+									if($(this).is(':checked')) {
+										map.addLayer(layer);
+									}else{
+										map.removeLayer(layer);
+									}
+								});
+						    }
+						},
+						offset : "100%"
 					});
 
+					
+
 					globalOptions = {
-						deferred : true,
+						deferred : {
+							enabled:true,	
+							// delay : 500
+						},
 						maintainAspectRatio: false,
 						// responsiveAnimationDuration : 500,
 						title : {
@@ -317,7 +400,10 @@ $(document).ready(function(){
 						responsive : true,
 						defaultFontFamily : "DINNextLTProLight",
 						yAxes : {
-							display: false
+							display: true
+						},
+						xAxes : {
+							display: true
 						}
 					};
 					Chart.defaults.global = MergeRecursive(Chart.defaults.global, globalOptions);
@@ -373,38 +459,24 @@ $(document).ready(function(){
 
 });
 
-var searchPopup = function(){
-	if(poppedUp){
-		return false;
-	}else{
-		poppedUp = true;
-	}
-	$("#citySearch input").focus();
-	$("body").addClass("no-scroll");
-	$("#citySearch").addClass("poppedUp");
-	$(".closeCitySearch").off("click").on("click", function(){
-		searchPopdown();
-	});
-};
-var searchPopdown = function(){
-	$("#citySearch input").val("").blur();
-	$("body").removeClass("no-scroll");
-	$("#citySearch").removeClass("poppedUp");
-	poppedUp = false;
-};
-
 var loadNextFlag = function(){
-	var lazy = $(".lazyimg").first();
+	var lazy = $(".lazyimg").last();
 	if(lazy.length === 0){
 		return;
 	}
 	var img = new Image();
 	img.onload = function(){
-		$(lazy).attr("src", $(lazy).data("src")).removeClass("lazyimg");
+		if($(lazy).is("img")){
+			$(lazy).attr("src", $(lazy).data("src")).removeClass("lazyimg");
+		}else{
+			$(lazy).css("background-image", "url('"+img.src+"')").removeClass("lazyimg");
+		}
 		loadNextFlag();
 	};
 	img.onerror = function(){
 		$(lazy).removeClass("lazyimg");
+		var asset = img.src.replace(/^.*[\\\/]/, '');
+		$(".lazyimg[data-src$='"+asset+"'").removeClass("lazyimg");
 		loadNextFlag();
 	};
 	img.src = $(lazy).data("src");
@@ -617,6 +689,7 @@ var makeChart = function(prefix, city, side){
 						value *= $(ctx).data("multiply");
 					}
 					value = (Math.floor(value*100)/100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					// value = newValue == 0 ? value : newValue;
 					if($(ctx).data("unit") !== undefined){
 						if($(ctx).data("unit") == "%" || $(ctx).data("unit") == "m"){
 							value += $(ctx).data("unit");
@@ -624,7 +697,9 @@ var makeChart = function(prefix, city, side){
 					}
 					return value;
 				}else{
-					return (Math.floor(value*100)/100)+"%";
+					value = Math.floor(value*100)/100;
+					// value = newValue == 0 ? value : newValue;
+					return value+"%";
 				}
 			}
 		},
