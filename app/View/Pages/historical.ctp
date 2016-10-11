@@ -7,14 +7,14 @@ if ($handle = opendir($path)) {
     while (false !== ($file = readdir($handle))) {
         if ('.' === $file) continue;
         if ('..' === $file) continue;
-        if($i%2 == 0){
 
-        	$video = '<video controls preload="none" poster="/file-manager/userfiles/data_page/Animations/'.str_replace(".mp4", ".jpg", $file).'">
+
+        $video = '<video controls preload="none" poster="/file-manager/userfiles/data_page/Animations/'.str_replace(".mp4", ".jpg", $file).'">
 				<source src="/file-manager/userfiles/data_page/Animations/$file;" type="video/mp4">
 			</video>';
 
 
-        	?>
+        if($i%2 == 0){?>
 	<div class='grid'>
 		<div class='col-1-5'></div>
 		<div class='col-2-5'>
