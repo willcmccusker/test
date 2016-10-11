@@ -269,11 +269,11 @@ class DataSet extends AppModel {
 		}
 	}
 
-	public function beforeValidate() {
+	public function beforeValidate($options = array()) {
 		$this->generateValidationRules();
 		return true;
 	}
-	public function beforeFind() {
+	public function beforeFind($query) {
 		$this->generateValidationRules();
 		return true;
 	}
