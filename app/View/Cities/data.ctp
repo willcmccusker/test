@@ -1,5 +1,5 @@
 <? $this->assign('title', "Data");?>
-<div class='grid '>
+<div class='grid wide'>
 	<div class='col-1-1'>
 		<?= $dataText["Text"]["content"];?>
 	</div>
