@@ -10,7 +10,7 @@ if ($handle = opendir($path)) {
 
 
         $video = '<video controls preload="none" poster="/file-manager/userfiles/data_page/Animations/'.str_replace(".mp4", ".jpg", $file).'">
-				<source src="/file-manager/userfiles/data_page/Animations/$file;" type="video/mp4">
+				<source src="/file-manager/userfiles/data_page/Animations/'.$file.'" type="video/mp4">
 			</video>';
 
 
