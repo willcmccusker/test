@@ -236,7 +236,7 @@
 					<canvas id='arterial_roads_density_bar' class='city-graphic' data-title='Density of Arterial Roads (km/km2)' data-unit=" km/km2" height="350px"></canvas>
 					<div class='years' >
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 — 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -247,7 +247,7 @@
 
 					<div class='years'>
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 — 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -261,7 +261,7 @@
 
 					<div class='years'>
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 — 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -289,7 +289,7 @@
 
 					<div class='years'>
 						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 — 2015</span>
+						<span class='switchYear' data-year="2015">1990 – 2015</span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
