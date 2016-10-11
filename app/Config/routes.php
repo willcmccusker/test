@@ -32,9 +32,11 @@
   Router::connect('/historical-data', array('controller' => 'pages', 'action' => 'display', 'historical'));
 
   Router::connect(
-    '/tiles/show/:layer/:z/:x/:y',
+    '/tiles/show/:city/:map/:layer/:z/:x/:y',
     array('controller' => 'tiles', 'action' => 'show'),
     array(
+      'city' => '\w+',
+      'map' => '\w+',
       'layer' => '\w+',
       'z' => '\d+',
       'x' => '\d+',

@@ -27,15 +27,16 @@ class TilesController extends AppController {
  *
  * @return void
  */
-	public function show($layer = null, $z = null, $x = null, $y = null) {
-    // $this->response->sharable(true, 24*3600);
+	public function show($city = null, $map = null, $layer = null, $z = null, $x = null, $y = null) {
     $this->autoRender = false;
+		$this->log('city= '.$city);
+		$this->log('map= '.$map);
+		$this->log('layer= '.$layer);
     $this->log('zoom level= '.$z);
     $this->log('tile column (x)= '.$x);
     $this->log('tile row (y)= '.$y);
 
-    $path = APP."webroot/file-manager/userfiles/mbtiles/". $layer .'.mbtiles';
-    //$db = new PDO('sqlite:' . $path);
+    $path = APP."webroot/file-manager/userfiles/mbtiles/". "/" . $city . "/" . $map . "/" . $layer .'.mbtiles';
 
     try
     {
@@ -55,6 +56,7 @@ class TilesController extends AppController {
       if(!isset($data) || $data === FALSE) {
         $this->log('NO DATA');
       } else {
+				$this->log('BOOM');
         $this->response->type('png');
         $this->response->body($data);
       }
@@ -62,6 +64,7 @@ class TilesController extends AppController {
     }
     catch(PDOException $e)
     {
+			$this->log($e->getMessage());
       echo 'Exception : '.$e->getMessage();
     }
 

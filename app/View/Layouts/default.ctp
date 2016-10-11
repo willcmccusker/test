@@ -20,11 +20,16 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title><?php echo $this->fetch('title'); ?></title>
+
+	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+
  	<?php
 		// echo $this->Html->meta('icon');
 
 	echo $this->Html->script('/dist/js/app.min.js');
-	echo $this->Html->script('/src/js/leaflet.min.js');
+	//echo $this->Html->script('/src/js/leaflet.min.js');
+		echo $this->Html->css('/dist/css/style.css');
 
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
