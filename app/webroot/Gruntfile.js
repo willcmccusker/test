@@ -39,7 +39,7 @@ module.exports = function(grunt) {
             // 'src/js/plottable.min.js',
 
             // 'src/js/stupidtable.min.js',
-            // 'src/js/jquery.waypoints.min.js',
+            'src/js/jquery.waypoints.min.js',
             'src/js/chart.ignore.js',
             'src/js/Chart.Deferred.min.js',
             // 'src/js/Chart.bundle.min.js',

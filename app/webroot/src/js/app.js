@@ -193,7 +193,6 @@ $(document).ready(function(){
 				case("view"):
 
 					charts = {
-
 						"urban_extent_composition_stacked_bar" : {
 							labels : ["T1", "T2", "T3"],
 							datasets:[
@@ -321,33 +320,41 @@ $(document).ready(function(){
 						},
 					};
 
-						var map = L.map('urban_extent_t1_map', {
-							center: [city.City.latitude, city.City.longitude],
-							zoom: 10,
-							scrollWheelZoom : false
-						});
-						var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-							maxZoom: 19,
-							attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-						}).addTo(map);
+					var waypoints = $('.city-map').waypoint({
+						handler: function(direction) {
+						    if(this.element.id == 'urban_extent_t1_map' && !$(this.element).hasClass("leaflet-container")){
+								var map = L.map('urban_extent_t1_map', {
+									center: [city.City.latitude, city.City.longitude],
+									zoom: 10,
+									scrollWheelZoom : false
+								});
+								var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+									maxZoom: 19,
+									attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+								}).addTo(map);
 
-						var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
-						var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
-						var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
-						var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
-						var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
+								var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+								var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
+								var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
+								var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
+								var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
 
-					$('.layerToggle').change(function() {
-						/* jshint ignore:start */
-						var layer = eval($(this).prop('name'));
-						/* jshint ignore:end */
-
-						if($(this).is(':checked')) {
-							map.addLayer(layer);
-						}else{
-							map.removeLayer(layer);
-						}
+								$('.layerToggle').change(function() {
+									/* jshint ignore:start */
+									var layer = eval($(this).prop('name'));
+									/* jshint ignore:end */
+									if($(this).is(':checked')) {
+										map.addLayer(layer);
+									}else{
+										map.removeLayer(layer);
+									}
+								});
+						    }
+						},
+						offset : "110%"
 					});
+
+					
 
 					globalOptions = {
 						deferred : {
