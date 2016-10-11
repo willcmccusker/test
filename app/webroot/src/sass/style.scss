@@ -11,8 +11,9 @@ $tablet-max-width : 950px;
 
 $headerbgcolor : transparent;
 $headercolor : #000;
+$lightgrey0 : #666666;
 $lightgrey : #333333;
-$lightgrey1 : #c4c4c4;
+$lightgrey1 : #afafaf;
 $lightgrey2 : #F0F0F0;
 $lightgrey3 :  #f5f5f5;
 $bodytype : #1a1a1a;
@@ -28,7 +29,7 @@ $smalltype : 12px;
 $Lighttype : 12px;
 $defaulttype : 16px;
 $largetype1 : 20px;
-$largetype2 : 28px;
+$largetype2 : 30px;
 $largetype3 : 36px;
 $largetype4 : 64px;
 
@@ -257,6 +258,9 @@ a {
 		a{
 			margin-left: 30px;
 		}
+		a:hover {
+			color:#142ad1;
+		}
 	}
 	#citySearch{
 		order: 3;
@@ -465,14 +469,18 @@ h3.sectionSubHeader {
 .switchYear{
 	cursor: pointer;
 	&.activeYear{
-		text-decoration: underline;
+		font-weight: bold;
+		background-color: #ededed;
 	}
 }
-.years{
-	background-color: $lightgrey3;
-	margin-right: 10px;
-	padding: 4px 8px;
+.years {
 	position:absolute;
+	font-size: 14px;
+}
+.years span{
+	background-color: #dbdbdb;
+	margin-right: 6px;
+	padding: 4px 8px;
 }
 .legend-ul{
 	padding-left:20px;
@@ -695,7 +703,7 @@ h3.sectionSubHeader {
     	padding:50px #{$padding/2} 0px;
     	width:100%;
     	font-size:$largetype4;
-    	border-bottom:3px solid black;
+    	border-bottom:1px solid #000;
     	background-color:white;
     }
 }
@@ -802,6 +810,22 @@ h3.sectionSubHeader {
 
 #cityList .city:hover {
 	background-color:$lightgrey3;
+}
+
+
+/* Data Page */
+.data-page a {
+	color:#808080;
+	}
+	
+/* About Page */
+
+.about-page h1, h2, h3 {
+	font-family:"DINNextLTProUltraLight" !important;
+}
+
+.about-page h4 {
+	font-family: "Akkurat" !important;
 }
 
 @import "mobile";
