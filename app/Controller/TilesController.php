@@ -28,7 +28,7 @@ class TilesController extends AppController {
  * @return void
  */
 	public function show($layer = null, $z = null, $x = null, $y = null) {
-    $this->response->sharable(true, 24*3600);
+    // $this->response->sharable(true, 24*3600);
     $this->autoRender = false;
     $this->log('zoom level= '.$z);
     $this->log('tile column (x)= '.$x);
