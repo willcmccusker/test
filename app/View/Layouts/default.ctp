@@ -45,8 +45,8 @@
 	echo $this->element("footer");
 	//echo $this->element('sql_dump'); ?>
 	<?
-		echo $this->Html->script('/dist/js/app.min.js');
 		echo $this->Html->css('/dist/css/style.css');
+		echo $this->Html->script('/dist/js/app.min.js');
 		echo $this->Html->css('leaflet');
 	?>
 </body>
