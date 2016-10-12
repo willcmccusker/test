@@ -19,7 +19,7 @@
 				<div class="statLabel">
 					<div class="table-label">Region</div>
 				</div>
-				<div class='statValue'>
+				<div class='statValue-small'>
 					<div><?= $city["Region"]["name"];?></div>
 				</div>
 				<div class='statLabel'>

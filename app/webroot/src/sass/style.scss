@@ -49,26 +49,6 @@ $largetype4 : 64px;
 }
 
 @font-face {
-	font-family: 'DINNextLTProLight';
-	src: url('/fonts/DINNextLTPro-Light.eot');
-	src: url('/fonts/DINNextLTPro-Light.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-Light.woff') format('woff'),
-		url('/fonts/DINNextLTPro-Light.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'DINNextLTProLight';
-	src: url('/fonts/DINNextLTPro-Light.eot');
-	src: url('/fonts/DINNextLTPro-Light.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-Light.woff') format('woff'),
-		url('/fonts/DINNextLTPro-Light.ttf') format('truetype');
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
 	font-family: 'DINNextLTProUltraLight';
 	src: url('/fonts/DINNextLTPro-UltraLight.eot');
 	src: url('/fonts/DINNextLTPro-UltraLight.eot?#iefix') format('embedded-opentype'),
@@ -77,57 +57,6 @@ $largetype4 : 64px;
 	font-weight: 200;
 	font-style: normal;
 }
-
-@font-face {
-	font-family: 'Akkurat';
-	src: url('/fonts/Akkurat.eot');
-	src: url('/fonts/Akkurat.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/Akkurat.woff') format('woff'),
-		url('/fonts/Akkurat.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'OfficeCodeRegular';
-	src: url('/fonts/OfficeCodePro-Regular.eot');
-	src: url('/fonts/OfficeCodePro-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/OfficeCodePro-Regular.woff') format('woff'),
-		url('/fonts/OfficeCodePro-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'OfficeCodeLight';
-	src: url('/fonts/OfficeCodePro-Light.eot');
-	src: url('/fonts/OfficeCodePro-Light.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/OfficeCodePro-Light.woff') format('woff'),
-		url('/fonts/OfficeCodePro-Light.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'DINNextLTPro-MediumCond';
-	src: url('/fonts/DINNextLTPro-MediumCond.eot');
-	src: url('/fonts/DINNextLTPro-MediumCond.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-MediumCond.woff') format('woff'),
-		url('/fonts/DINNextLTPro-MediumCond.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SabonNextLT-Regular';
-	src: url('/fonts/SabonNextLT-Regular.eot');
-	src: url('/fonts/SabonNextLT-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/SabonNextLT-Regular.woff') format('woff'),
-		url('/fonts/SabonNextLT-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
 
 
 // @import "plottable";
@@ -436,7 +365,7 @@ h1#site-title {
 			left:0px;
 			width:100%;
 			height:100%;
-			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8));	
+			background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.8));	
 		}
 	}
 	.countryNameRow{
