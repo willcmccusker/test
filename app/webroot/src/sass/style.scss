@@ -462,7 +462,7 @@ h1#site-title {
 		text-transform: uppercase;
 	}
 	.statValue {
-		color:rgba(255,255,255,.7);
+		color:rgba(255,255,255,.8);
 		line-height: 1.1;
 		margin: 0 0 20px 0;	
 		}
@@ -623,9 +623,31 @@ h3.sectionSubHeader {
 	width:100%;
 	background-color:#292929;
 	}
+	
+#worldmap .leaflet-popup-pane .leaflet-popup-content-wrapper {
+	background-color:rgba(0,0,0,.7);
+	color:#fff;
+	a {
+	color:#fff;
+	font-size:13px !important;
+	}
+	a:hover {
+	color:#ff9a2e;
+	}
+} 
 
+#worldmap .leaflet-popup-close-button+.leaflet-popup-content-wrapper .leaflet-popup-content {
+	padding: 5px 5px 0 5px;
+}
 
+#worldmap > div.leaflet-map-pane > div.leaflet-objects-pane > div.leaflet-popup-pane > div > div.leaflet-popup-content-wrapper > div > p {
+	margin-bottom: 2px !important;
+	padding-bottom: 2px !important;	
+}
 
+#worldmap .leaflet-popup-tip-container .leaflet-popup-tip {
+	border-top:10px solid rgba(0,0,0,.7);
+}	
 
 .table-label {
 	padding-right:30px;
@@ -884,8 +906,10 @@ h3.sectionSubHeader {
 	
 /* About Page */
 
-.about-page h1, h2, h3 {
+.about-page {
+	h1, h2, h3 {
 	font-family:"DINNextLTProUltraLight" !important;
+}
 }
 
 .about-page h4 {
