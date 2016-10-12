@@ -248,12 +248,12 @@ footer {
 
 
 
-.countryNameRow, h2.regionName {
+.countryNameRow, .regionMenu {
 	position: relative;
 	display:block;
 	font-family: "DINNextLTProUltraLight";
 	font-size: $defaulttype;
-	padding:10px 0;
+	padding:6px 6px;
 	width:100%;
 }
 h2.countryName {
@@ -369,19 +369,26 @@ h1#site-title {
 		}
 	}
 	.countryNameRow{
+		border-bottom: 1px solid rgba(255,255,255,0.7);
 		> *{
 			display: inline-block;
 		}
 		.flag {
 			img{
 				margin-right:10px;
-				width:45px;
+				width:40px;
 			}
 		}	
 	}
 	.citySummaryTable {
 		font-size:$largetype3;
 		font-family:"DINNextLTProUltraLight";
+	}
+	
+	.cityRegionTable {
+		border: 1px solid rgba(255,255,255,0.7);
+		display: inline-block;
+		margin: 10px 0 30px 0;
 	}
 
 	.statLabel {
@@ -395,10 +402,6 @@ h1#site-title {
 		line-height: 1.1;
 		margin: 0 0 16px 0;	
 	}
-	.regionMenu {
-		font-size:$largetype1;
-		margin: 0 0 16px 0;	
-	}	
 	.units {
 	
 		display:inline-block;

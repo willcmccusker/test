@@ -7,16 +7,18 @@
 	<div class='grid wide'>
 		<div class='col-1-1 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
-			<div class="countryNameRow">
-				<div class='flag'>
-					<?= $this->Html->image("/file-manager/userfiles/flags/".str_replace(".png", ".jpg", $city["City"]["flag_path"]));?>
+			<div class='cityRegionTable'>
+				<div class="countryNameRow">
+					<div class='flag'>
+						<?= $this->Html->image("/file-manager/userfiles/flags/".str_replace(".png", ".jpg", $city["City"]["flag_path"]));?>
+					</div>
+					<div class="countryName">
+						<?= $city["City"]["country"];?>
+					</div>
 				</div>
-				<div class="countryName">
-					<?= $city["City"]["country"];?>
-				</div>
+				<div class="regionMenu">Region: <?= $city["Region"]["name"];?></div>
 			</div>
 			<div class='citySummaryTable'>
-				<div class="regionMenu">Region: <?= $city["Region"]["name"];?></div>
 				<div class='statLabel'>
 					<div class="statLabel"><?= substr($city["City"]["t3"], 0,4);?> Population</div>
 				</div>
