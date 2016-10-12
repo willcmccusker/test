@@ -38,15 +38,7 @@ $largetype4 : 64px;
 // @import "mapbox";
 // @import "tiny-autocomplete";
 
-@font-face {
-	font-family: 'DINNextLTProLight';
-	src: url('/fonts/DINNextLTPro-Light.eot');
-	src: url('/fonts/DINNextLTPro-Light.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-Light.woff') format('woff'),
-		url('/fonts/DINNextLTPro-Light.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
+
 
 @font-face {
 	font-family: 'DINNextLTProUltraLight';
@@ -136,7 +128,7 @@ table {
 
 
 body{
-	font-family: 'DINNextLTProLight';
+	font-family: 'DINNextLTProUltraLight';
 	line-height:1.5;
 	color: $bodytype;
 	padding-top:65px;
@@ -223,13 +215,13 @@ a {
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
-		font-family: "Akkurat";
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: $headercolor;
 	}
 }
 
 footer {
-	font-family: "DINNextLTProUltraLight";
+	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	background-color:#000;
 	color:#9C9C9C;
 	line-height: 1.6;
@@ -261,9 +253,9 @@ footer {
 .countryNameRow, .regionMenu {
 	position: relative;
 	display:block;
-	font-family: "DINNextLTProUltraLight";
+	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	font-size: $defaulttype;
-	padding:6px 10px 6px 6px;
+	padding:4px 10px 3px 6px;
 	width:100%;
 }
 h2.countryName {
@@ -287,16 +279,16 @@ h2.countryName {
 	}
 	a {
 	color:#fff;
-	font-family:Arial;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size:$smalltype;
 	text-transform: uppercase;
 	padding: 6px 12px;
-	background: transparent;
+	background: rgba(255,255,255,0.1);
 	border: 1px solid rgba(255,255,255,.5);
 	cursor: pointer;
 	}
 	a:hover {
-	background:rgba(255,255,255,0.1);
+	background:rgba(0,0,0,0.7);
 	}
 }
 
@@ -326,19 +318,20 @@ table th{
 .h1{
 	font-size:$largetype4;
 	line-height: 1.1;
-	font-family:"Helvetica";
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	color:#fff;
 }
 
 h1#site-title {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:$defaulttype;
+	line-height: 1.5 !important;
 	position:relative;
 	z-index:1;
-	font-family: "Akkurat";
-	font-size:$defaulttype;
 }
 
 .h2{
-	font-family:"DINNextLTProLight";
+	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif, "Helvetica Neue Light", Helvetica, sans-serif;
 	font-size:$largetype2;
 }
 
@@ -392,7 +385,7 @@ h1#site-title {
 	}
 	.citySummaryTable {
 		font-size:$largetype3;
-		font-family:"DINNextLTProUltraLight";
+		font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	}
 	
 	.cityRegionTable {
@@ -402,9 +395,8 @@ h1#site-title {
 	}
 
 	.statLabel {
-		font-family:"DINNextLTProLight";
+		font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-size:$smalltype;
-		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
 	.statValue {
@@ -441,7 +433,7 @@ h1#site-title {
 
 .sectionHeader {
 	font-size:$largetype3;
-	font-family:"DINNextLTProUltraLight";
+	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	border-bottom: 1px solid $lightgrey1;
 	padding-top:20px;
 	text-align: center;
@@ -453,11 +445,11 @@ h1#site-title {
 
 h3.sectionSubHeader {
 	font-size:$largetype2;
-	font-family: "DINNextLTProUltraLight";
+	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 }
 
 .graphSection p {
-	font-family: "SabonNextLT-Regular";
+	font-family: Georgia, serif;
 	color:$lightgrey1;
 }
 .switchYear{
@@ -833,7 +825,7 @@ h3.sectionSubHeader {
 		padding-top:0px;
 	}
 	h3 {
-		font-family: "Akkurat";
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-size: $defaulttype;
 		text-transform: uppercase;
 		padding: 25px 0 0px 0;
@@ -854,12 +846,12 @@ h3.sectionSubHeader {
 
 .about-page {
 	h1, h2, h3 {
-	font-family:"DINNextLTProUltraLight" !important;
+	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif !important;
 }
 }
 
 .about-page h4 {
-	font-family: "Akkurat" !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 @import "mobile";
