@@ -31,7 +31,7 @@ var searchPopup = function(){
 	});
 };
 var searchPopdown = function(){
-	$("#citySearch input").val("").blur();
+	$("#citySearch input").blur();
 	$("body").removeClass("no-scroll");
 	$("#citySearch").removeClass("poppedUp");
 	poppedUp = false;
