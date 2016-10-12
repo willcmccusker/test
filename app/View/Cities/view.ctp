@@ -16,12 +16,7 @@
 				</div>
 			</div>
 			<div class='citySummaryTable'>
-				<div class="statLabel">
-					<div class="table-label">Region</div>
-				</div>
-				<div class='statValue-small'>
-					<div><?= $city["Region"]["name"];?></div>
-				</div>
+				<div class="regionMenu">Region: <?= $city["Region"]["name"];?></div>
 				<div class='statLabel'>
 					<div class="statLabel"><?= substr($city["City"]["t3"], 0,4);?> Population</div>
 				</div>

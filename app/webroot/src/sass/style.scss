@@ -393,8 +393,12 @@ h1#site-title {
 	.statValue {
 		color:rgba(255,255,255,.8);
 		line-height: 1.1;
-		margin: 0 0 20px 0;	
-		}
+		margin: 0 0 16px 0;	
+	}
+	.regionMenu {
+		font-size:$largetype1;
+		margin: 0 0 16px 0;	
+	}	
 	.units {
 	
 		display:inline-block;
