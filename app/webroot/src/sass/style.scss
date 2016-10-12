@@ -394,6 +394,8 @@ table th{
 }
 
 h1#site-title {
+	position:relative;
+	z-index:1;
 	font-family: "Akkurat";
 	font-size:$defaulttype;
 }
@@ -722,6 +724,7 @@ h3.sectionSubHeader {
 
 
 #citySearch.poppedUp{
+	z-index:3;
 	position: fixed;
     top: 0;
     left: 0;

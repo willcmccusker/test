@@ -28,8 +28,7 @@ module.exports = function(grunt) {
           'dist/js/app.min.js': [
 
             'src/js/jquery-3.1.0.min.js', 
-
-
+            'src/js/headroom.min.js',
             // 'src/js/leaflet.min.js',
             // 'src/js/mapbox.standalone.js',
             // 'topojson.min.js',

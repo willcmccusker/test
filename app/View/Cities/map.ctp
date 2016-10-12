@@ -1,7 +1,8 @@
 <? $this->assign('title', "Atlas");?>
-
-  <div id="worldmap"></div>
-
+<div class='position-relative'>
+	<div id="worldmap"></div>
+	<div class='mobile-map-cover'></div>
+</div>
 <script>
 
 // L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';

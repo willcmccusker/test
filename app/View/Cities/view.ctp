@@ -106,8 +106,8 @@
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
-				<div id='urban_extent_t1_map' class='city-map'>
-				</div>
+				<div id='urban_extent_t1_map' class='city-map'></div>
+				<div class='mobile-map-cover'></div>
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -182,6 +182,7 @@
 				</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='composition_of_added_area_map' class='city-map'></div>
+				<div class='mobile-map-cover'></div>
 			</div>
 			<script>
 
@@ -277,6 +278,7 @@
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='roads_map' class='city-map'></div>
+				<div class='mobile-map-cover'></div>
 				<script src="/file-manager/userfiles/json/<?= $city['City']['slug'] ?>/locales_t0.json" type="text/javascript"></script>
 				<script>
 
@@ -373,6 +375,7 @@
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='arterial_map' class='city-map'></div>
+				<div class='mobile-map-cover'></div>
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -425,7 +428,7 @@
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='blocks_map' class='city-map'></div>
-
+				<div class='mobile-map-cover'></div>
 			</div>
 		</div>
 		<div class='grid wide'>

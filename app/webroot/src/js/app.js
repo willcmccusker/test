@@ -8,6 +8,9 @@ var chartObjects = {};
 var isMobile = function(){
 	return $(window).width() < 768;
 };
+var isTablet = function(){
+	return $(window).width() < 1024;
+};
 
 var searchPopup = function(){
 	if(poppedUp){
@@ -16,6 +19,9 @@ var searchPopup = function(){
 		poppedUp = true;
 		$(".header").addClass("poppedUp");
 	}
+
+	$("nav").removeClass("navOpen");
+
 	$("#citySearch input").focus();
 	$("body").addClass("no-scroll");
 	$("#citySearch").addClass("poppedUp");
@@ -42,8 +48,23 @@ var setFooter = function(){
 };
 
 $(document).ready(function(){
-	
+
+	if(isTablet()){
+		// grab an element
+		var heady = document.querySelector("header");
+		// construct an instance of Headroom, passing the element
+		var headroom  = new Headroom(heady);
+		// initialise
+		headroom.init(); 
+	}
+
 	L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+
+	$(".mobile-map-cover").on("click", function(){
+		if(isTablet()){
+			$(this).addClass("clicked-map");
+		}
+	});
 
 	$(window).resize(function(){
 		setFooter();
@@ -99,13 +120,13 @@ $(document).ready(function(){
 	});
 
 	$("nav").click(function(e){
-		if(!isMobile()){
+		if(!isTablet()){
 			return;
 		}
 		$("nav").toggleClass("navOpen");
 	});
 	$(".region").click(function(){
-		if(!isMobile()){
+		if(!isTablet()){
 			return false;
 		}
 		var className = $(this).parent()[0].className;
