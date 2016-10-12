@@ -40,6 +40,7 @@
 	}
 
 	.header {
+		background-color: white;	
 		@include xPrefix(transition, transform 500ms ease);
 		&.headroom--unpinned{
 			@include xPrefix(transform, translateY(-100%) );
@@ -188,10 +189,7 @@
 		// padding-top:0px !important;
 	}
 
-	.header{
-		background-color: white;
-		// position:relative;
-	}
+
 
 	#worldmap{
 		margin:0px 25px;
