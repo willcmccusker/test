@@ -233,7 +233,7 @@ $(document).ready(function(){
 							]
 						},
 						"roads_width_stacked_bar" : {
-							labels : ["Pre-1990", "1990-2015"],
+							labels : [city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4), city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4)],
 							datasets:[
 								{
 									backgroundColor : '#889A9A',
@@ -636,7 +636,8 @@ var makeLine = function(prefix, city){
 			tooltips : {
 				callbacks : {
 					label : function(tooltipItem, data) { 
-						var label = data.datasets[tooltipItem.datasetIndex].label;
+
+						var label = tooltipItem.xLabel.substr(0,4);//+" "+data.datasets[tooltipItem.datasetIndex].label;
 						var number  = tooltipItem.yLabel;
 
 						return bigTooltip(number, label, $(ctx).data("unit"));
@@ -690,12 +691,12 @@ var makeChart = function(prefix, city, side){
 	var data = {
 		labels: [/*"City",*/city.City.name,  /*"Region",*/ city.Region.name, "World"],
 		datasets: [{
-			label: side ? "Pre-1990" : city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4),//'T1-T2',
+			label: side ? city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4) : city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4),//'T1-T2',
 			backgroundColor: "#C8C0C3",
 			borderWidth : 0,
 			data : [city.DataSet[field+suffix_1], city.Region.DataSet[field+suffix_1], city.World.DataSet[field+suffix_1]]
 		},{
-			label: side ? "1990-2015" : city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4),//'T2-T3',
+			label: side ? city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4) : city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4),//'T2-T3',
 			backgroundColor: "#F1E4DE",
 			borderWidth : 0,
 			data : [city.DataSet[field+suffix_2], city.Region.DataSet[field+suffix_2],  city.World.DataSet[field+suffix_2]]
@@ -1003,13 +1004,13 @@ var makeBlockChart = function(prefix, city){
 		labels : ["Informal", "Formal"],
 		datasets: [
 			{
-				label : "Pre-1990",
+				label : city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4),
 				backgroundColor: 'rgba(229,223,227,1.0)',
 				borderWidth : 0,
 				data: [city.DataSet[field+"_informal_plot_pre_1990"], city.Region.DataSet[field+"_formal_plot_pre_1990"]]
 			},
 			{
-				label : "1990-2015",
+				label : city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4),
 				backgroundColor: 'rgba(176,171,174,1.0)',
 				borderWidth : 0,
 				data: [city.DataSet[field+"_informal_plot_1990_2015"], city.Region.DataSet[field+"_formal_plot_1990_2015"]]
