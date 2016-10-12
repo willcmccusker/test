@@ -386,7 +386,12 @@ $(document).ready(function(){
 							display:true
 						},
 						tooltips : {
-							display : true
+							display : true,
+							callbacks : {
+								title : function(){
+									return "";
+								}
+							}
 						},
 						animation : {
 							onComplete : function(){
@@ -683,7 +688,7 @@ var makeChart = function(prefix, city, side){
 	var suffix_1 = side ? "_pre_1990" : "_t1_t2";
 	var suffix_2 = side ? "_1990_2015" : "_t2_t3";
 	var data = {
-		labels: ["City", "Region", "World"],
+		labels: [/*"City",*/city.City.name,  /*"Region",*/ city.Region.name, "World"],
 		datasets: [{
 			label: side ? "Pre-1990" : city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4),//'T1-T2',
 			backgroundColor: "#C8C0C3",
@@ -724,7 +729,10 @@ var makeChart = function(prefix, city, side){
 	}];
 	var xAxes = [{
 		ticks: {
-			beginAtZero:true
+			beginAtZero:true,
+			callback : function(value, index, values){
+				return value.split(" ");
+			}
 		},
 		gridLines : {
 			display: false
