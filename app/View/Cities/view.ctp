@@ -1,8 +1,9 @@
 <script>
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
-<div class='cityHeader lazyimg' data-src='/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>' style="background-image: url(/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>); ">
-	<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>" style="width:1px; height:1px; opacity:0; position:absolute;">
+<div class='cityHeader'>
+<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>" style="width:1px; height:1px; opacity:0; position:absolute;">
+<div class='header-bg lazyimg' data-src='/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>' style="background-image: url('/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>'); "></div>
 	<div class='grid wide'>
 		<div class='col-1-1 mob-1-1'>
 			<div class='h1'><?= $city["City"]["name"];?></div>
@@ -183,7 +184,6 @@
 				<div id='composition_of_added_area_map' class='city-map'></div>
 			</div>
 			<script>
-				L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 
 				var make_composition_of_added_area_map = function(){
 

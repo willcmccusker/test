@@ -42,6 +42,8 @@ var setFooter = function(){
 };
 
 $(document).ready(function(){
+	
+	L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 
 	$(window).resize(function(){
 		setFooter();
@@ -330,18 +332,18 @@ $(document).ready(function(){
 							switch(this.element.id){
 								case("urban_extent_t1_map"):
 
-									var map = L.map('urban_extent_t1_map', {
+									var map = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
 										center: [city.City.latitude, city.City.longitude],
 										zoom: 11,
 										maxZoom: 16,
 										minZoom: 10,
 										scrollWheelZoom : false
 									});
-									var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+									/*var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 										maxZoom: 16,
 										minZoom: 10,
 										attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-									}).addTo(map);
+									}).addTo(map);*/
 
 									var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
 									var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
@@ -350,9 +352,9 @@ $(document).ready(function(){
 									var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
 
 									$('.layerToggle').change(function() {
-										/* jshint ignore:start */
+										/*jshint ignore:start */
 										var layer = eval($(this).prop('name'));
-										/* jshint ignore:end */
+										/*jshint ignore:end */
 										if($(this).is(':checked')) {
 											map.addLayer(layer);
 										}else{

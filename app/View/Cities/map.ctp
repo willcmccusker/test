@@ -6,7 +6,19 @@
 
 // L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 var startFrontMap = function(){
-    bounds = new L.LatLngBounds(new L.LatLng(-90, -180), new L.LatLng(90, 180));
+  console.log(cities);
+  var x = document.getElementById("demo");
+    if (navigator.geolocation.position) {
+        console.log(navigator.geolocation);
+        lat = navigator.geolocation.position.coords.latitude;
+        long = navigator.geolocation.position.coords.longitude;
+    } else {
+      lat = 40.717;
+      long = -74.004;
+    }
+
+
+    bounds = new L.LatLngBounds(new L.LatLng(-90, -200), new L.LatLng(90, 200));
 
   var map = L.map('worldmap', {
     maxZoom : 5,
@@ -14,7 +26,7 @@ var startFrontMap = function(){
     scrollWheelZoom : false,
     maxBounds: bounds,
     maxBoundsViscosity: 1
-  }).setView([36, 0], 3);
+  }).setView([lat, long], 3);
 
   var activeId = null;
 

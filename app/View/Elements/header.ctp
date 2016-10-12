@@ -1,4 +1,4 @@
-
+<script>var cities = <?= json_encode($cities);?>;</script>
 <header class='header'>
 	<div id='site-title'>
 		<h1 id="site-title">

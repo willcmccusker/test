@@ -21,9 +21,6 @@
 	<?php echo $this->Html->charset(); ?>
 	<title><?php echo $this->fetch('title'); ?></title>
 
-	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-
  	<?php
 		// echo $this->Html->meta('icon');
 
@@ -38,16 +35,43 @@
 		echo $this->fetch('script');
 
 	?>
+	<style>
+		body{
+			opacity:0;
+		}
+		.header-bg{
+
+		    -webkit-transition: filter 1000ms ease;
+		    -moz-transition: filter 1000ms ease;
+		    -ms-transition: filter 1000ms ease;
+		    transition: filter 1000ms ease;
+		    transition: -webkit-filter 1000ms ease;
+		}
+		.cityHeader .header-bg.lazyimg {
+		    -webkit-filter: blur(5px);
+		    -moz-filter: blur(5px);
+		    -ms-filter: blur(5px);
+		    filter: blur(5px);
+		}
+	</style>
+
 </head>
-<body style="opacity:0;"><?
+<body><?
 	echo $this->element("header");
 	echo $this->fetch('content');
 	echo $this->element("footer");
 	//echo $this->element('sql_dump'); ?>
 	<?
 		echo $this->Html->css('/dist/css/style.css');
+		?>
+
+<!-- 	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+ -->
+		<?
+		echo $this->Html->script('/bower_components/mapbox.js/mapbox.js');
 		echo $this->Html->script('/dist/js/app.min.js');
-		echo $this->Html->css('leaflet');
+		echo $this->Html->css('/bower_components/mapbox.js/mapbox.css');
 	?>
 </body>
 </html>
