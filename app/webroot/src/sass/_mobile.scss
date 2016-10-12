@@ -197,8 +197,15 @@
 		margin:0px 25px;
 		width: calc(100% - 50px);
 	}
-
-
+	.cityHeader {
+		.statLabel {
+			font-size:11px;
+		}
+		.statValue {
+			margin-bottom: 0;
+			font-size:24px;
+		}
+	}
 	.cityNav {
 		position:relative;
 		bottom:0px;
