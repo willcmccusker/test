@@ -6,7 +6,7 @@ var drawComplete = true;
 var chartObjects = {};
 
 var isMobile = function(){
-	return $(window).width() < 768;
+	return $(window).width() < 767;
 };
 var isTablet = function(){
 	return $(window).width() < 1024;

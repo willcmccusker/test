@@ -7,7 +7,6 @@
 
 // L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 var startFrontMap = function(){
-  console.log(cities);
   var x = document.getElementById("demo");
     if (navigator.geolocation.position) {
         console.log(navigator.geolocation);
