@@ -23,14 +23,14 @@ if ($handle = opendir($path)) {
 
         if($i%2 == 0){?>
 		<div class='grid wide'>
-			<div class='col-2-5'>
+			<div class='col-2-5 tab-1-1'>
 			<?=$video;?>
 			</div>
     	<?}elseif($i%2 == 1){?>
-			<div class='col-2-5'>
+			<div class='col-2-5 tab-1-1'>
 			<?=$video;?>
 			</div>
-			<div class='col-1-5'></div>
+			<div class='col-1-5 tab-1-1'></div>
 		</div>
         <?}
 
