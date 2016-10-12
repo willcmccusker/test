@@ -2,7 +2,7 @@
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
 <div class='cityHeader'>
-<img src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>" style="width:1px; height:1px; opacity:0; position:absolute;">
+<img class='loader' src="/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>" >
 <div class='header-bg lazyimg' data-src='/file-manager/userfiles/photos/<?= $city['City']['photo_path'];?>' style="background-image: url('/file-manager/userfiles/_med/photos/<?= $city['City']['photo_path'];?>'); "></div>
 	<div class='grid wide'>
 		<div class='col-1-1 mob-1-1'>

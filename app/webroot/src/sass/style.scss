@@ -231,7 +231,12 @@ a {
 .position-relative{
 	position:relative;
 }
-
+.loader{
+	width:1px; 
+	height:1px; 
+	opacity:0; 
+	position:absolute;
+}
 .display-none{
 	display:none;
 }
@@ -536,8 +541,15 @@ h3.sectionSubHeader {
 	
 }
 .city-map{
-	background-color: black;
 	height:400px;
+	background-color: white !important;
+	background-image: url("/img/loader.svg") !important;
+	background-position:center center !important;
+	background-repeat: no-repeat !important;
+	background-size:120px !important;
+	.leaflet-container{
+
+	}
 }
 .year-switch-graphic{
 	margin-bottom:32px;

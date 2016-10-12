@@ -56,7 +56,9 @@
 	</style>
 
 </head>
-<body><?
+<body>
+<img class='loader' src="/img/loader.svg">
+<?
 	echo $this->element("header");
 	echo $this->fetch('content');
 	echo $this->element("footer");
