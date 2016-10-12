@@ -27,7 +27,6 @@ var searchPopup = function(){
 	$("#citySearch").addClass("poppedUp");
 	$(".closeCitySearch").off("click").on("click", function(e){
 		e.stopPropagation();
-		console.log("closeCitySearch");
 		searchPopdown();
 	});
 };
