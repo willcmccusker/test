@@ -32,13 +32,13 @@
 					<div class="table-label"><?= substr($city["City"]["t3"], 0,4);?> Urban Extent</div>
 				</div>
 				<div class='statValue'>
-					<div><?= number_format($city["City"]["extent"]);?> hectares</div>
+					<div><?= number_format($city["City"]["extent"]);?><div class="units">hectares</div></div>
 				</div>
 				<div class='statLabel'>
 					<div class="table-label"><?= substr($city["City"]["t3"], 0,4);?> Density</div>
 				</div>
 				<div class='statValue'>
-					<div><?= number_format($city["City"]["density"], 0);?> persons/hectare</div>
+					<div><?= number_format($city["City"]["density"], 0);?><div class="units">persons/hectare</div></div>
 				</div>
 			</div>
 		</div>

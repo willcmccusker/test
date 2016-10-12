@@ -25,12 +25,12 @@ $border-darkgrey : #333333;
 
 /*type size variables */
 
-$smalltype : 13px;
+$smalltype : 12px;
 $Lighttype : 12px;
 $defaulttype : 16px;
 $largetype1 : 20px;
 $largetype2 : 30px;
-$largetype3 : 36px;
+$largetype3 : 40px;
 $largetype4 : 64px;
 
 
@@ -459,13 +459,22 @@ h1#site-title {
 	}
 
 	.statLabel {
+		font-family:"DINNextLTProLight";
 		font-size:$smalltype;
+		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
-
 	.statValue {
-		margin-bottom: 20px;	
+		color:rgba(255,255,255,.7);
 		line-height: 1.1;
+		margin: 0 0 20px 0;	
+		}
+	.units {
+	
+		display:inline-block;
+		font-size: $smalltype;
+		padding-left: 3px;
+		vertical-align: top;
 	}
 }
 

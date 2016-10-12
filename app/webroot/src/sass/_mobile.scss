@@ -195,13 +195,15 @@
 			font-size:11px;
 		}
 		.statValue {
-			margin-bottom: 0;
-			font-size:24px;
+			font-size:32px;
 		}
 	}
 	.cityNav {
 		position:relative;
 		bottom:0px;
+		li {
+			float:none;
+		}
 	}
 	.navLabels{
 		display:block;
