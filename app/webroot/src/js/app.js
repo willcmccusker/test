@@ -98,7 +98,6 @@ $(document).ready(function(){
 	});
 
 	$("nav").click(function(e){
-		console.log(isMobile());
 		if(!isMobile()){
 			return;
 		}
@@ -125,6 +124,10 @@ $(document).ready(function(){
 			break;
 			case(1):
 				switch(e){
+					case("cities"):
+						model = "cities";
+						controller = "index";
+					break;
 					case("about"):
 						model = "pages";
 						controller = "about";
@@ -453,10 +456,10 @@ $(document).ready(function(){
 				break;
 				default:
 			}
-		/* falls through */
+		break;
 		case(false):
 			//map
-			
+			startFrontMap();
 		break;
 		case("pages"):
 			switch(controller){
@@ -655,15 +658,16 @@ var makeLine = function(prefix, city){
 						displayFormats : {
 							quarter : 'MMM YYYY'
 						},
-						min : new Date("1975-01-01"),//dateMin,
-						max : new Date("2030-01-01")//dateMax,
+						min : new Date("1980-01-01"),//dateMin,
+						max : new Date("2020-01-01"),//dateMax,
+						unitStepSize : 5,
 					},
+/*
 					ticks: {
-		                maxTicksLimit:10,
 		                callback: function(value, index, values) {
-			                return value;
+			                return value % 5 === 0 ? value : "";
 		                }
-					}
+					}*/
 				}]
 			}
 		}

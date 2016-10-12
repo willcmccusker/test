@@ -211,6 +211,54 @@
 					var addedArea_t2_layer = L.layerGroup([addedArea_t2_outline, addedArea_t2_builtUp, addedArea_t2_infill, addedArea_t2_extension, addedArea_t2_leapfrog, addedArea_t2_inclusion]);
 
 					var style = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(addedArea);
+				
+					$('.periodToggle').change(function(event) {
+						target = $(event.target).data("target");
+						prefix = $('.' + target +'.periodToggle:checked').val();
+						targetMap = window[target];
+						t1Layer = window[target + '_' + 't1_layer'];
+						t2Layer = window[target + '_' + 't2_layer'];
+
+						if(prefix == 't1'){
+							targetMap.addLayer(t1Layer)
+							targetMap.removeLayer(t2Layer);
+							style.bringToFront();
+						}else{
+							targetMap.addLayer(t2Layer)
+							targetMap.removeLayer(t1Layer);
+							style.bringToFront();
+						}
+
+						$('.' + target + '.layerToggle:checked').each(function(index, el){
+							selectedLayer = window[target + '_' + prefix + '_' + $(el).prop('name')];
+							selectedLayer.setOpacity(1);
+						});
+					});
+
+						$('.layerToggle').change(function() {
+							target = $(event.target).data("target");
+							prefix = $('.' + target +'.periodToggle:checked').val();
+							layer = window[target + '_' + prefix + '_' + $(this).prop('name')];
+
+							if($(this).is(':checked')) {
+								layer.setOpacity(1).bringToFront();
+								style.bringToFront();
+							}else{
+								layer.setOpacity(0).bringToBack();
+							}
+							});
+						/*$('.layerToggle').change(function() {
+						var layerName = $('.periodToggle:checked').val() + '_' + $(this).prop('name'),
+							layer = eval(layerName);
+
+
+						if($(this).is(':checked')) {
+							layer.setOpacity(1).bringToFront();
+						}else{
+							layer.setOpacity(0).bringToBack();
+						}
+					});*/
+
 				}
 		</script>
 		</div>
@@ -260,35 +308,27 @@
 							});
 						}
 					}).addTo(roadsMap);
+					$('.roadsPeriod').change(function() {
+						var prefix = $('.roadsPeriod:checked').val();
+
+						if(prefix == 't1'){
+							map.addLayer(t1)
+							map.removeLayer(t2);
+						}else{
+							map.addLayer(t2)
+							map.removeLayer(t1);
+						}
+
+						$('.layerToggle:checked').each(function(index, el){
+							var layer = eval(prefix + '_' + $(el).prop('name'));
+							layer.setOpacity(1).bringToFront();
+						});
+					});
+
+					
+
 				};
-			$('.roadsPeriod').change(function() {
-				var prefix = $('.roadsPeriod:checked').val();
-
-				if(prefix == 't1'){
-					map.addLayer(t1)
-					map.removeLayer(t2);
-				}else{
-					map.addLayer(t2)
-					map.removeLayer(t1);
-				}
-
-				$('.layerToggle:checked').each(function(index, el){
-					var layer = eval(prefix + '_' + $(el).prop('name'));
-					layer.setOpacity(1).bringToFront();
-				});
-			});
-
-			$('.layerToggle').change(function() {
-				var layerName = $('.periodToggle:checked').val() + '_' + $(this).prop('name'),
-					layer = eval(layerName);
-
-
-				if($(this).is(':checked')) {
-					layer.setOpacity(1).bringToFront();
-				}else{
-					layer.setOpacity(0).bringToBack();
-				}
-			});
+			
 		</script>
 
 			</div>
@@ -424,39 +464,7 @@
 	</div>
 </div>
 <script>
-	$('.periodToggle').change(function(event) {
-		target = $(event.target).data("target");
-		prefix = $('.' + target +'.periodToggle:checked').val();
-		targetMap = window[target];
-		t1Layer = window[target + '_' + 't1_layer'];
-		t2Layer = window[target + '_' + 't2_layer'];
+	
 
-		if(prefix == 't1'){
-			targetMap.addLayer(t1Layer)
-			targetMap.removeLayer(t2Layer);
-			style.bringToFront();
-		}else{
-			targetMap.addLayer(t2Layer)
-			targetMap.removeLayer(t1Layer);
-			style.bringToFront();
-		}
 
-		$('.' + target + '.layerToggle:checked').each(function(index, el){
-			selectedLayer = window[target + '_' + prefix + '_' + $(el).prop('name')];
-			selectedLayer.setOpacity(1);
-		});
-	});
-
-	$('.layerToggle').change(function() {
-	target = $(event.target).data("target");
-	prefix = $('.' + target +'.periodToggle:checked').val();
-	layer = window[target + '_' + prefix + '_' + $(this).prop('name')];
-
-	if($(this).is(':checked')) {
-		layer.setOpacity(1).bringToFront();
-		style.bringToFront();
-	}else{
-		layer.setOpacity(0).bringToBack();
-	}
-	});
 </script>

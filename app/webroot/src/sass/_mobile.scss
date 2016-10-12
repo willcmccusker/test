@@ -33,9 +33,13 @@
 	.hide-on-mobile{
 		display:none;
 	}
+	body{
+		padding-top:0px !important;
+	}
 
 	.header{
 		background-color: white;
+		position:relative;
 	}
 
 	#worldmap{
