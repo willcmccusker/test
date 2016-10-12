@@ -67,8 +67,15 @@ class Text extends AppModel {
 				debug($match);
 				die(" convert text error");
 			}
-			$value = DateTime::createFromFormat('Y-m-d', $value) ? 
-				substr($value, 0, 4) : (is_numeric($value) ? str_replace(".00", "", number_format($value, 2) ) : $value);
+			if(DateTime::createFromFormat('Y-m-d', $value)){
+				$value = substr($value, 0, 4);
+			}elseif(is_numeric($value)){
+				$value = str_replace(".00", "", number_format($value, 2));
+
+				if(strpos($value, ".") !== false && substr($value, -1) == "0"){
+					$value = substr($value, 0, -1);
+				}
+			}
 			$text["Text"]["content"] = str_replace("<%".$match."%>", $value, $text["Text"]["content"]);
 		}
 		return $text;
