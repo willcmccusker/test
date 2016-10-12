@@ -69,9 +69,9 @@
 	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
  -->
 		<?
-		echo $this->Html->script('/bower_components/mapbox.js/mapbox.js');
+		echo $this->Html->script('/mapbox.js/mapbox.js');
 		echo $this->Html->script('/dist/js/app.min.js');
-		echo $this->Html->css('/bower_components/mapbox.js/mapbox.css');
+		echo $this->Html->css('/mapbox.js/mapbox.css');
 	?>
 </body>
 </html>
