@@ -56,7 +56,6 @@ $(document).ready(function(){
 	});
 	$("#citySearch").on("click", function(){
 		if(!poppedUp){
-			console.log("citySearch Click up");
 			searchPopup();
 		}
 	});
@@ -544,7 +543,6 @@ var switchGraph = function(id){
 			makeSpecialStacked(id, city);
 		break;
 		default:
-			console.log(id+" doesn't have a function");
 	}
 	var chart = chartObjects[id];
 	var legend = chart.generateLegend();
@@ -559,6 +557,7 @@ var stackedXAxes =  function(id){
 			beginAtZero : true,
 			max : 100,
 			callback: function(value, index, values) {
+
 				if($("#"+id).data("multiply") !== undefined){
 					value *= $("#"+id).data("multiply");
 				}
@@ -639,6 +638,7 @@ var makeLine = function(prefix, city){
 					label : function(tooltipItem, data) { 
 						var label = data.datasets[tooltipItem.datasetIndex].label;
 						var number  = tooltipItem.yLabel;
+
 						return bigTooltip(number, label, $(ctx).data("unit"));
 					}
 				}
@@ -754,6 +754,9 @@ var makeChart = function(prefix, city, side){
 				},
 			tooltips : {
 				callbacks : {
+					title : function(){
+						return false;
+					},
 					label : function(tooltipItem, data){
 						label = data.datasets[tooltipItem.datasetIndex].label;
 						if(side){
@@ -801,6 +804,9 @@ var makeStacked = function(prefix, city, vert){
 			},
 			tooltips : {
 				callbacks : {
+					title : function(){
+						return false;
+					},
 					label : function (tooltipItem, data){
 						var label = data.datasets[tooltipItem.datasetIndex].label;						
 						var number = vert ? tooltipItem.yLabel : tooltipItem.xLabel;
@@ -870,6 +876,9 @@ var makeRoadChart = function(prefix, city){
 			},
 			tooltips : {
 				callbacks : {
+					title : function(){
+						return false;
+					},
 					label :  function (tooltipItem, data){
 						var label = data.datasets[tooltipItem.datasetIndex].label;						
 						var number =  tooltipItem.xLabel;
@@ -961,10 +970,16 @@ var makeSpecialStacked = function(prefix, city){
 			},
 			tooltips : {
 				callbacks : {
+					title: function(){
+						return false;
+					},
 					label : function(tooltipItem, data) { 
 						label = data.datasets[tooltipItem.datasetIndex].label;
+
+						amount = tooltipItem.xLabel;
+
 						// var folded = fold(label, 20, true);
-						return percentageTooltip(tooltipItem.xLabel, label, false);
+						return percentageTooltip(amount, label);
 					}
 				}
 			},
