@@ -169,8 +169,8 @@
 				<h3 class='sectionSubHeader' >Composition of Added Area</h3>
 				<p><?= $dynamicTexts["composition_of_added_area"]["Text"]["content"];?></p>
 				<ul>
-					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t1" checked="checked" data-target="addedArea"/> T1 </label>
-					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t2" data-target="addedArea" /> T2 </label>
+					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t1" checked="checked" data-target="addedArea"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t2" data-target="addedArea" /> <?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<ul>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> Built-up area </label>
