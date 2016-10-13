@@ -1,15 +1,15 @@
 <header class='header'>
 	<div id='site-title'>
 		<h1 id="site-title">
-			<?= $this->Html->link("Atlas of Urban Expansion", array("controller"=>"/"));?>
+			<a href="/">Atlas of Urban Expansion</a>
 		</h1>
 	</div>
 	<nav class='menu-icon'>
 		<div class='nav-holder'>
-			<?= $this->Html->link("Cities", array("controller"=>"cities", "action"=>"index"));?>
-			<?= $this->Html->link("Data", array("controller"=>"data"));?>
-			<?= $this->Html->link("Historical Data", array("controller"=>"historical-data"));?>
-			<?= $this->Html->link("About", array("controller"=>"about"));?>
+			<a href="/cities">Cities</a>
+			<a href="/data">Data</a>
+			<a href="/historical-data">Historical Data</a>
+			<a href="/about">About</a>
 		</div>
 	</nav>
 	<div id='citySearch' class='unlisted menu-icon'>
