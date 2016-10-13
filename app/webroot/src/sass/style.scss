@@ -822,8 +822,9 @@ h3.sectionSubHeader {
 		padding-top:0px;
 	}
 	h3 {
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
 		font-size: $defaulttype;
+		font-weight: normal;
 		text-transform: uppercase;
 		padding: 25px 0 0px 0;
 	}
@@ -853,3 +854,4 @@ h3.sectionSubHeader {
 
 @import "mobile";
 //@import "mapbox";
+
