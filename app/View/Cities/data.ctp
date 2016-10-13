@@ -40,29 +40,33 @@
 						<td class='country'><?= $city["City"]["country"];?></td>
 
 						<?
-
 										$map1 = $download_path."Phase I Maps/".$city["City"]["areas_and_densities_map_path"];
-										$map1 = is_file(APP . "/webroot/" . $map1) ? $map1 : false;
+										if(file_exists(APP . "webroot/" . $map1)){
+											debug("exists");
+										}else{
+											debug(APP . "webroot/" . $map1." DOES NOT EXIST");
+										}
+										$map1 = file_exists(APP . "webroot/" . $map1) ? $map1 : false;
 										$metric1 = $download_path."Phase I Metrics/".$city["City"]["areas_and_densities_map_path"];
-										$metric1 = is_file(APP . "/webroot/" . $metric1) ? $metric1 : false;
+										$metric1 = file_exists(APP . "webroot/" . $metric1) ? $metric1 : false;
 										$gis1 = $download_path."Phase I GIS/".$city["City"]["areas_and_densities_map_path"];
-										$gis1 = is_file(APP . "/webroot/" . $gis1) ? $gis1 : false;
+										$gis1 = file_exists(APP . "/webroot/" . $gis1) ? $gis1 : false;
 
 
 										$map2 = $download_path."Phase II Maps/".$city["City"]["blocks_and_roads_map_path"];
-										$map2 = is_file(APP . "/webroot/" . $map2) ? $map2 : false;
+										$map2 = file_exists(APP . "webroot/" . $map2) ? $map2 : false;
 										$metric2 = $download_path."Phase II Metrics/".$city["City"]["blocks_and_roads_map_path"];
-										$metric2 = is_file(APP . "/webroot/" . $metric2) ? $metric2 : false;
+										$metric2 = file_exists(APP . "webroot/" . $metric2) ? $metric2 : false;
 										$gis2 = $download_path."Phase II GIS/".$city["City"]["blocks_and_roads_map_path"];
-										$gis2 = is_file(APP . "/webroot/" . $gis2) ? $gis2 : false;
+										$gis2 = file_exists(APP . "/webroot/" . $gis2) ? $gis2 : false;
 
 
 										$map3 = $download_path."Historical cities maps and metrics/Blocks and Roads Historical Map Pages/".$city["City"]["historical_data_map_path"];
-										$map3 = is_file(APP . "/webroot/" . $map3) ? $map3 : false;
+										$map3 = file_exists(APP . "webroot/" . $map3) ? $map3 : false;
 										$metric3 = $download_path."Historical cities maps and metrics/Blocks and Roads Historical Metrics Pages/".$city["City"]["historical_data_map_path"];
-										$metric3 = is_file(APP . "/webroot/" . $metric3) ? $metric3 : false;
+										$metric3 = file_exists(APP . "webroot/" . $metric3) ? $metric3 : false;
 										$gis3 = $download_path."foobar".$city["City"]["historical_data_map_path"];
-										$gis3 = is_file(APP . "/webroot/" . $gis3) ? $gis3 : false;
+										$gis3 = file_exists(APP . "/webroot/" . $gis3) ? $gis3 : false;
 
 								?>
 
