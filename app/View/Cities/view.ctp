@@ -79,7 +79,7 @@
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
-					<canvas id='population_change_bar' class='city-graphic' data-unit="%" data-title="Avg. Annual % Change" height="350px"></canvas>
+					<canvas id='population_change_bar' class='city-graphic' data-unit="%" data-title="Population Avg. Annual % Change" height="350px"></canvas>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
 			</div>
@@ -172,7 +172,7 @@
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
 				<div class='col-3-4 mob-1-1 no-pad year-switch-graphic'>
-					<canvas id='urban_extent_change_bar' class='city-graphic'  data-title="Avg. Annual % Change" height="350px"></canvas>
+					<canvas id='urban_extent_change_bar' class='city-graphic'  data-title="Urban Extent Avg. Annual % Change" height="350px"></canvas>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
 			</div>
@@ -281,8 +281,8 @@
 				<h3 class='sectionSubHeader' >Roads</h3>
 				<p><?= $dynamicTexts["density"]["Text"]["content"];?></p>
 				<ul>
-					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1" checked="checked" data-target="roads"/> T1 </label>
-					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t2" data-target="roads" /> T2 </label>
+					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1" checked="checked" data-target="roads"/><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></label>
+					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t2" data-target="roads" /><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -350,8 +350,8 @@
 				<div id="arterial_roads" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Arterial Roads</h3>
 				<ul>
-					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> T1 </label>
-					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> T2 </label>
+					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> <?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
 			</div>
@@ -382,8 +382,8 @@
 				<div class='position-relative col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='arterial_roads_density_bar' class='city-graphic' data-title='Density of Arterial Roads (km/km2)' data-unit=" km/km2" height="350px"></canvas>
 					<div class='years' >
-						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 – 2015</span>
+						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -393,8 +393,8 @@
 					<canvas id='arterial_roads_walking_bar' class='city-graphic' data-title='Share of Area Within Walking Distance of Arterial Roads' data-unit="%" data-multiply="100" height="350px"></canvas>
 
 					<div class='years'>
-						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 – 2015</span>
+						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -407,8 +407,8 @@
 					<canvas id='arterial_roads_beeline_bar' data-unit="m" class='city-graphic' data-title='Beeline Distance to Arterial Roads' height="350px"></canvas>
 
 					<div class='years'>
-						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 – 2015</span>
+						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
@@ -423,8 +423,8 @@
 				<h3 class='sectionSubHeader' >Blocks and Plots</h3>
 				<p><?= $dynamicTexts["blocks_and_plots"]["Text"]["content"];?></p>
 				<ul>
-					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1" checked="checked" data-target="blocks"/> T1 </label>
-					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" data-target="blocks" /> T2 </label>
+					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1" checked="checked" data-target="blocks"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" data-target="blocks" /> <?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -458,8 +458,8 @@
 					<canvas id='blocks_and_plots_composition_special_stacked' class='city-graphic' data-title='Share of Residential Land Use Settlements' height="350px"></canvas>
 
 					<div class='years'>
-						<span class='switchYear activeYear' data-year="1990">Pre 1990</span>&nbsp;
-						<span class='switchYear' data-year="2015">1990 – 2015</span>
+						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>

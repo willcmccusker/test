@@ -44,13 +44,13 @@ class TilesController extends AppController {
     $mbtile = APP."webroot/file-manager/userfiles/mbtiles/".$path .'.mbtiles';
     
 
-    $this->response->sharable(true, 60 * 60);
+    // $this->response->sharable(true, 60 * 60);
 
     Cache::config('default', array('path' => CACHE . "/tiles/" . $path . "/"));
 
     //uncomment these to turn cache on
-    //$cached = Cache::read($name);
-    if(false){//$cached !== false){
+    $cached = Cache::read($name);
+    if($cached !== false){
           $this->response->type('png');
           $this->response->body($cached);
     }else{
