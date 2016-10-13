@@ -219,13 +219,13 @@ $(document).ready(function(){
 					$(window).on("scroll", visibleGraph);
 
 					$('.periodToggle').change(function(event) {
-						target = $(event.target).data("target");
-						prefix = $('.' + target +'.periodToggle:checked').val();
-						targetMap = allMaps[target];
-						t1Layer = allMaps[target + '_' + 't1_layer'];
-						t2Layer = allMaps[target + '_' + 't2_layer'];
-						t3Layer = allMaps[target + '_' + 't3_layer'];
-						style = allMaps[target + 'Style'];
+						var target = $(event.target).data("target");
+						var prefix = $('.' + target +'.periodToggle:checked').val();
+						var targetMap = allMaps[target];
+						var t1Layer = allMaps[target + '_' + 't1_layer'];
+						var t2Layer = allMaps[target + '_' + 't2_layer'];
+						var t3Layer = allMaps[target + '_' + 't3_layer'];
+						var style = allMaps[target + 'Style'];
 
 						if(prefix == 't1'){
 							targetMap.addLayer(t1Layer);
@@ -243,23 +243,45 @@ $(document).ready(function(){
 
 						if(style){style.bringToFront();}
 
-						$('.' + target + '.layerToggle:checked').each(function(index, el){
+						$('.' + target + '.layerToggle').each(function(index, el){
 							selectedLayer = allMaps[target + '_' + prefix + '_' + $(el).prop('name')];
-							selectedLayer.setOpacity(1);
+							console.log(el);
+							console.log($(this).is(":checked"));
+							if($(this).is(":checked")){
+								if(targetMap.hasLayer(selectedLayer)){
+									selectedLayer.setOpacity(1);
+								}else{
+									targetMap.addLayer(selectedLayer);
+									selectedLayer.setOpacity(1);
+								}
+							}else{
+								if(targetMap.hasLayer(selectedLayer)){
+									selectedLayer.setOpacity(0);
+									targetMap.removeLayer(selectedLayer);
+								}
+								// selectedLayer.setOpacity(0).removeLayer();
+								// selectedLayer.setOpacity(0);
+							}
 						});
 					});
 
 					$('.layerToggle').change(function() {
-						target = $(event.target).data("target");
-						prefix = $('.' + target +'.periodToggle:checked').val();
-						layer = allMaps[target + '_' + prefix + '_' + $(this).prop('name')];
-						style = allMaps[target + 'Style'];
-
+						var target = $(event.target).data("target");
+						var targetMap = allMaps[target];
+						var prefix = $('.' + target +'.periodToggle:checked').val();
+						var layer = allMaps[target + '_' + prefix + '_' + $(this).prop('name')];
+						var style = allMaps[target + 'Style'];
 						if($(this).is(':checked')) {
+							if(!targetMap.hasLayer(layer)){
+								targetMap.addLayer(layer);
+							}
 							layer.setOpacity(1).bringToFront();
-							style.bringToFront();
+							if(style){style.bringToFront();}
 						}else{
-							layer.setOpacity(0).bringToBack();
+							if(targetMap.hasLayer(layer)){
+								layer.setOpacity(0).bringToBack();
+								targetMap.removeLayer(layer);
+							}
 						}
 					});
 

@@ -66,11 +66,18 @@ class TilesController extends AppController {
         }
         $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
+        // $result = $db->query('select tile_data as from tiles where zoom_level=11 and tile_column=1244 and tile_row=1075');
+        // debug($result->fetchColumn());
+        // die();
         $result = $db->query('select tile_data as t from tiles where zoom_level=' . $z . ' and tile_column=' . $x . ' and tile_row=' . $y);
         $data = $result->fetchColumn();
 
         if(!isset($data) || $data === FALSE) {
-          $this->log('NO DATA');
+          // $this->log('NO DATA');
+          // die("no data");
+          $this->response->type('png');
+          $this->response->body(file_get_contents(APP . "webroot/img/empty.png"));
+
         } else {
   				$this->log('BOOM');
           $this->response->type('png');
