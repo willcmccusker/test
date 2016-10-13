@@ -19,6 +19,7 @@ var searchPopup = function(){
 		poppedUp = true;
 		$(".header").addClass("poppedUp");
 	}
+	loadNextFlag();
 
 	$("nav").removeClass("navOpen");
 
@@ -70,7 +71,8 @@ $(document).ready(function(){
 		setFooter();
 	});
 	setFooter();
-	loadNextFlag();
+	// loadNextFlag();
+	visibleGraph();
 
 	$("#citySearch input").on("focus click", function(){
 		searchPopup();
@@ -551,11 +553,7 @@ $(document).ready(function(){
 
 });
 
-var loadNextFlag = function(){
-	var lazy = $(".lazyimg").last();
-	if(lazy.length === 0){
-		return;
-	}
+var loadImage = function(lazy, callback){
 	var img = new Image();
 	img.onload = function(){
 		if($(lazy).is("img")){
@@ -563,15 +561,30 @@ var loadNextFlag = function(){
 		}else{
 			$(lazy).css("background-image", "url('"+img.src+"')").removeClass("lazyimg");
 		}
-		loadNextFlag();
+		if(typeof(callback) == "function"){
+			callback();
+		}
 	};
 	img.onerror = function(){
 		$(lazy).removeClass("lazyimg");
 		var asset = img.src.replace(/^.*[\\\/]/, '');
 		$(".lazyimg[data-src$='"+asset+"'").removeClass("lazyimg");
-		loadNextFlag();
+
+		if(typeof(callback) == "function"){
+			callback();
+		}
 	};
 	img.src = $(lazy).data("src");
+};
+
+var loadNextFlag = function(){
+	var lazy = $(".lazyimg").last();
+	if(lazy.length === 0){
+		return;
+	}
+	loadImage(lazy, function(){
+		loadNextFlag();
+	});
 };
 
 
@@ -1254,8 +1267,13 @@ var debounce = function(func, wait, immediate) {
 };
 
 var visibleGraph = debounce(function() {
-	console.log("debounced scroll");
 	// All the taxing stuff you do
+
+	$(".lazyimg").filter(":onScreen").filter(":visible").each(function(){
+		$(this).removeClass(".lazyimg");
+		loadImage(this);
+	});
+
 	var maps = $(".city-map:not(.map-built)").filter(":onScreen");
 	if(maps.length > 0){
 		$(maps).addClass("map-built");

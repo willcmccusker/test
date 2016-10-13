@@ -130,6 +130,17 @@ class TextsController extends AppController {
 	}
 
 
-
+	public function historical(){
+			$text = $this->Text->find("first", array(
+			"conditions"=>array(
+				"Text.slug"=>"historic_data"
+				)
+			));
+		if(empty($text)){
+			throw new NotFoundException(__('Invalid text'));
+		}
+		$this->set(compact("text"));
+		$this->render("/Pages/historical");	
+	}
 
 }

@@ -1,4 +1,9 @@
 <div class=' historical'>
+<div class='grid wide'>
+	<div class='col-2-3 tab-1-1'>
+		<?= $text["Text"]["content"];?>
+	</div>
+</div>
 <?php
 $path = APP . "webroot/file-manager/userfiles/data_page/Animations/";
 
@@ -16,7 +21,7 @@ if ($handle = opendir($path)) {
 	foreach($files as $file){
         // debug($i%2);
         // debug($file);
-        $video = '<video controls preload="none" poster="/file-manager/userfiles/data_page/Animations/'.str_replace(" ", "", str_replace(".mp4", ".jpg", $file) ).'">
+        $video = '<video muted controls preload="none" poster="/file-manager/userfiles/data_page/Animations/'.str_replace(" ", "", str_replace(".mp4", ".jpg", $file) ).'">
 				<source src="/file-manager/userfiles/data_page/Animations/'.$file.'" type="video/mp4">
 			</video>';
 
