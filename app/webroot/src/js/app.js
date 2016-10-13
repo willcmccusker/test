@@ -4,7 +4,7 @@ var tab = false;
 var poppedUp = false;
 var drawComplete = true;
 var chartObjects = {};
-
+var allMaps = {};
 var isMobile = function(){
 	return $(window).width() < 767;
 };
@@ -221,11 +221,11 @@ $(document).ready(function(){
 					$('.periodToggle').change(function(event) {
 						target = $(event.target).data("target");
 						prefix = $('.' + target +'.periodToggle:checked').val();
-						targetMap = window[target];
-						t1Layer = window[target + '_' + 't1_layer'];
-						t2Layer = window[target + '_' + 't2_layer'];
-						t3Layer = window[target + '_' + 't3_layer'];
-						style = window[target + 'Style'];
+						targetMap = allMaps[target];
+						t1Layer = allMaps[target + '_' + 't1_layer'];
+						t2Layer = allMaps[target + '_' + 't2_layer'];
+						t3Layer = allMaps[target + '_' + 't3_layer'];
+						style = allMaps[target + 'Style'];
 
 						if(prefix == 't1'){
 							targetMap.addLayer(t1Layer);
@@ -244,7 +244,7 @@ $(document).ready(function(){
 						if(style){style.bringToFront();}
 
 						$('.' + target + '.layerToggle:checked').each(function(index, el){
-							selectedLayer = window[target + '_' + prefix + '_' + $(el).prop('name')];
+							selectedLayer = allMaps[target + '_' + prefix + '_' + $(el).prop('name')];
 							selectedLayer.setOpacity(1);
 						});
 					});
@@ -252,8 +252,8 @@ $(document).ready(function(){
 					$('.layerToggle').change(function() {
 						target = $(event.target).data("target");
 						prefix = $('.' + target +'.periodToggle:checked').val();
-						layer = window[target + '_' + prefix + '_' + $(this).prop('name')];
-						style = window[target + 'Style'];
+						layer = allMaps[target + '_' + prefix + '_' + $(this).prop('name')];
+						style = allMaps[target + 'Style'];
 
 						if($(this).is(':checked')) {
 							layer.setOpacity(1).bringToFront();

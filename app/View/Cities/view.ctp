@@ -115,47 +115,74 @@
 					<script>
 						var extent;
 						var urban_extent_t1_map = function(){
-							extent = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
+							allMaps.extent = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
 								center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 								zoom: 11,
 								scrollWheelZoom : false
 							});
 
-							var extent_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t1/{z}/{x}/{y}.png', {tms: true});
-							var extent_t1_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t1/{z}/{x}/{y}.png', {tms: true});
 
-							var extent_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t2/{z}/{x}/{y}.png', {tms: true});
-							var extent_t2_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t2/{z}/{x}/{y}.png', {tms: true});
 
-							var extent_t3_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t3/{z}/{x}/{y}.png', {tms: true});
-							var extent_t3_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t3/{z}/{x}/{y}.png', {tms: true});
 
-							var extent_t1_layer = L.layerGroup([extent_t1_outline, extent_t1_urbanBuilt, extent_t1_suburbanBuilt, extent_t1_ruralBuilt, extent_t1_urbanOpen, extent_t1_exurbanBuilt, extent_t1_exurbanOpen, extent_t1_exurbanRural, extent_t1_water]).addTo(extent);
-							var extent_t2_layer = L.layerGroup([extent_t2_outline, extent_t2_urbanBuilt, extent_t2_suburbanBuilt, extent_t2_ruralBuilt, extent_t2_urbanOpen, extent_t2_exurbanBuilt, extent_t2_exurbanOpen, extent_t2_exurbanRural, extent_t2_water]);
-							var extent_t3_layer = L.layerGroup([extent_t3_outline, extent_t3_urbanBuilt, extent_t3_suburbanBuilt, extent_t3_ruralBuilt, extent_t3_urbanOpen, extent_t3_exurbanBuilt, extent_t3_exurbanOpen, extent_t3_exurbanRural, extent_t3_water]);
+							allMaps.extent_t1_layer = L.layerGroup([
+								allMaps.extent_t1_outline, 
+								allMaps.extent_t1_urbanBuilt, 
+								allMaps.extent_t1_suburbanBuilt, 
+								allMaps.extent_t1_ruralBuilt, 
+								allMaps.extent_t1_urbanOpen, 
+								allMaps.extent_t1_exurbanBuilt, 
+								allMaps.extent_t1_exurbanOpen, 
+								allMaps.extent_t1_exurbanRural, 
+								allMaps.extent_t1_water]).addTo(allMaps.extent);
+							allMaps.extent_t2_layer = L.layerGroup([
+								allMaps.extent_t2_outline, 
+								allMaps.extent_t2_urbanBuilt, 
+								allMaps.extent_t2_suburbanBuilt, 
+								allMaps.extent_t2_ruralBuilt, 
+								allMaps.extent_t2_urbanOpen, 
+								allMaps.extent_t2_exurbanBuilt, 
+								allMaps.extent_t2_exurbanOpen, 
+								allMaps.extent_t2_exurbanRural, 
+								allMaps.extent_t2_water]);
+							allMaps.extent_t3_layer = L.layerGroup([
+								allMaps.extent_t3_outline, 
+								allMaps.extent_t3_urbanBuilt, 
+								allMaps.extent_t3_suburbanBuilt, 
+								allMaps.extent_t3_ruralBuilt, 
+								allMaps.extent_t3_urbanOpen, 
+								allMaps.extent_t3_exurbanBuilt, 
+								allMaps.extent_t3_exurbanOpen, 
+								allMaps.extent_t3_exurbanRural, 
+								allMaps.extent_t3_water]);
 
-							var extentStyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(extent);
+							allMaps.extentStyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(allMaps.extent);
 						}
 					</script>
 				</div>
@@ -239,32 +266,44 @@
 			<script>
 			var addedArea;
 			var composition_of_added_area_map = function(){
-					addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light', {
+					allMaps.addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 						zoom: 11,
 						scrollWheelZoom : false
 					});
 
 
-					var addedArea_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
-					var addedArea_t1_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t1_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t1_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t1_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t1_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t2/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t2_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t2_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t2_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t2_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true });
-					var addedArea_t2_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
+					allMaps.addedArea_t1_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t1_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t1_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t1_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t1_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t2/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t2_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t2_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t2_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t2_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true });
+					allMaps.addedArea_t2_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true });
 
 
-					var addedArea_t1_layer = L.layerGroup([addedArea_t1_outline, addedArea_t1_builtUp, addedArea_t1_infill, addedArea_t1_extension, addedArea_t1_leapfrog, addedArea_t1_inclusion]).addTo(addedArea);
-					var addedArea_t2_layer = L.layerGroup([addedArea_t2_outline, addedArea_t2_builtUp, addedArea_t2_infill, addedArea_t2_extension, addedArea_t2_leapfrog, addedArea_t2_inclusion]);
+					allMaps.addedArea_t1_layer = L.layerGroup([
+						allMaps.addedArea_t1_outline, 
+						allMaps.addedArea_t1_builtUp, 
+						allMaps.addedArea_t1_infill, 
+						allMaps.addedArea_t1_extension, 
+						allMaps.addedArea_t1_leapfrog, 
+						allMaps.addedArea_t1_inclusion]).addTo(allMaps.addedArea);
+					allMaps.addedArea_t2_layer = L.layerGroup([
+						allMaps.addedArea_t2_outline, 
+						allMaps.addedArea_t2_builtUp, 
+						allMaps.addedArea_t2_infill, 
+						allMaps.addedArea_t2_extension, 
+						allMaps.addedArea_t2_leapfrog, 
+						allMaps.addedArea_t2_inclusion]);
 
 
-				var addedAreatyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(addedArea);
+					allMaps.addedAreatyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(allMaps.addedArea);
 			}
 		</script>
 		</div>
@@ -290,24 +329,27 @@
 				<div class='mobile-map-cover'></div>
 
 				<script>
-				var roads;
 				var roads_map = function(){
 
-					roads = L.mapbox.map('roads_map', 'mapbox.satellite', {
+					allMaps.roads = L.mapbox.map('roads_map', 'mapbox.satellite', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 						zoom: 15,
 						scrollWheelZoom : false
 					});
 
-					var t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(roads)
-					var t1_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true});
-					var t1_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t0/{z}/{x}/{y}.png', {tms: true});
+					allMaps.t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.roads)
+					allMaps.t1_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true});
+					allMaps.t1_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t0/{z}/{x}/{y}.png', {tms: true});
 
-					var t2_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t1/{z}/{x}/{y}.png', {tms: true});
-					var t2_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t1/{z}/{x}/{y}.png', {tms: true})
+					allMaps.t2_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t1/{z}/{x}/{y}.png', {tms: true});
+					allMaps.t2_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t1/{z}/{x}/{y}.png', {tms: true})
 
-					var roads_t1_layer = L.layerGroup([t1_roads, t1_locales]).addTo(roads);
-					var roads_t2_layer = L.layerGroup([t2_roads, t2_locales]);
+					allMaps.roads_t1_layer = L.layerGroup([
+						allMaps.t1_roads, 
+						allMaps.t1_locales]).addTo(allMaps.roads);
+					allMaps.roads_t2_layer = L.layerGroup([
+						allMaps.t2_roads, 
+						allMaps.t2_locales]);
 				}
 				</script>
 			</div>
@@ -360,15 +402,15 @@
 				<script>
 					var arterials;
 					var arterial_map = function(){
-						arterials = L.mapbox.map('arterial_map', 'mapbox.satellite', {
+					allMaps.arterials = L.mapbox.map('arterial_map', 'mapbox.satellite', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 							zoom: 12,
 							scrollWheelZoom : false
 						});
 
-						var arterialsLines = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/arterials_t1/{z}/{x}/{y}.png', {tms: true}).addTo(arterials);
-						var arterials_t1_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(arterials);
-						var arterials_t2_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t2/{z}/{x}/{y}.png', {tms: true});
+					allMaps.arterialsLines = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/arterials_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.arterials);
+					allMaps.arterials_t1_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.arterials);
+					allMaps.arterials_t2_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t2/{z}/{x}/{y}.png', {tms: true});
 					}
 				</script>
 
@@ -432,19 +474,21 @@
 				<script>
 					var blocks;
 					var blocks_map = function(){
-						blocks = L.mapbox.map('blocks_map', 'mapbox.satellite', {
+						allMaps.blocks = L.mapbox.map('blocks_map', 'mapbox.satellite', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 							zoom: 15,
 							scrollWheelZoom : false
 						});
 
-						var t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(roads)
-						var t1_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t0/{z}/{x}/{y}.png', {tms: true});
+						allMaps.t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.roads)
+						allMaps.t1_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t0/{z}/{x}/{y}.png', {tms: true});
 
-						var t2_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t1/{z}/{x}/{y}.png', {tms: true})
+						allMaps.t2_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t1/{z}/{x}/{y}.png', {tms: true})
 
-						var blocks_t1_layer = L.layerGroup([t1_blocks]).addTo(blocks);
-						var blocks_t2_layer = L.layerGroup([t2_blocks]);
+						allMaps.blocks_t1_layer = L.layerGroup([
+							allMaps.t1_blocks]).addTo(allMaps.blocks);
+						allMaps.blocks_t2_layer = L.layerGroup([
+							allMaps.t2_blocks]);
 					}
 				</script>
 			</div>
