@@ -129,35 +129,35 @@
 								scrollWheelZoom : false
 							});
 
-							allMaps.extent_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t1/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t1_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t1/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_urbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_suburbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_ruralBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_urbanOpen = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_exurbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_exurbanOpen = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_exurbanRural = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t1_water = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 
-							allMaps.extent_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t2/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t2_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t2/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t2_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_urbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_suburbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_ruralBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_urbanOpen = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_exurbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_exurbanOpen = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_exurbanRural = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t2_water = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 
-							allMaps.extent_t3_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t3/{z}/{x}/{y}.png', {tms: true});
-							allMaps.extent_t3_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t3/{z}/{x}/{y}.png', {tms: true});
+							allMaps.extent_t3_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_urbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_suburbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_ruralBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_urbanOpen = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_exurbanBuilt = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_exurbanOpen = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_exurbanRural = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+							allMaps.extent_t3_water = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 
 							allMaps.extent_t1_layer = L.layerGroup([
 								allMaps.extent_t1_outline, 
@@ -251,7 +251,7 @@
 	<div class='graphSection'>
 		<div class='grid wide'>
 			<div class='col-1-5 tab-1-1 mob-1-1'>
-					<div id="composition_of_added_area" class='anchorPoint'></div>
+				<div id="composition_of_added_area" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Composition of Added Area</h3>
 				<p><?= $dynamicTexts["composition_of_added_area"]["Text"]["content"];?></p>
 				<ul>
@@ -266,7 +266,7 @@
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> Leapfog </label>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="inclusion" data-target="addedArea"/> Inclusion </label>
 				</ul>
-				</div>
+			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='composition_of_added_area_map' class='city-map'></div>
 				<div class='mobile-map-cover'></div>
@@ -277,22 +277,27 @@
 					allMaps.addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 						zoom: 11,
-						scrollWheelZoom : false
+						maxZoom : 13,
+						scrollWheelZoom : false,
+						reuseTiles : true,
 					});
+				L.Util.emptyImageUrl = "/img/search.png";
 
 
-					allMaps.addedArea_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
-					allMaps.addedArea_t1_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t1_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t1_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t1_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t1_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t2/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t2_builtUp = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t2_infill = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t2_extension = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t2_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true });
-					allMaps.addedArea_t2_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true });
+
+				allMaps.addedArea_t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+				allMaps.addedArea_t1_builtUp = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t1_infill = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t1_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t1_extension = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t1_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t1_leapfrog = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t1_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t1_inclusion = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t1_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				
+				allMaps.addedArea_t2_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t2_builtUp = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/built_up_area_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t2_infill = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/infill_t2_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t2_extension = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/extension_t2_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t2_leapfrog = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
+				allMaps.addedArea_t2_inclusion = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc" });
 
 
 					allMaps.addedArea_t1_layer = L.layerGroup([
@@ -353,12 +358,12 @@
 						scrollWheelZoom : false
 					});
 
-					allMaps.t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.roads)
-					allMaps.t1_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true});
-					allMaps.t1_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t0/{z}/{x}/{y}.png', {tms: true});
+					allMaps.t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.roads)
+					allMaps.t1_roads = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+					allMaps.t1_locales = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t0/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 
-					allMaps.t2_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t1/{z}/{x}/{y}.png', {tms: true});
-					allMaps.t2_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t1/{z}/{x}/{y}.png', {tms: true})
+					allMaps.t2_roads = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
+					allMaps.t2_locales = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"})
 
 					allMaps.roads_t1_layer = L.layerGroup([
 						allMaps.t1_roads, 
@@ -424,9 +429,9 @@
 							scrollWheelZoom : false
 						});
 
-					allMaps.arterialsLines = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/arterials_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.arterials);
-					allMaps.arterials_t1_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.arterials);
-					allMaps.arterials_t2_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t2/{z}/{x}/{y}.png', {tms: true});
+					allMaps.arterialsLines = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/arterials/arterials_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.arterials);
+					allMaps.arterials_t1_layer = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.arterials);
+					allMaps.arterials_t2_layer = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 					}
 				</script>
 
@@ -496,10 +501,10 @@
 							scrollWheelZoom : false
 						});
 
-						allMaps.t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(allMaps.roads)
-						allMaps.t1_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t0/{z}/{x}/{y}.png', {tms: true});
+						allMaps.t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.roads)
+						allMaps.t1_blocks = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t0/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 
-						allMaps.t2_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t1/{z}/{x}/{y}.png', {tms: true})
+						allMaps.t2_blocks = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"})
 
 						allMaps.blocks_t1_layer = L.layerGroup([
 							allMaps.t1_blocks]).addTo(allMaps.blocks);
