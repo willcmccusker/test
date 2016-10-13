@@ -317,8 +317,16 @@
 		</div>
 	</div>
 		<div class='grid wide'>
-			<div class='col-1-1'>
-				<div class='sectionHeader'>Blocks and Roads</div>
+			<div class='col-1-1 header-underline no-pad'>
+				<div class='col-1-2 tab-1-1 mob-1-1'>
+					<div class='sectionHeader'>Blocks and Roads</div>
+				</div>
+				<div class='col-1-2 tab-1-1 mob-1-1'>
+					<div class='sectionDownload'>Download:
+						<a download target="_blank" href="/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks and Roads Table 1.csv">CSV</a> 
+						<a download target="_blank" href="/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks and Roads Table 1.xlsx">XLSX</a> 
+					</div>
+				</div>
 			</div>
 		</div>
 	<div class='graphSection'>
