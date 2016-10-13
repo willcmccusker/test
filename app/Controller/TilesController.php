@@ -16,6 +16,10 @@ class TilesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session', 'Flash');
+  // public $helpers = array('Cache');
+  // public $cacheAction = array(
+  //     'show' => 36000,
+  // );
 
   public function beforeFilter() {
 			parent::beforeFilter();
@@ -35,39 +39,53 @@ class TilesController extends AppController {
     $this->log('zoom level= '.$z);
     $this->log('tile column (x)= '.$x);
     $this->log('tile row (y)= '.$y);
+    $path =  "/" . $city . "/" . $map . "/" . $layer;
+    $name = $z."_".$x."_".$y.'.png';
+    $mbtile = APP."webroot/file-manager/userfiles/mbtiles/".$path .'.mbtiles';
+    
 
-    $path = APP."webroot/file-manager/userfiles/mbtiles/". "/" . $city . "/" . $map . "/" . $layer .'.mbtiles';
+    $this->response->sharable(true, 60 * 60);
 
-    try
-    {
+    Cache::config('default', array('path' => CACHE . "/tiles/" . $path . "/"));
 
-      // Open the database
-      $db = new PDO('sqlite:' . $path);
-      if(!isset($db)) {
-        $this->log('Incorrect db name');
-      }else {
-        $this->log("OKAY");
+    //uncomment these to turn cache on
+    //$cached = Cache::read($name);
+    if(false){//$cached !== false){
+          $this->response->type('png');
+          $this->response->body($cached);
+    }else{
+      try
+      {
+
+        // Open the database
+        $db = new PDO('sqlite:' . $mbtile);
+        if(!isset($db)) {
+          $this->log('Incorrect db name');
+        }else {
+          $this->log("OKAY");
+        }
+        $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
+        $result = $db->query('select tile_data as t from tiles where zoom_level=' . $z . ' and tile_column=' . $x . ' and tile_row=' . $y);
+        $data = $result->fetchColumn();
+
+        if(!isset($data) || $data === FALSE) {
+          $this->log('NO DATA');
+        } else {
+  				$this->log('BOOM');
+          $this->response->type('png');
+          Cache::write($name, $data);
+          $this->response->body($data);
+        }
+
       }
-      $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-
-      $result = $db->query('select tile_data as t from tiles where zoom_level=' . $z . ' and tile_column=' . $x . ' and tile_row=' . $y);
-      $data = $result->fetchColumn();
-
-      if(!isset($data) || $data === FALSE) {
-        $this->log('NO DATA');
-      } else {
-				$this->log('BOOM');
-        $this->response->type('png');
-        $this->response->body($data);
+      catch(PDOException $e)
+      {
+  			$this->log($e->getMessage());
+        echo 'Exception : '.$e->getMessage();
       }
 
     }
-    catch(PDOException $e)
-    {
-			$this->log($e->getMessage());
-      echo 'Exception : '.$e->getMessage();
-    }
-
     //$result = $db->query('select tile_data as t from tiles where zoom_level=' . $z . ' and tile_column=' . $x . ' and tile_row=' . $y);
     //$data = $result->fetchColumn();
 

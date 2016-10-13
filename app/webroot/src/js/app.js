@@ -62,6 +62,7 @@ $(document).ready(function(){
 	$(".mobile-map-cover").on("click", function(){
 		if(isTablet()){
 			$(this).addClass("clicked-map");
+
 		}
 	});
 
@@ -99,7 +100,7 @@ $(document).ready(function(){
 			}, 1000);
 			return;
 		}
-		if (e.keyCode == 27 && poppedUp) { 
+		if (e.keyCode == 27 && poppedUp) {
 			searchPopdown();
 			return;
 		}
@@ -181,7 +182,7 @@ $(document).ready(function(){
 				break;
 				case("data"):
 					//table
-					 var dataList = new List('data-table', 
+					 var dataList = new List('data-table',
 					 	{valueNames: ['country', 'name' ],
 					 	page: 10,
 						plugins: [
@@ -213,6 +214,55 @@ $(document).ready(function(){
 					});
 				break;
 				case("view"):
+					$(window).on("scroll", visibleGraph);
+
+					$('.periodToggle').change(function(event) {
+						target = $(event.target).data("target");
+						prefix = $('.' + target +'.periodToggle:checked').val();
+						targetMap = window[target];
+						t1Layer = window[target + '_' + 't1_layer'];
+						t2Layer = window[target + '_' + 't2_layer'];
+						t3Layer = window[target + '_' + 't3_layer'];
+						style = window[target + 'Style'];
+
+						if(prefix == 't1'){
+							targetMap.addLayer(t1Layer);
+							targetMap.removeLayer(t2Layer);
+							if(t3Layer){targetMap.removeLayer(t3Layer);}
+						}else if(prefix == 't2'){
+							targetMap.addLayer(t2Layer);
+							targetMap.removeLayer(t1Layer);
+							if(t3Layer){targetMap.removeLayer(t3Layer);}
+						}else{
+							targetMap.addLayer(t3Layer);
+							targetMap.removeLayer(t1Layer);
+							targetMap.removeLayer(t2Layer);
+						}
+
+						if(style){style.bringToFront();}
+
+						$('.' + target + '.layerToggle:checked').each(function(index, el){
+							selectedLayer = window[target + '_' + prefix + '_' + $(el).prop('name')];
+							selectedLayer.setOpacity(1);
+						});
+					});
+
+					$('.layerToggle').change(function() {
+						target = $(event.target).data("target");
+						prefix = $('.' + target +'.periodToggle:checked').val();
+						layer = window[target + '_' + prefix + '_' + $(this).prop('name')];
+						style = window[target + 'Style'];
+
+						if($(this).is(':checked')) {
+							layer.setOpacity(1).bringToFront();
+							style.bringToFront();
+						}else{
+							layer.setOpacity(0).bringToBack();
+						}
+					});
+
+
+
 
 					charts = {
 						"urban_extent_composition_stacked_bar" : {
@@ -222,32 +272,32 @@ $(document).ready(function(){
 									backgroundColor: "#B4A4AF",
 									borderWidth : 0,
 									label: ["Urban Built Up"],
-									data : [city.DataSet.urban_extent_composition_urban_t1, 
-									city.DataSet.urban_extent_composition_urban_t2, 
+									data : [city.DataSet.urban_extent_composition_urban_t1,
+									city.DataSet.urban_extent_composition_urban_t2,
 									city.DataSet.urban_extent_composition_urban_t3]
 								},
 								{
 									backgroundColor: "#BDB8C2",
 									borderWidth : 0,
 									label: ["Suburban Built Up"],
-									data : [city.DataSet.urban_extent_composition_suburban_t1, 
-									city.DataSet.urban_extent_composition_suburban_t2, 
+									data : [city.DataSet.urban_extent_composition_suburban_t1,
+									city.DataSet.urban_extent_composition_suburban_t2,
 									city.DataSet.urban_extent_composition_suburban_t3]
 								},
 								{
 									backgroundColor: "#C6CCD4",
 									borderWidth : 0,
 									label: ["Rural Built Up"],
-									data : [city.DataSet.urban_extent_composition_rural_t1, 
-									city.DataSet.urban_extent_composition_rural_t2, 
+									data : [city.DataSet.urban_extent_composition_rural_t1,
+									city.DataSet.urban_extent_composition_rural_t2,
 									city.DataSet.urban_extent_composition_rural_t3]
 								},
 								{
 									backgroundColor: "#CDE0E4",
 									borderWidth : 0,
 									label: ["Urbanized Open Space"],
-									data : [city.DataSet.urban_extent_composition_open_t1, 
-									city.DataSet.urban_extent_composition_open_t2, 
+									data : [city.DataSet.urban_extent_composition_open_t1,
+									city.DataSet.urban_extent_composition_open_t2,
 									city.DataSet.urban_extent_composition_open_t3]
 								}
 							]
@@ -259,35 +309,35 @@ $(document).ready(function(){
 									backgroundColor : '#889A9A',
 									borderWidth : 0,
 									label : '<4m',
-									data : [city.DataSet.roads_width_under_4m_pre_1990 * 100, 
+									data : [city.DataSet.roads_width_under_4m_pre_1990 * 100,
 									city.DataSet.roads_width_under_4m_1990_2015 * 100 ]
 								},
 								{
 									backgroundColor : '#93AFA9',
 									borderWidth : 0,
 									label : '4-8m',
-									data : [city.DataSet.roads_width_4_8m_pre_1990 * 100, 
+									data : [city.DataSet.roads_width_4_8m_pre_1990 * 100,
 									city.DataSet.roads_width_4_8m_1990_2015 * 100 ]
 								},
 								{
 									backgroundColor : '#9FC3B5',
 									borderWidth : 0,
 									label : '8-12m',
-									data : [city.DataSet.roads_width_8_12m_pre_1990 * 100, 
+									data : [city.DataSet.roads_width_8_12m_pre_1990 * 100,
 									city.DataSet.roads_width_8_12m_1990_2015 * 100 ]
 								},
 								{
 									backgroundColor : '#AED7C0',
 									borderWidth : 0,
 									label : '12-16m',
-									data : [city.DataSet.roads_width_12_16m_pre_1990 * 100, 
+									data : [city.DataSet.roads_width_12_16m_pre_1990 * 100,
 									city.DataSet.roads_width_12_16m_1990_2015 * 100 ]
 								},
 								{
 									backgroundColor : '#BFECCA',
 									borderWidth : 0,
 									label : '>16m',
-									data : [city.DataSet.roads_width_over_16m_pre_1990 * 100, 
+									data : [city.DataSet.roads_width_over_16m_pre_1990 * 100,
 									city.DataSet.roads_width_over_16m_1990_2015 * 100 ]
 								}
 							]
@@ -319,17 +369,17 @@ $(document).ready(function(){
 							labels : ['City', 'Region', 'World'],
 							datasets : [
 							{
-								suffix :"_atomistic_", 
+								suffix :"_atomistic_",
 								bgColor : "#889A9A",
 								label : "Atomistic"
 							},
 							{
-								suffix :"_informal_", 
+								suffix :"_informal_",
 								bgColor : "#93AFA9",
 								label : "Informal"
 							},
 							{
-								suffix :"_formal_", 
+								suffix :"_formal_",
 								bgColor : "#9FC3B5",
 								label : "Formal"
 							},
@@ -342,61 +392,62 @@ $(document).ready(function(){
 						},
 					};
 
-					var waypoints = $('.city-map').waypoint({
-						handler: function(direction) {
-							// alert("now");
-							if($(this.element).hasClass("leaflet-container")){
-								return;
-							}
-							switch(this.element.id){
-								case("urban_extent_t1_map"):
+					// var waypoints = $('.city-map').waypoint({
+					// 	handler: function(direction) {
+					// 		// alert("now");
+					// 		if($(this.element).hasClass("leaflet-container")){
+					// 			return;
+					// 		}
+					// 		switch(this.element.id){
+					// 			case("urban_extent_t1_map"):
 
-									var map = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
-										center: [city.City.latitude, city.City.longitude],
-										zoom: 11,
-										maxZoom: 16,
-										minZoom: 10,
-										scrollWheelZoom : false
-									});
-									/*var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-										maxZoom: 16,
-										minZoom: 10,
-										attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-									}).addTo(map);*/
+					// 				var map = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
+					// 					center: [city.City.latitude, city.City.longitude],
+					// 					zoom: 11,
+					// 					maxZoom: 16,
+					// 					minZoom: 10,
+					// 					scrollWheelZoom : false
+					// 				});
+					// 				/*var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					// 					maxZoom: 16,
+					// 					minZoom: 10,
+					// 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					// 				}).addTo(map);*/
 
-									var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
-									var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
-									var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
-									var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
-									var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
+					// 				var outline = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_outline/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+					// 				var urban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_urban/{z}/{x}/{y}.png', {tms: true});
+					// 				var suburban = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_suburban/{z}/{x}/{y}.png', {tms: true});
+					// 				var rural = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_rural/{z}/{x}/{y}.png', {tms: true});
+					// 				var openSpace = L.tileLayer('/tiles/show/'+city.City.name.toLowerCase()+'-urban_extent_t2_open_space/{z}/{x}/{y}.png', {tms: true});
 
-									$('.layerToggle').change(function() {
-										/*jshint ignore:start */
-										var layer = eval($(this).prop('name'));
-										/*jshint ignore:end */
-										if($(this).is(':checked')) {
-											map.addLayer(layer);
-										}else{
-											map.removeLayer(layer);
-										}
-									});
-								break;
-								case("roads_map"):
-									make_roads_map();
-								break;
-								case("composition_of_added_area_map"):
-									make_composition_of_added_area_map();
-								break;
-						    }
-						},
-						offset : "100%"
-					});
+					// 				$('.layerToggle').change(function() {
+					// 					/*jshint ignore:start */
+					// 					var layer = eval($(this).prop('name'));
+					// 					/*jshint ignore:end */
+					// 					if($(this).is(':checked')) {
+					// 						map.addLayer(layer);
+					// 					}else{
+					// 						map.removeLayer(layer);
+					// 					}
+					// 				});
+					// 			break;
+					// 			case("roads_map"):
+					// 				make_roads_map();
+					// 			break;
+					// 			case("composition_of_added_area_map"):
+					// 				make_composition_of_added_area_map();
+					// 			break;
+					// 	    }
+					// 	},
+					// 	offset : "100%"
+					// });
 
-					
+
+
 
 					globalOptions = {
 						deferred : {
-							enabled:true,	
+							enabled:true,
 							// delay : 500
 						},
 						maintainAspectRatio: false,
@@ -625,14 +676,14 @@ var makeLine = function(prefix, city){
 	var data = {
 			labels : [ city.City.t1, city.City.t2, city.City.t3],
 			datasets: [{
-				pointRadius: 5,	
+				pointRadius: 5,
 				borderJoinStyle : "miter",
 				lineTension : 0,
 				borderWidth : 1,
 				borderColor : "#7b7b7b",
 				pointBorderColor : "#7b7b7b",
-				pointBorderWidth : 1,	
-				fill : false,	
+				pointBorderWidth : 1,
+				fill : false,
 				label : ctx.data("title"),
 				data : [city.DataSet[field+"_t1"], city.DataSet[field+"_t2"], city.DataSet[field+"_t3"]]
 			}]
@@ -758,7 +809,7 @@ var makeChart = function(prefix, city, side){
 		gridLines : {
 			display: false
 		},
-	}];	
+	}];
 	chartObjects[prefix] = new Chart(ctx, {
 		type: side ? 'horizontalBar' : 'bar',
 		data: data,
@@ -791,7 +842,7 @@ var makeChart = function(prefix, city, side){
 							return bigTooltip(number, label, $(ctx).data("unit"));
 						}else{
 							number = tooltipItem.yLabel;
-							return percentageTooltip(number, label, $(ctx).data("multiply"));	
+							return percentageTooltip(number, label, $(ctx).data("multiply"));
 						}
 					}
 				}
@@ -829,9 +880,9 @@ var makeStacked = function(prefix, city, vert){
 						return false;
 					},
 					label : function (tooltipItem, data){
-						var label = data.datasets[tooltipItem.datasetIndex].label;						
+						var label = data.datasets[tooltipItem.datasetIndex].label;
 						var number = vert ? tooltipItem.yLabel : tooltipItem.xLabel;
-						return percentageTooltip(number, label, $(ctx).data("multiply"));	
+						return percentageTooltip(number, label, $(ctx).data("multiply"));
 					}
 				}
 			},
@@ -868,7 +919,7 @@ var makeRoadChart = function(prefix, city){
 
 	$(charts.arterial_roads.datasets).each(function(){
 		var data = {
-			backgroundColor : this.backgroundColor, 
+			backgroundColor : this.backgroundColor,
 			borderWidth : 0,
 			label : this.label,
 			data: [city.DataSet[field+this.suffix+"pre_1990"], city.Region.DataSet[field+this.suffix+"pre_1990"], city.World.DataSet[field+this.suffix+"pre_1990"]]
@@ -901,7 +952,7 @@ var makeRoadChart = function(prefix, city){
 						return false;
 					},
 					label :  function (tooltipItem, data){
-						var label = data.datasets[tooltipItem.datasetIndex].label;						
+						var label = data.datasets[tooltipItem.datasetIndex].label;
 						var number =  tooltipItem.xLabel;
 						if($(ctx).data("unit") == "%"){
 							return percentageTooltip(number, label, $(ctx).data("multiply"));
@@ -931,11 +982,11 @@ var makeRoadChart = function(prefix, city){
 							if($(ctx).data("multiply") !== undefined){
 								value *= $(ctx).data("multiply");
 							}
-							value = Math.floor(value*100)/100;		
+							value = Math.floor(value*100)/100;
 							if($(ctx).data("unit") !== undefined){
 								var unit = $(ctx).data("unit");
 								if(unit == "%" || unit == "m"){
-									value += $(ctx).data("unit");									
+									value += $(ctx).data("unit");
 								}
 							}
 							return value;
@@ -965,7 +1016,7 @@ var makeSpecialStacked = function(prefix, city){
 
 	$(charts[prefix].datasets).each(function(){
 		var data = {
-			backgroundColor : this.bgColor, 
+			backgroundColor : this.bgColor,
 			borderWidth : 0,
 			label : this.label,
 			data : [city.DataSet[field+this.suffix+"pre_1990"], city.Region.DataSet[field+this.suffix+"pre_1990"],  city.World.DataSet[field+this.suffix+"pre_1990"]]
@@ -975,7 +1026,7 @@ var makeSpecialStacked = function(prefix, city){
 		data_2015.datasets.push(jQuery.extend({}, data));
 	});
 
-	
+
 	$(ctx).data("1990", data_1990);
 	$(ctx).data("2015", data_2015);
 
@@ -995,6 +1046,7 @@ var makeSpecialStacked = function(prefix, city){
 						return false;
 					},
 					label : function(tooltipItem, data) { 
+
 						label = data.datasets[tooltipItem.datasetIndex].label;
 
 						amount = tooltipItem.xLabel;
@@ -1065,7 +1117,7 @@ var makeBlockChart = function(prefix, city){
 			},
 			tooltips : {
 				callbacks : {
-					label : function(tooltipItem, data) { 
+					label : function(tooltipItem, data) {
 						label = data.datasets[tooltipItem.datasetIndex].label;
 						// var folded = fold(label, 20, true);
 						return bigTooltip(tooltipItem.yLabel, label, $(ctx).data("unit"));
@@ -1084,7 +1136,7 @@ var makeBlockChart = function(prefix, city){
 };
 
 
-	// legendTemplate takes a template as a string, you can populate the template with values from your dataset 
+	// legendTemplate takes a template as a string, you can populate the template with values from your dataset
 	// var options = {
 	// legendTemplate : '<ul>'
 	// 				+'<% for (var i=0; i<datasets.length; i++) { %>'
@@ -1110,7 +1162,7 @@ var makeBlockChart = function(prefix, city){
 
 
 /*
-* Recursively merge properties of two objects 
+* Recursively merge properties of two objects
 */
 function MergeRecursive(obj1, obj2) {
 
@@ -1142,8 +1194,8 @@ function MergeRecursive(obj1, obj2) {
 // a          -  array used to build result
 //
 // Returns an array of strings that are no longer than n
-// characters long.  If a is specified as an array, the lines 
-// found in s will be pushed onto the end of a. 
+// characters long.  If a is specified as an array, the lines
+// found in s will be pushed onto the end of a.
 //
 // If s is huge and n is very small, this metho will have
 // problems... StackOverflow.
@@ -1173,7 +1225,7 @@ function fold(s, n, useSpaces, a) {
     }
 }
 $.fn.outerHTML = function(){
- 
+
     // IE, Chrome & Safari will comply with the non-standard outerHTML, all others (FF) will have a fall-back for cloning
     return (!this.length) ? this : (this[0].outerHTML || (
       function(el){
@@ -1183,7 +1235,53 @@ $.fn.outerHTML = function(){
           div = null;
           return contents;
     })(this[0]));
- 
+
 };
+
+var debounce = function(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+var visibleGraph = debounce(function() {
+	console.log("debounced scroll");
+	// All the taxing stuff you do
+	var maps = $(".city-map:not(.map-built)").filter(":onScreen");
+	if(maps.length > 0){
+		$(maps).addClass("map-built");
+		$(maps).each(function(){
+			switch($(this).attr("id")){
+				case("urban_extent_t1_map"):
+					urban_extent_t1_map();
+				break;
+				case("composition_of_added_area_map"):
+					composition_of_added_area_map();
+				break;
+				case("roads_map"):
+					roads_map();
+				break;
+				case("arterial_map"):
+					arterial_map();
+				break;
+				case("blocks_map"):
+					blocks_map();
+				break;
+				default:
+					alert(id+" map doesnt have a build funciton");
+			}
+		});
+	}
+}, 250);
+
 
 

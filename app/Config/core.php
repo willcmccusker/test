@@ -165,7 +165,7 @@ Configure::write('Routing.prefixes', array('admin', 'API'));
 /**
  * Turn off all caching application-wide.
  */
-	Configure::write('Cache.disable', true);
+	Configure::write('Cache.disable', false);
 
 /**
  * Enable cache checking.
@@ -175,7 +175,7 @@ Configure::write('Routing.prefixes', array('admin', 'API'));
  * You can either set it controller-wide by setting public $cacheAction = true,
  * or in each action using $this->cacheAction = true.
  */
-	//Configure::write('Cache.check', true);
+	// Configure::write('Cache.check', true);
 
 /**
  * Enable cache view prefixes.
@@ -243,12 +243,12 @@ Configure::write('Routing.prefixes', array('admin', 'API'));
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'iR2C9mDs2guiGYhG93VoUubWwvnb0qyJfIxf0Fga');
+	Configure::write('Security.salt', 'vendetta-betoken-lave-polarize-davit-swore-palsy-mannish-warranty');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '96876865930573664424945359745');
+	Configure::write('Security.cipherSeed', '87674989560890970817113413276758689979387763');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -374,7 +374,7 @@ Configure::write('Routing.prefixes', array('admin', 'API'));
 $engine = 'File';
 
 // In development mode, caches should expire quickly.
-$duration = '+0 days';
+$duration = '+10 days';
 if (Configure::read('debug') > 0) {
 	$duration = '+10 seconds';
 }
