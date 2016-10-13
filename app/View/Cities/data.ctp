@@ -41,11 +41,6 @@
 
 						<?
 										$map1 = $download_path."Phase I Maps/".$city["City"]["areas_and_densities_map_path"];
-										if(file_exists(APP . "webroot/" . $map1)){
-											debug("exists");
-										}else{
-											debug(APP . "webroot/" . $map1." DOES NOT EXIST");
-										}
 										$map1 = file_exists(APP . "webroot/" . $map1) ? $map1 : false;
 										$metric1 = $download_path."Phase I Metrics/".$city["City"]["areas_and_densities_map_path"];
 										$metric1 = file_exists(APP . "webroot/" . $metric1) ? $metric1 : false;
