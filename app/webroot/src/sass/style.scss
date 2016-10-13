@@ -765,6 +765,10 @@ h3.sectionSubHeader {
 		display:inline-block;
 		line-height:44px;
 		float:right;
+		select{
+			border:none;
+			background-color:transparent;
+		}
 	}
 }
 .show-links{

@@ -94,9 +94,9 @@
 					<?= $dynamicTexts["urban_extent"]["Text"]["content"];?>
 				</p>
 				<ul>
-					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t1" checked="checked" data-target="extent"/> T1 </label>
-					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t2" data-target="extent" /> T2 </label>
-					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t3" data-target="extent" /> T3 </label>
+					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t1" checked="checked" data-target="extent"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t2" data-target="extent" /> <?= substr($city["City"]["t2"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t3" data-target="extent" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<ul>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> Urban Built-up </label>

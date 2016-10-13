@@ -1299,7 +1299,7 @@ var visibleGraph = debounce(function() {
 			}
 		});
 	}
-}, 250);
+}, 500);
 
 
 
