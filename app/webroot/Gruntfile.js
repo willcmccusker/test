@@ -28,7 +28,9 @@ module.exports = function(grunt) {
           'dist/js/app.min.js': [
 
             'src/js/jquery-3.1.0.min.js', 
+
             'src/js/headroom.min.js',
+            'src/js/jquery.onscreen.min.js',
             // 'src/js/leaflet.min.js',
             // 'src/js/mapbox.standalone.js',
             // 'topojson.min.js',
@@ -39,7 +41,7 @@ module.exports = function(grunt) {
             // 'src/js/plottable.min.js',
 
             // 'src/js/stupidtable.min.js',
-            'src/js/jquery.waypoints.min.js',
+            // 'src/js/jquery.waypoints.min.js',
             'src/js/chart.ignore.js',
             'src/js/Chart.Deferred.min.js',
             // 'src/js/Chart.bundle.min.js',
