@@ -49,8 +49,8 @@ class TilesController extends AppController {
     Cache::config('default', array('path' => CACHE . "/tiles/" . $path . "/"));
 
     //uncomment these to turn cache on
-    $cached = Cache::read($name);
-    if($cached !== false){
+    // $cached = Cache::read($name);
+    if(false){//$cached !== false){
           $this->response->type('png');
           $this->response->body($cached);
     }else{
