@@ -74,8 +74,6 @@
 				<p>
 					<? //debug($dynamicTexts);?>
 					<?= $dynamicTexts["population"]["Text"]["content"];?>
-
-
 				</p>
 			</div>
 			<div class='col-2-5 tab-1-2 mob-1-1'>
@@ -98,14 +96,67 @@
 					<?= $dynamicTexts["urban_extent"]["Text"]["content"];?>
 				</p>
 				<ul>
-					<li> <label><input class="layerToggle" type="checkbox" name="urban"/> urban </label>
-					<li> <label><input class="layerToggle" type="checkbox" name="suburban"/> suburban </label>
-					<li> <label><input class="layerToggle" type="checkbox" name="rural"/> rural </label>
-					<li> <label><input class="layerToggle" type="checkbox" name="openSpace"/> openSpace </label>
+					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t1" checked="checked" data-target="extent"/> T1 </label>
+					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t2" data-target="extent" /> T2 </label>
+					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t3" data-target="extent" /> T3 </label>
+				</ul>
+				<ul>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> Urban Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> Suburban Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt "/> Rural Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> Urbanized Open Space </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> Exurban Built-Up Area </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> Exurban Open Space </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanRural"/> Urban Edge </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='urban_extent_t1_map' class='city-map'>
+					<script>
+						L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+						var extent = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
+							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
+							zoom: 11,
+							scrollWheelZoom : false
+						});
+
+						var extent_t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_edge_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t1/{z}/{x}/{y}.png', {tms: true});
+						var extent_t1_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t1/{z}/{x}/{y}.png', {tms: true});
+
+						var extent_t2_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t2/{z}/{x}/{y}.png', {tms: true});
+						var extent_t2_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t2/{z}/{x}/{y}.png', {tms: true});
+
+						var extent_t3_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_extent/urban_edge_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_urbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/urban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_suburbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/suburban_build_up_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_ruralBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/rural_build_up_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_urbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/open_space_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_exurbanBuilt = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_built_up_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_exurbanOpen = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_open_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_exurbanRural = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/exurban_rural_t3/{z}/{x}/{y}.png', {tms: true});
+						var extent_t3_water = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/urban_extent/water_t3/{z}/{x}/{y}.png', {tms: true});
+
+						var extent_t1_layer = L.layerGroup([extent_t1_outline, extent_t1_urbanBuilt, extent_t1_suburbanBuilt, extent_t1_ruralBuilt, extent_t1_urbanOpen, extent_t1_exurbanBuilt, extent_t1_exurbanOpen, extent_t1_exurbanRural, extent_t1_water]).addTo(extent);
+						var extent_t2_layer = L.layerGroup([extent_t2_outline, extent_t2_urbanBuilt, extent_t2_suburbanBuilt, extent_t2_ruralBuilt, extent_t2_urbanOpen, extent_t2_exurbanBuilt, extent_t2_exurbanOpen, extent_t2_exurbanRural, extent_t2_water]);
+						var extent_t3_layer = L.layerGroup([extent_t3_outline, extent_t3_urbanBuilt, extent_t3_suburbanBuilt, extent_t3_ruralBuilt, extent_t3_urbanOpen, extent_t3_exurbanBuilt, extent_t3_exurbanOpen, extent_t3_exurbanRural, extent_t3_water]);
+
+						var extentStyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(extent);
+				</script>
+
 				</div>
 			</div>
 		</div>
@@ -167,8 +218,8 @@
 				<h3 class='sectionSubHeader' >Composition of Added Area</h3>
 				<p><?= $dynamicTexts["composition_of_added_area"]["Text"]["content"];?></p>
 				<ul>
-					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t1" checked="checked" data-target="addedArea"/> T1 </label>
-					<li> <label><input class="periodToggle addedArea" type="radio" name="period" value="t2" data-target="addedArea" /> T2 </label>
+					<li> <label><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t1" checked="checked" data-target="addedArea"/> T1 </label>
+					<li> <label><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t2" data-target="addedArea" /> T2 </label>
 				</ul>
 				<ul>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> Built-up area </label>
@@ -184,7 +235,6 @@
 			<script>
 				L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 
-				var make_composition_of_added_area_map = function(){
 
 					var addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
@@ -206,11 +256,12 @@
 					var addedArea_t2_leapfrog = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/leapfrog_t2_t3/{z}/{x}/{y}.png', {tms: true });
 					var addedArea_t2_inclusion = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/inclusion_t2_t3/{z}/{x}/{y}.png', {tms: true });
 
+
 					var addedArea_t1_layer = L.layerGroup([addedArea_t1_outline, addedArea_t1_builtUp, addedArea_t1_infill, addedArea_t1_extension, addedArea_t1_leapfrog, addedArea_t1_inclusion]).addTo(addedArea);
 					var addedArea_t2_layer = L.layerGroup([addedArea_t2_outline, addedArea_t2_builtUp, addedArea_t2_infill, addedArea_t2_extension, addedArea_t2_leapfrog, addedArea_t2_inclusion]);
 
-					var style = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(addedArea);
-				}
+
+				var addedAreatyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(addedArea);
 		</script>
 		</div>
 	</div>
@@ -225,71 +276,32 @@
 				<div id="roads" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Roads</h3>
 				<p><?= $dynamicTexts["density"]["Text"]["content"];?></p>
+				<ul>
+					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1" checked="checked" data-target="roads"/> T1 </label>
+					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t2" data-target="roads" /> T2 </label>
+				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='roads_map' class='city-map'></div>
-				<script src="/file-manager/userfiles/json/<?= $city['City']['slug'] ?>/locales_t0.json" type="text/javascript"></script>
 				<script>
 
-				var make_roads_map = function(){
-					var roadsMap = L.mapbox.map('roads_map', 'mapbox.satellite', {
+
+					var roads = L.mapbox.map('roads_map', 'mapbox.satellite', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
-						zoom: 14,
+						zoom: 15,
 						scrollWheelZoom : false
 					});
 
-					var t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(roadsMap)
+					var t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(roads)
 					var t1_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true});
 					var t1_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t0/{z}/{x}/{y}.png', {tms: true});
 
-					var t2_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t2/{z}/{x}/{y}.png', {tms: true});
-					var t2_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t2/{z}/{x}/{y}.png', {tms: true})
+					var t2_roads = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t1/{z}/{x}/{y}.png', {tms: true});
+					var t2_locales = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/roads/locales_t1/{z}/{x}/{y}.png', {tms: true})
 
-					var t1Roads = L.layerGroup([t1_roads, t1_locales]).addTo(roadsMap);
-					var t2Roads = L.layerGroup([t2_roads, t2_locales]);
-
-					var t1_clickable = L.geoJson(locales_t0,{
-						weight:1,
-						color: 'red',
-						fillColor: "#000",
-						fillOpacity: 0,
-						onEachFeature: function(feature, layer) {
-							layer.on('click', function(e) {
-								roadsMap.setView(e.latlng, 17);
-							});
-						}
-					}).addTo(roadsMap);
-				};
-			$('.roadsPeriod').change(function() {
-				var prefix = $('.roadsPeriod:checked').val();
-
-				if(prefix == 't1'){
-					map.addLayer(t1)
-					map.removeLayer(t2);
-				}else{
-					map.addLayer(t2)
-					map.removeLayer(t1);
-				}
-
-				$('.layerToggle:checked').each(function(index, el){
-					var layer = eval(prefix + '_' + $(el).prop('name'));
-					layer.setOpacity(1).bringToFront();
-				});
-			});
-
-			$('.layerToggle').change(function() {
-				var layerName = $('.periodToggle:checked').val() + '_' + $(this).prop('name'),
-					layer = eval(layerName);
-
-
-				if($(this).is(':checked')) {
-					layer.setOpacity(1).bringToFront();
-				}else{
-					layer.setOpacity(0).bringToBack();
-				}
-			});
-		</script>
-
+					var roads_t1_layer = L.layerGroup([t1_roads, t1_locales]).addTo(roads);
+					var roads_t2_layer = L.layerGroup([t2_roads, t2_locales]);
+				</script>
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -326,10 +338,26 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="arterial_roads" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Arterial Roads</h3>
+				<ul>
+					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> T1 </label>
+					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> T2 </label>
+				</ul>
 				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='arterial_map' class='city-map'></div>
+				<script>
+					var arterials = L.mapbox.map('arterial_map', 'mapbox.satellite', {
+						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
+						zoom: 12,
+						scrollWheelZoom : false
+					});
+
+					var arterialsLines = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/arterials_t1/{z}/{x}/{y}.png', {tms: true}).addTo(arterials);
+					var arterials_t1_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(arterials);
+					var arterials_t2_layer = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t2/{z}/{x}/{y}.png', {tms: true});
+				</script>
+
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -379,10 +407,28 @@
 				<div id="blocks_and_plots" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Blocks and Plots</h3>
 				<p><?= $dynamicTexts["blocks_and_plots"]["Text"]["content"];?></p>
+				<ul>
+					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1" checked="checked" data-target="blocks"/> T1 </label>
+					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" data-target="blocks" /> T2 </label>
+				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='blocks_map' class='city-map'></div>
+				<script>
+					var blocks = L.mapbox.map('blocks_map', 'mapbox.satellite', {
+						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
+						zoom: 15,
+						scrollWheelZoom : false
+					});
 
+					var t1_outline = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true}).addTo(roads)
+					var t1_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t0/{z}/{x}/{y}.png', {tms: true});
+
+					var t2_blocks = L.tileLayer('/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t1/{z}/{x}/{y}.png', {tms: true})
+
+					var blocks_t1_layer = L.layerGroup([t1_blocks]).addTo(blocks);
+					var blocks_t2_layer = L.layerGroup([t2_blocks]);
+				</script>
 			</div>
 		</div>
 		<div class='grid wide'>
@@ -427,16 +473,24 @@
 		targetMap = window[target];
 		t1Layer = window[target + '_' + 't1_layer'];
 		t2Layer = window[target + '_' + 't2_layer'];
+		t3Layer = window[target + '_' + 't3_layer'];
+		style = window[target + 'Style'];
 
 		if(prefix == 't1'){
 			targetMap.addLayer(t1Layer)
 			targetMap.removeLayer(t2Layer);
-			style.bringToFront();
-		}else{
+			if(t3Layer){targetMap.removeLayer(t3Layer);}
+		}else if(prefix == 't2'){
 			targetMap.addLayer(t2Layer)
 			targetMap.removeLayer(t1Layer);
-			style.bringToFront();
+			if(t3Layer){targetMap.removeLayer(t3Layer);}
+		}else{
+			targetMap.addLayer(t3Layer)
+			targetMap.removeLayer(t1Layer);
+			targetMap.removeLayer(t2Layer);
 		}
+
+		if(style){style.bringToFront();}
 
 		$('.' + target + '.layerToggle:checked').each(function(index, el){
 			selectedLayer = window[target + '_' + prefix + '_' + $(el).prop('name')];
@@ -448,6 +502,7 @@
 	target = $(event.target).data("target");
 	prefix = $('.' + target +'.periodToggle:checked').val();
 	layer = window[target + '_' + prefix + '_' + $(this).prop('name')];
+	style = window[target + 'Style'];
 
 	if($(this).is(':checked')) {
 		layer.setOpacity(1).bringToFront();
@@ -455,5 +510,5 @@
 	}else{
 		layer.setOpacity(0).bringToBack();
 	}
-	});
+});
 </script>

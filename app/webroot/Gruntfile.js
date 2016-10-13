@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 
             'src/js/jquery-3.1.0.min.js', 
 
-
+            'src/js/jquery.onscreen.min.js',
             // 'leaflet.min.js',
             // 'topojson.min.js',
             // 'mapbox.ignore.js',
