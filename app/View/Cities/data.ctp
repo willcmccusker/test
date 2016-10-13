@@ -33,42 +33,87 @@
 				</thead>
 				<tbody class='list'>
 				<?
+				$download_path = "/file-manager/userfiles/data_page/";
 				foreach($cities as $i=>$city):?>
 					<tr>
 						<td class='name'><a href='/cities/view/<?=$city["City"]["slug"];?>'><?= $city["City"]["name"];?></a></td>
 						<td class='country'><?= $city["City"]["country"];?></td>
+
+						<?
+
+										$map1 = $download_path."Phase I Maps/".$city["City"]["areas_and_densities_map_path"];
+										$map1 = file_exists(APP . "/webroot/" . $map1) ? $map1 : false;
+										$metric1 = $download_path."Phase I Metrics/".$city["City"]["areas_and_densities_map_path"];
+										$metric1 = file_exists(APP . "/webroot/" . $metric1) ? $metric1 : false;
+										$gis1 = $download_path."Phase I GIS/".$city["City"]["areas_and_densities_map_path"];
+										$gis1 = file_exists(APP . "/webroot/" . $gis1) ? $gis1 : false;
+
+
+										$map2 = $download_path."Phase II Maps/".$city["City"]["blocks_and_roads_map_path"];
+										$map2 = file_exists(APP . "/webroot/" . $map2) ? $map2 : false;
+										$metric2 = $download_path."Phase II Metrics/".$city["City"]["blocks_and_roads_map_path"];
+										$metric2 = file_exists(APP . "/webroot/" . $metric2) ? $metric2 : false;
+										$gis2 = $download_path."Phase II GIS/".$city["City"]["blocks_and_roads_map_path"];
+										$gis2 = file_exists(APP . "/webroot/" . $gis2) ? $gis2 : false;
+
+
+										$map3 = $download_path."Historical cities maps and metrics/Blocks and Roads Historical Map Pages/".$city["City"]["historical_data_map_path"];
+										$map3 = file_exists(APP . "/webroot/" . $map3) ? $map3 : false;
+										$metric3 = $download_path."Historical cities maps and metrics/Blocks and Roads Historical Metrics Pages/".$city["City"]["historical_data_map_path"];
+										$metric3 = file_exists(APP . "/webroot/" . $metric3) ? $metric3 : false;
+										$gis3 = $download_path."foobar".$city["City"]["historical_data_map_path"];
+										$gis3 = file_exists(APP . "/webroot/" . $gis3) ? $gis3 : false;
+
+
+
+
+
+								?>
+
+
+
+
 						<td class='hide-on-mobile'>
 							<div class='expansion-links'>
-								<a href='<?=$city["City"]["areas_and_densities_p_d_f_path"];?>' target="_blank">PDF</a>
-								<a href='<?=$city["City"]["areas_and_densities_g_i_s_path"];?>' target="_blank">GIS</a>
+							<?= $map1  ? "<a download href='".$map1."' target='_blank'>Maps</a>" : "<span class='no-file'>Maps</span>";?>
+							<?= $metric1  ? "<a download href='".$metric1."' target='_blank'>Metrics</a>" : "<span class='no-file'>Metrics</span>";?>
+							<?= $gis1  ? "<a download href='".$gis1."' target='_blank'>GIS</a>" : "<span class='no-file'>GIS</span>";?>
+							</div>
+						</td>		
+						<td class='hide-on-mobile'>
+							<div class='expansion-links'>
+							<?= $map2  ? "<a download href='".$map2."' target='_blank'>Maps</a>" : "<span class='no-file'>Maps</span>";?>
+							<?= $metric2  ? "<a download href='".$metric2."' target='_blank'>Metrics</a>" : "<span class='no-file'>Metrics</span>";?>
+							<?= $gis2  ? "<a download href='".$gis2."' target='_blank'>GIS</a>" : "<span class='no-file'>GIS</span>";?>
 							</div>
 						</td>			
 						<td class='hide-on-mobile'>
 							<div class='expansion-links'>
-								<a href='<?=$city["City"]["blocks_and_roads_p_d_f_path"];?>' target="_blank">PDF</a>
-								<a href='<?=$city["City"]["blocks_and_roads_g_i_s_path"];?>' target="_blank">GIS</a>
-							</div>
-						</td>			
-						<td class='hide-on-mobile'>
-							<div class='expansion-links'>
-								<a href='<?=$city["City"]["historical_data_p_d_f_path"];?>' target="_blank">PDF</a>
-								<a href='<?=$city["City"]["historical_data_g_i_s_path"];?>' target="_blank">GIS</a>
+							<?= $map3  ? "<a download href='".$map3."' target='_blank'>Maps</a>" : "<span class='no-file'>Maps</span>";?>
+							<?= $metric3  ? "<a download href='".$metric3."' target='_blank'>Metrics</a>" : "<span class='no-file'>Metrics</span>";?>
+							<?= $gis3  ? "<a download href='".$gis3."' target='_blank'>GIS</a>" : "<span class='no-file'>GIS</span>";?>
 							</div>
 						</td>
 						<td class='hide-on-desktop'>
 							<div class='show-links'>Select</div>
 							<div class='expansion-links display-none'>
-								<a href='<?=$city["City"]["areas_and_densities_p_d_f_path"];?>' target="_blank">Areas and Densities PDF</a>
+								<?= $map1  ? "<a download href='".$map1."' target='_blank'>Areas and Densities Maps</a>" : "<span class='no-file'>Areas and Densities Maps</span>";?>
 								<br \>
-								<a href='<?=$city["City"]["areas_and_densities_g_i_s_path"];?>' target="_blank">Areas and Densities GIS</a>
+								<?= $metric1  ? "<a download href='".$metric1."' target='_blank'>Areas and Densities Metrics</a>" : "<span class='no-file'>Areas and Densities Metrics</span>";?>
 								<br \>
-								<a href='<?=$city["City"]["blocks_and_roads_p_d_f_path"];?>' target="_blank">Blocks and Roads PDF</a>
+								<?= $gis1  ? "<a download href='".$gis1."' target='_blank'>Areas and Densities GIS</a>" : "<span class='no-file'>Areas and Densities GIS</span>";?>
 								<br \>
-								<a href='<?=$city["City"]["blocks_and_roads_g_i_s_path"];?>' target="_blank">Blocks and Roads GIS</a>
+								<?= $map2  ? "<a download href='".$map2."' target='_blank'>Blocks and Roads Maps</a>" : "<span class='no-file'>Blocks and Roads Maps</span>";?>
 								<br \>
-								<a href='<?=$city["City"]["historical_data_p_d_f_path"];?>' target="_blank">Historical Data PDF</a>
+								<?= $metric2  ? "<a download href='".$metric2."' target='_blank'>Blocks and Roads Metrics</a>" : "<span class='no-file'>Blocks and Roads Metrics</span>";?>
 								<br \>
-								<a href='<?=$city["City"]["historical_data_g_i_s_path"];?>' target="_blank">Historical Data GIS</a>
+								<?= $gis2  ? "<a download href='".$gis2."' target='_blank'>Blocks and Roads GIS</a>" : "<span class='no-file'>Blocks and Roads GIS</span>";?>
+								<br \>
+								<?= $map3  ? "<a download href='".$map3."' target='_blank'>Historical Data Maps</a>" : "<span class='no-file'>Historical Data Maps</span>";?>
+								<br \>
+								<?= $metric3  ? "<a download href='".$metric3."' target='_blank'>Historical Data Metrics</a>" : "<span class='no-file'>Historical Data Metrics</span>";?>
+								<br \>
+								<?= $gis3  ? "<a download href='".$gis3."' target='_blank'>Historical Data GIS</a>" : "<span class='no-file'>Historical Data GIS</span>";?>
 								<br \>
 							</div>
 						</td>

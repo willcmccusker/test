@@ -147,6 +147,10 @@ a {
 	color:$bodytype;
 	text-decoration: none;
 }
+.no-file{
+	text-decoration: line-through !important;
+	cursor: default;
+}
 .no-scroll{
 	overflow: hidden;
 }
