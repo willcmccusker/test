@@ -59,9 +59,17 @@
 	</div>
 </div>
 <div class='graphMainContainer'>
-	<div class='grid wide'>
-		<div class='col-1-1'>
-			<div class='sectionHeader'>Areas and Densities</div>
+	<div class='grid wide '>
+		<div class='col-1-1 header-underline no-pad'>
+			<div class='col-1-2 tab-1-1 mob-1-1'>
+				<div class='sectionHeader'>Areas and Densities</div>
+			</div>
+			<div class='col-1-2 tab-1-1 mob-1-1'>
+				<div class='sectionDownload'>Download:
+					<a download target="_blank" href="/file-manager/userfiles/data_page/Areas_and_Densities_Table/Areas and Densities Table 1.csv">CSV</a> 
+					<a download target="_blank" href="/file-manager/userfiles/data_page/Areas_and_Densities_Table/Areas and Densities Table 1.xlsx">XLSX</a> 
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class='graphSection'>

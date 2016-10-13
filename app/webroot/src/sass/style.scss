@@ -433,13 +433,21 @@ h1#site-title {
 .graphMainContainer {
 	background-color: $lightgrey3;
 }
-
-.sectionHeader {
+.header-underline{
+	border-bottom: 1px solid $lightgrey1;
+}
+.sectionHeader, 
+.sectionDownload {
 	font-size:$largetype3;
 	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
-	border-bottom: 1px solid $lightgrey1;
 	padding-top:20px;
-	text-align: center;
+	text-align: left;
+
+}
+.sectionDownload{
+		font-size:$largetype1;
+	text-align:right;
+	line-height:60px;
 }
 
 .sectionSubHeader {
