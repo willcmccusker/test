@@ -38,13 +38,12 @@ class DataSet extends AppModel {
 			$GDPs = array();
 			$regions = array();			
 
-			$_n = 11;
+			$_n = 14;
 
-		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		    while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
 		        $row++;
-		    	if($row < 7) continue;
-
-		        $offset = 20;
+		    	if($row < 6) continue;
+		        $offset = 23;
 
 		        $dataset = array("DataSet"=>array());
 		        $i = 0;
@@ -62,7 +61,7 @@ class DataSet extends AppModel {
 
 		        	$dataset["DataSet"][$field] = $data[$key];
 		        	$i++;
-		        }
+		        }		    	
 		        $this->create();
 		        if(!$this->save($dataset)){
 		        	debug($dataset);
@@ -71,7 +70,6 @@ class DataSet extends AppModel {
 		        }else{
 		        	$dataset_id = $this->getLastInsertID();
 		        }
-
 
 		        switch($data[0]){
 		        	case("WORLD"):
@@ -152,7 +150,7 @@ class DataSet extends AppModel {
 			        				$col = 0;
 		        				break;
 		        				case("country"):
-			        				$col = 12;
+			        				$col = 15;
 		        				break;
 		        				case("latitude"):
 			        				$col = 1;
@@ -161,48 +159,57 @@ class DataSet extends AppModel {
 			        				$col = 2;
 		        				break;
 		        				case("population"):
-			        				$col = 14;
+			        				$col = 17;
 			        				$city["City"]["population"] = str_replace(",", "", $data[$col]);
 			        				$col = false;
 		        				break;
 		        				case("photo_path"):
-			        				$col = 9;
+			        				$col = 12;
 		        				break;
 		        				case("flag_path"):
-			        				$col = 10;
+			        				$col = 13;
 		        				break;
-		        				case("areas_and_densities_p_d_f_path"):
+		        				case("areas_and_densities_map_path"):
 			        				$col = 3;
 		        				break;
-		        				case("areas_and_densities_g_i_s_path"):
+		        				case("areas_and_densities_p_d_f_path"):
 			        				$col = 4;
 		        				break;
-		        				case("blocks_and_roads_p_d_f_path"):
+		        				case("areas_and_densities_g_i_s_path"):
 			        				$col = 5;
 		        				break;
-		        				case("blocks_and_roads_g_i_s_path"):
+		        				case("blocks_and_roads_map_path"):
 			        				$col = 6;
 		        				break;
-		        				case("historical_data_p_d_f_path"):
+		        				case("blocks_and_roads_p_d_f_path"):
 			        				$col = 7;
 		        				break;
-		        				case("historical_data_g_i_s_path"):
+		        				case("blocks_and_roads_g_i_s_path"):
 			        				$col = 8;
 		        				break;
+		        				case("historical_data_map_path"):
+			        				$col = 9;
+		        				break;
+		        				case("historical_data_p_d_f_path"):
+			        				$col = 10;
+		        				break;
+		        				case("historical_data_g_i_s_path"):
+			        				$col = 11;
+		        				break;
 		        				case("extent"):
-			        				$col = 15;
-		        				break;
-		        				case("density"):
-			        				$col = 16;
-		        				break;
-		        				case("t1"):
-			        				$col = 17;
-		        				break;
-		        				case("t2"):
 			        				$col = 18;
 		        				break;
-		        				case("t3"):
+		        				case("density"):
 			        				$col = 19;
+		        				break;
+		        				case("t1"):
+			        				$col = 20;
+		        				break;
+		        				case("t2"):
+			        				$col = 21;
+		        				break;
+		        				case("t3"):
+			        				$col = 22;
 		        				break;
 		        				case("world_id"):
 			        				$col = false;
@@ -210,13 +217,13 @@ class DataSet extends AppModel {
 		        				break;
 		        				case("region_id"):
 			        				$col = false;
-			        				if(!isset($regions[$data[13]])){
-			        					debug($data[13]);
+			        				if(!isset($regions[$data[16]])){
+			        					debug($data[16]);
 			        					debug($regions);
 			        					debug($data);
 										throw new NotFoundException(__('Invalid region'));
 			        				}
-			        				$region_id = $regions[$data[13]];
+			        				$region_id = $regions[$data[16]];
 			        				$city["City"][$field] = $region_id;
 		        				break;
 		        				/*case("g_d_p_id"):
@@ -258,6 +265,7 @@ class DataSet extends AppModel {
 		        		}
 		        		$this->City->create();
 		        		if(!$this->City->save($city)){
+		        			debug($data);
 		        			debug($city);
 		        			debug($this->City->validationErrors);
 		        			throw new NotFoundException("Invalid City");

@@ -288,7 +288,6 @@
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='roads_map' class='city-map'></div>
 				<div class='mobile-map-cover'></div>
-				<script src="/file-manager/userfiles/json/<?= $city['City']['slug'] ?>/locales_t0.json" type="text/javascript"></script>
 
 				<script>
 				var roads;
