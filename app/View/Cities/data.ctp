@@ -118,6 +118,7 @@
 			 			<td data-sort-value="<?=$city["GDP"]["id"];?>"><?= $city["GDP"]["name"];?></td>
 						<td data-sort-value="<?=$city["CitySize"]["number"];?>"><?= $city["CitySize"]["name"];?></td>*/?>
 					</tr>
+					<? die();?>
 				<?endforeach;?>
 				</tbody>
 			</table>
