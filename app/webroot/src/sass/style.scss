@@ -11,6 +11,7 @@ $tablet-max-width : 950px;
 
 $headerbgcolor : transparent;
 $headercolor : #000;
+$linkcolor : #FF6653;
 $lightgrey0 : #666666;
 $lightgrey : #333333;
 $lightgrey1 : #afafaf;
@@ -199,7 +200,7 @@ a {
 			margin-left: 30px;
 		}
 		a:hover {
-			color:#142ad1;
+			color:$linkcolor;
 		}
 	}
 	#citySearch{
@@ -445,7 +446,8 @@ h1#site-title {
 
 }
 .sectionDownload{
-		font-size:$largetype1;
+	font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	font-size:$defaulttype;
 	text-align:right;
 	line-height:60px;
 }
@@ -460,7 +462,8 @@ h3.sectionSubHeader {
 }
 
 .graphSection p {
-	font-family: Georgia, serif;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
 	color:$lightgrey1;
 }
 .switchYear{
@@ -581,7 +584,7 @@ h3.sectionSubHeader {
 	font-size:13px !important;
 	}
 	a:hover {
-	color:#ff9a2e;
+	color:$linkcolor;
 	}
 } 
 
@@ -642,7 +645,7 @@ h3.sectionSubHeader {
 		    	font-size:$largetype3;
 		    }
 	    	.popup-city-li{
-	    		line-height:54px;
+	    		line-height:40px;
 			    img{
 			    	height:32px;
 			    	display: inline;
@@ -715,10 +718,10 @@ h3.sectionSubHeader {
     input{
     	border:none;
     	padding:5px;
-    	padding:0px #{$padding/2} 0px;
+    	padding:0px #{$padding/2} 24px;
     	width:100%;
-    	font-size:$largetype4;
-    	border-bottom:1px solid #000;
+    	font-size:$largetype3;
+    	border-bottom:1px solid $lightgrey1;
     	background-color:white;
     }
 }
