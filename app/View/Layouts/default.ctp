@@ -19,7 +19,7 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title><?php echo $this->fetch('title'); ?></title>
+	<title>Atlas of Urban Expansion - <?php echo $this->fetch('title'); ?></title>
 
  	<?php
 		// echo $this->Html->meta('icon');

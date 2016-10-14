@@ -1,3 +1,5 @@
+<? $this->assign('title', "Historical");?>
+
 <div class=' historical'>
 <div class='grid wide'>
 	<div class='col-2-3 tab-1-1'>

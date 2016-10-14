@@ -1,4 +1,4 @@
-<? $this->assign('title', "Atlas");?>
+<? $this->assign('title', "Home");?>
 <div class='position-relative'>
 	<div id="worldmap"></div>
 	<div class='mobile-map-cover'></div>
