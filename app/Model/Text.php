@@ -34,6 +34,9 @@ class Text extends AppModel {
 				$value = substr($match, 1);
 				$valueCat = explode("-", $value);
 				switch($valueCat[0]){
+					case("decimal"):
+						$value = $valueCat[1] * 100;
+					break;
 					case("increasing"):
 						$first = $this->pathToValue($valueCat[1], $key);
 						$value = (float)$first < 0 ? "decreasing" : "increasing";
