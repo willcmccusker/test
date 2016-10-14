@@ -35,7 +35,7 @@ class Text extends AppModel {
 				$valueCat = explode("-", $value);
 				switch($valueCat[0]){
 					case("decimal"):
-						$value = $valueCat[1] * 100;
+						$value = $this->pathToValue($valueCat[1], $key) * 100;
 					break;
 					case("increasing"):
 						$first = $this->pathToValue($valueCat[1], $key);
