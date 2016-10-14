@@ -953,6 +953,8 @@ h3.sectionSubHeader {
 	}
 	.expansion-links a {
 	color:$linkcolor;
+	display: block;
+	padding-right:3px;
 	text-decoration: underline;
 	}	
 }
