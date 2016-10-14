@@ -108,12 +108,18 @@
 					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t3" data-target="extent" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<ul class='map-legend-sections'>
+					<li>&nbsp;</li>
+					<li><u>Urban Extent</u></li>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> <span></span>Urban Built-up </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> <span></span>Suburban Built-up </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt"/> <span></span>Rural Built-up </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> <span></span>Urbanized Open Space </label>
+					<li>&nbsp;</li>
+					<li><u>Exurban Area</u></li>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> <span></span>Exurban Built-Up Area </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> <span></span>Exurban Open Space </label>
+					<li>&nbsp;</li>
+					<li><u>Rural Open Space</u></li>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanRural"/> <span></span>Rural Open Space </label>
 				</ul>
 			</div>

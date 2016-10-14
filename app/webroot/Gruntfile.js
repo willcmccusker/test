@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           'dist/js/app.min.js': [
 
             'src/js/jquery-3.1.0.min.js', 
-
+            'src/js/jquery.easyListSplitter.ignore.js',
             'src/js/headroom.min.js',
             'src/js/jquery.onscreen.min.js',
             // 'src/js/leaflet.min.js',
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
               mangle: false,
               compress: false,
               wrap: false,
-              sourceMap: false,
+              sourceMap: true,
               banner: '/*\n <%= pkg.name %>-dist <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             

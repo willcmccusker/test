@@ -22,6 +22,7 @@ $bodytype : #1a1a1a;
 
 /*border color variables */
 
+
 $border-lightgrey : #d6d6d6;
 $border-darkgrey : #333333;
 
@@ -311,22 +312,6 @@ h2.countryName {
 	}
 	a:hover {
 	background:rgba(0,0,0,0.7);
-	}
-}
-
-#cityList {
-	padding-top:$padding-top;
-	ul.list{
-		list-style-type: none;
-		@include xPrefix(columns, 3);
-	}
-}
-@for $i from 1 through 8{
-	.region-#{$i} .region{
-		display:block;
-	}
-	.region-#{$i} ~ .region-#{$i} .region{
-		display:none;
 	}
 }
 
@@ -925,7 +910,18 @@ h3.sectionSubHeader {
 
 /* Index */
 #cityList {
+	padding-top:$padding-top;
 	padding-bottom: 100px;
+
+	.city:hover {
+		background-color:$lightgrey3;
+	}
+	ul.list{
+		vertical-align: top;
+		display:inline-block;
+		list-style-type: none;
+		// @include xPrefix(columns, 3);
+	}
 	ul > div:first-of-type h3{
 		padding-top:0px;
 	}
@@ -938,9 +934,16 @@ h3.sectionSubHeader {
 	}
 }
 
-#cityList .city:hover {
-	background-color:$lightgrey3;
+@for $i from 1 through 8{
+	.region-#{$i} .region{
+		display:block;
+	}
+	.region-#{$i} ~ .region-#{$i} .region{
+		display:none;
+	}
 }
+
+
 
 
 /* Data Page */
