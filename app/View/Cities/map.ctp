@@ -13,8 +13,12 @@ var startFrontMap = function(){
         lat = navigator.geolocation.position.coords.latitude;
         long = navigator.geolocation.position.coords.longitude;
     } else {
+    	//new york
       lat = 40.717;
       long = -74.004;
+
+      lat = 26;
+      long = 8;
     }
 
 
