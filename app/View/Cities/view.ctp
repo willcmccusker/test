@@ -109,7 +109,7 @@
 				<ul class='map-legend-sections'>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> <span></span>Urban Built-up </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> <span></span>Suburban Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt "/> <span></span>Rural Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt"/> <span></span>Rural Built-up </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> <span></span>Urbanized Open Space </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> <span></span>Exurban Built-Up Area </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> <span></span>Exurban Open Space </label>
@@ -121,7 +121,6 @@
 				<div id='urban_extent_t1_map' class='city-map'>
 				<div class='mobile-map-cover'></div>
 					<script>
-						var extent;
 						var urban_extent_t1_map = function(){
 							allMaps.extent = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
 								center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
@@ -506,7 +505,7 @@
 						allMaps.blocks = L.mapbox.map('blocks_map', 'mapbox.satellite', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 							zoom: 15,
-							
+
 								// maxZoom : 13,
 								reuseTiles : true,
 							scrollWheelZoom : false
