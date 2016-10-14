@@ -94,12 +94,22 @@ class AppController extends Controller {
             App::uses('City', 'Model');
             $this->City = new City;
         }
+
+        if(!isset($this->Text)){
+            App::uses('Text', 'Model');
+            $this->Text = new Text;
+        }
+        $footerText = $this->Text->find("first", array(
+            "conditions"=>array(
+                "slug"=>"footer"
+                )
+            ));
         $cities = $this->City->find("all", array(
             "recursive"=>0,
             "order"=>array("City.name"=>"ASC")
         ));
         
-        $this->set(compact("cities"));
+        $this->set(compact("cities", "footerText"));
 
     }
 

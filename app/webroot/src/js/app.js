@@ -253,10 +253,10 @@ $(document).ready(function(){
 								if(!targetMap.hasLayer(selectedLayer)){
 									targetMap.addLayer(selectedLayer);
 								}
-								selectedLayer.setOpacity(1);
+								// selectedLayer.setOpacity(1);
 							}else{
 								if(targetMap.hasLayer(selectedLayer)){
-									selectedLayer.setOpacity(0);
+									// selectedLayer.setOpacity(0);
 									targetMap.removeLayer(selectedLayer);
 								}
 								// selectedLayer.setOpacity(0).removeLayer();
@@ -276,11 +276,11 @@ $(document).ready(function(){
 							if(!targetMap.hasLayer(layer)){
 								targetMap.addLayer(layer);
 							}
-							layer.setOpacity(1).bringToFront();
+							layer.bringToFront();
 							if(style){style.bringToFront();}
 						}else{
 							if(targetMap.hasLayer(layer)){
-								layer.setOpacity(0).bringToBack();
+								layer.bringToBack();
 								targetMap.removeLayer(layer);
 							}
 						}
