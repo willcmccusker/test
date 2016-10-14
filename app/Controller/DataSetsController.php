@@ -38,6 +38,9 @@ class DataSetsController extends AppController {
 		if (!$this->DataSet->exists($id)) {
 			throw new NotFoundException(__('Invalid data set'));
 		}
+		$this->DataSet->generateValidationRules();
+		$validate = $this->DataSet->validate;
+		$this->set(compact("validate"));
 		$options = array('conditions' => array('DataSet.' . $this->DataSet->primaryKey => $id));
 		$this->set('dataSet', $this->DataSet->find('first', $options));
 	}

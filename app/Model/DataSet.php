@@ -18,7 +18,6 @@ class DataSet extends AppModel {
 
 
 		$this->generateValidationRules();
-
 		$row = 0;
 		$filename = APP . "/webroot/build_data/data.csv";
 		if (($handle = fopen($filename, "r")) !== FALSE) {
@@ -290,6 +289,7 @@ class DataSet extends AppModel {
 	public function generateValidationRules(){
 
 		$columns = $this->getColumnTypes();
+
 		$this->validate = array();
 		foreach($columns as $column=>$type){
 			if($column == "id"){
@@ -314,6 +314,7 @@ class DataSet extends AppModel {
  *
  * @var array
  */
+/*
 	public $validate = array(
 		'population_t1' => array(
 			'numeric' => array(
@@ -1065,7 +1066,8 @@ class DataSet extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-	);
+	);*/
+	
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
 
