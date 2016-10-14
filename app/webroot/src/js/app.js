@@ -219,6 +219,10 @@ $(document).ready(function(){
 					$(window).on("scroll", visibleGraph);
 
 					$('.periodToggle').change(function(event) {
+						$(this).parents(".map-legend-years").find(".current-year").removeClass("current-year");
+						if($(this).is(":checked")){
+							$(this).parent().addClass("current-year");
+						}
 						var target = $(event.target).data("target");
 						var prefix = $('.' + target +'.periodToggle:checked').val();
 						var targetMap = allMaps[target];
@@ -248,12 +252,10 @@ $(document).ready(function(){
 							console.log(el);
 							console.log($(this).is(":checked"));
 							if($(this).is(":checked")){
-								if(targetMap.hasLayer(selectedLayer)){
-									selectedLayer.setOpacity(1);
-								}else{
+								if(!targetMap.hasLayer(selectedLayer)){
 									targetMap.addLayer(selectedLayer);
-									selectedLayer.setOpacity(1);
 								}
+								selectedLayer.setOpacity(1);
 							}else{
 								if(targetMap.hasLayer(selectedLayer)){
 									selectedLayer.setOpacity(0);
@@ -266,6 +268,7 @@ $(document).ready(function(){
 					});
 
 					$('.layerToggle').change(function() {
+						$(this).parent().toggleClass("checked");
 						var target = $(event.target).data("target");
 						var targetMap = allMaps[target];
 						var prefix = $('.' + target +'.periodToggle:checked').val();

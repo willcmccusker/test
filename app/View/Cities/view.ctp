@@ -101,19 +101,19 @@
 				<p>
 					<?= $dynamicTexts["urban_extent"]["Text"]["content"];?>
 				</p>
-				<ul>
-					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t1" checked="checked" data-target="extent"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
+				<ul class='map-legend-years'>
+					<li> <label class='current-year'><input class="periodToggle extent" type="radio" name="extentPeriod" value="t1" checked="checked" data-target="extent"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
 					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t2" data-target="extent" /> <?= substr($city["City"]["t2"], 0, 4);?> </label>
 					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t3" data-target="extent" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
-				<ul>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> Urban Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> Suburban Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt "/> Rural Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> Urbanized Open Space </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> Exurban Built-Up Area </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> Exurban Open Space </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanRural"/> Urban Edge </label>
+				<ul class='map-legend-sections'>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> <span></span>Urban Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> <span></span>Suburban Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt "/> <span></span>Rural Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> <span></span>Urbanized Open Space </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> <span></span>Exurban Built-Up Area </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> <span></span>Exurban Open Space </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanRural"/> <span></span>Urban Edge </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -254,17 +254,17 @@
 				<div id="composition_of_added_area" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Composition of Added Area</h3>
 				<p><?= $dynamicTexts["composition_of_added_area"]["Text"]["content"];?></p>
-				<ul>
+				<ul  class='map-legend-years'>
 
-					<li> <label><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t1" checked="checked" data-target="addedArea"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
+					<li> <label class=" current-year"><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t1" checked="checked" data-target="addedArea"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
 					<li> <label><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t2" data-target="addedArea" /> <?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
-				<ul>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> Built-up area </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="infill" data-target="addedArea"/> Infill </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="extension" data-target="addedArea"/> Extension </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> Leapfog </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="inclusion" data-target="addedArea"/> Inclusion </label>
+				<ul  class='map-legend-sections'>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> <span></span> Built-up area </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="infill" data-target="addedArea"/> <span></span> Infill </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="extension" data-target="addedArea"/> <span></span> Extension </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> <span></span> Leapfog </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="inclusion" data-target="addedArea"/> <span></span> Inclusion </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -340,8 +340,8 @@
 				<div id="roads" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Roads</h3>
 				<p><?= $dynamicTexts["density"]["Text"]["content"];?></p>
-				<ul>
-					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1" checked="checked" data-target="roads"/><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></label>
+				<ul  class='map-legend-years'>
+					<li> <label class=" current-year"><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1" checked="checked" data-target="roads"/><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></label>
 					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t2" data-target="roads" /><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></label>
 				</ul>
 			</div>
@@ -411,11 +411,12 @@
 			<div class='col-1-5 tab-1-1 mob-1-1'>
 				<div id="arterial_roads" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Arterial Roads</h3>
-				<ul>
-					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
+				
+				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
+				<ul  class='map-legend-years'>
+					<li> <label class=" current-year"><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
 					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> <?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
-				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
 				<div id='arterial_map' class='city-map'></div>
@@ -484,8 +485,8 @@
 				<div id="blocks_and_plots" class='anchorPoint'></div>
 				<h3 class='sectionSubHeader' >Blocks and Plots</h3>
 				<p><?= $dynamicTexts["blocks_and_plots"]["Text"]["content"];?></p>
-				<ul>
-					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1" checked="checked" data-target="blocks"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
+				<ul  class='map-legend-years'>
+					<li> <label class=" current-year"><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1" checked="checked" data-target="blocks"/> <?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?> </label>
 					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" data-target="blocks" /> <?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 			</div>
@@ -493,7 +494,6 @@
 				<div id='blocks_map' class='city-map'></div>
 				<div class='mobile-map-cover'></div>
 				<script>
-					var blocks;
 					var blocks_map = function(){
 						allMaps.blocks = L.mapbox.map('blocks_map', 'mapbox.satellite', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
@@ -501,7 +501,7 @@
 							scrollWheelZoom : false
 						});
 
-						allMaps.t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.roads)
+						allMaps.t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.blocks)
 						allMaps.t1_blocks = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t0/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 
 						allMaps.t2_blocks = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"})

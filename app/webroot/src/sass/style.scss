@@ -512,6 +512,60 @@ h3.sectionSubHeader {
 
 	}
 }
+.map-legend-years{
+	li{
+		display: inline-block;
+		label{
+			background-color: #AFAFAF;
+			border: 1px solid #AFAFAF;
+			color: #DADADA;
+			padding:4px 15px 2px;	
+			cursor: pointer;
+			&:hover, &.current-year{
+				background-color: #DADADA;
+				color: #AFAFAF;
+			}
+			input{
+				display:none;
+			}
+		}
+	}
+}
+.map-legend-sections{
+	margin-top:10px;
+	li{
+
+		label{		
+			padding:5px 10px 2.5px;	
+			margin:2.5px 0px 2.5px -10px;
+			cursor: pointer;
+			display:block;
+			&:hover{
+				background-color: rgba(255, 102, 83, 0.7);
+			}
+			input{
+				display:none;
+				&:checked + span{
+					background-image: url("/img/menu.png");
+					background-position:center center;
+					background-repeat:no-repeat;
+					background-size: contain;
+				}
+			}
+			span{
+				border: 1px solid #AFAFAF;
+				background-color: #DADADA;
+				width: 15px;
+				display: inline-block;
+				height: 15px;
+				margin-right: 5px;
+				line-height: 24px;
+				vertical-align: middle;
+				margin-bottom: 3px;
+			}
+		}
+	}
+}
 .year-switch-graphic{
 	margin-bottom:32px;
 }
