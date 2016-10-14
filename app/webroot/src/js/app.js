@@ -49,14 +49,13 @@ var setFooter = function(){
 
 $(document).ready(function(){
 
-	if(isTablet()){
 		// grab an element
 		var heady = document.querySelector("header");
 		// construct an instance of Headroom, passing the element
 		var headroom  = new Headroom(heady);
 		// initialise
 		headroom.init(); 
-	}
+	
 
 	L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
 
