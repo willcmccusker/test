@@ -249,8 +249,7 @@ $(document).ready(function(){
 
 						$('.' + target + '.layerToggle').each(function(index, el){
 							selectedLayer = allMaps[target + '_' + prefix + '_' + $(el).prop('name')];
-							console.log(el);
-							console.log($(this).is(":checked"));
+							
 							if($(this).is(":checked")){
 								if(!targetMap.hasLayer(selectedLayer)){
 									targetMap.addLayer(selectedLayer);

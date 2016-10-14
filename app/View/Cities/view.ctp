@@ -356,9 +356,8 @@
 					allMaps.roads = L.mapbox.map('roads_map', 'mapbox.satellite', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 						zoom: 15,
-
-								// maxZoom : 13,
-								reuseTiles : true,
+						maxZoom : 17,
+						reuseTiles : true,
 						scrollWheelZoom : false
 					});
 
@@ -432,7 +431,7 @@
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 							zoom: 12,
 
-								// maxZoom : 13,
+								maxZoom : 17,
 								reuseTiles : true,
 							scrollWheelZoom : false
 						});
