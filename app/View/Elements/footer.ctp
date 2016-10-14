@@ -5,11 +5,15 @@
 			<?= $footerText["Text"]["content"];?>
 			<!-- <p>Monitoring Global Urban Expansion</p>
 			<p>As of 2010, the world contained 4,245 cities with 100,000 or more people. To better understand them, the Monitoring Global Urban Expansion initiative tracks a stratified global sample of 200 of these cities &mdash; collecting and analyzing evidence on the quantity and quality of urban expansion. The initiative is a partnership involving the United Nations Human Settlements Programme (UN Habitat) and the Lincoln Institute of Land Policy.</p>
-			<ul>
-				<li>&copy; Atlas of Urban Expansion 2016</li>
-				<li><a href="#">Credits</a></li>
-				<li><a href="#">Contact</a></li>
-				</ul>-->
+			-->
+			<div class='nav-holder'>
+				<a href="/">&copy; Atlas of Urban Expansion 2016</a>
+				<a href="/cities">Cities</a>
+				<a href="/data">Data</a>
+				<a href="/historical-data">Historical Data</a>
+				<a href="/about">About</a>
+				<a href="#">Contact</a>
+			</div>
 		</div>
 		<div class='col-1-7 tab-1-1 mob-1-1'>
 		</div>

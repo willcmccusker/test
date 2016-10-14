@@ -781,7 +781,7 @@ h3.sectionSubHeader {
     input{
     	border:none;
     	padding:5px;
-    	padding:0px #{$padding/2} 24px;
+    	padding:24px #{$padding/2} 4px;
     	width:100%;
     	font-size:$largetype3;
     	border-bottom:1px solid $lightgrey1;
