@@ -109,7 +109,7 @@
 				<ul class='map-legend-sections'>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> <span></span>Urban Built-up </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> <span></span>Suburban Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt "/> <span></span>Rural Built-up </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt"/> <span></span>Rural Built-up </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> <span></span>Urbanized Open Space </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> <span></span>Exurban Built-Up Area </label>
 					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> <span></span>Exurban Open Space </label>
@@ -121,11 +121,12 @@
 				<div id='urban_extent_t1_map' class='city-map'>
 				<div class='mobile-map-cover'></div>
 					<script>
-						var extent;
 						var urban_extent_t1_map = function(){
 							allMaps.extent = L.mapbox.map('urban_extent_t1_map', 'mapbox.light', {
 								center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 								zoom: 11,
+								maxZoom : 13,
+								reuseTiles : true,
 								scrollWheelZoom : false
 							});
 
@@ -355,6 +356,8 @@
 					allMaps.roads = L.mapbox.map('roads_map', 'mapbox.satellite', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 						zoom: 15,
+						maxZoom : 17,
+						reuseTiles : true,
 						scrollWheelZoom : false
 					});
 
@@ -427,6 +430,9 @@
 					allMaps.arterials = L.mapbox.map('arterial_map', 'mapbox.satellite', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 							zoom: 12,
+
+								maxZoom : 17,
+								reuseTiles : true,
 							scrollWheelZoom : false
 						});
 
@@ -498,10 +504,13 @@
 						allMaps.blocks = L.mapbox.map('blocks_map', 'mapbox.satellite', {
 							center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 							zoom: 15,
+
+								// maxZoom : 13,
+								reuseTiles : true,
 							scrollWheelZoom : false
 						});
 
-						allMaps.t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.blocks)
+						allMaps.t1_outline = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/added_area/urban_edge_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).addTo(allMaps.blocks	)
 						allMaps.t1_blocks = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t0/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"});
 
 						allMaps.t2_blocks = L.tileLayer('http://{s}.<? echo $_SERVER['HTTP_HOST'];?>/tiles/show/<?= $city['City']['slug'] ?>/blocks/land_use_t1/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"})
