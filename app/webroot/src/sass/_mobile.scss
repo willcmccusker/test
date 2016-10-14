@@ -44,13 +44,13 @@
 	.header {
 		background-color: white;	
 		@include xPrefix(transition, transform 500ms ease);
-		&.headroom--unpinned{
+		&.headroom--unpinned:not(.poppedUp){
 			@include xPrefix(transform, translateY(-100%) );
 			nav.navOpen .nav-holder a{
 				display:none;
 			}
 		}
-		&.headroom--pinned{
+		&.headroom--pinned:not(.poppedUp){
 			@include xPrefix(transform, translateY(0%) );
 		}
 		#site-title{
@@ -115,6 +115,7 @@
 				}
 				input{
 					padding-top:0px;
+					padding-bottom:0px;
 					font-size: 32px;
 					line-height:60px;
 					border-bottom:0px;
