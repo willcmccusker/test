@@ -951,6 +951,10 @@ h3.sectionSubHeader {
 	a:hover {
 	color:$linkcolor;
 	}
+	.expansion-links a {
+	color:$linkcolor;
+	text-decoration: underline;
+	}	
 }
 	
 /* About Page */
