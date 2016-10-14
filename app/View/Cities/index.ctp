@@ -1,7 +1,5 @@
 <? $this->assign('title', "Cities");?>
-<div class='grid wide'>
-	<div class='col-1-1'>
-		<div id='cityList'>
+<div id='cityList'  class='grid wide'>
 
 			<!-- <input class="search" placeholder="Search" /> -->
 
@@ -12,7 +10,6 @@
 			<button class="sort" data-sort="region">
 				Sort by region
 			</button> -->
-			<ul class='list'>
 <!-- 			<div class='list grid'> -->
 			<!-- <div class='col-1-3 tab-1-2 mob-1-1'> -->
 		<?
@@ -27,19 +24,43 @@
                 return strcasecmp($a["Region"]["name"], $b["Region"]["name"]);
             }
         });
-		$i = 0;
+
+    	$list = $cities;
+    	$p = 3;
+	    $listlen = count($list);
+	    $partlen = floor($listlen / $p);
+	    $partrem = $listlen % $p;
+	    $partition = array();
+	    $mark = 0;
+	    for($px = 0; $px < $p; $px ++) {
+	        $incr = ($px < $partrem) ? $partlen + 1 : $partlen;
+	        $partition[$px] = array_slice($list, $mark, $incr);
+	        $mark += $incr;
+	    }
+	    $citiesGroup =  $partition;
+		
 		$region = false;
+
+		foreach($citiesGroup as $cities):
+?>
+	<ul class='list col-1-3 tab-1-1'>
+<?
+		$i = 0;
 		foreach($cities as $city):
 			if($region != $city["Region"]["name"]){
+				$newRegion = true;
 				// echo $i == 2  || $i == 5 ? "</div>" : "";
 				// echo $i == 2 ? "<div class='col-1-3 tab-1-2 mob-1-1'>" : ($i == 5 ? "<div class='col-1-3 tab-1-1 mob-1-1'>" : "");
 				$i++;
 				$region = $city["Region"]["name"];
-			}?>
+			}else{
+				$newRegion = false;
+			}
+			?>
 
 			<div class='region-<?=$i;?>'>
 				<div class='display-none country'><?=$city["City"]["country"];?></div> 
-				<h3 class='region '><?=$region;?></h3>
+				<?if($newRegion):?><h3 class='region '><?=$region;?></h3><?endif;?>
 				<div class='city'>
 					<a href='/cities/view/<?=$city["City"]["slug"];?>'>
 						<?=$city["City"]["name"];?> — <?=$city["City"]["country"];?>
@@ -49,8 +70,7 @@
 
 		<?endforeach;?>
 		</ul>
+		<?endforeach;?>
 <!-- 			</div> -->
 
-		</div>
-	</div>
 </div>
