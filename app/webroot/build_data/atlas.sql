@@ -41,7 +41,7 @@ CREATE TABLE `cities` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1401 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1601 ;
 
 DROP TABLE IF EXISTS `city_sizes`;
 CREATE TABLE `city_sizes` (
@@ -76,6 +76,9 @@ CREATE TABLE `data_sets` (
   `urban_extent_composition_open_t3` decimal(5,2) NOT NULL,
   `urban_extent_change_t1_t2` decimal(5,2) NOT NULL,
   `urban_extent_change_t2_t3` decimal(5,2) NOT NULL,
+  `urban_extent_actuals_t1` int(7) NOT NULL,
+  `urban_extent_actuals_t2` int(7) NOT NULL,
+  `urban_extent_actuals_t3` int(7) NOT NULL,
   `density_built_up_t1` decimal(6,2) NOT NULL,
   `density_built_up_t2` decimal(6,2) NOT NULL,
   `density_built_up_t3` decimal(6,2) NOT NULL,
@@ -153,7 +156,7 @@ CREATE TABLE `data_sets` (
   `added_area_inclusion_percent_t1_t2` int(3) NOT NULL,
   `added_area_inclusion_percent_t2_t3` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1474 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1683 ;
 
 DROP TABLE IF EXISTS `g_d_ps`;
 CREATE TABLE `g_d_ps` (
@@ -174,7 +177,7 @@ CREATE TABLE `regions` (
   `data_set_id` int(11) NOT NULL,
   `city_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=65 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=73 ;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -183,7 +186,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 DROP TABLE IF EXISTS `worlds`;
 CREATE TABLE `worlds` (
@@ -191,7 +194,7 @@ CREATE TABLE `worlds` (
   `year` int(11) NOT NULL,
   `data_set_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
