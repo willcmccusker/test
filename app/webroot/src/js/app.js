@@ -839,7 +839,9 @@ var makeChart = function(prefix, city, side){
 		ticks: {
 			beginAtZero:true,
 			callback : function(value, index, values){
-				return value.split(" ");
+
+				return fold(value, 15, true);
+				// return value.split(" ");
 			}
 		},
 		gridLines : {
