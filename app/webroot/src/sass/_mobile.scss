@@ -4,6 +4,9 @@
 /* tablet */
 /* tablet */
 @media only screen and (min-width : 0px) and (max-width : $tablet-max-width)  {
+
+
+
 	.sectionDownload{
 		text-align: left;
 	}
@@ -188,6 +191,10 @@
 	#worldmap{
 		margin:0px 25px;
 		width: calc(100% - 50px);
+		svg g path{
+			stroke: #666;
+			stroke-width:10px;
+		}
 	}
 	.cityHeader {
 		.statLabel {
