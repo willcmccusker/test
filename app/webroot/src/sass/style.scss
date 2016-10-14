@@ -199,11 +199,17 @@ a {
 	&.headroom--pinned:not(.poppedUp){
 		@include xPrefix(transform, translateY(0%) );
 	}
+	display:inline-block;
 	display: flex;
 	// justify-content : flex-start;
 	#site-title{
+		display:inline-block;
+		h1{
+			display: inline-block;
+		}
 	}
 	nav{
+		display:inline-block;
 		flex: 1;
 		order: 2;
 		a{
@@ -214,6 +220,8 @@ a {
 		}
 	}
 	#citySearch{
+		display:inline-block;
+		float:right;
 		order: 3;
 		margin-left: auto;
 		// align-self: flex-end;
