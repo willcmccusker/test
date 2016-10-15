@@ -70,6 +70,21 @@ var stillLoading = function(){
 var stopLoading = function(){
 	$("body").removeClass("mapsLoading");
 };
+var buildTooltip = function(term, content){
+	return $("<span>").addClass("keyword-word").html(term).append(
+		$("<div>").addClass("keyword-popup")
+		.append(
+			$("<div>").addClass("leaflet-popup-content-wrapper").append(
+				$("<div>").addClass("leaflet-popup-content").html(content)
+			)
+		).append(
+			$("<div>").addClass("leaflet-popup-tip-container").append(
+				$("<div>").addClass("leaflet-popup-tip")
+			)
+		)
+	);
+};
+
 
 $(document).ready(function(){
 
@@ -240,6 +255,14 @@ $(document).ready(function(){
 				break;
 				case("view"):
 					$(window).on("scroll", visibleGraph);
+
+					$(tooltips).each(function(i, e){
+						var term = e.Text.title;
+						var text = $("p:contains('"+term+"')").html();
+						var tooltip = buildTooltip(term, e.Text.content);
+						text = text.replace(term, tooltip.outerHTML());
+						$("p:contains('"+term+"')").html(text);
+					});
 
 					$('.periodToggle').change(function(event) {
 						$(this).parents(".map-legend-years").find(".current-year").removeClass("current-year");
