@@ -82,12 +82,12 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('region_id', array('class' => 'form-control', 'placeholder' => 'Region Id'));?>
 				</div>
-				<div class="form-group">
+<!-- 				<div class="form-group">
 					<?php echo $this->Form->input('g_d_p_id', array('class' => 'form-control', 'placeholder' => 'G D P Id'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('city_size_id', array('class' => 'form-control', 'placeholder' => 'City Size Id'));?>
-				</div>
+				</div> -->
 				<div class="form-group">
 					<?php echo $this->Form->input('data_set_id', array('class' => 'form-control', 'placeholder' => 'Data Set Id'));?>
 				</div>

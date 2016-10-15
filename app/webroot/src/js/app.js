@@ -46,6 +46,30 @@ var setFooter = function(){
 		$("body").css("padding-bottom", h);
 	}
 };
+var layersLoading = [];
+var addLayerLoader = function(layer_id){
+	// console.log(arguments);
+	layersLoading.push(layer_id);
+	if(layersLoading.length > 0){
+		stillLoading();
+	}
+};
+var removeLayerLoader = function(layer_id){
+	// console.log("remove "+layer_id);
+	var i = layersLoading.indexOf(layer_id);
+	if(i != -1) {
+		layersLoading.splice(i, 1);
+	}
+	if(layersLoading.length === 0){
+		stopLoading();
+	}
+};
+var stillLoading = function(){
+	$("body").addClass("mapsLoading");
+};
+var stopLoading = function(){
+	$("body").removeClass("mapsLoading");
+};
 
 $(document).ready(function(){
 
@@ -728,7 +752,7 @@ var makeLine = function(prefix, city){
 	var min = Math.min.apply( Math, data.datasets[0].data.filter(Boolean));
 	var log = Math.floor(Math.log(max)/Math.log(10));
 	log = Math.pow(10, log);
-	yMax = Math.ceil((max + min)/log) * log;
+	var yMax = Math.ceil((max + min)/log) * log;
 
 	var dateStart = new Date(city.City.t1);
 	var dateEnd = new Date(city.City.t3);

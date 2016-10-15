@@ -28,3 +28,4 @@
 		</div>
 	</div>
 </footer>
+<div class='maploader'></div>

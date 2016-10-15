@@ -175,7 +175,7 @@
 			&nbsp;
 		</td>
 </tr>
-<tr>
+<!-- <tr>
 		<th><?php echo __('G D P'); ?></th>
 		<td>
 			<?php echo $this->Html->link($city['GDP']['name'], array('controller' => 'g_d_ps', 'action' => 'view', $city['GDP']['id'])); ?>
@@ -188,7 +188,7 @@
 			<?php echo $this->Html->link($city['CitySize']['name'], array('controller' => 'city_sizes', 'action' => 'view', $city['CitySize']['id'])); ?>
 			&nbsp;
 		</td>
-</tr>
+</tr> -->
 <tr>
 		<th><?php echo __('Data Set'); ?></th>
 		<td>

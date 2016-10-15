@@ -100,8 +100,8 @@
 			<td><?php echo $city['historical_data_g_i_s_path']; ?></td>
 			<td><?php echo $city['world_id']; ?></td>
 			<td><?php echo $city['region_id']; ?></td>
-			<td><?php echo $city['g_d_p_id']; ?></td>
-			<td><?php echo $city['city_size_id']; ?></td>
+			<!-- <td><?php echo $city['g_d_p_id']; ?></td>
+			<td><?php echo $city['city_size_id']; ?></td> -->
 			<td><?php echo $city['data_set_id']; ?></td>
 			<td><?php echo $city['created']; ?></td>
 			<td><?php echo $city['modified']; ?></td>

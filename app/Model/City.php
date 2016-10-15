@@ -312,7 +312,7 @@ class City extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'g_d_p_id' => array(
+		/*'g_d_p_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -331,7 +331,7 @@ class City extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'data_set_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -366,7 +366,7 @@ class City extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'GDP' => array(
+		/*'GDP' => array(
 			'className' => 'GDP',
 			'foreignKey' => 'g_d_p_id',
 			'conditions' => '',
@@ -379,7 +379,7 @@ class City extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		),*/
 		'DataSet' => array(
 			'className' => 'DataSet',
 			'foreignKey' => 'data_set_id',
