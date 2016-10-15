@@ -634,7 +634,7 @@ h3.sectionSubHeader {
 	li{
 		display: inline-block;
 		label{
-			background-color: $lightgrey3;
+			background-color: #e4e4e4;
 			border: 0px solid #DADADA;
 			color: #848282;
 			padding:4px 15px 2px;	
@@ -656,6 +656,10 @@ h3.sectionSubHeader {
 	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	font-size: 14px;
 	margin-top:10px;
+	u {
+		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
+		text-decoration: none;
+	}
 	li{
 
 		label{		
