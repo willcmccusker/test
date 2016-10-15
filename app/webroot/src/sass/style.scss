@@ -11,7 +11,7 @@ $tablet-max-width : 950px;
 /*type color variables */
 
 $headerbgcolor : transparent;
-$headercolor : #000;
+$headercolor : #333333;
 $linkcolor : #FF6653;
 $lightgrey0 : #666666;
 $lightgrey : #333333;
@@ -58,6 +58,26 @@ $largetype4 : 64px;
 	src: url('/fonts/Akkurat.eot?#iefix') format('embedded-opentype'),
 		url('/fonts/Akkurat.woff') format('woff'),
 		url('/fonts/Akkurat.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NeueHaasRegular';
+	src: url('/fonts/NeueHaasUnicaPro-Regular.eot');
+	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/NeueHaasUnicaPro-Regular.woff') format('woff'),
+		url('/fonts/NeueHaasUnicaPro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NeueHaasRegularTX';
+	src: url('/fonts/NHaasGroteskTXPro-55Rg.eot');
+	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/NHaasGroteskTXPro-55Rg.woff') format('woff'),
+		url('/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -133,7 +153,7 @@ body{
 	font-family: 'DINNextLTProUltraLight';
 	line-height:1.5;
 	color: $bodytype;
-	padding-top:65px;
+	padding-top:58px;
 	padding-bottom:227px;
 	position:relative;
 	min-height:100vh;
@@ -214,7 +234,7 @@ a {
 		flex: 1;
 		order: 2;
 		a{
-			margin-left: 30px;
+			margin-left: 20px;
 		}
 		a:hover {
 			color:$linkcolor;
@@ -230,25 +250,25 @@ a {
 	position: fixed;
 	width:100%;
 	top:0px;
+	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	font-size:$defaulttype;
 	color:$headercolor;
-	padding: 20px $padding;
-	background-color: transparent;
+	padding: 15px 20px;
+	background-color: rgba(255,255,255,0.0);
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: $headercolor;
+		font-family: "NeueHaasRegular", Helvetica, sans-serif;
 	}
 }
 
 footer {
-	background-color:#000;
 	border-top:1px solid $lightgrey2;
-	color:$lightgrey2;
+	color:$defaulttype;
 	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	line-height: 1.6;
-	padding:20px 0 0 0;
+	padding:15px 0 0 0;
 	position:absolute;
 	bottom:0;
 	left:0px;
@@ -258,6 +278,7 @@ footer {
 	}
 	p {
 		font-size: 16px;
+		line-height: 1.4;
 	}
 	a {
 		color:$linkcolor;
@@ -265,8 +286,8 @@ footer {
 		text-decoration: none;
 	}
 	img {
-		padding-bottom: 15px;
 		max-width:100%;
+		padding-bottom: 15px;
 	}
 	ul li {
 		float:left;
@@ -275,10 +296,9 @@ footer {
 	a.site-title {
 		color:$lightgrey2;
 		font-family: Helvetica, sans-serif;
-		font-weight: bold;
 	}
 	.bottom-links {
-		border-top:1px solid $lightgrey;
+		border-top:1px solid $lightgrey3;
 		padding-top:8px;
 	}
 }
@@ -347,6 +367,7 @@ table th{
 h1#site-title {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size:$defaulttype;
+	font-weight: normal;
 	line-height: 1.5 !important;
 	position:relative;
 	z-index:1;
@@ -427,7 +448,6 @@ h1#site-title {
 		margin: 0 0 16px 0;	
 	}
 	.units {
-	
 		display:inline-block;
 		font-size: $smalltype;
 		padding-left: 3px;
@@ -698,7 +718,7 @@ h3.sectionSubHeader {
 	 input#search{
 	  width: 50%;
 	  border: none;
-	  font-size: 10pt;
+	  font-size: $defaulttype;
 	  text-align:right;
 	  background-color: $headerbgcolor;
 	}
@@ -799,7 +819,7 @@ h3.sectionSubHeader {
     	padding:5px;
     	padding:24px #{$padding/2} 4px;
     	width:100%;
-    	font-size:$largetype3;
+    	font-size:36px;
     	border-bottom:1px solid $lightgrey1;
     	background-color:white;
     }
