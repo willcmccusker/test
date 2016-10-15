@@ -13,7 +13,7 @@
 	</div>
 </div> -->
 
-<div class='grid wide data-page'>
+<div class='grid wide data'>
 	<div class='col-1-1'>
 		<div id="data-table">
 			<input class="search" placeholder="Filter" />

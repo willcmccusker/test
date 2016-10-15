@@ -801,7 +801,7 @@ h3.sectionSubHeader {
 
 
 /* Data Page */
-.data-page-text, .data-page {
+.data-page-text, .data {
 	a {
 		color:$linkcolor;
 	}
@@ -951,7 +951,7 @@ h3.sectionSubHeader {
 
 
 /* Data Page */
-.data-page {
+.data {
 	a {
 	color:#808080;
 	}
@@ -968,14 +968,14 @@ h3.sectionSubHeader {
 	
 /* About Page */
 
-.about-page {
+.about, .historial, .data {
 	padding-top:$padding-top;
 	h1, h2, h3 {
 	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif !important;
 }
 }
 
-.about-page h4 {
+.about h4 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
