@@ -857,12 +857,12 @@ var makeChart = function(prefix, city, side){
 		labels: [/*"City",*/city.City.name,  /*"Region",*/ city.Region.name, "World"],
 		datasets: [{
 			label: side ? city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4) : city.City.t1.substr(0,4)+"-"+city.City.t2.substr(0,4),//'T1-T2',
-			backgroundColor: "#C8C0C3",
+			backgroundColor: "#edc7b6",
 			borderWidth : 0,
 			data : [city.DataSet[field+suffix_1], city.Region.DataSet[field+suffix_1], city.World.DataSet[field+suffix_1]]
 		},{
 			label: side ? city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4) : city.City.t2.substr(0,4)+"-"+city.City.t3.substr(0,4),//'T2-T3',
-			backgroundColor: "#F1E4DE",
+			backgroundColor: "#b9a7ae",
 			borderWidth : 0,
 			data : [city.DataSet[field+suffix_2], city.Region.DataSet[field+suffix_2],  city.World.DataSet[field+suffix_2]]
 		}
