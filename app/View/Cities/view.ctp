@@ -268,7 +268,7 @@
 					<li> <label><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t2" data-target="addedArea" /> <?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<ul  class='map-legend-sections'>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> <span></span> Built-up Area T1 </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> <span></span> Built-up Area <?= substr($city["City"]["t1"], 0, 4);?> </label>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="infill" data-target="addedArea"/> <span></span> Infill </label>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="extension" data-target="addedArea"/> <span></span> Extension </label>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> <span></span> Leapfog </label>
@@ -424,8 +424,8 @@
 				
 				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
-					<li> <label class=" current-year"><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> <?= $city["City"]["t1"];?> </label>
-					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> <?= $city["City"]["t3"];?> </label>
+					<li> <label class=" current-year"><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
