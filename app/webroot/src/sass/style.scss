@@ -490,10 +490,10 @@ h1#site-title {
 		display:none;
 	}
 	&:hover .keyword-popup{
-		max-width:300px;
+		width:300px;
 	    // bottom: 0px;
 	    // left: 50%;
-	    margin-left:-50px;
+	    // margin-left:-50px;
 		font-weight: normal;
 	    // @include xPrefix(transform,  translateX(-50%));
 	    display: block;

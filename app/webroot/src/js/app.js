@@ -270,7 +270,7 @@ $(document).ready(function(){
 							var coordinates = $("#"+id).position();
 							$("#"+id+" .keyword-popup").css({
 								left : coordinates.left,
-								top : (coordinates.top - 30)//$("#"+id+" .keyword-popup").height())
+								top : (coordinates.top - $("#"+id+" .keyword-popup").height())
 							});	
 						});
 					});
