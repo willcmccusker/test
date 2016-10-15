@@ -258,7 +258,7 @@ $(document).ready(function(){
 				case("view"):
 					$(window).on("scroll", visibleGraph);
 
-					$(tooltips).each(function(i, e){
+					/*$(tooltips).each(function(i, e){
 						var term = e.Text.title;
 						$("p:contains('"+term+"')").each(function(ii,ee){
 							var text = $(this).html();
@@ -273,7 +273,7 @@ $(document).ready(function(){
 								top : (coordinates.top - $("#"+id+" .keyword-popup").height())
 							});	
 						});
-					});
+					});*/
 
 					$('.periodToggle').change(function(event) {
 						$(this).parents(".map-legend-years").find(".current-year").removeClass("current-year");
