@@ -294,7 +294,7 @@ $(document).ready(function(){
 							labels : ["T1", "T2", "T3"],
 							datasets:[
 								{
-									backgroundColor: "#B4A4AF",
+									backgroundColor: "rgba(52,22,186,0.5)",
 									borderWidth : 0,
 									label: ["Urban Built Up"],
 									data : [city.DataSet.urban_extent_composition_urban_t1,
@@ -302,7 +302,7 @@ $(document).ready(function(){
 									city.DataSet.urban_extent_composition_urban_t3]
 								},
 								{
-									backgroundColor: "#BDB8C2",
+									backgroundColor: "rgba(194,121,159,0.5)",
 									borderWidth : 0,
 									label: ["Suburban Built Up"],
 									data : [city.DataSet.urban_extent_composition_suburban_t1,
@@ -310,7 +310,7 @@ $(document).ready(function(){
 									city.DataSet.urban_extent_composition_suburban_t3]
 								},
 								{
-									backgroundColor: "#C6CCD4",
+									backgroundColor: "rgba(0,0,0,0.5)",
 									borderWidth : 0,
 									label: ["Rural Built Up"],
 									data : [city.DataSet.urban_extent_composition_rural_t1,
@@ -318,7 +318,7 @@ $(document).ready(function(){
 									city.DataSet.urban_extent_composition_rural_t3]
 								},
 								{
-									backgroundColor: "#CDE0E4",
+									backgroundColor: "rgba(247,245,80,0.5)",
 									borderWidth : 0,
 									label: ["Urbanized Open Space"],
 									data : [city.DataSet.urban_extent_composition_open_t1,
@@ -395,22 +395,22 @@ $(document).ready(function(){
 							datasets : [
 							{
 								suffix :"_atomistic_",
-								bgColor : "#889A9A",
+								bgColor : "rgba(202,145,121,0.5)",
 								label : "Atomistic"
 							},
 							{
 								suffix :"_informal_",
-								bgColor : "#93AFA9",
+								bgColor : "rgba(197,97,77,0.5)",
 								label : "Informal"
 							},
 							{
 								suffix :"_formal_",
-								bgColor : "#9FC3B5",
+								bgColor : "rgba(164,53,43,0.5)",
 								label : "Formal"
 							},
 							{
 								suffix :"_housing_",
-								bgColor : "#AED7C0",
+								bgColor : "rgba(126,8,18,0.5)",
 								label : "Housing"
 							}
 							]

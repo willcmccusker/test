@@ -22,6 +22,7 @@ $bodytype : #1a1a1a;
 
 /*border color variables */
 
+
 $border-lightgrey : #d6d6d6;
 $border-darkgrey : #333333;
 
@@ -256,7 +257,7 @@ footer {
 		font-size: 16px;
 	}
 	a {
-		color:#9C9C9C;
+		color:$linkcolor;
 		cursor: pointer;
 		text-decoration: none;
 	}
@@ -268,6 +269,10 @@ footer {
 		float:left;
 		padding-right:15px;
 	}
+}
+
+img.logo_block {
+	margin-top:30px;
 }
 
 
@@ -780,7 +785,7 @@ h3.sectionSubHeader {
     input{
     	border:none;
     	padding:5px;
-    	padding:0px #{$padding/2} 24px;
+    	padding:24px #{$padding/2} 4px;
     	width:100%;
     	font-size:$largetype3;
     	border-bottom:1px solid $lightgrey1;
@@ -796,7 +801,7 @@ h3.sectionSubHeader {
 
 
 /* Data Page */
-.data-page-text, .data-page {
+.data-page-text, .data {
 	a {
 		color:$linkcolor;
 	}
@@ -946,7 +951,7 @@ h3.sectionSubHeader {
 
 
 /* Data Page */
-.data-page {
+.data {
 	a {
 	color:#808080;
 	}
@@ -955,20 +960,22 @@ h3.sectionSubHeader {
 	}
 	.expansion-links a {
 	color:$linkcolor;
+	display: block;
+	padding-right:3px;
 	text-decoration: underline;
 	}	
 }
 	
 /* About Page */
 
-.about-page {
+.about, .historial, .data {
 	padding-top:$padding-top;
 	h1, h2, h3 {
 	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif !important;
 }
 }
 
-.about-page h4 {
+.about h4 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
