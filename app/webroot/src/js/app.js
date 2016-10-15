@@ -395,22 +395,22 @@ $(document).ready(function(){
 							datasets : [
 							{
 								suffix :"_atomistic_",
-								bgColor : "#889A9A",
+								bgColor : "rgba(202,145,121,0.5)",
 								label : "Atomistic"
 							},
 							{
 								suffix :"_informal_",
-								bgColor : "#93AFA9",
+								bgColor : "rgba(197,97,77,0.5)",
 								label : "Informal"
 							},
 							{
 								suffix :"_formal_",
-								bgColor : "#9FC3B5",
+								bgColor : "rgba(164,53,43,0.5)",
 								label : "Formal"
 							},
 							{
 								suffix :"_housing_",
-								bgColor : "rbga(126,8,18,0.5)",
+								bgColor : "rgba(126,8,18,0.5)",
 								label : "Housing"
 							}
 							]
