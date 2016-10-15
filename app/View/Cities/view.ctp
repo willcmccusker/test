@@ -350,7 +350,7 @@
 				<p><?= $dynamicTexts["roads"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
 					<li> <label class=" current-year"><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1" checked="checked" data-target="roads"/>Pre 1990</label>
-					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t2" data-target="roads" />1990 - 2014</label>
+					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t2" data-target="roads" />1990 – 2014</label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -424,8 +424,8 @@
 				
 				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
-					<li> <label class=" current-year"><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> T1 </label>
-					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> T3 </label>
+					<li> <label class=" current-year"><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> <?= $city["City"]["t1"];?> </label>
+					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> <?= $city["City"]["t3"];?> </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -500,7 +500,7 @@
 				<p><?= $dynamicTexts["blocks_and_plots"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
 					<li> <label class=" current-year"><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1" checked="checked" data-target="blocks"/>Pre 1990</label>
-					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" data-target="blocks" /> 1990 - 2014 </label>
+					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" data-target="blocks" /> 1990 – 2014 </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
