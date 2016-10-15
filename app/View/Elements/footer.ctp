@@ -18,11 +18,13 @@
 			<div class='nav-holder'>
 				<ul>
 					<li>&copy; Atlas of Urban Expansion 2016</li>
-					<li><a href="/cities">Cities</a></li>
+					<!--<li><a href="/cities">Cities</a></li>
 					<li><a href="/data">Data</a></li>
 					<li><a href="/historical-data">Historical Data</a></li>
 					<li><a href="/about">About</a></li>
+					-->
 					<li><a href="mailto:"info@atlasofurbanexpansion.org">Contact</a></li>
+					
 				</ul>
 			</div>
 		</div>
