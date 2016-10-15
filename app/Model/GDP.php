@@ -85,7 +85,7 @@ class GDP extends AppModel {
  *
  * @var array
  */
-	public $hasMany = array(
+	/*public $hasMany = array(
 		'City' => array(
 			'className' => 'City',
 			'foreignKey' => 'g_d_p_id',
@@ -99,6 +99,6 @@ class GDP extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
-	);
+	);*/
 
 }

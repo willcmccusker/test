@@ -1,5 +1,9 @@
 <? $this->assign('title', $city["City"]["name"]);?>
+
+
+
 <script>
+	var tooltips = <?= json_encode($tooltips);?>;
 	var city = <?= json_encode($city, JSON_NUMERIC_CHECK);?>;
 </script>
 <div class='cityHeader'>

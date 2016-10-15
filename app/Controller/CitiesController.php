@@ -78,8 +78,8 @@ class CitiesController extends AppController {
 				"World"=>array("DataSet"),
 				"DataSet",
 				"Region"=>array("DataSet"),
-				"GDP"=>array("DataSet"),
-				"CitySize"=>array("DataSet")
+				// "GDP"=>array("DataSet"),
+				// "CitySize"=>array("DataSet")
 				)
 			));
 		$this->set("data", $city);
@@ -167,8 +167,8 @@ class CitiesController extends AppController {
 				"World"=>array("DataSet"),
 				"DataSet",
 				"Region"=>array("DataSet"),
-				"GDP"=>array("DataSet"),
-				"CitySize"=>array("DataSet")
+				// "GDP"=>array("DataSet"),
+				// "CitySize"=>array("DataSet")
 				)
 			));
 		if(empty($city)){
@@ -184,7 +184,13 @@ class CitiesController extends AppController {
 			));
 		$dynamicTexts = $this->Text->dynam($dynamicTexts, $city);
 
-		$this->set(compact("city", "dynamicTexts"));
+		$tooltips = $this->Text->find("all", array(
+			"conditions"=>array(
+				"Text.type"=>"tooltip"
+				)
+			));
+
+		$this->set(compact("city", "dynamicTexts", "tooltips"));
 	}
 
 
@@ -240,8 +246,8 @@ class CitiesController extends AppController {
 		}
 		$worlds = $this->City->World->find('list');
 		$regions = $this->City->Region->find('list');
-		$gDPs = $this->City->GDP->find('list');
-		$citySizes = $this->City->CitySize->find('list');
+		// $gDPs = $this->City->GDP->find('list');
+		// $citySizes = $this->City->CitySize->find('list');
 		$dataSets = $this->City->DataSet->find('list');
 		$this->set(compact( 'worlds', 'regions', 'gDPs', 'citySizes', 'dataSets'));
 	}
@@ -270,8 +276,8 @@ class CitiesController extends AppController {
 		}
 		$worlds = $this->City->World->find('list');
 		$regions = $this->City->Region->find('list');
-		$gDPs = $this->City->GDP->find('list');
-		$citySizes = $this->City->CitySize->find('list');
+		// $gDPs = $this->City->GDP->find('list');
+		// $citySizes = $this->City->CitySize->find('list');
 		$dataSets = $this->City->DataSet->find('list');
 		$this->set(compact( 'worlds', 'regions', 'gDPs', 'citySizes', 'dataSets'));
 	}

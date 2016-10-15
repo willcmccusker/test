@@ -20,6 +20,7 @@
 					<tr>
 <?/* 						<th nowrap><?php echo $this->Paginator->sort('id'); ?></th> */?>
 						<th nowrap><?php echo $this->Paginator->sort('name'); ?></th>
+						<th nowrap>Website Link</th>
 <? /*						<th nowrap><?php echo $this->Paginator->sort('cityid'); ?></th> -->
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('slug'); ?></th> -->
 <!-- 						<th nowrap><?php echo $this->Paginator->sort('country'); ?></th> -->
@@ -45,6 +46,7 @@
 					<tr>
 <?/* 						<td nowrap><?php echo h($city['City']['id']); ?>&nbsp;</td> */?>
 						<td nowrap><?php echo h($city['City']['name']); ?>&nbsp;</td>
+						<td nowrap><a href='/cities/view/<?= $city["City"]["slug"];?>'>Link</a></td>
 <?/*						<td nowrap><?php echo h($city['City']['cityid']); ?>&nbsp;</td> -->
 <!-- 						<td nowrap><?php echo h($city['City']['slug']); ?>&nbsp;</td> -->
 <!-- 						<td nowrap><?php echo h($city['City']['country']); ?>&nbsp;</td> -->

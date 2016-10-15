@@ -95,7 +95,7 @@ class CitySize extends AppModel {
  *
  * @var array
  */
-	public $hasMany = array(
+	/*public $hasMany = array(
 		'City' => array(
 			'className' => 'City',
 			'foreignKey' => 'city_size_id',
@@ -109,6 +109,6 @@ class CitySize extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
-	);
+	);*/
 
 }

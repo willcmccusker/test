@@ -457,7 +457,56 @@ h1#site-title {
 	position:relative;
 	top:-85px;
 }
+.keyword-popup{
+	position:absolute;
+	*{
+		display:none;
+	}
+	&:hover{
+		* {
+			display:block;
+		}
+		.leaflet-popup-content-wrapper{
+			background: #fff;
+		    border-radius: 3px;
+		    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+			background-color: rgba(255,255,255,0.8);
+		    color: #333333;
+		    padding: 1px;
+		    text-align: left;
+		    pointer-events: all;
+		    .leaflet-popup-content{
+		    	padding: 5px 5px 0 5px;
+		    	margin: 0;
+			    line-height: inherit;
+			    p{
+		    	    font-size: 15px;
+				    line-height: 20px;
+				    margin: 0 0 10px;
+			    	margin-bottom: 2px !important;
+			    	padding-bottom: 2px !important;
 
+			    }
+		    }
+		}
+		.leaflet-popup-tip-container{
+			width: 20px;
+		    height: 20px;
+		    margin: 0 auto;
+		    position: relative;
+		    .leaflet-popup-tip{
+					width: 0;
+				height: 0;
+				margin: 0;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-top: 10px solid #fff;
+				box-shadow: none;
+		    	border-top: 10px solid rgba(255,255,255,0.8);
+		    }
+		}
+	}
+}
 
 .cityImage img {
 	width:100%;
