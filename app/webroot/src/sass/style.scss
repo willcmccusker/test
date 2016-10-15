@@ -2,7 +2,7 @@
 $max-width : 1080px;
 $max-width-wide : 1920px;
 $padding : 25px;
-$padding-top : 30px;
+$padding-top : 40px;
 $mobile-padding : 20px;
 $mobile-max-width : 768px;
 $tablet-min-width : 768px;
@@ -18,7 +18,7 @@ $lightgrey : #333333;
 $lightgrey1 : #afafaf;
 $lightgrey2 : #F0F0F0;
 $lightgrey3 :  #f5f5f5;
-$bodytype : #1a1a1a;
+$bodytype : #2e2e2e;
 
 /*border color variables */
 
@@ -35,6 +35,7 @@ $largetype1 : 20px;
 $largetype2 : 30px;
 $largetype3 : 40px;
 $largetype4 : 64px;
+
 
 @import "functions";
 @import "grid";
@@ -150,7 +151,7 @@ table {
 
 
 body{
-	font-family: 'DINNextLTProUltraLight';
+	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	line-height:1.5;
 	color: $bodytype;
 	padding-top:58px;
@@ -241,6 +242,9 @@ a {
 	display:inline-block;
 	display: flex;
 	// justify-content : flex-start;
+	.nav-holder {
+		margin-left:20px;
+	}
 	#site-title{
 		display:inline-block;
 		h1{
@@ -284,7 +288,7 @@ a {
 footer {
 	border-top:1px solid $lightgrey2;
 	color:$defaulttype;
-	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	line-height: 1.6;
 	padding:15px 0 0 0;
 	position:absolute;
@@ -299,7 +303,7 @@ footer {
 		line-height: 1.4;
 	}
 	a {
-		color:$linkcolor;
+		color:$lightgrey1;
 		cursor: pointer;
 		text-decoration: none;
 	}
@@ -311,12 +315,9 @@ footer {
 		float:left;
 		padding-right:15px;
 	}
-	a.site-title {
-		color:$lightgrey2;
-		font-family: Helvetica, sans-serif;
-	}
 	.bottom-links {
 		border-top:1px solid $lightgrey3;
+		font-size: $smalltype;
 		padding-top:8px;
 	}
 }
@@ -568,7 +569,7 @@ h3.sectionSubHeader {
 
 .graphSection p {
 	font-family: "Times New Roman", Times, serif;
-	font-size: 14px;
+	font-size: 16px;
 	color:$lightgrey1;
 }
 .switchYear{
@@ -842,9 +843,8 @@ h3.sectionSubHeader {
 
 
 #citySearch .closeCitySearch{
-
-	width: 50px;
-	height:50px;
+	width: 30px;
+	height:30px;
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
@@ -892,10 +892,11 @@ h3.sectionSubHeader {
     }
     input{
     	border:none;
+    	color:$bodytype;
     	padding:5px;
-    	padding:24px #{$padding/2} 4px;
+    	padding:10px #{$padding/2} 10px;
     	width:100%;
-    	font-size:36px;
+    	font-size:32px;
     	border-bottom:1px solid $lightgrey1;
     	background-color:white;
     }
@@ -1038,9 +1039,9 @@ h3.sectionSubHeader {
 		padding-top:0px;
 	}
 	h3 {
-		font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+		font-family: Helvetica, Arial, sans-serif;
 		font-size: $defaulttype;
-		font-weight: normal;
+		font-weight: bold;
 		text-transform: uppercase;
 		padding: 25px 0 0px 0;
 	}
@@ -1077,9 +1078,10 @@ h3.sectionSubHeader {
 /* About Page */
 
 .about, .historical, .data-page-text {
+	font-family: "NeueHaasRegularTX", Helvetica, sans-serif !important;
 	padding-top:$padding-top;
 	h1, h2, h3 {
-	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif !important;
+	font-family: "NeueHaasRegularTX", Helvetica, sans-serif !important;
 }
 }
 
