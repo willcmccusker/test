@@ -40,12 +40,12 @@
 	    $citiesGroup =  $partition;
 		
 		$region = false;
+		$i = 0;
 
 		foreach($citiesGroup as $cities):
 ?>
 	<ul class='list col-1-3 tab-1-1'>
 <?
-		$i = 0;
 		foreach($cities as $city):
 			if($region != $city["Region"]["name"]){
 				$newRegion = true;
