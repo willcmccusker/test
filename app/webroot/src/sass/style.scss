@@ -36,7 +36,6 @@ $largetype2 : 30px;
 $largetype3 : 40px;
 $largetype4 : 64px;
 
-
 @import "functions";
 @import "grid";
 // @import "mapbox";
@@ -482,7 +481,6 @@ h1#site-title {
 }
 .keyword-word{
 	display: inline;
-	position: relative;
 	font-weight: bold;
 	text-decoration: underline;
 	color:$linkcolor;
@@ -491,10 +489,12 @@ h1#site-title {
 		display:none;
 	}
 	&:hover .keyword-popup{
-	    bottom: 0px;
-	    left: 50%;
+		width:300px;
+	    // bottom: 0px;
+	    // left: 50%;
+	    // margin-left:-50px;
 		font-weight: normal;
-	    @include xPrefix(transform,  translateX(-50%));
+	    // @include xPrefix(transform,  translateX(-50%));
 	    display: block;
 	    position: absolute;
 		.leaflet-popup-content-wrapper{

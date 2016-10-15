@@ -70,12 +70,14 @@ var stillLoading = function(){
 var stopLoading = function(){
 	$("body").removeClass("mapsLoading");
 };
-var buildTooltip = function(term, content){
-	return $("<span>").addClass("keyword-word").html(term).append(
+var buildTooltip = function(text){
+	var rand = String(Math.random()).substr(2);
+	return $("<span>").attr("id", text.Text.slug+"-"+rand)
+	.addClass("keyword-word").html(text.Text.title).append(
 		$("<div>").addClass("keyword-popup")
 		.append(
 			$("<div>").addClass("leaflet-popup-content-wrapper").append(
-				$("<div>").addClass("leaflet-popup-content").html(content)
+				$("<div>").addClass("leaflet-popup-content").html(text.Text.content)
 			)
 		).append(
 			$("<div>").addClass("leaflet-popup-tip-container").append(
@@ -258,10 +260,19 @@ $(document).ready(function(){
 
 					$(tooltips).each(function(i, e){
 						var term = e.Text.title;
-						var text = $("p:contains('"+term+"')").html();
-						var tooltip = buildTooltip(term, e.Text.content);
-						text = text.replace(term, tooltip.outerHTML());
-						$("p:contains('"+term+"')").html(text);
+						$("p:contains('"+term+"')").each(function(ii,ee){
+							var text = $(this).html();
+							var tooltip = buildTooltip(e);
+							var id = $(tooltip).attr("id");
+							text = text.replace(term, tooltip.outerHTML());
+							$(this).html(text);
+							console.log(id);
+							var coordinates = $("#"+id).position();
+							$("#"+id+" .keyword-popup").css({
+								left : coordinates.left,
+								top : (coordinates.top - $("#"+id+" .keyword-popup").height())
+							});	
+						});
 					});
 
 					$('.periodToggle').change(function(event) {
