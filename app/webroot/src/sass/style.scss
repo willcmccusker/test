@@ -36,7 +36,6 @@ $largetype2 : 30px;
 $largetype3 : 40px;
 $largetype4 : 64px;
 
-
 @import "functions";
 @import "grid";
 // @import "mapbox";
@@ -443,7 +442,7 @@ h1#site-title {
 		.flag {
 			img{
 				margin-right:10px;
-				width:40px;
+				width:46px;
 			}
 		}	
 	}
@@ -1054,7 +1053,7 @@ h3.sectionSubHeader {
 		padding-top:0px;
 	}
 	h3 {
-		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
+		font-family: Helvetica, Arial, sans-serif;
 		font-size: $defaulttype;
 		font-weight: bold;
 		text-transform: uppercase;
