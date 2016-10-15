@@ -62,7 +62,7 @@ var startFrontMap = function(){
   L.geoJson(<?= $points ?>, {
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, {
-        radius: 4,
+        radius: 3.5,
         stroke: false,
         fillOpacity:1,
         fillColor: '#666'
@@ -73,9 +73,12 @@ var startFrontMap = function(){
       var href = '/cities/view/' + feature.properties.slug;
 
       layer.bindPopup('<p><a href=\"' + href + '\">' + cityName + ", "+ feature.properties.Country + "</a></p>");
-      layer.on('mouseover click', function(e) {
+      layer.on('mouseover', function(e) {
         e.target.feature.properties.active = true;
         layer.openPopup();
+      });
+      layer.on('click', function(e){
+      	window.location = href;
       });
     }
   }).addTo(map);

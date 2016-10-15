@@ -642,7 +642,15 @@ h3.sectionSubHeader {
 	// bottom:0;
 	// left:0;
 	height:77vh;
-	width:100%
+	width:100%;
+
+	
+	svg g path{
+		stroke: transparent;
+		stroke-width:10px;
+	}
+	
+
 }
 .leaflet-control-attribution{
 	// display:none;
