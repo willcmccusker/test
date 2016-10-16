@@ -12,7 +12,7 @@ $(document).ready(function(){
 	});
 
 	$("#TextType").on("change", function(){
-		if($(this).val() == "dynamic"){
+		if($(this).val() == "dynamic" || $(this).val() == "tooltip"){
 			$("#summernote + div, #summernote").addClass("display-none");
 			$(".summernote").removeClass("display-none");
 		}else{
@@ -36,7 +36,7 @@ $(document).ready(function(){
 		  maximumFileSize : 20000,
 		  callbacks : {
 		  	onInit : function(){
-		  		if($("#TextType").val() == "dynamic"){
+		  		if($("#TextType").val() == "dynamic" || $("#TextType").val() == "tooltip"){
 		  			$("#summernote + div, #summernote").addClass("display-none");
 		  			$(".summernote").removeClass("display-none");
 		  		}
