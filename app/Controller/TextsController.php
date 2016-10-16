@@ -19,7 +19,7 @@ class TextsController extends AppController {
 	public function beforeFilter() {
 			parent::beforeFilter();
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
-			$this->Auth->allow('about', 'historical');
+			$this->Auth->allow('about', 'historical', 'acknowledgements');
 	}
 /**
  * admin_index method
@@ -120,6 +120,19 @@ class TextsController extends AppController {
 		$text = $this->Text->find("first", array(
 			"conditions"=>array(
 				"Text.slug"=>"about"
+				)
+			));
+		if(empty($text)){
+			throw new NotFoundException(__('Invalid text'));
+		}
+		$this->set(compact("text"));
+		$this->render("/Pages/about");
+	}
+
+	public function acknowledgements(){
+		$text = $this->Text->find("first", array(
+			"conditions"=>array(
+				"Text.slug"=>"acknowledgements"
 				)
 			));
 		if(empty($text)){
