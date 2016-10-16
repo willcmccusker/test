@@ -670,6 +670,7 @@ h3.sectionSubHeader {
 			}
 			input{
 				display:none;
+				display:inline-block;
 				&:checked + span{
 					background-image: url("/img/menu.png");
 					background-position:center center;
@@ -682,6 +683,7 @@ h3.sectionSubHeader {
 				background-color: #DADADA;
 				width: 15px;
 				display: inline-block;
+				display: none;
 				height: 15px;
 				margin-right: 5px;
 				line-height: 24px;
