@@ -76,7 +76,7 @@ var buildTooltip = function(text){
 	return $("<a>").attr({
 		"href" : "#",
 		"data-tooltip": text.Text.content,
-		"class" : "tooltip-right"
+		"class" : "tooltip-bottom"
 	}).html(text.Text.title);
 
 /*
