@@ -583,18 +583,21 @@ h3.sectionSubHeader {
 .switchYear{
 	cursor: pointer;
 	&.activeYear{
+		color:#fff;
 		font-weight: bold;
-		background-color: #ededed;
+		background-color: #999999;
 	}
 }
 .years {
+	left:50px;
+	margin-top:10px;
 	position:absolute;
-	font-size: 14px;
+	font-size: 16px;
 }
 .years span{
-	background-color: #dbdbdb;
-	margin-right: 6px;
-	padding: 4px 8px;
+	background-color: #e4e4e4;
+	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	padding: 5px 10px 3px;
 }
 .legend-ul{
 	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
@@ -635,7 +638,7 @@ h3.sectionSubHeader {
 			background-color: #e4e4e4;
 			border: 0px solid #DADADA;
 			color: #848282;
-			padding:4px 15px 2px;	
+			padding:5px 10px 3px;	
 			cursor: pointer;
 			&:hover, &.current-year{
 				background-color: #DADADA;
@@ -1057,6 +1060,9 @@ h3.sectionSubHeader {
 		font-weight: bold;
 		text-transform: uppercase;
 		padding: 25px 0 0px 0;
+	}
+	.country-name, .country-dash {
+		color:$lightgrey1;
 	}
 }
 

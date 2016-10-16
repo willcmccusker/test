@@ -23,6 +23,7 @@
 					<li><a href="/historical-data">Historical Data</a></li>
 					<li><a href="/about">About</a></li>
 					-->
+					<li><a href="/acknowledgements">Acknowledgements</a></li>
 					<li><a href="mailto:"info@atlasofurbanexpansion.org">Contact</a></li>
 					
 				</ul>
