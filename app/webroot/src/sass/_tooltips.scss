@@ -10,6 +10,10 @@
   cursor: pointer;
 }
 
+.tooltip-link{
+  color: $linkcolor;
+}
+
 /* Base styles for the entire tooltip */
 [data-tooltip]:before,
 [data-tooltip]:after,

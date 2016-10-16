@@ -70,13 +70,13 @@ var stillLoading = function(){
 var stopLoading = function(){
 	$("body").removeClass("mapsLoading");
 };
-var buildTooltip = function(text){
+var buildTooltip = function(text, element){
 
 
 	return $("<a>").attr({
 		"href" : "#",
 		"data-tooltip": text.Text.content,
-		"class" : "tooltip-bottom"
+		"class" : (!isMobile() || $(element).is("label") ? "tooltip-right" : "tooltip-bottom")+" tooltip-link"
 	}).html(text.Text.title).click(function(e){
 		e.preventDefault();
 	});
@@ -271,9 +271,9 @@ $(document).ready(function(){
 
 					$(tooltips).each(function(i, e){
 						var term = e.Text.title;
-						$("p:contains('"+term+"')").each(function(ii,ee){
+						$("p:contains('"+term+"'), label:contains('"+term+"')").each(function(ii,ee){
 							var text = $(this).html();
-							var tooltip = buildTooltip(e);
+							var tooltip = buildTooltip(e, ee);
 							var id = $(tooltip).attr("id");
 							text = text.replace(term, tooltip.outerHTML());
 							$(this).html(text);
