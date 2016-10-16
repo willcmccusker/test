@@ -77,7 +77,9 @@ var buildTooltip = function(text){
 		"href" : "#",
 		"data-tooltip": text.Text.content,
 		"class" : "tooltip-bottom"
-	}).html(text.Text.title);
+	}).html(text.Text.title).click(function(e){
+		e.preventDefault();
+	});
 
 /*
 	var rand = String(Math.random()).substr(2);
