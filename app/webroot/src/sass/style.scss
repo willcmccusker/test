@@ -1,7 +1,7 @@
 
 $max-width : 1080px;
 $max-width-wide : 1920px;
-$padding : 25px;
+$padding : 15px;
 $padding-top : 40px;
 $mobile-padding : 20px;
 $mobile-max-width : 768px;
@@ -275,7 +275,7 @@ a {
 	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	font-size:$defaulttype;
 	color:$headercolor;
-	padding: 15px 20px;
+	padding: 15px;
 	background-color: rgba(255,255,255,0.0);
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
