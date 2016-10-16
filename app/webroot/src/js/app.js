@@ -72,14 +72,14 @@ var stopLoading = function(){
 };
 var buildTooltip = function(text, element){
 
+	var rand = String(Math.random()).substr(2);
 
 	return $("<a>").attr({
+		"id": "tooltip-link-"+rand,
 		"href" : "#",
 		"data-tooltip": text.Text.content,
 		"class" : (!isMobile() || $(element).is("label") ? "tooltip-right" : "tooltip-bottom")+" tooltip-link"
-	}).html(text.Text.title).click(function(e){
-		e.preventDefault();
-	});
+	}).html(text.Text.title);
 
 /*
 	var rand = String(Math.random()).substr(2);
@@ -277,6 +277,10 @@ $(document).ready(function(){
 							var id = $(tooltip).attr("id");
 							text = text.replace(term, tooltip.outerHTML());
 							$(this).html(text);
+							$("#"+id).click(function(e){
+								e.preventDefault();
+								$(this).parent("label").click();
+							});
 							/*console.log(id);
 							var coordinates = $("#"+id).position();
 							$("#"+id+" .keyword-popup").css({
