@@ -63,7 +63,7 @@
 				<?if($newRegion):?><h3 class='region '><?=$region;?></h3><?endif;?>
 				<div class='city'>
 					<a href='/cities/view/<?=$city["City"]["slug"];?>'>
-						<?=$city["City"]["name"];?> — <?=$city["City"]["country"];?>
+						<?=$city["City"]["name"];?> <span class='country-dash'>—</span> <span class='country-name'><?=$city["City"]["country"];?></span>
 					</a>
 				</div>
 			</div>

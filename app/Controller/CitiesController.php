@@ -175,6 +175,8 @@ class CitiesController extends AppController {
 			throw new NotFoundException(__('Invalid city'));
 		}
 
+		$fbphoto = "/file-manager/userfiles/photo/".$city["City"]["photo_path"];
+
 		App::uses('Text', 'Model');
 		$this->Text = new Text;
 		$dynamicTexts = $this->Text->find("all", array(
@@ -190,7 +192,7 @@ class CitiesController extends AppController {
 				)
 			));
 
-		$this->set(compact("city", "dynamicTexts", "tooltips"));
+		$this->set(compact("city", "dynamicTexts", "tooltips", "fbphoto"));
 	}
 
 

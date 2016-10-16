@@ -53,7 +53,15 @@
 		    filter: blur(5px);
 		}
 	</style>
+	<meta name="description" content=""></head>
+	<meta name="keywords" content=""></head>
+	<meta property="og:site_name" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:description" content="" />
 
+<?if(isset($fbphoto)):?>
+	<meta property="og:image" content="<?=$fbphoto;?>" />
+<?endif;?>
 </head>
 <body>
 <img class='loader' src="/img/loader.svg">
@@ -62,11 +70,21 @@
 	echo $this->fetch('content');
 	echo $this->element("footer");
 	//echo $this->element('sql_dump'); ?>
+	<style>
+	<? 		
+// 	echo file_get_contents(APP . 'webroot/dist/css/style.css');
+// 	echo file_get_contents(APP . 'webroot/mapbox.js/mapbox.css');
+	
+	?>
+    </style>
+
+
+
 	<?
-		echo $this->Html->css('/dist/css/style.css');
+	echo $this->Html->css('/dist/css/style.css');
+	echo $this->Html->css('/mapbox.js/mapbox.css');
 		echo $this->Html->script('/mapbox.js/mapbox.js');
 		echo $this->Html->script('/dist/js/app.min.js');
-		echo $this->Html->css('/mapbox.js/mapbox.css');
 	?>
 	       <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>

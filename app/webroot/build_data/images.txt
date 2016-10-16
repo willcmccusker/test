@@ -6,3 +6,9 @@ mogrify -format jpg *.png
 
 for file in photos/*; do convert  -limit memory 2MB -limit map 4MB "$file" -resize 80x80 _thumbs/"${file// /}"; done
 for file in flags/*; do convert "$file" -resize 80x80 _thumbs/"${file// /}"; done
+
+convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% source.jpg destination.jpg
+
+for file in photos/*; do convert "$file" -strip -interlace Plane -gaussian-blur 0.05 -quality 85% "${file// / }"; done
+
+1415733
