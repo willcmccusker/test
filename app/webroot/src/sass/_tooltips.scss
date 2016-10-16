@@ -135,8 +135,8 @@
   margin-right: -12px;
   margin-bottom: 0;
   border-top-color: transparent;
-  border-left-color: #000;
-  border-left-color: hsla(0, 0%, 20%, 0.9);
+  border-left-color: #fff;
+  border-left-color: hsla(100, 100%, 100%, 0.9);
 }
 
 .tooltip-left:hover:before,
@@ -160,8 +160,8 @@
   margin-top: -12px;
   margin-bottom: 0;
   border-top-color: transparent;
-  border-bottom-color: #000;
-  border-bottom-color: hsla(0, 0%, 20%, 0.9);
+  border-bottom-color: #fff;
+  border-bottom-color: hsla(100, 100%, 100%, 0.9);
 }
 
 .tooltip-bottom:hover:before,
@@ -184,8 +184,8 @@
   margin-bottom: 0;
   margin-left: -12px;
   border-top-color: transparent;
-  border-right-color: #000;
-  border-right-color: hsla(0, 0%, 20%, 0.9);
+  border-right-color: #fff;
+  border-right-color: hsla(100%, 100%, 100%, 0.9);
 }
 
 .tooltip-right:hover:before,
