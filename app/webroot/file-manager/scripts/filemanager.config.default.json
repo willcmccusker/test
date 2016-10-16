@@ -65,7 +65,9 @@
             "mp3",
             "wav",
             "zip",
-            "rar"
+            "rar",
+            "mbtiles",
+            "geojson"
         ]
     },
     "exclude": {

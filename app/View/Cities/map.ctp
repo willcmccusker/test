@@ -22,7 +22,7 @@ var startFrontMap = function(){
     }
 
 
-    bounds = new L.LatLngBounds(new L.LatLng(-90, -200), new L.LatLng(90, 200));
+    bounds = new L.LatLngBounds(new L.LatLng(-66, -200), new L.LatLng(79, 200));
 
   var map = L.map('worldmap', {
     maxZoom : 5,
