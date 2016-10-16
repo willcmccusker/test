@@ -40,7 +40,6 @@
 			opacity:0;
 		}
 		.header-bg{
-
 		    -webkit-transition: filter 1000ms ease;
 		    -moz-transition: filter 1000ms ease;
 		    -ms-transition: filter 1000ms ease;
@@ -65,15 +64,15 @@
 	//echo $this->element('sql_dump'); ?>
 	<?
 		echo $this->Html->css('/dist/css/style.css');
-		?>
-
-<!-- 	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
- -->
-		<?
 		echo $this->Html->script('/mapbox.js/mapbox.js');
 		echo $this->Html->script('/dist/js/app.min.js');
 		echo $this->Html->css('/mapbox.js/mapbox.css');
 	?>
+	       <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 </body>
 </html>

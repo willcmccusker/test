@@ -71,6 +71,15 @@ var stopLoading = function(){
 	$("body").removeClass("mapsLoading");
 };
 var buildTooltip = function(text){
+
+
+	return $("<a>").attr({
+		"href" : "#",
+		"data-tooltip": text.Text.content,
+		"class" : "tooltip-right"
+	}).html(text.Text.title);
+
+/*
 	var rand = String(Math.random()).substr(2);
 	return $("<span>").attr("id", text.Text.slug+"-"+rand)
 	.addClass("keyword-word").html(text.Text.title).append(
@@ -84,7 +93,7 @@ var buildTooltip = function(text){
 				$("<div>").addClass("leaflet-popup-tip")
 			)
 		)
-	);
+	);*/
 };
 
 
@@ -258,7 +267,7 @@ $(document).ready(function(){
 				case("view"):
 					$(window).on("scroll", visibleGraph);
 
-					/*$(tooltips).each(function(i, e){
+					$(tooltips).each(function(i, e){
 						var term = e.Text.title;
 						$("p:contains('"+term+"')").each(function(ii,ee){
 							var text = $(this).html();
@@ -266,14 +275,14 @@ $(document).ready(function(){
 							var id = $(tooltip).attr("id");
 							text = text.replace(term, tooltip.outerHTML());
 							$(this).html(text);
-							console.log(id);
+							/*console.log(id);
 							var coordinates = $("#"+id).position();
 							$("#"+id+" .keyword-popup").css({
 								left : coordinates.left,
 								top : (coordinates.top - $("#"+id+" .keyword-popup").height())
-							});	
+							});	*/
 						});
-					});*/
+					});
 
 					$('.periodToggle').change(function(event) {
 						$(this).parents(".map-legend-years").find(".current-year").removeClass("current-year");
