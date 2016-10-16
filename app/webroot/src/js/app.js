@@ -323,7 +323,7 @@ $(document).ready(function(){
 						});
 					});
 
-					$('.layerToggle').change(function() {
+					$('.layerToggle').change(function(event) {
 						$(this).parent().toggleClass("checked");
 						var target = $(event.target).data("target");
 						var targetMap = allMaps[target];
