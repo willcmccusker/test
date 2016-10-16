@@ -564,7 +564,11 @@ h1#site-title {
 	font-size:$defaulttype;
 	text-align:right;
 	line-height:60px;
+	a {
+		color:$linkcolor;	
+	}
 }
+
 
 .sectionSubHeader {
 	margin-bottom: .5em;
