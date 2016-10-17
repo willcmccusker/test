@@ -64,7 +64,7 @@
 <?endif;?>
 </head>
 <body>
-<img class='loader' src="/img/loader.svg">
+<img width="1px" height="1px" class='loader' src="/img/loader.svg">
 <?
 	echo $this->element("header");
 	echo $this->fetch('content');
