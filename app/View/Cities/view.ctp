@@ -437,7 +437,7 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> <span></span> Built-up Area <?= substr($city["City"]["t1"], 0, 4);?></label>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="infill" data-target="addedArea"/> <span></span> Infill </label>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="extension" data-target="addedArea"/> <span></span> Extension </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> <span></span> Leapfog </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> <span></span> Leapfrog </label>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="inclusion" data-target="addedArea"/> <span></span> Inclusion </label>
 				</ul>
 			</div>
