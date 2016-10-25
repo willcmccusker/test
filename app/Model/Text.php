@@ -49,7 +49,11 @@ class Text extends AppModel {
 					case("calc"):
 						$first = $this->pathToValue($valueCat[1], $key);
 						$second = $this->pathToValue($valueCat[2], $key);
-						$value = (((float) $second / ((float) $first + 0.00001) ) - 1) * 100;
+
+						$t1 = substr($this->pathToValue($valueCat[3], $key), 0, 4);
+						$t3 = substr($this->pathToValue($valueCat[4], $key), 0, 4);
+						$value = (((float) $second / ((float) $first ) / ($t3 - $t1) ) ) * 100;
+						// $value = $value / ;
 					break;
 					case("popavg"):
 						$first = $this->pathToValue($valueCat[1], $key);

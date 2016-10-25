@@ -1046,7 +1046,7 @@ var makeRoadChart = function(prefix, city){
 
 	chartObjects[prefix] = new Chart(ctx, {
 		type:  'horizontalBar',
-		data: data_1990,
+		data: data_2015,
 		options: {
 			legend : {
 				labels : {
@@ -1143,7 +1143,7 @@ var makeSpecialStacked = function(prefix, city){
 
 	chartObjects[prefix] = new Chart(ctx, {
 		type: 'horizontalBar',
-		data: data_1990,
+		data: data_2015,
 		options: {
 			legend : {
 				labels : {

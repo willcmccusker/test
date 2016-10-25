@@ -113,9 +113,9 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 					<?= $dynamicTexts["urban_extent"]["Text"]["content"];?>
 				</p>
 				<ul class='map-legend-years'>
-					<li> <label class='current-year'><input class="periodToggle extent" type="radio" name="extentPeriod" value="t1" checked="checked" data-target="extent"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t1"  data-target="extent"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
 					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t2" data-target="extent" /> <?= substr($city["City"]["t2"], 0, 4);?> </label>
-					<li> <label><input class="periodToggle extent" type="radio" name="extentPeriod" value="t3" data-target="extent" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
+					<li> <label  class='current-year'><input class="periodToggle extent" type="radio" name="extentPeriod" checked="checked" value="t3" data-target="extent" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<ul class='map-legend-sections'>
 					<li>&nbsp;</li>
@@ -342,7 +342,7 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 								allMaps.extent_t1_exurbanBuilt, 
 								allMaps.extent_t1_exurbanOpen, 
 								allMaps.extent_t1_exurbanRural, 
-								allMaps.extent_t1_water]).addTo(allMaps.extent);
+								allMaps.extent_t1_water]);
 							allMaps.extent_t2_layer = L.layerGroup([
 								allMaps.extent_t2_outline, 
 								allMaps.extent_t2_urbanBuilt, 
@@ -362,9 +362,9 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 								allMaps.extent_t3_exurbanBuilt, 
 								allMaps.extent_t3_exurbanOpen, 
 								allMaps.extent_t3_exurbanRural, 
-								allMaps.extent_t3_water]);
+								allMaps.extent_t3_water]).addTo(allMaps.extent);
 
-							allMaps.extentStyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(allMaps.extent);
+							// allMaps.extentStyle = L.mapbox.styleLayer('mapbox://styles/willcmccusker/citydnrig00682io4flsusb20').addTo(allMaps.extent);
 						}
 					</script>
 				</div>
@@ -430,8 +430,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				<p><?= $dynamicTexts["composition_of_added_area"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
 
-					<li> <label class=" current-year"><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t1" checked="checked" data-target="addedArea"/> <?= substr($city["City"]["t1"], 0, 4)."–".substr($city["City"]["t2"], 0, 4);?> </label>
-					<li> <label><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t2" data-target="addedArea" /> <?= substr($city["City"]["t2"], 0, 4)."–".substr($city["City"]["t3"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle addedArea" type="radio" name="addedPeriod" value="t1"data-target="addedArea"/> <?= substr($city["City"]["t1"], 0, 4)."–".substr($city["City"]["t2"], 0, 4);?> </label>
+					<li> <label class=" current-year"><input class="periodToggle addedArea" type="radio" name="addedPeriod"  checked="checked"  value="t2" data-target="addedArea" /> <?= substr($city["City"]["t2"], 0, 4)."–".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<ul  class='map-legend-sections'>
 					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> <span></span> Built-up Area <?= substr($city["City"]["t1"], 0, 4);?></label>
@@ -448,7 +448,7 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 			<script>
 			var addedArea;
 			var composition_of_added_area_map = function(){
-					allMaps.addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light', {
+					allMaps.addedArea = L.mapbox.map('composition_of_added_area_map', 'willcmccusker.16nzxgqm', {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 						zoom: 11,
 						maxZoom : 13,
@@ -552,15 +552,15 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 						allMaps.addedArea_t1_infill, 
 						allMaps.addedArea_t1_extension, 
 						allMaps.addedArea_t1_leapfrog, 
-						allMaps.addedArea_t1_inclusion])
-					.addTo(allMaps.addedArea);
+						allMaps.addedArea_t1_inclusion]);
 					allMaps.addedArea_t2_layer = L.layerGroup([
 						allMaps.addedArea_t2_outline, 
 						allMaps.addedArea_t2_builtUp, 
 						allMaps.addedArea_t2_infill, 
 						allMaps.addedArea_t2_extension, 
 						allMaps.addedArea_t2_leapfrog, 
-						allMaps.addedArea_t2_inclusion]);
+						allMaps.addedArea_t2_inclusion])
+					.addTo(allMaps.addedArea);
 					
 
 
@@ -589,8 +589,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				<h3 class='sectionSubHeader' >Roads</h3>
 				<p><?= $dynamicTexts["roads"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
-					<li> <label class=" current-year"><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1" checked="checked" data-target="roads"/>Pre 1990</label>
-					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t2" data-target="roads" />1990 – 2014</label>
+					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1"  data-target="roads"/>Pre 1990</label>
+					<li> <label  class=" current-year"><input class="periodToggle roads" type="radio" name="roadsPeriod" checked="checked" value="t2" data-target="roads" />1990 – 2014</label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -614,6 +614,7 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 						.on("load", function(){
 						removeLayerLoader("t1_outline");
 						}).addTo(allMaps.roads)
+
 					allMaps.t1_roads = L.tileLayer('http://{s}.<? echo $host;?>/tiles/show/<?= $city['City']['slug'] ?>/roads/roads_t0/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).on("loading", function(){
 						addLayerLoader("t1_roads");
 						})
@@ -642,10 +643,10 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 
 					allMaps.roads_t1_layer = L.layerGroup([
 						allMaps.t1_roads, 
-						allMaps.t1_locales]).addTo(allMaps.roads);
+						allMaps.t1_locales]);
 					allMaps.roads_t2_layer = L.layerGroup([
 						allMaps.t2_roads, 
-						allMaps.t2_locales]);
+						allMaps.t2_locales]).addTo(allMaps.roads);
 				}
 				</script>
 			</div>
@@ -689,8 +690,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				
 				<p><?= $dynamicTexts["arterial_roads"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
-					<li> <label class=" current-year"><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1" checked="checked" data-target="arterials"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
-					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
+					<li> <label><input class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t1"  data-target="arterials"/> <?= substr($city["City"]["t1"], 0, 4);?> </label>
+					<li> <label  class=" current-year"><input checked="checked" class="periodToggle arterials" type="radio" name="arterialsPeriod" value="t2" data-target="arterials" /> <?= substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -719,13 +720,13 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 						})
 						.on("load", function(){
 						removeLayerLoader("arterials_t1_layer");
-						}).addTo(allMaps.arterials);
+						});
 					allMaps.arterials_t2_layer = L.tileLayer('http://{s}.<? echo $host;?>/tiles/show/<?= $city['City']['slug'] ?>/arterials/edge_t2/{z}/{x}/{y}.png', {tms: true,  subdomains : "abc"}).on("loading", function(){
 						addLayerLoader("arterials_t2_layer");
 						})
 						.on("load", function(){
 						removeLayerLoader("arterials_t2_layer");
-						});
+						}).addTo(allMaps.arterials);
 					}
 				</script>
 
@@ -738,8 +739,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				<div class='position-relative col-3-4 mob-1-1 no-pad year-switch-graphic'>
 					<canvas id='arterial_roads_density_bar' class='city-graphic' data-title='Density of Arterial Roads (km/km2)' data-unit=" km/km2" height="350px"></canvas>
 					<div class='years' >
-						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
-						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
+						<span class='switchYear ' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear activeYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -779,8 +780,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				<h3 class='sectionSubHeader' >Blocks and Plots</h3>
 				<p><?= $dynamicTexts["blocks_and_plots"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
-					<li> <label class=" current-year"><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1" checked="checked" data-target="blocks"/>Pre 1990</label>
-					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" data-target="blocks" /> 1990 – 2014 </label>
+					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1"  data-target="blocks"/>Pre 1990</label>
+					<li> <label  class=" current-year"><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" checked="checked" data-target="blocks" /> 1990 – 2014 </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -818,9 +819,9 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 							});
 
 						allMaps.blocks_t1_layer = L.layerGroup([
-							allMaps.t1_blocks]).addTo(allMaps.blocks);
+							allMaps.t1_blocks]);
 						allMaps.blocks_t2_layer = L.layerGroup([
-							allMaps.t2_blocks]);
+							allMaps.t2_blocks]).addTo(allMaps.blocks);
 					}
 				</script>
 			</div>
@@ -833,8 +834,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 					<canvas id='blocks_and_plots_composition_special_stacked' class='city-graphic' data-title='Share of Residential Land Use Settlements' height="350px"></canvas>
 
 					<div class='years'>
-						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
-						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
+						<span class='switchYear ' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear activeYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
