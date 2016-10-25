@@ -750,8 +750,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 					<canvas id='arterial_roads_walking_bar' class='city-graphic' data-title='Share of Area Within Walking Distance of Arterial Roads' data-unit="%" data-multiply="100" height="350px"></canvas>
 
 					<div class='years'>
-						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
-						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
+						<span class='switchYear ' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear activeYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad hold-legend'></div>
@@ -764,8 +764,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 					<canvas id='arterial_roads_beeline_bar' data-unit="m" class='city-graphic' data-title='Beeline Distance to Arterial Roads' height="350px"></canvas>
 
 					<div class='years'>
-						<span class='switchYear activeYear' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
-						<span class='switchYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
+						<span class='switchYear ' data-year="1990"><?= substr($city["City"]["t1"], 0, 4)."-".substr($city["City"]["t2"], 0, 4);?></span>&nbsp;
+						<span class='switchYear activeYear' data-year="2015"><?= substr($city["City"]["t2"], 0, 4)."-".substr($city["City"]["t3"], 0, 4);?></span>
 					</div>
 				</div>
 				<div class='col-1-4 mob-1-1 no-pad  hold-legend'></div>
