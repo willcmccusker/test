@@ -448,7 +448,7 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 			<script>
 			var addedArea;
 			var composition_of_added_area_map = function(){
-					allMaps.addedArea = L.mapbox.map('composition_of_added_area_map', 'willcmccusker.16nzxgqm', {
+					allMaps.addedArea = L.mapbox.map('composition_of_added_area_map', 'mapbox.light'/*'willcmccusker.16nzxgqm'*/, {
 						center: [<?= $city['City']['latitude'] ?>, <?= $city['City']['longitude'] ?>],
 						zoom: 11,
 						maxZoom : 13,
