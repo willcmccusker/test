@@ -190,8 +190,31 @@
 		// padding-top:0px !important;
 	}
 
+	.sectionSubHeader{
+		margin:.5em 0px;
+	}
 
-
+	.map-legend-sections{
+		margin:10px 0px;
+	}
+	.city-map{
+		margin-bottom:20px;
+		margin-top:20px;
+	}
+	.years{
+		position:relative;
+		margin-bottom:20px;
+	}
+	.city-graphic{
+		margin-bottom:32px;
+	}
+	.legend-ul{
+		margin-top:0px;
+		margin-bottom:20px;
+	}
+	.year-switch-graphic{
+		margin-bottom: 0px;
+	}
 	#worldmap{
 		margin:0px 25px;
 		width: calc(100% - 50px);
