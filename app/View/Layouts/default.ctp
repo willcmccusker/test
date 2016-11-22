@@ -63,7 +63,7 @@
 	<meta property="og:image" content="<?=$fbphoto;?>" />
 <?endif;?>
 </head>
-<body>
+<body class='<?= Inflector::slug($this->request->url);?>'>
 <img width="1px" height="1px" class='loader' src="/img/loader.svg">
 <?
 	echo $this->element("header");

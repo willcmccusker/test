@@ -219,6 +219,10 @@ a {
 	display:none;
 }
 
+body[class^='cities_view_']{
+	
+}
+
 .header {
 	@include xPrefix(transition, transform 500ms ease);
 	&.headroom--unpinned:not(.poppedUp){
