@@ -5,8 +5,82 @@
 /* tablet */
 @media only screen and (min-width : 0px) and (max-width : $tablet-max-width)  {
 
+/* typography */
+	
+	body {
+		font-size: $defaulttype - 2;
+	}
+	
+	h1#site-title {
+		font-size:$defaulttype - 4;
+	}
+	
+	.h1{
+		font-size:10vw;
+	}
+	
 
-
+	.cityHeader {
+		.countryNameRow .flag img {
+				margin-right:6px;
+				padding:0;
+				width:25px !important;
+		}	
+		.citySummaryTable .statValue {
+			font-size:($defaulttype * 2 + 8) * .60;
+		}
+		.cityRegionTable {
+			margin:12px 0 15px 0;
+			border: 0px solid rgba(255,255,255,0.7);
+		}
+		.countryNameRow, .regionMenu {
+			border:none;
+			float:left;
+			font-size:$defaulttype - 4;
+			width:auto;
+		}
+		.regionMenu {
+			padding:0;
+		}
+	}
+	
+	.graphSection {
+		padding-bottom: 60px;
+	} 
+		
+	.grid {
+	padding:0;
+	}
+	
+	.cityNav {
+	position:absolute;
+	bottom:10px;
+	ul {
+	margin-right:0px;
+	float: left;
+	margin-bottom: 10px;
+	}
+	li {
+	list-style-type:none;
+	margin:0;
+	float:left;
+	}
+	a {
+	color:#fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:$defaulttype - 4;
+	text-transform: uppercase;
+	padding: 0px;
+	background: rgba(255,255,255,0.1);
+	border: 0px solid rgba(255,255,255,.5);
+	cursor: pointer;
+	}
+	a:hover {
+	background:rgba(0,0,0,0.7);
+	}
+}
+	
+		
 	.sectionDownload{
 		text-align: left;
 	}
@@ -45,8 +119,6 @@
 	}
 
 	.header {
-		background-color: white;	
-
 		#site-title{
 			flex: 1;
 		}

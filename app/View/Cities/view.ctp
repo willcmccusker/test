@@ -120,17 +120,17 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				<ul class='map-legend-sections'>
 					<li>&nbsp;</li>
 					<li><u>Urban Extent</u></li>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/> <span></span>Urban Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> <span></span>Suburban Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt"/> <span></span>Rural Built-up </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> <span></span>Urbanized Open Space </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanBuilt"/><span></span>Urban Built-up<div class="color-key" style="background-color:rgba(52,22,186,0.5)"></div></label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="suburbanBuilt"/> <span></span>Suburban Built-up<div class="color-key" style="background-color:rgba(194,121,159,0.5)"></div></label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="ruralBuilt"/> <span></span>Rural Built-up<div class="color-key" style="background-color:rgba(0,0,0,0.5)"></div></label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="urbanOpen"/> <span></span>Urbanized Open Space<div class="color-key" style="background-color:rgba(247,245,80,0.5)"></div></label>
 					<li>&nbsp;</li>
 					<li><u>Exurban Area</u></li>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> <span></span>Exurban Built-Up Area </label>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> <span></span>Exurban Open Space </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanBuilt"/> <span></span>Exurban Built-Up Area<div class="color-key" style="background-color:rgba(130,130,130,0.5)"></div></label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanOpen"/> <span></span>Exurban Open Space<div class="color-key" style="background-color:rgba(204,204,204,0.5)"></div></label>
 					<li>&nbsp;</li>
 					<li><u>Rural Open Space</u></li>
-					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanRural"/> <span></span>Rural Open Space </label>
+					<li> <label><input class="layerToggle extent" type="checkbox" data-target="extent" checked="checked" name="exurbanRural"/> <span></span>Rural Open Space<div class="color-key" style="background-color:rgba(160,246,118,0.5)"></div> </label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>
@@ -434,11 +434,11 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 					<li> <label class=" current-year"><input class="periodToggle addedArea" type="radio" name="addedPeriod"  checked="checked"  value="t2" data-target="addedArea" /> <?= substr($city["City"]["t2"], 0, 4)."–".substr($city["City"]["t3"], 0, 4);?> </label>
 				</ul>
 				<ul  class='map-legend-sections'>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> <span></span> Built-up Area <?= substr($city["City"]["t1"], 0, 4);?></label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="infill" data-target="addedArea"/> <span></span> Infill </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="extension" data-target="addedArea"/> <span></span> Extension </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> <span></span> Leapfrog </label>
-					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="inclusion" data-target="addedArea"/> <span></span> Inclusion </label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="builtUp" data-target="addedArea"/> <span></span> Built-up Area<div class="color-key" style="background-color:rgba(52,22,186,0.5)"></div> <?= substr($city["City"]["t1"], 0, 4);?></label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="infill" data-target="addedArea"/> <span></span> Infill<div class="color-key" style="background-color:rgba(255,1,196,0.5)"></div></label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="extension" data-target="addedArea"/> <span></span> Extension<div class="color-key" style="background-color:rgba(255,255,16,0.5)"></div></label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="leapfrog" data-target="addedArea"/> <span></span> Leapfrog<div class="color-key" style="background-color:rgba(254,0,0,0.5)"></div></label>
+					<li> <label><input class="layerToggle addedArea" type="checkbox" checked="checked" name="inclusion" data-target="addedArea"/> <span></span> Inclusion<div class="color-key" style="background-color:rgba(53,136,102,0.5)"></div></label>
 				</ul>
 			</div>
 			<div class='col-4-5 tab-1-1 mob-1-1'>

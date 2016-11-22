@@ -10,8 +10,8 @@
   cursor: pointer;
 }
 
-.tooltip-link{
-  color: $linkcolor;
+.tooltip-link {
+	border-bottom:1px dotted rgba(0,0,0,0.3);  
 }
 
 /* Base styles for the entire tooltip */

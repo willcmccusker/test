@@ -11,7 +11,7 @@ $tablet-max-width : 950px;
 /*type color variables */
 
 $headerbgcolor : transparent;
-$headercolor : #333333;
+$headercolor : #ffffff;
 $linkcolor : #FF6653;
 $lightgrey0 : #666666;
 $lightgrey : #333333;
@@ -28,13 +28,12 @@ $border-darkgrey : #333333;
 
 /*type size variables */
 
-$smalltype : 12px;
-$Lighttype : 12px;
 $defaulttype : 16px;
-$largetype1 : 20px;
-$largetype2 : 30px;
-$largetype3 : 40px;
-$largetype4 : 64px;
+/* 	default -4
+	default * 2
+	default * 2 + 8
+	default * 5
+*/
 
 @import "functions";
 @import "grid";
@@ -118,7 +117,7 @@ table tbody > * {
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
-	line-height:1.3 !important;
+	line-height:1.2 !important;
 }
 p {
 	padding-bottom: 1em;
@@ -127,9 +126,6 @@ p {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
-}
-body {
-	line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -148,17 +144,16 @@ table {
 }
 
 
-
-
 body{
+	background-color: rgba(245,245,245,1.0);
+	color: $bodytype;
 	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	line-height:1.5;
-	color: $bodytype;
+	min-height:100vh;
+	opacity:1 !important;
 	padding-top:54px;
 	padding-bottom:227px;
 	position:relative;
-	min-height:100vh;
-	opacity:1 !important;
 	@include xPrefix(transition, opacity 1s ease);
 	.maploader{
 		@include xPrefix(transition, all 1s ease);
@@ -224,10 +219,6 @@ a {
 	display:none;
 }
 
-
-
-
-
 .header {
 	@include xPrefix(transition, transform 500ms ease);
 	&.headroom--unpinned:not(.poppedUp){
@@ -269,26 +260,23 @@ a {
 		margin-left: auto;
 		// align-self: flex-end;
 	}
-	position: fixed;
-	width:100%;
-	top:0px;
-	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
+	border-bottom:1px solid rgba(255,255,255,0.5);
 	font-size:$defaulttype;
-	color:$headercolor;
 	padding: 15px;
-	background-color: rgba(255,255,255,0.0);
+	position: fixed;
+	top:0px;
+	width:100%;
+/*	background-color: rgba(255,255,255,0.0);*/
 /* 	border-bottom: 1px solid $lightgrey; */
 	z-index:9999;
 	a {
 		color: $headercolor;
-		font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	}
 }
 
 footer {
 	border-top:1px solid $lightgrey2;
 	color:$defaulttype;
-	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	line-height: 1.6;
 	padding:15px 0 0 0;
 	position:absolute;
@@ -333,7 +321,7 @@ img.logo_block {
 	display:block;
 	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	font-size: $defaulttype;
-	padding:4px 10px 3px 6px;
+	padding:3px 15px 3px 4px;
 	width:100%;
 }
 h2.countryName {
@@ -346,30 +334,39 @@ h2.countryName {
 	position:absolute;
 	bottom:10px;
 	ul {
-	margin-right:51px;
 	float: left;
-	margin-bottom: 10px;
+	margin: 0 50px 10px 0;
 	}
 	li {
 	list-style-type:none;
-	margin:0 10px 8px 0;
-	float:left;
+	}
+	li::after { 
+	content: "\203A";
+    font-size: 22px;
+    line-height: 25px;
+    margin-left: 4px;
+    opacity:0.7;
+    position: absolute;
+    text-decoration: none;
 	}
 	a {
-	color:#fff;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size:$smalltype;
-	text-transform: uppercase;
-	padding: 6px 12px;
-	background: rgba(255,255,255,0.1);
-	border: 1px solid rgba(255,255,255,.5);
+	color:#fff;	
 	cursor: pointer;
+	font-size:$defaulttype - 4;
+	opacity:0.7;
+	text-transform: uppercase;
 	}
 	a:hover {
-	background:rgba(0,0,0,0.7);
+	opacity:1.0;
 	}
 }
 
+.cityNavHeader {
+	font-size:$defaulttype - 4;
+	letter-spacing:1.2px;
+	text-transform: uppercase;
+}
+	
 
 
 table th{
@@ -377,9 +374,8 @@ table th{
 }
 
 .h1{
-	font-size:$largetype4;
+	font-size:$defaulttype * 5;
 	line-height: 1.1;
-	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
 	color:#fff;
 }
 
@@ -393,14 +389,15 @@ h1#site-title {
 
 .h2{
 	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
-	font-size:$largetype2;
+	font-size:$defaulttype * 2;
 }
 
 .cityHeader{
 	background-color: $border-darkgrey;
-	padding-top:20px;
+	margin-top:-65px;
+	padding-top:80px;
 	position:relative;
-	min-height:calc(100vh - 65px);
+	min-height:calc(100vh);
 	color:#fff;
 
 	.header-bg{
@@ -439,25 +436,25 @@ h1#site-title {
 		}
 		.flag {
 			img{
-				margin-right:10px;
-				width:46px;
+				margin-right:7px;
+				width:40px;
 			}
 		}	
 	}
 	.citySummaryTable {
-		font-size:$largetype3;
+		font-size:$defaulttype * 2 + 8;
 		font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	}
 	
 	.cityRegionTable {
-		border: 1px solid rgba(255,255,255,0.7);
+		border: 1px solid rgba(255,255,255,0.5);
 		display: inline-block;
 		margin: 17px 0 30px 0;
 	}
 
 	.statLabel {
-		font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-size:$smalltype;
+		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
+		font-size:$defaulttype - 4;	
 		text-transform: uppercase;
 	}
 	.statValue {
@@ -467,7 +464,7 @@ h1#site-title {
 	}
 	.units {
 		display:inline-block;
-		font-size: $smalltype;
+		font-size: $defaulttype - 4;
 		padding-left: 3px;
 		vertical-align: top;
 	}
@@ -542,7 +539,7 @@ h1#site-title {
 }
 
 .graphSection {
-	padding-bottom:180px;
+	padding-bottom:120px;
 }
 
 .graphMainContainer {
@@ -553,14 +550,14 @@ h1#site-title {
 }
 .sectionHeader, 
 .sectionDownload {
-	font-size:$largetype3;
+	font-size:$defaulttype * 2 + 8;
 	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	line-height: 1.1;
 	padding-top:20px;
 	text-align: left;
 
 }
 .sectionDownload{
-	font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
 	font-size:$defaulttype;
 	text-align:right;
 	line-height:60px;
@@ -575,7 +572,7 @@ h1#site-title {
 }
 
 h3.sectionSubHeader {
-	font-size:$largetype2;
+	font-size:$defaulttype * 2;
 	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 }
 
@@ -636,10 +633,16 @@ h3.sectionSubHeader {
 }
 .map-legend-years{
 	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	margin-top:15px;
 	li{
 		display: inline-block;
+		&:first-child label {
+		border-left: 1px solid #DADADA;
+		}
 		label{
-			border: 1px solid #DADADA;
+			border-bottom: 1px solid #DADADA;
+			border-top: 1px solid #DADADA;
+			border-right: 1px solid #DADADA;
 			color: #848282;
 			padding:5px 10px 3px;	
 			cursor: pointer;
@@ -648,6 +651,7 @@ h3.sectionSubHeader {
 			}
 			&.current-year {
 				background-color: #999999;
+				border: 1px solid #999999;
 				color: #fff;
 			}
 			input{
@@ -672,7 +676,7 @@ h3.sectionSubHeader {
 			cursor: pointer;
 			display:block;
 			&:hover{
-				background-color: rgba(255, 102, 83, 0.7);
+				background-color: #DADADA;
 			}
 			input{
 				display:none;
@@ -699,6 +703,11 @@ h3.sectionSubHeader {
 		}
 	}
 }
+.color-key {
+		float:right;
+		height:20px;
+		width:20px;
+	}
 .year-switch-graphic{
 	margin-bottom:32px;
 }
@@ -841,7 +850,7 @@ h3.sectionSubHeader {
 
 		    .popup-city-city{
 		    	display:inline-block;
-		    	font-size:$largetype3;
+		    	font-size:$defaulttype * 2 + 8;
 		    }
 	    	.popup-city-li{
 	    		line-height:40px;
@@ -1060,14 +1069,14 @@ h3.sectionSubHeader {
 		padding-top:0px;
 	}
 	h3 {
-		font-family: Helvetica, Arial, sans-serif;
-		font-size: $defaulttype;
+		font-size: $defaulttype - 4;
 		font-weight: bold;
+		letter-spacing: .8px;
 		text-transform: uppercase;
-		padding: 25px 0 0px 0;
+		padding: 25px 0 10px 0;
 	}
 	.country-name, .country-dash {
-		color:$lightgrey1;
+		color:#cccccc;
 	}
 }
 
@@ -1108,6 +1117,12 @@ h3.sectionSubHeader {
 
 .about h4 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.about img {
+	float:left;
+	margin-right:10px;
+
 }
 
 @import "mobile";
