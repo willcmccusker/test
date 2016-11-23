@@ -115,6 +115,7 @@ table tbody > * {
 	vertical-align:top;
 }
 h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
 	margin: 0;
 	padding: 0;
 	line-height:1.2 !important;
@@ -220,7 +221,12 @@ a {
 }
 
 body[class^='cities_view_']{
-	
+}
+
+body.about, body.cities, body.data, body.historical_data {
+	 .header a {
+	color:#808080 !important;
+}
 }
 
 .header {
