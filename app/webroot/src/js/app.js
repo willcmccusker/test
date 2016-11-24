@@ -588,7 +588,7 @@ $(document).ready(function(){
 							return $(legend).outerHTML();
 						},
 						responsive : true,
-						defaultFontFamily : "Helvetica",
+						defaultFontFamily : "NeueHaasRegularTX",
 						yAxes : {
 							display: true
 						},

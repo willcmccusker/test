@@ -53,26 +53,6 @@ $defaulttype : 16px;
 }
 
 @font-face {
-	font-family: 'Akkurat';
-	src: url('/fonts/Akkurat.eot');
-	src: url('/fonts/Akkurat.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/Akkurat.woff') format('woff'),
-		url('/fonts/Akkurat.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'NeueHaasRegular';
-	src: url('/fonts/NeueHaasUnicaPro-Regular.eot');
-	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/NeueHaasUnicaPro-Regular.woff') format('woff'),
-		url('/fonts/NeueHaasUnicaPro-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
 	font-family: 'NeueHaasRegularTX';
 	src: url('/fonts/NHaasGroteskTXPro-55Rg.eot');
 	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
@@ -220,7 +200,12 @@ a {
 	display:none;
 }
 
-body[class^='cities_view_']{
+body[class^='cities_view_'] .header a {
+	color:#808080 !important;
+}
+
+body .header a {
+	color:#000;
 }
 
 body.about, body.cities, body.data, body.historical_data {
@@ -1132,8 +1117,14 @@ h3.sectionSubHeader {
 .about img {
 	float:left;
 	margin-right:10px;
-
+	filter: grayscale(100%);
+	opacity:0.8;
+	width:250px;
 }
+
+.about-text {
+	display:none;
+	}
 
 @import "mobile";
 //@import "mapbox";
