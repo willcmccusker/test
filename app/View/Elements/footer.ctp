@@ -1,5 +1,5 @@
 <footer> 
-	<div class='grid'>
+	<div class='grid wide'>
 		<div class='col-1-4 tab-1-1 mob-1-1'>
 		</div>
 		<div class='col-2-4 tab-1-1 mob-1-1'>
@@ -10,7 +10,9 @@
 		</div>
 	</div>
 	<div class='grid wide bottom-links'>
-		<div class='col-1-1 tab-1-1 mob-1-1'>
+		<div class='col-1-4 tab-1-1 mob-1-1'>
+		</div>
+		<div class='col-2-4 tab-1-1 mob-1-1'>
 			<div class='nav-holder'>
 				<ul>
 					<li>&copy; Atlas of Urban Expansion 2016</li>
@@ -21,8 +23,8 @@
 					-->
 					<li><a href="/acknowledgements">Acknowledgements</a></li>
 					<li><a href="mailto:"info@atlasofurbanexpansion.org">Contact</a></li>
-					
 				</ul>
+			</div>
 			</div>
 		</div>
 	</div>

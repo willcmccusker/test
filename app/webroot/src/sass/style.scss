@@ -231,7 +231,11 @@ a {
 }
 
 body[class^='cities_view_'] .header a {
-	color:#808080 !important;
+	color:#fff!important;
+}
+
+body[class^='cities_view_'] #site-title a {
+	color:#fff!important;
 }
 
 body .header a {
@@ -243,6 +247,7 @@ body.about, body.cities, body.data, body.historical_data {
 	color:#808080 !important;
 }
 }
+
 
 .header {
 	@include xPrefix(transition, transform 500ms ease);
@@ -259,7 +264,7 @@ body.about, body.cities, body.data, body.historical_data {
 	display: flex;
 	// justify-content : flex-start;
 	.nav-holder {
-		margin:2px 0 0 20px;
+		margin:0 0 0 20px;
 	}
 	#site-title{
 		display:inline-block;
@@ -609,7 +614,7 @@ h1#site-title {
 
 h3.sectionSubHeader {
 	font-size:$defaulttype * 2;
-	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "NeueHaasRegularTX", "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 }
 
 .graphSection p {
@@ -797,7 +802,7 @@ h3.sectionSubHeader {
 	// top:64px;
 	// bottom:0;
 	// left:0;
-	height:83vh;
+	height:100vh;
 	width:100%;
 
 	
@@ -1156,7 +1161,7 @@ h3.sectionSubHeader {
 	margin:0 10px 4px 0;
 	filter: grayscale(100%);
 	opacity:0.8;
-	width:200px;
+	width:180px;
 	}
 	.about-text {
 		display:none;
@@ -1167,9 +1172,15 @@ h3.sectionSubHeader {
 	text-transform: uppercase;
 	}	
 	h4 {
-		display: inline-block;
+		font-size:14px;
+		float:left;
+		width:100%;
 		}
 }	
+
+.tooltip-link {
+	color:#929292;
+}
 
 @import "mobile";
 //@import "mapbox";
