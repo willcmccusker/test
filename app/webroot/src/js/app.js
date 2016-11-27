@@ -927,7 +927,7 @@ var makeChart = function(prefix, city, side){
 		options: {
 			legend : {
 				labels : {
-					fontColor: "#afafaf",
+					fontColor: "#929292",
 					boxWidth : 10,
 				}
 			},
@@ -1050,7 +1050,7 @@ var makeRoadChart = function(prefix, city){
 		options: {
 			legend : {
 				labels : {
-					fontColor: "#afafaf",
+					fontColor: "#929292",
 					boxWidth : 10,
 				}
 			},
@@ -1222,7 +1222,7 @@ var makeBlockChart = function(prefix, city){
 		options: {
 			legend : {
 				labels : {
-					fontColor: "#afafaf",
+					fontColor: "#929292",
 					boxWidth : 10,
 				}
 			},

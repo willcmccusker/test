@@ -591,17 +591,18 @@ h1#site-title {
 }
 .sectionHeader, 
 .sectionDownload {
-	font-size:$defaulttype * 2 + 8;
-	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
-	line-height: 1.1;
-	padding-top:20px;
+	font-size: 18px;
+	letter-spacing: .8px;
+	font-family:"NeueHaasRegularTX", "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	opacity:.5;
+	padding:2em 0 7px 0;
 	text-align: left;
+	text-transform: uppercase;
 
 }
 .sectionDownload{
 	font-size:$defaulttype;
 	text-align:right;
-	line-height:60px;
 	a {
 		color:$linkcolor;	
 	}
@@ -638,11 +639,11 @@ h3.sectionSubHeader {
 }
 .years span{
 	background-color: #e4e4e4;
-	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "Helvetica Neue Light", Helvetica, sans-serif;
 	padding: 5px 10px 3px;
 }
 .legend-ul{
-	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "Helvetica Neue Light", Helvetica, sans-serif;
 	padding-left:20px;
 	margin-top:32px;
 	li{
