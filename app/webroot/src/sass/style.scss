@@ -294,11 +294,10 @@ body.about, body.cities, body.data, body.historical_data {
 		margin-left: auto;
 		// align-self: flex-end;
 	}
-	border-bottom:1px solid rgba(255,255,255,0.5);
+	border-bottom:1px solid rgba(0,0,0,0.2);
 	font-size:16px;
-	padding: 15px;
+	padding: 18px 15px 15px 35px;
 	position: fixed;
-	
 	top:0px;
 	width:100%;
 /*	background-color: rgba(255,255,255,0.0);*/
@@ -314,6 +313,7 @@ footer {
 	position:absolute;
 	bottom:0;
 	left:0px;
+	padding-top:.5em;
 	width:100%;
 	.grid:nth-child(2) {
 		padding-bottom: 12px !important;
@@ -587,14 +587,14 @@ h1#site-title {
 	background-color: $lightgrey3;
 }
 .header-underline{
-	border-bottom: 1px solid $lightgrey1;
+	border-bottom: 1px dotted $lightgrey1;
 }
 .sectionHeader, 
 .sectionDownload {
-	font-size: 18px;
-	letter-spacing: .8px;
+	color:$lightgrey1;
+	font-size: 16px;
+	letter-spacing: 1px;
 	font-family:"NeueHaasRegularTX", "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
-	opacity:.5;
 	padding:2em 0 7px 0;
 	text-align: left;
 	text-transform: uppercase;
@@ -626,9 +626,8 @@ h3.sectionSubHeader {
 .switchYear{
 	cursor: pointer;
 	&.activeYear{
-		color:#fff;
-		font-weight: bold;
 		background-color: #999999;
+		color:#fff;
 	}
 }
 .years {
@@ -737,7 +736,7 @@ h3.sectionSubHeader {
 				display: inline-block;
 				display: none;
 				height: 15px;
-				margin-right: 5px;
+				margin-right: 10px;
 				line-height: 24px;
 				vertical-align: middle;
 				margin-bottom: 3px;

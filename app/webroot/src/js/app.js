@@ -42,7 +42,7 @@ var setFooter = function(){
 	if(isMobile()){
 		$("body").css("padding-bottom", "");
 	}else{
-		var h = $("footer").outerHeight();
+		var h = $("footer").outerHeight() + 100;
 		$("body").css("padding-bottom", h);
 	}
 };
