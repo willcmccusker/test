@@ -230,8 +230,19 @@ a {
 	display:none;
 }
 
-body[class^='cities_view_'] .header a {
+body[class^='cities_view_'] {
+	.header a {
 	color:#fff!important;
+}
+	.headroom--not-top a, .headroom--not-top #site-title a {
+	color:#808080!important;
+}	
+	.header {
+	border-bottom:1px solid rgba(255,255,255,.7);	
+}
+	header.headroom--not-top {
+	border-bottom:1px solid rgba(0,0,0,0.2);	
+}
 }
 
 body[class^='cities_view_'] #site-title a {
@@ -244,7 +255,7 @@ body .header a {
 
 body.about, body.cities, body.data, body.historical_data {
 	 .header a {
-	color:#808080 !important;
+	color:#808080;
 }
 }
 
@@ -260,6 +271,9 @@ body.about, body.cities, body.data, body.historical_data {
 	&.headroom--pinned:not(.poppedUp){
 		@include xPrefix(transform, translateY(0%) );
 	}
+	&.headroom--not-top {
+		background-color:#f5f5f5;
+		}
 	display:inline-block;
 	display: flex;
 	// justify-content : flex-start;
@@ -1114,6 +1128,9 @@ h3.sectionSubHeader {
 		letter-spacing: .8px;
 		text-transform: uppercase;
 		padding: 25px 0 10px 0;
+	}
+	a:hover {
+		color:$linkcolor;
 	}
 	.country-name, .country-dash {
 		color:#cccccc;

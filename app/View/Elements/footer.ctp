@@ -1,11 +1,11 @@
 <footer> 
 	<div class='grid wide'>
-		<div class='col-1-4 tab-1-1 mob-1-1'>
+		<div class='col-2-8 tab-1-1 mob-1-1'>
 		</div>
-		<div class='col-2-4 tab-1-1 mob-1-1'>
+		<div class='col-3-8 tab-1-1 mob-1-1'>
 			<?= $footerText["Text"]["content"];?>
 		</div>
-		<div class='col-1-4 tab-1-1 mob-1-1'>
+		<div class='col-3-8 tab-1-1 mob-1-1'>
 			<img class="logo_block" src='/img/logo_block.jpg' alt="logo_block" width="500px" />
 		</div>
 	</div>
