@@ -6,7 +6,7 @@
 			<?= $footerText["Text"]["content"];?>
 		</div>
 		<div class='col-3-8 tab-1-1 mob-1-1'>
-			<img class="logo_block" src='/img/logo_block.jpg' alt="logo_block" width="500px" />
+			<img class="logo_block" src='/img/logo_block_2.png' alt="logo_block" width="500px" />
 		</div>
 	</div>
 	<div class='grid wide bottom-links'>

@@ -324,6 +324,7 @@ body.about, body.cities, body.data, body.historical_data {
 
 footer {
 	border-top:1px solid #ccc;
+	color:#666;
 	position:absolute;
 	bottom:0;
 	left:0px;
@@ -346,7 +347,7 @@ footer {
 	}
 	ul li {
 		float:left;
-		padding-right:15px;
+		padding-right:25px;
 	}
 	.bottom-links {
 		border-top:1px solid $lightgrey3;
@@ -357,6 +358,7 @@ footer {
 
 img.logo_block {
 	margin-top:0px;
+	opacity: .5;
 }
 
 
@@ -652,7 +654,7 @@ h3.sectionSubHeader {
 }
 .years span{
 	background-color: #e4e4e4;
-	font-family: "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	padding: 5px 10px 3px;
 }
 .legend-ul{
