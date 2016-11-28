@@ -15,9 +15,16 @@
 		font-size:$defaulttype - 4;
 	}
 	
-	.h1{
+	h1, .h1{
 		font-size:10vw;
+		padding-top:1em;
 	}
+	
+	body[class^='cities_view_'] {
+	.h1, h1 {
+	padding-top:0 !important;
+}
+}
 	
 
 	.cityHeader {
@@ -50,6 +57,7 @@
 		
 	.grid {
 	padding:0;
+	margin-left:5px;
 	}
 	
 	.cityNav {
@@ -122,6 +130,7 @@
 		#site-title{
 			flex: 1;
 		}
+		padding: 8px 15px 8px 15px;
 		display: flex;
 		// justify-content : flex-start;
 		nav{
@@ -198,8 +207,10 @@
 		
 	}
 
-
-
+	.sectionHeader {
+		padding:.5em 0 7px 0;
+	}
+	
 	#cityList {
 
 		ul.list{

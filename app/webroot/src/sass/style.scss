@@ -575,16 +575,18 @@ h1#site-title {
 .header-underline{
 	border-bottom: 1px dotted $lightgrey1;
 }
+
+.sectionHeader {
+	font-size: 32px;
+}
+
 .sectionHeader, 
 .sectionDownload {
-	color:$lightgrey1;
-	font-size: 16px;
+	line-height: 1.375;
 	letter-spacing: 1px;
 	font-family:"NeueHaasRegularTX", "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	padding:2em 0 7px 0;
 	text-align: left;
-	text-transform: uppercase;
-
 }
 .sectionDownload{
 	font-size:$defaulttype;
