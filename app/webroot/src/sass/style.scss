@@ -52,37 +52,6 @@ $defaulttype : 16px;
 }
 
 @font-face {
-	font-family: 'DINNextLTProMediumCondensed';
-	src: url('/fonts/DINNextLTPro-MediumCond.eot');
-	src: url('/fonts/DINNextLTPro-MediumCond.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-MediumCond.woff') format('woff'),
-		url('/fonts/DINNextLTPro-MediumCond.ttf') format('truetype');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'DINNextLTProRegular';
-	src: url('/fonts/DINNextLTPro-Regular.eot');
-	src: url('/fonts/DINNextLTPro-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-Regular.woff') format('woff'),
-		url('/fonts/DINNextLTPro-Regular.ttf') format('truetype');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'DINNextLTProCondensed';
-	src: url('/fonts/DINNextLTPro-Condensed.eot');
-	src: url('/fonts/DINNextLTPro-Condensed.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-Condensed.woff') format('woff'),
-		url('/fonts/DINNextLTPro-Condensed.ttf') format('truetype');
-	font-weight: 200;
-	font-style: normal;
-}
-
-
-@font-face {
 	font-family: 'NeueHaasRegularTX';
 	src: url('/fonts/NHaasGroteskTXPro-55Rg.eot');
 	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
@@ -310,7 +279,7 @@ body.about, body.cities, body.data, body.historical_data {
 	}
 	border-bottom:1px solid rgba(0,0,0,0.2);
 	font-size:16px;
-	padding: 18px 15px 15px 35px;
+	padding: 15px 15px 15px 35px;
 	position: fixed;
 	top:0px;
 	width:100%;
@@ -323,12 +292,12 @@ body.about, body.cities, body.data, body.historical_data {
 }
 
 footer {
-	border-top:1px solid #ccc;
+	border-top:1px dotted #ccc;
 	color:#666;
 	position:absolute;
 	bottom:0;
 	left:0px;
-	padding-top:.5em;
+	padding-top:1em;
 	width:100%;
 	.grid:nth-child(2) {
 		padding-bottom: 12px !important;
@@ -1183,7 +1152,8 @@ h3.sectionSubHeader {
 	width:180px;
 	}
 	.about-text {
-		display:none;
+		color:#808080;
+		padding-left:15px;
 	}
 	h3 {
 	font-size: 18px;
