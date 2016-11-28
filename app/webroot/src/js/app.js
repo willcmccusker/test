@@ -1,3 +1,4 @@
+var isHome = false;
 var charts;
 var testChart;
 var tab = false;
@@ -42,7 +43,7 @@ var setFooter = function(){
 	if(isMobile()){
 		$("body").css("padding-bottom", "");
 	}else{
-		var h = $("footer").outerHeight() + 100;
+		var h = $("footer").outerHeight() + (isHome ? 0 : 100);
 		$("body").css("padding-bottom", h);
 	}
 };
@@ -634,6 +635,8 @@ $(document).ready(function(){
 		break;
 		case(false):
 			//map
+			isHome = true;
+			setFooter();
 			startFrontMap();
 		break;
 		case("pages"):
