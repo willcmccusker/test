@@ -126,6 +126,18 @@
 		}
 	}
 
+	body[class^='cities_view_']  {
+		.header.headroom--top #citySearch::before{
+				background-image: url("/img/search_white.png");
+	}
+	.header.headroom--top nav::before{
+				background-image: url("/img/menu_white.png");
+	}
+	.header a {
+	color:#808080!important;
+}
+}
+
 	.header {
 		#site-title{
 			flex: 1;
@@ -159,7 +171,6 @@
 			    	background-color:white;
 			    	display: block;
 				    padding:5px 10px;
-				    border-bottom:1px solid grey;
 				    margin-left:0px;
 			    }
 			}
@@ -173,6 +184,8 @@
 				background-image: url("/img/search.png");
 			}
 		}
+
+
 		&.poppedUp {
 			#citySearch ul{
 				display:block;
@@ -212,7 +225,11 @@
 	}
 	
 	#cityList {
-
+		h3 {
+			font-size: 16px;
+			padding: 10px 0 10px 0;
+			text-transform: none;
+		}
 		ul.list{
 			columns: 1;
 			.city{
