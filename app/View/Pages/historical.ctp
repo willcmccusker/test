@@ -1,5 +1,5 @@
 <? $this->assign('title', "Historical");?>
-
+<div class='historical'>
 <div class='grid wide'>
 	<div class='col-1-4 tab-1-1'>
 	</div>
@@ -56,3 +56,4 @@ if($i%2 == 1){
 	echo "</div>";
 }
 ?>
+</div>
