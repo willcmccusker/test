@@ -9,7 +9,6 @@
 <p>In addition to extending the time horizon of the project, Blocks and Roads metrics were calculated for the area of each city that was constructed during five separate historical periods: pre-1900, 1900–1930, 1930–1960, 1960–1990, and ~1990–2014. The tables containing this data are available for download, as well as PDF pages showing the maps used in the analysis, and GIS data pertaining to each city. The full dataset containing all of the historical map boundaries is also available for download here.</p>
 	</div>
 </div>
-	</div>
 
 <?php
 $path = APP . "webroot/file-manager/userfiles/data_page/Animations/";
