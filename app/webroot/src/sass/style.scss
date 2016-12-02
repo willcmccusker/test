@@ -122,7 +122,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+i {
+	font-family: Helvetica;
+	}
 
 body{
 	background-color: rgba(245,245,245,1.0);
@@ -132,7 +134,7 @@ body{
 	min-height:100vh;
 	opacity:1 !important;
 	padding-top:54px;
-	padding-bottom:227px;
+	padding-bottom:257px;
 	position:relative;
 	@include xPrefix(transition, opacity 1s ease);
 	.maploader{
@@ -292,12 +294,14 @@ body.about, body.cities, body.data, body.historical_data {
 }
 
 footer {
+	background-color:#808080;
 	border-top:1px dotted #ccc;
-	color:#666;
+	font-size: 12px;
 	position:absolute;
+	height:250px;
 	bottom:0;
 	left:0px;
-	padding-top:1em;
+	padding:2em 0 .25em 0;
 	width:100%;
 	.grid:nth-child(2) {
 		padding-bottom: 12px !important;
@@ -320,13 +324,18 @@ footer {
 		padding-right:25px;
 	}
 	.bottom-links {
-		border-top:1px solid $lightgrey3;
+		color:$lightgrey2;
 		font-size: 14px;
 		padding-top:8px;
+		position: absolute;
+		bottom:0;
+		a {
+		color:$lightgrey2;
+		}	
 	}
 }
 
-img.logo_block {
+.logo_block img {
 	margin:0 0 0 20px;
 	opacity: .5;
 }
@@ -973,6 +982,45 @@ h3.sectionSubHeader {
 
 
 /* Data Page */
+
+.data {
+	a.download-link {
+	/*background-image:url('/img/download-512.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size:20px;
+	padding-right:25px;*/
+	color: $linkcolor;
+	font-size:14px;
+	}
+	a:hover {
+	color:$linkcolor;
+	text-decoration: underline;
+	}
+	.download-size {
+	font-size:14px;
+	}
+	.expansion-links a {
+	color:$linkcolor;
+	display: block;
+	padding-right:3px;
+	text-decoration: underline;
+	}
+	.download-desc {
+		color:$lightgrey1;
+		font-size:14px;
+	}
+	h4 {
+		color:$bodytype;
+		padding-bottom: .25em;
+	}
+	.atlas-downloads {
+	color:#808080;
+	font-size:14px;
+	}
+}
+
+
 .data-page-text, .data {
 	a {
 		color:$linkcolor;
@@ -1119,22 +1167,6 @@ h3.sectionSubHeader {
 		display:none;
 	}
 }
-
-/* Data Page */
-.data {
-	a {
-	color:#808080;
-	}
-	a:hover {
-	color:$linkcolor;
-	}
-	.expansion-links a {
-	color:$linkcolor;
-	display: block;
-	padding-right:3px;
-	text-decoration: underline;
-	}	
-}
 	
 /* About Page */
 
@@ -1149,13 +1181,12 @@ h3.sectionSubHeader {
 .about {
 	.grid.about img {
 	float:left;
-	margin:0 10px 4px 0;
+	margin:0 10px 6px 0;
 	filter: grayscale(100%);
 	opacity:0.8;
-	width:220px;
+	width:180px;
 	}
 	.about-text {
-		color:#808080;
 	}
 	h3 {
 	font-size: 18px;
@@ -1163,11 +1194,20 @@ h3.sectionSubHeader {
 	text-transform: uppercase;
 	}	
 	h4 {
+		color:#808080;
 		font-size:16px;
 		float:left;
 		width:100%;
 		}
+	.highlight {
+		font-color: #FF6653;
+		}
 }	
+
+.highlight {
+	display: inline;
+	text-transform: uppercase;
+}
 
 .tooltip-link {
 	color:#929292;

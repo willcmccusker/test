@@ -43,7 +43,7 @@ var setFooter = function(){
 	if(isMobile()){
 		$("body").css("padding-bottom", "");
 	}else{
-		var h = $("footer").outerHeight() + (isHome ? 0 : 100);
+		var h = $("footer").outerHeight() + (isHome ? 0 : 150);
 		$("body").css("padding-bottom", h);
 	}
 };

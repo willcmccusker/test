@@ -1,28 +1,24 @@
-<? $this->assign('title', "Data");?>
 <div class='grid wide'>
 	<div class='col-1-4 tab-1-1'>
 	</div>
-		<!--<?= $dataText["Text"]["content"];?>-->
 	<div class='col-2-4 tab-1-1'>
 	<h1>The City as a Unit of Analysis and the Universe of Cities</h1>
 <p>We focus our monitoring efforts on cities of 100,000 people or more. Different countries have adopted different thresholds for a human settlement to be considered a ‘city’, but there is near universal agreement that a settlement of 100,000 people or more constitutes a city. We also focus our attention not on single municipalities but on entire metropolitan areas: contiguous urban areas that may contain many municipalities are considered to be a single city.</p>
-<p>We define cities by the extent of their built-up area, rather than by their administrative or its jurisdictional boundaries. The extrema tectorum—the limit of the built-up area of the city, as it was referred to in Ancient Rome—defines the city, and the city thus defined is our unit of analysis. We have now identified 4,245 cities on our planet that were homes to 100,000 people or more in 2010. These 4,245 cities constitute our Universe of Cities with a total population amounted to 2.5 billion, or 70 percent of the world’s 2010 urban population of 3.6 billion.</p>
-	<h4><span style="color: inherit; font-family: inherit; font-size: 18px;">Atlas of Urban Expansion 2016 edition</span></h4>
-	<p><a download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Full Volumes/Atlas of Urban Expansion 2016 Volume 1 - Areas and Densities.pdf?time=1476445777143">Volume 1: Areas and Densities 649 Mb<br></a><a download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Full Volumes/Atlas of Urban Expansion 2016 Volume 2 - Blocks and Roads.pdf?time=1476445725960">Volume 2: Blocks and Roads 932 Mb</a></p>
+<p>We define cities by the extent of their built-up area, rather than by their administrative or its jurisdictional boundaries. The <i>extrema tectorum</i> — the limit of the built-up area of the city, as it was referred to in Ancient Rome — defines the city, and the city thus defined is our unit of analysis. We have now identified 4,245 cities on our planet that were homes to 100,000 people or more in 2010. These 4,245 cities constitute our Universe of Cities with a total population amounted to 2.5 billion, or 70 percent of the world’s 2010 urban population of 3.6 billion.</p><br/>
+	<div class="atlas-downloads">
+	<h4>Atlas of Urban Expansion, 2016 edition</h4>
+	<p>Volume 1: Areas and Densities<a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Full Volumes/Atlas of Urban Expansion 2016 Volume 1 - Areas and Densities.pdf?time=1476445777143"> <span class="download-size">(PDF – 649 Mb)</span></a> <br/>Volume 2: Blocks and Roads<a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Full Volumes/Atlas of Urban Expansion 2016 Volume 2 - Blocks and Roads.pdf?time=1476445725960"> <span class="download-size">(PDF – 932 Mb)</span></a></p>
 	<h4>Methodology</h4>
-	<p><a href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/The_Global_Sample_of_Cities.pdf?time=1476446504182">PDF</a>&nbsp;The Global Sample of Cities
-		<br><a href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/Understanding_and_Measuring_Urban_Expansion.pdf?time=1476446554646">PDF</a>&nbsp;Understanding and Measuring Urban Expansion
-		<br><a href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/Understanding_and_Measuring_Urban_Layouts.pdf?time=1476446569669" style="background-color: rgb(255, 255, 255);">PDF</a>&nbsp;Understanding and Measuring Urban Layouts</p>
-		<h4><span style="color: inherit; font-family: inherit; font-size: 18px;">Tables</span></h4>
-		<p><span style="color: inherit; font-family: inherit;"><a download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.csv?time=1476445928498">CSV</a>&nbsp;|&nbsp;</span><a href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.xlsx?time=1476445970255">XLSX</a>&nbsp;<span style="color: inherit; font-family: inherit;">Areas and Densities&nbsp;<br></span><a download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.csv?time=1476446017157" style="background-color: rgb(255, 255, 255); outline: 0px;">CSV</a>
-			<font color="rgba(0, 0, 0, 0)">&nbsp;</font>|
-			<font color="rgba(0, 0, 0, 0)">&nbsp;</font><a href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.xlsx?time=1476446050567">XLSX</a>&nbsp;Blocks and Roads
-			<br><a download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_2.csv?time=1476446170646" style="outline: 0px;">CSV</a>
-			<font color="rgba(0, 0, 0, 0)">&nbsp;</font>|
-			<font color="rgba(0, 0, 0, 0)">&nbsp;</font><a href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_2.xlsx?time=1476446193604">XLSX</a>&nbsp;<span style="color: inherit; font-family: inherit;">Historical Data for Blocks and Roads</span></p>
-			<p></p>
-			<p></p>
-
+	<p>
+	The Global Sample of Cities <a class="download-link" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/The_Global_Sample_of_Cities.pdf?time=1476446504182"><span class="download-size">(PDF)</span></a> <br/>
+	Understanding and Measuring Urban Expansion<a class="download-link" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/Understanding_and_Measuring_Urban_Expansion.pdf?time=1476446554646"> <span class="download-size">(PDF)</span></a><br/>
+	Understanding and Measuring Urban Layouts<a class="download-link" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/Understanding_and_Measuring_Urban_Layouts.pdf?time=1476446569669"> <span class="download-size">(PDF)</span></a></p>
+		<h4>Tables</h4>
+		<p>Areas and Densities <a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.csv?time=1476445928498">CSV</a>,&nbsp;<a class="download-link" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.xlsx?time=1476445970255">XLSX</a>&nbsp;<br/>
+			Blocks and Roads <a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.csv?time=1476446017157">CSV</a>,&nbsp;<a class="download-link" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.xlsx?time=1476446050567">XLSX</a><br/>
+			Historical Data for Blocks and Roads <a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_2.csv?time=1476446170646">CSV</a>,&nbsp;<a class="download-link" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_2.xlsx?time=1476446193604">XLSX</a></p>
+			</div>
+			</div>
 	</div>
 </div>
 <!-- <div class='grid wide'>

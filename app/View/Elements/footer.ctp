@@ -1,17 +1,13 @@
 <footer> 
 	<div class='grid wide'>
-		<div class='col-2-8 tab-1-1 mob-1-1'>
-		</div>
-		<div class='col-3-8 tab-1-1 mob-1-1'>
+		<div class='col-4-8 tab-1-1 mob-1-1'>
 			<?= $footerText["Text"]["content"];?>
 		</div>
-		<div class='col-3-8 tab-1-1 mob-1-1'>
-			<img class="logo_block" src='/img/logo_block_2.png' alt="logo_block" width="500px" />
+		<div class='col-4-8 tab-1-1 mob-1-1'>
+			<div class="logo_block"><img src='/img/un-habitat_logo.png' alt="UN Habitat logo" width='150' /><img src='/img/nyu_logo.png' alt="NYU logo" width='105' /><img src='/img/lincoln-institute_logo.png' alt="Lincoln Institute logo" width='150'/></div>
 		</div>
 	</div>
 	<div class='grid wide bottom-links'>
-		<div class='col-1-4 tab-1-1 mob-1-1'>
-		</div>
 		<div class='col-2-4 tab-1-1 mob-1-1'>
 			<div class='nav-holder'>
 				<ul>
