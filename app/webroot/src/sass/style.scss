@@ -17,7 +17,7 @@ $lightgrey : #333333;
 $lightgrey1 : #929292;
 $lightgrey2 : #F0F0F0;
 $lightgrey3 :  #f5f5f5;
-$bodytype : #2e2e2e;
+$bodytype : #5a5a5a;
 
 /*border color variables */
 
@@ -127,7 +127,7 @@ i {
 	}
 
 body{
-	background-color: rgba(245,245,245,1.0);
+	background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));
 	color: $bodytype;
 	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	line-height:1.5;
