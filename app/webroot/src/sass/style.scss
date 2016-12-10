@@ -134,7 +134,7 @@ body{
 	min-height:100vh;
 	opacity:1 !important;
 	padding-top:54px;
-	padding-bottom:257px;
+	padding-bottom:377px;
 	position:relative;
 	@include xPrefix(transition, opacity 1s ease);
 	.maploader{
@@ -208,6 +208,10 @@ body[class^='cities_view_'] {
 	.headroom--not-top a, .headroom--not-top #site-title a {
 	color:#808080!important;
 }	
+.headroom--not-top a:hover, .headroom--not-top #site-title a:hover {
+	color:$linkcolor!important;
+}	
+
 	.header {
 	border-bottom:1px solid rgba(255,255,255,.7);	
 }
@@ -279,9 +283,9 @@ body.about, body.cities, body.data, body.historical_data {
 		margin-left: auto;
 		// align-self: flex-end;
 	}
-	border-bottom:1px solid rgba(0,0,0,0.2);
+
 	font-size:16px;
-	padding: 15px 15px 15px 35px;
+	padding: 15px 30px 15px 35px;
 	position: fixed;
 	top:0px;
 	width:100%;
@@ -294,20 +298,19 @@ body.about, body.cities, body.data, body.historical_data {
 }
 
 footer {
-	background-color:#808080;
-	border-top:1px dotted #ccc;
-	font-size: 12px;
+	box-shadow: 10px 10px 5px #888888;
+	font-size:14px;
+	background-color: #fff;
 	position:absolute;
-	height:250px;
+	height:320px;
 	bottom:0;
 	left:0px;
-	padding:2em 0 .25em 0;
+	padding:1em 0 .25em 0;
 	width:100%;
 	.grid:nth-child(2) {
 		padding-bottom: 12px !important;
 	}
 	p {
-		font-size: 14px;
 		padding-right:10px;
 	}
 	a {
@@ -324,15 +327,23 @@ footer {
 		padding-right:25px;
 	}
 	.bottom-links {
-		color:$lightgrey2;
-		font-size: 14px;
-		padding-top:8px;
+		border-top:1px solid rgba(0,0,0,0.1);
+		color:$lightgrey1;
+		padding-top:10px;
 		position: absolute;
-		bottom:0;
+		bottom:4px;
 		a {
-		color:$lightgrey2;
+		color:$lightgrey1;
+		opacity:.5;
 		}	
 	}
+	.quiet {
+		opacity:.5;
+	}
+	h3 {
+		text-transform: uppercase;
+	}
+	
 }
 
 .logo_block img {
@@ -586,18 +597,16 @@ h1#site-title {
 }
 
 .sectionHeader {
-	font-size: 32px;
-}
-
-.sectionHeader, 
-.sectionDownload {
+	font-size: 18px;
+	text-transform: uppercase;
 	line-height: 1.375;
 	letter-spacing: 1px;
-	font-family:"NeueHaasRegularTX", "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
 	padding:2em 0 7px 0;
 	text-align: left;
 }
-.sectionDownload{
+.sectionDownload {
+	line-height: 1.375;
+	padding:37px 0 7px 0;
 	font-size:$defaulttype;
 	text-align:right;
 	a {
@@ -872,23 +881,28 @@ h3.sectionSubHeader {
 }
 
 #citySearch{
+	color:$bodytype;
 	text-align:right;
 	position:relative;
+	a {
+	color:$bodytype !important;
+	}	
 	ul{
-		position:fixed;
-		top:0px;
-		left:0px;
+		background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));		position:fixed;
+		top:0;
+		left:0;
 		width:100%;
 		height:100%;
 		overflow:auto;
-		margin-top:58px;
+		margin-top:9.9em;
 	    text-align: left;
 	    li{
 	    	padding: #{$padding/2};
+	    	padding-left:30px;
 
 		    .popup-city-city{
 		    	display:inline-block;
-		    	font-size:$defaulttype * 2 + 8;
+		    	font-size:$defaulttype * 2;
 		    }
 	    	.popup-city-li{
 	    		line-height:40px;
@@ -898,7 +912,9 @@ h3.sectionSubHeader {
 			    	vertical-align: middle;
 			    }
 	    	}
-
+	    	.popup-city-region {
+		    	font-family: "DINNextLTProUltraLight";	
+		    }
 	    }
 	    li:hover{
 	    	background-color:rgba(0,0,0,0.1);
@@ -949,7 +965,6 @@ h3.sectionSubHeader {
 
 }
 
-
 #citySearch.poppedUp{
 	z-index:3;
 	position: fixed;
@@ -962,14 +977,20 @@ h3.sectionSubHeader {
     .closeHolder{
     	display:block;
     }
+    .search-container {
+		background-color: #fff;
+		float:left;
+		padding: 0 0 10px 30px;
+		width: 100%;
+		}
     input{
     	border:none;
-    	color:$bodytype;
-    	padding:5px;
-    	padding:10px #{$padding/2} 10px;
-    	width:100%;
+    	border-bottom: 1px solid #000;
+    	color:#000;
+    	padding:3em #{$padding/2} 10px 0px;
+    	float:left;
+    	width:75%;
     	font-size:32px;
-    	border-bottom:1px solid $lightgrey1;
     	background-color:white;
     }
 }
@@ -1075,6 +1096,14 @@ h3.sectionSubHeader {
 			background-color:transparent;
 		}
 	}
+	input.search {
+	margin-bottom: 1em;
+	padding:6px 8px;
+	width:225px;
+	} 
+	input.search[type="text"] {
+	font-size: $bodytype;
+	}
 }
 .show-links{
 	cursor: pointer;
@@ -1109,8 +1138,6 @@ h3.sectionSubHeader {
 	border-bottom: 1px solid $border-lightgrey;
 	text-align: left;
 }
-
-
 
 
 /* historical */

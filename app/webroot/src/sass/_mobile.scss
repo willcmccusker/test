@@ -42,7 +42,6 @@
 		}
 		.countryNameRow, .regionMenu {
 			border:none;
-			float:left;
 			font-size:$defaulttype - 4;
 			width:auto;
 		}
@@ -63,15 +62,17 @@
 	.cityNav {
 	position:absolute;
 	bottom:10px;
+	li::after { 
+	line-height: 20px;
+    }
 	ul {
-	margin-right:0px;
+	margin-right:20px;
 	float: left;
 	margin-bottom: 10px;
 	}
 	li {
 	list-style-type:none;
 	margin:0;
-	float:left;
 	}
 	a {
 	color:#fff;
@@ -79,7 +80,6 @@
 	font-size:$defaulttype - 4;
 	text-transform: uppercase;
 	padding: 0px;
-	background: rgba(255,255,255,0.1);
 	border: 0px solid rgba(255,255,255,.5);
 	cursor: pointer;
 	}

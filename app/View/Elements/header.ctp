@@ -16,7 +16,9 @@
 		<div class='closeHolder'>
 			<div class='closeCitySearch'></div>
 		</div>
+		<div class="search-container">
 		<input class="search" id="search" placeholder="Search" />
+		</div>
 		<ul class='list'>
 		<?foreach($cities as $i=>$city):?>
 			<li>
