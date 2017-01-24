@@ -122,9 +122,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-i {
-	font-family: Helvetica;
-	}
+
 
 body{
 	background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));
@@ -138,6 +136,7 @@ body{
 	position:relative;
 	@include xPrefix(transition, opacity 1s ease);
 	.maploader{
+		display: none;
 		@include xPrefix(transition, all 1s ease);
 		position:fixed;
 			bottom: 10px;
@@ -202,6 +201,7 @@ a {
 }
 
 body[class^='cities_view_'] {
+	padding-bottom: 317px !important;
 	.header a {
 	color:#fff!important;
 }
@@ -285,7 +285,7 @@ body.about, body.cities, body.data, body.historical_data {
 	}
 
 	font-size:16px;
-	padding: 15px 30px 15px 35px;
+	padding: 15px 30px 15px 30px;
 	position: fixed;
 	top:0px;
 	width:100%;
@@ -298,7 +298,7 @@ body.about, body.cities, body.data, body.historical_data {
 }
 
 footer {
-	box-shadow: 10px 10px 5px #888888;
+	/* box-shadow: 10px 10px 5px #888888; */
 	font-size:14px;
 	background-color: #fff;
 	position:absolute;
@@ -878,6 +878,9 @@ h3.sectionSubHeader {
 	  text-align:right;
 	  background-color: $headerbgcolor;
 	}
+	*::placeholder {
+	color:#808080;
+	}
 }
 
 #citySearch{
@@ -888,7 +891,8 @@ h3.sectionSubHeader {
 	color:$bodytype !important;
 	}	
 	ul{
-		background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));		position:fixed;
+		background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));		
+		position:fixed;
 		top:0;
 		left:0;
 		width:100%;
@@ -913,8 +917,8 @@ h3.sectionSubHeader {
 			    }
 	    	}
 	    	.popup-city-region {
-		    	font-family: "DINNextLTProUltraLight";	
-		    }
+		     color:$lightgrey1;
+		     }
 	    }
 	    li:hover{
 	    	background-color:rgba(0,0,0,0.1);
@@ -993,6 +997,9 @@ h3.sectionSubHeader {
     	font-size:32px;
     	background-color:white;
     }
+    *::placeholder {
+	color:$bodytype;
+	}
 }
 
 #citySearch:not(.poppedUp) ul,
