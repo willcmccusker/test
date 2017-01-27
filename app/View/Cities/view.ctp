@@ -77,8 +77,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 			</div>
 			<div class='col-1-2 tab-1-1 mob-1-1'>
 				<div class='sectionDownload'>Download:
-					<a download target="_blank" href="/file-manager/userfiles/data_page/Areas_and_Densities_Table/Areas_and_Densities_Table_1.csv">CSV</a> 
-					<a download target="_blank" href="/file-manager/userfiles/data_page/Areas_and_Densities_Table/Areas_and_Densities_Table_1.xlsx">XLSX</a> 
+					<a download target="_blank" href="/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.csv">CSV</a> 
+					<a download target="_blank" href="/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.xlsx">XLSX</a> 
 				</div>
 			</div>
 		</div>
