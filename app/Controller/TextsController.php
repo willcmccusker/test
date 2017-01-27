@@ -139,7 +139,7 @@ class TextsController extends AppController {
 			throw new NotFoundException(__('Invalid text'));
 		}
 		$this->set(compact("text"));
-		$this->render("/Pages/about");
+		// $this->render("/Pages/about");
 	}
 
 

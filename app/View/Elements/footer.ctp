@@ -1,7 +1,6 @@
 <footer> 
 	<div class='grid wide'>
 		<div class='col-1-2 tab-1-1 mob-1-1'>
-			<!--<?= $footerText["Text"]["content"];?>-->
 			<p>As of 2010, the world contained 4,231 cities with 100,000 or more people.</p>
 <p>The Atlas of Urban Expansion collects and analyzes data on the quantity and quality of urban expansion in a stratified global sample of 200 cities.</p>
 <p>The Atlas presents the output of the first two phases of the Monitoring Global Urban Expansion Program, an initiative that gathers data and evidence on cities worldwide.</p>
