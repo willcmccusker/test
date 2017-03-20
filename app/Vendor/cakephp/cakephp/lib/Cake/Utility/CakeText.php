@@ -169,7 +169,6 @@ class CakeText {
 		if (!empty($results)) {
 			return array_map('trim', $results);
 		}
-
 		return array();
 	}
 

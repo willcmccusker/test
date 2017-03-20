@@ -1,4 +1,5 @@
 <?php
+die('be right back');
 /**
  * The Front Controller for handling every request
  *
