@@ -27,7 +27,7 @@ $border-darkgrey : #333333;
 
 /*type size variables */
 
-$defaulttype : 16px;
+$defaulttype : 13.33px;
 /* 	default -4
 	default * 2
 	default * 2 + 8
@@ -39,6 +39,7 @@ $defaulttype : 16px;
 @import "tooltips";
 // @import "mapbox";
 // @import "tiny-autocomplete";
+
 
 
 @font-face {
@@ -57,70 +58,71 @@ $defaulttype : 16px;
 	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
 		url('/fonts/NHaasGroteskTXPro-55Rg.woff') format('woff'),
 		url('/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
 }
 
 
 // @import "plottable";
 //@import "chartist";
 
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, 
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: bottom;
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
-table tbody > * {
-	vertical-align:top;
+body {
+    margin: 0;
+    font: $defaulttype sans-serif;
+ 
 }
-h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
-	margin: 0;
-	padding: 0;
-	line-height:1.1 !important;
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
 }
-p {
-	padding-bottom: 1em;
+main,
+li {
+    display: block;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+h1,
+h2,
+h3,
+h4 {
+    font-size: inherit;
 }
-ol, ul {
-	list-style: none;
+a,
+button {
+    color: inherit;
+    transition: .3s;
 }
-blockquote, q {
-	quotes: none;
+a {
+    text-decoration: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+button {
+    overflow: visible;
+    border: 0;
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+    letter-spacing: inherit;
+    background: none;
+    cursor: pointer;
 }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+:focus {
+    outline: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
 }
 
 
@@ -128,6 +130,7 @@ body{
 	background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));
 	color: $bodytype;
 	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
+	font-size: $defaulttype;
 	line-height:1.5;
 	min-height:100vh;
 	opacity:1 !important;
@@ -158,7 +161,7 @@ body{
 	box-sizing: border-box;
 }
 p {
-	line-height:1.375;
+	padding-bottom:1em;
 }
 a {
 	color:$bodytype;
@@ -230,7 +233,7 @@ body .header a {
 
 body.about, body.cities, body.data, body.historical_data {
 	 .header a {
-	color:#808080;
+	color:#000;
 }
 }
 
@@ -283,8 +286,7 @@ body.about, body.cities, body.data, body.historical_data {
 		margin-left: auto;
 		// align-self: flex-end;
 	}
-
-	font-size:16px;
+	font-weight:500;
 	padding: 15px 30px 15px 30px;
 	position: fixed;
 	top:0px;
@@ -299,7 +301,6 @@ body.about, body.cities, body.data, body.historical_data {
 
 footer {
 	/* box-shadow: 10px 10px 5px #888888; */
-	font-size:14px;
 	background-color: #fff;
 	position:absolute;
 	height:320px;
@@ -351,6 +352,9 @@ footer {
 	opacity: .5;
 }
 
+.large-text {
+	font-size: $defaulttype;
+}
 
 
 .countryNameRow, .regionMenu {
@@ -411,21 +415,21 @@ table th{
 }
 
 .h1{
-	font-size:$defaulttype * 5;
-	line-height: 1.1;
+	font-size:$defaulttype * 5.5;
+	line-height: 1.05;
 	color:#fff;
 }
 
 h1 {
-	font-size:$defaulttype * 5;
-	line-height: 1.1;
-	padding: .5em 0 1em 0;
+	font-size:$defaulttype * 5.5;
+	line-height: 1.05;
+	padding: .5em 0 .75em 0;
 	
 }
 	
 
 h1#site-title {
-	font-size:18px;
+	font-size:16px;
 	font-weight: normal;
 	padding:0;
 	position:relative;
@@ -1038,14 +1042,6 @@ h3.sectionSubHeader {
 		color:$lightgrey1;
 		font-size:14px;
 	}
-	h4 {
-		color:$bodytype;
-		padding-bottom: .25em;
-	}
-	.atlas-downloads {
-	color:#808080;
-	font-size:14px;
-	}
 }
 
 
@@ -1146,6 +1142,12 @@ h3.sectionSubHeader {
 	text-align: left;
 }
 
+.download-table th, .download-table td {
+	padding:5px 15px 20px 2px;
+	border-bottom: 1px solid $border-lightgrey;
+	text-align: left;
+}
+
 
 /* historical */
 .historical{
@@ -1204,12 +1206,22 @@ h3.sectionSubHeader {
 	
 /* About Page */
 
-.about, .historical, .data-page-text {
+.about, .historical, .data-page-text, .data {
 	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
-	padding-top:$padding-top;
 	h1, h2, h3 {
 	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
-}
+	font-weight:700 !important;
+	}
+	h3 {
+	font-size:$defaulttype * 1.5;
+	text-transform: uppercase;
+	}
+	h4 {
+	font-size:$defaulttype * 1.2;
+	float:left;
+	padding-top:$padding-top/2;
+	width:100%;
+	}
 }
 
 .about {
@@ -1220,22 +1232,9 @@ h3.sectionSubHeader {
 	opacity:0.8;
 	width:180px;
 	}
-	.about-text {
-	}
-	h3 {
-	font-size: 18px;
-	letter-spacing: .8px;
-	text-transform: uppercase;
-	}	
-	h4 {
-		color:#808080;
-		font-size:16px;
-		float:left;
-		width:100%;
-		}
 	.highlight {
-		font-color: #FF6653;
-		}
+	font-color: #FF6653;
+	}
 }	
 
 .highlight {

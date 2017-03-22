@@ -931,7 +931,7 @@ var makeChart = function(prefix, city, side){
 			legend : {
 				labels : {
 					fontColor: "#929292",
-					boxWidth : 10,
+					boxWidth : 4,
 				}
 			},
 			responsive : true,
@@ -985,7 +985,7 @@ var makeStacked = function(prefix, city, vert){
 			legend : {
 				labels : {
 					fontColor: "#4A4A4A",
-					boxWidth : 10,
+					boxWidth : 4,
 				}
 			},
 			tooltips : {
@@ -1054,7 +1054,7 @@ var makeRoadChart = function(prefix, city){
 			legend : {
 				labels : {
 					fontColor: "#929292",
-					boxWidth : 10,
+					boxWidth : 4,
 				}
 			},
 			gridLines : {
@@ -1151,7 +1151,7 @@ var makeSpecialStacked = function(prefix, city){
 			legend : {
 				labels : {
 					fontColor: "#4A4A4A",
-					boxWidth : 10,
+					boxWidth : 4,
 				}
 			},
 			tooltips : {
@@ -1226,7 +1226,7 @@ var makeBlockChart = function(prefix, city){
 			legend : {
 				labels : {
 					fontColor: "#929292",
-					boxWidth : 10,
+					boxWidth : 4,
 				}
 			},
 			tooltips : {
