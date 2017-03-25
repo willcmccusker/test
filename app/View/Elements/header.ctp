@@ -8,7 +8,7 @@
 		<div class='nav-holder'>
 			<a href="/cities">Cities</a>
 			<a href="/data">Data</a>
-			<a href="/historical-data">Historical Data</a>
+			<a href="/historical-data">30 Historical Cities</a>
 			<a href="/about">About</a>
 		</div>
 	</nav>

@@ -2,7 +2,9 @@
   "name": "atlas",
   "version": "0.1.0",
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
     "grunt": "~0.4.4",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-compass": "latest",
     "grunt-contrib-concat": "^1.0.0",
@@ -10,6 +12,7 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-jsx": "^0.1.8",
+    "grunt-postcss": "^0.8.0",
     "grunt-wrap": "^0.3.0",
     "jshint-stylish": "latest"
   },
