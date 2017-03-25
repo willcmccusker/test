@@ -26,6 +26,7 @@ module.exports = function (grunt) {
         },
         uglifyFiles : {
           'dist/js/app.min.js': [
+            'node_modules/big.js/big.min.js',
             'src/js/jquery-3.1.0.min.js',
             'src/js/jquery.easyListSplitter.ignore.js',
             'src/js/headroom.min.js',

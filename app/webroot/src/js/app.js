@@ -767,17 +767,29 @@ var stackedYAxes = function(id){
 	}];
 };
 
+var setDecimals = function (amount) {
+	amount = new Big(amount);
+	if (amount >= 1) {
+		return amount.round(1);
+	} else {
+		return amount.round(2);
+	}
+};
+
 var bigTooltip = function(amount, label, unit){
+	amount = setDecimals(amount);
 	amount = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	return label+": "+amount+unit;
 };
 
 var percentageTooltip = function(amount, label, multiplyData){
+	amount = new Big(amount);
 	if(multiplyData !== undefined){
-		amount *= multiplyData;
+		amount = amount.times(multiplyData);
 	}
-	// return  label+": "+amount+"%";
-	return  label+": "+(Math.floor(amount*100)/100)+"%";
+	amount = setDecimals(amount);
+	// return  label+": "+(Math.floor(amount*100)/100)+"%";
+	return  label + ": " + amount + "%";
 };
 
 
@@ -805,6 +817,7 @@ var makeLine = function(prefix, city){
 	var log = Math.floor(Math.log(max)/Math.log(10));
 	log = Math.pow(10, log);
 	var yMax = Math.ceil((max + min)/log) * log;
+
 
 	var dateStart = new Date(city.City.t1);
 	var dateEnd = new Date(city.City.t3);
