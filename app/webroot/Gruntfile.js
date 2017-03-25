@@ -2,7 +2,7 @@
 
 // our wrapper function (required by grunt and its plugins)
 // all configuration goes inside this function
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // ===========================================================================
   // CONFIGURE GRUNT ===========================================================
@@ -26,8 +26,7 @@ module.exports = function(grunt) {
         },
         uglifyFiles : {
           'dist/js/app.min.js': [
-
-            'src/js/jquery-3.1.0.min.js', 
+            'src/js/jquery-3.1.0.min.js',
             'src/js/jquery.easyListSplitter.ignore.js',
             'src/js/headroom.min.js',
             'src/js/jquery.onscreen.min.js',
@@ -48,7 +47,7 @@ module.exports = function(grunt) {
             'src/js/list.ignore.js',
             'src/js/list.pagination.min.js',
 
-            'src/js/app.js',
+            'src/js/app.js'
           ]
         },
         uglify: {
@@ -61,9 +60,7 @@ module.exports = function(grunt) {
               sourceMap: true,
               banner: '/*\n <%= pkg.name %>-dev <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
-            
             files: "<%= uglifyFiles %>"
-          
           },
           dist: {
             options: {
@@ -73,12 +70,37 @@ module.exports = function(grunt) {
               sourceMap: true,
               banner: '/*\n <%= pkg.name %>-dist <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
-            
             files: "<%= uglifyFiles %>"
-            
           }
         },
+        // browserSync: {
+        //   default_options: {
+        //     bsFiles: {
+        //       src: ["dist/app.js", "dist/style.css"]
+        //     },
+        //     options: {
+        //       watchTask: true,
+        //       server: {
+        //         baseDir: "./"
+        //       },
+        //       proxy: "atlas.dev"
+        //     }
+        //   }
+        // },
         clean: ['dist/js/*', 'dist/css/*'],
+        postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('autoprefixer')
+                ]
+            },
+            dist: {
+                files: {
+                    'dist/css/style.css': 'dist/css/style.css'
+                }
+            }
+        },
         compass: {
           options: {
             sassDir: 'src/sass',
@@ -96,13 +118,15 @@ module.exports = function(grunt) {
           }
         },
         watch: {
-          files: ['src/sass/*.scss'],
-          tasks: ['compass'],
-          scripts: {
-            files : [ 'src/js/*.js', 'Gruntfile.js'],
+          style: {
+            files: ['src/sass/*.scss'],
+            tasks: ['compass', 'postcss']
+          },
+          app: {
+            files : [ 'src/js/*.js' ],
             tasks: ['jshint', 'uglify:dev']
           }
-        },
+        }
   });
 
   // ===========================================================================
@@ -110,13 +134,15 @@ module.exports = function(grunt) {
   // ===========================================================================
   // we can only load these if they are in our package.json
   // make sure you have run npm install so our app can find these
+  grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('dev', [  'clean', 'jshint', 'uglify:dev', 'compass']); 
-  grunt.registerTask('dist', [ 'clean', 'uglify:dist', 'compass']); 
+  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('dist', [ 'clean', 'uglify:dist', 'compass', 'postcss']);
 
 };

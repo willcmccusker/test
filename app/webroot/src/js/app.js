@@ -1,3 +1,4 @@
+console.log('phaseII!!!');
 var isHome = false;
 var charts;
 var testChart;
@@ -6,6 +7,7 @@ var poppedUp = false;
 var drawComplete = true;
 var chartObjects = {};
 var allMaps = {};
+var barWidth = 35;
 var isMobile = function(){
 	return $(window).width() < 767;
 };
@@ -735,6 +737,7 @@ var switchGraph = function(id){
 
 var stackedXAxes =  function(id){
 	return [{
+		barThickness : barWidth,
 		stacked : id == "blocks_and_plots_composition_special_stacked" ? true : true,
 		ticks: {
 			beginAtZero : true,
@@ -764,6 +767,7 @@ var stackedYAxes = function(id){
 		},
 		categoryPercentage : 0.6,
 		barPercentage : 1,
+		barThickness : barWidth
 	}];
 };
 
@@ -888,6 +892,7 @@ var makeChart = function(prefix, city, side){
 	};
 
 	var yAxes = [{
+		barThickness : barWidth,
 		ticks: {
 			beginAtZero:true,
 			callback: function(value, index, values) {
@@ -912,6 +917,7 @@ var makeChart = function(prefix, city, side){
 		},
 	}];
 	var xAxes = [{
+		barThickness : barWidth,
 		ticks: {
 			beginAtZero:true,
 			callback : function(value, index, values){
@@ -1081,14 +1087,16 @@ var makeRoadChart = function(prefix, city){
 			},
 			scales: {
 				yAxes: [{
-				ticks: {
-					beginAtZero:true
-				},
-				gridLines : {
-					display: false
-				},
-			}],
+					barThickness : barWidth,
+					ticks: {
+						beginAtZero:true
+					},
+					gridLines : {
+						display: false
+					},
+				}],
 				xAxes: [{
+					barThickness : barWidth,
 					ticks: {
 						beginAtZero:true,
 						// max : max,
@@ -1204,6 +1212,7 @@ var makeBlockChart = function(prefix, city){
 		]
 	};
 	var yAxes = [{
+		barThickness : barWidth,
 		ticks: {
 			beginAtZero:true,
 			callback: function(value, index, values) {
@@ -1212,6 +1221,7 @@ var makeBlockChart = function(prefix, city){
 		},
 	}];
 	var xAxes = [{
+		barThickness : barWidth,
 		ticks: {
 			beginAtZero:true
 		},
