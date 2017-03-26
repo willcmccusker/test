@@ -393,7 +393,7 @@ h2.countryName {
 	a {
 	color:#fff;	
 	cursor: pointer;
-	font-size:$defaulttype - 4;
+	font-size:$defaulttype - 2;
 	opacity:0.7;
 	text-transform: uppercase;
 	}
@@ -403,7 +403,7 @@ h2.countryName {
 }
 
 .cityNavHeader {
-	font-size:$defaulttype - 4;
+	font-size:$defaulttype;
 	letter-spacing:1.2px;
 	text-transform: uppercase;
 }
@@ -423,7 +423,7 @@ table th{
 h1 {
 	font-size:$defaulttype * 5.5;
 	line-height: 1.05;
-	padding: .5em 0 .75em 0;
+	padding: .25em 0 .75em 0;
 	
 }
 	
@@ -505,7 +505,7 @@ h1#site-title {
 
 	.statLabel {
 		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
-		font-size:$defaulttype - 4;	
+		font-size:$defaulttype - 2;	
 		text-transform: uppercase;
 	}
 	.statValue {
@@ -515,7 +515,7 @@ h1#site-title {
 	}
 	.units {
 		display:inline-block;
-		font-size: $defaulttype - 4;
+		font-size: $defaulttype - 2;
 		padding-left: 3px;
 		vertical-align: top;
 	}
@@ -1142,6 +1142,10 @@ h3.sectionSubHeader {
 	text-align: left;
 }
 
+table.download-table {
+	padding-bottom:1em;
+}
+
 .download-table th, .download-table td {
 	padding:5px 15px 20px 2px;
 	border-bottom: 1px solid $border-lightgrey;
@@ -1182,7 +1186,7 @@ h3.sectionSubHeader {
 		padding-top:0px;
 	}
 	h3 {
-		font-size: $defaulttype - 4;
+		font-size: $defaulttype - 2;
 		letter-spacing: .8px;
 		text-transform: uppercase;
 		padding: 25px 0 10px 0;
@@ -1210,7 +1214,7 @@ h3.sectionSubHeader {
 	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
 	h1, h2, h3 {
 	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
-	font-weight:700 !important;
+	font-weight:normal !important;
 	}
 	h3 {
 	font-size:$defaulttype * 1.5;
@@ -1219,7 +1223,6 @@ h3.sectionSubHeader {
 	h4 {
 	font-size:$defaulttype * 1.2;
 	float:left;
-	padding-top:$padding-top/2;
 	width:100%;
 	}
 }
