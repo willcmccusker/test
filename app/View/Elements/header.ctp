@@ -6,10 +6,22 @@
 	</div>
 	<nav class='menu-icon'>
 		<div class='nav-holder'>
-			<a href="/cities">Cities</a>
-			<a href="/data">Data</a>
-			<a href="/historical-data">30 Historical Cities</a>
-			<a href="/about">About</a>
+			<div class='menu-group'>
+				<a href="/cities">Cities</a>
+			</div>
+			<div class='menu-group'>
+				<a href="/data">Data</a>
+				<div class='sub-menu'>
+					<a href='/rankings'>Rankings</a>
+					<a href='/historical-data'>30 Historical Cities</a>
+				</div>
+			</div>
+			<div class='menu-group'>
+				<a href="/about">About</a>
+				<div class='sub-menu'>
+					<a href='/team-overview'>Team Overview</a>
+				</div>
+			</div>
 		</div>
 	</nav>
 	<div id='citySearch' class='unlisted menu-icon'>
