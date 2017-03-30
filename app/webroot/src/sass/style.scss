@@ -120,6 +120,7 @@ table {
 }
 
 
+
 body{
 	background-color: #F7F7F7;
 	color: $bodytype;
@@ -159,6 +160,9 @@ p {
 a {
 	color:$bodytype;
 	text-decoration: none;
+}
+img{
+	max-width:100%;
 }
 .no-file{
 	display:none;
