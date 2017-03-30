@@ -116,44 +116,24 @@ class TextsController extends AppController {
 	}
 
 
-	public function about(){
+
+
+	public function display ($slug = null) {
 		$text = $this->Text->find("first", array(
 			"conditions"=>array(
-				"Text.slug"=>"about"
+				"Text.slug"=>$slug
 				)
 			));
 		if(empty($text)){
 			throw new NotFoundException(__('Invalid text'));
 		}
 		$this->set(compact("text"));
-		$this->render("/Pages/about");
-	}
-
-	public function acknowledgements(){
-		$text = $this->Text->find("first", array(
-			"conditions"=>array(
-				"Text.slug"=>"acknowledgements"
-				)
-			));
-		if(empty($text)){
-			throw new NotFoundException(__('Invalid text'));
+		try {
+			$this->render($slug);
+		} catch (MissingViewException $e) {
+			$this->render('default');
 		}
-		$this->set(compact("text"));
-		// $this->render("/Pages/about");
 	}
 
-
-	public function historical(){
-			$text = $this->Text->find("first", array(
-			"conditions"=>array(
-				"Text.slug"=>"historic_data"
-				)
-			));
-		if(empty($text)){
-			throw new NotFoundException(__('Invalid text'));
-		}
-		$this->set(compact("text"));
-		$this->render("/Pages/historical");	
-	}
 
 }

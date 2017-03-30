@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+
 	<div class='grid wide about'>
 		<div class='col-1-4 tab-1-1'>
 		</div>
@@ -126,5 +121,3 @@
 			<p class="about-text"><span class="highlight">James D. Hurd, Jr</span> is a Research Associate in the Department of Natural Resources and the Environment at the University of Connecticut where he serves in multiple capacities as the Associate Director of the Connecticut Institute of Water Resources, Director of the Laboratory for Earth Resources Information Systems (LERIS), and Program Coordinator of ConnecticutView. He has over 25 years of experience as an earth resources scientist specializing in remote sensing and GIS applications. Research interests include the use of remote sensing focusing on environmental applications, geographic information systems (GIS), Image processing and pattern recognition, global positioning systems (GPS), spatial data analysis, and environmental modeling and characterization. Research emphasis is on improved land cover mapping and change detection, impervious surface modeling and estimation, forest fragmentation and urban growth/sprawl monitoring, water quality monitoring and estimation, and&nbsp;coastal wetland mapping. When he is not in the office working, he can be found touring on his tandem bicycle or sailing the Long Island Sound.</p>
 		</div>
 	</div>
-</body>
-</html>

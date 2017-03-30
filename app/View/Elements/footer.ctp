@@ -20,7 +20,7 @@
 					<li><a href="/about">About</a></li>
 					-->
 					<li><a href="/acknowledgements">Acknowledgements</a></li>
-					<li><a href="mailto:"info@atlasofurbanexpansion.org">Contact</a></li>
+					<li><a targt='_blank' href="mailto:"info@atlasofurbanexpansion.org">Contact</a></li>
 				</ul>
 			</div>
 			</div>
