@@ -819,11 +819,12 @@ var makeLine = function(prefix, city){
 	var yMax = Math.ceil((max + min)/log) * log;
 
 
-	var dateStart = new Date(city.City.t1);
-	var dateEnd = new Date(city.City.t3);
-	var dateSpan = dateEnd.getTime() - dateStart.getTime();
-	var dateMin = new Date(dateStart.getTime() - dateSpan);
-	var dateMax = new Date(dateEnd.getTime() + dateSpan);
+	// var dateStart = new Date(city.City.t1);
+	// var dateEnd = new Date(city.City.t3);
+	// var dateSpan = dateEnd.getTime() - dateStart.getTime();
+	// var dateMin = new Date(dateStart.getTime() - dateSpan);
+	// var dateMax = new Date(dateEnd.getTime() + dateSpan);
+
 
 	chartObjects[prefix] = new Chart(ctx, {
 		type : "line",
@@ -862,8 +863,8 @@ var makeLine = function(prefix, city){
 						displayFormats : {
 							quarter : 'MMM YYYY'
 						},
-						min : new Date("1980-01-01"),//dateMin,
-						max : new Date("2020-01-01"),//dateMax,
+						min : new Date("1988-01-01"),//dateMin,
+						max : new Date("2016-01-01"),//dateMax,
 						unitStepSize : 5,
 					},
 /*
