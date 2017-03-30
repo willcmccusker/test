@@ -29,24 +29,22 @@ $border-darkgrey : #333333;
 
 $defaulttype : 16px;
 /* 	default -4
-	default * 2
-	default * 2 + 8
-	default * 5
+default * 2
+default * 2 + 8
+default * 5
 */
 
 @import "functions";
 @import "grid";
 @import "tooltips";
-// @import "mapbox";
-// @import "tiny-autocomplete";
 
 
 @font-face {
 	font-family: 'DINNextLTProUltraLight';
 	src: url('/fonts/DINNextLTPro-UltraLight.eot');
 	src: url('/fonts/DINNextLTPro-UltraLight.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/DINNextLTPro-UltraLight.woff') format('woff'),
-		url('/fonts/DINNextLTPro-UltraLight.ttf') format('truetype');
+	url('/fonts/DINNextLTPro-UltraLight.woff') format('woff'),
+	url('/fonts/DINNextLTPro-UltraLight.ttf') format('truetype');
 	font-weight: 200;
 	font-style: normal;
 }
@@ -55,19 +53,17 @@ $defaulttype : 16px;
 	font-family: 'NeueHaasRegularTX';
 	src: url('/fonts/NHaasGroteskTXPro-55Rg.eot');
 	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/NHaasGroteskTXPro-55Rg.woff') format('woff'),
-		url('/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
+	url('/fonts/NHaasGroteskTXPro-55Rg.woff') format('woff'),
+	url('/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 
-// @import "plottable";
-//@import "chartist";
 
 /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -125,7 +121,7 @@ table {
 
 
 body{
-	background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));
+	background-color: #F7F7F7;
 	color: $bodytype;
 	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
 	line-height:1.5;
@@ -139,13 +135,13 @@ body{
 		display: none;
 		@include xPrefix(transition, all 1s ease);
 		position:fixed;
-			bottom: 10px;
-			right: 10px;
-			width:0px;
-			height:0px;
-			background-image: url("/img/loader.svg");
-			background-size: contain;
-			background-repeat: no-repeat;
+		bottom: 10px;
+		right: 10px;
+		width:0px;
+		height:0px;
+		background-image: url("/img/loader.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
 	}
 	&.mapsLoading{
 		.maploader{
@@ -203,21 +199,21 @@ a {
 body[class^='cities_view_'] {
 	padding-bottom: 317px !important;
 	.header a {
-	color:#fff!important;
-}
+		color:#fff!important;
+	}
 	.headroom--not-top a, .headroom--not-top #site-title a {
-	color:#808080!important;
-}	
-.headroom--not-top a:hover, .headroom--not-top #site-title a:hover {
-	color:$linkcolor!important;
-}	
+		color:#808080!important;
+	}	
+	.headroom--not-top a:hover, .headroom--not-top #site-title a:hover {
+		color:$linkcolor!important;
+	}	
 
 	.header {
-	border-bottom:1px solid rgba(255,255,255,.7);	
-}
+		border-bottom:1px solid rgba(255,255,255,.7);	
+	}
 	header.headroom--not-top {
-	border-bottom:1px solid rgba(0,0,0,0.2);	
-}
+		border-bottom:1px solid rgba(0,0,0,0.2);	
+	}
 }
 
 body[class^='cities_view_'] #site-title a {
@@ -229,17 +225,31 @@ body .header a {
 }
 
 body.about, body.cities, body.data, body.historical_data {
-	 .header a {
-	color:#808080;
-}
+	.header a {
+		color:#808080;
+	}
 }
 
 
 .header {
+
+	font-size:16px;
+	padding: 0px 30px 0px 30px;
+	line-height: 54px;
+	position: fixed;
+	top:0px;
+	width:100%;
+	z-index:9999;
 	@include xPrefix(transition, transform 500ms ease);
+
+	a {
+		color: $headercolor;
+	}
+
 	&.headroom--unpinned:not(.poppedUp){
 		@include xPrefix(transform, translateY(-100%) );
-		nav.navOpen .nav-holder a{
+		nav.navOpen .nav-holder a,
+		nav.navOpen .nav-holder .menu-group{
 			display:none;
 		}
 	}
@@ -248,12 +258,11 @@ body.about, body.cities, body.data, body.historical_data {
 	}
 	&.headroom--not-top {
 		background-color:#f5f5f5;
-		}
+	}
 	display:inline-block;
 	display: flex;
-	// justify-content : flex-start;
 	.nav-holder {
-		margin:0 0 0 20px;
+		margin: 0 0 0 20px;
 	}
 	#site-title{
 		display:inline-block;
@@ -275,26 +284,44 @@ body.about, body.cities, body.data, body.historical_data {
 		a:hover {
 			color:$linkcolor;
 		}
+
+		.menu-group{
+			position: relative;
+			display: inline-block;
+			min-height: 54px;
+			a {
+				display:block;
+			}
+			.sub-menu{
+				display:none;
+				position: absolute;
+				left:0px;
+				top: 100%;
+				width:248px;
+				background-color: #F7F7F7;
+				a{
+					border-top:1px solid white;
+					display: block;
+					padding:0px 0px 0px 25px;
+					margin-left:0px;
+
+				}
+			}
+			&:hover {
+				.sub-menu{
+					margin-left: 0px;
+					display: block;
+				}
+			}
+		}
 	}
 	#citySearch{
 		display:inline-block;
 		float:right;
 		order: 3;
 		margin-left: auto;
-		// align-self: flex-end;
 	}
 
-	font-size:16px;
-	padding: 15px 30px 15px 30px;
-	position: fixed;
-	top:0px;
-	width:100%;
-/*	background-color: rgba(255,255,255,0.0);*/
-/* 	border-bottom: 1px solid $lightgrey; */
-	z-index:9999;
-	a {
-		color: $headercolor;
-	}
 }
 
 footer {
@@ -333,8 +360,8 @@ footer {
 		position: absolute;
 		bottom:4px;
 		a {
-		color:$lightgrey1;
-		opacity:.5;
+			color:$lightgrey1;
+			opacity:.5;
 		}	
 	}
 	.quiet {
@@ -343,7 +370,7 @@ footer {
 	h3 {
 		text-transform: uppercase;
 	}
-	
+
 }
 
 .logo_block img {
@@ -371,30 +398,30 @@ h2.countryName {
 	position:absolute;
 	bottom:10px;
 	ul {
-	float: left;
-	margin: 0 50px 10px 0;
+		float: left;
+		margin: 0 50px 10px 0;
 	}
 	li {
-	list-style-type:none;
+		list-style-type:none;
 	}
 	li::after { 
-	content: "\203A";
-    font-size: 22px;
-    line-height: 25px;
-    margin-left: 4px;
-    opacity:0.7;
-    position: absolute;
-    text-decoration: none;
+		content: "\203A";
+		font-size: 22px;
+		line-height: 25px;
+		margin-left: 4px;
+		opacity:0.7;
+		position: absolute;
+		text-decoration: none;
 	}
 	a {
-	color:#fff;	
-	cursor: pointer;
-	font-size:$defaulttype - 4;
-	opacity:0.7;
-	text-transform: uppercase;
+		color:#fff;	
+		cursor: pointer;
+		font-size:$defaulttype - 4;
+		opacity:0.7;
+		text-transform: uppercase;
 	}
 	a:hover {
-	opacity:1.0;
+		opacity:1.0;
 	}
 }
 
@@ -403,7 +430,7 @@ h2.countryName {
 	letter-spacing:1.2px;
 	text-transform: uppercase;
 }
-	
+
 
 
 table th{
@@ -420,9 +447,9 @@ h1 {
 	font-size:$defaulttype * 5;
 	line-height: 1.1;
 	padding: .5em 0 1em 0;
-	
+
 }
-	
+
 
 h1#site-title {
 	font-size:18px;
@@ -456,65 +483,61 @@ h1#site-title {
 		background-position: center center;
 		background-size:cover;
 		background-repeat: no-repeat;
-		// @include xPrefix(transition, -o-filter 1000 ease);
-		// @include xPrefix(transition, -moz-filter 1000 ease);
-		// @include xPrefix(transition, -webkit-filter 1000 ease);
-		// @include xPrefix(transition, filter 1000 ease);
-		// transition: 2s -webkit-filter linear;
 
-		/* &.lazyimg{
-			@include xPrefix(filter, blur(5px));	
-		} */
 
-		&::before{
-			content : "";
-			position:absolute;
-			top:0px;
-			left:0px;
-			width:100%;
-			height:100%;
-			background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.8));	
-		}
-	}
-	.countryNameRow{
-		border-bottom: 1px solid rgba(255,255,255,0.7);
-		> *{
-			display: inline-block;
-		}
-		.flag {
-			img{
-				margin-right:7px;
-				width:40px;
-			}
-		}	
-	}
-	.citySummaryTable {
-		font-size:$defaulttype * 2 + 8;
-		font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
-	}
-	
-	.cityRegionTable {
-		border: 1px solid rgba(255,255,255,0.5);
+/* &.lazyimg{
+@include xPrefix(filter, blur(5px));	
+} */
+
+&::before{
+	content : "";
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.8));	
+}
+}
+.countryNameRow{
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+	> *{
 		display: inline-block;
-		margin: 17px 0 30px 0;
 	}
+	.flag {
+		img{
+			margin-right:7px;
+			width:40px;
+		}
+	}	
+}
+.citySummaryTable {
+	font-size:$defaulttype * 2 + 8;
+	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+}
 
-	.statLabel {
-		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
-		font-size:$defaulttype - 4;	
-		text-transform: uppercase;
-	}
-	.statValue {
-		color:rgba(255,255,255,.8);
-		line-height: 1.1;
-		margin: 0 0 16px 0;	
-	}
-	.units {
-		display:inline-block;
-		font-size: $defaulttype - 4;
-		padding-left: 3px;
-		vertical-align: top;
-	}
+.cityRegionTable {
+	border: 1px solid rgba(255,255,255,0.5);
+	display: inline-block;
+	margin: 17px 0 30px 0;
+}
+
+.statLabel {
+	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
+	font-size:$defaulttype - 4;	
+	text-transform: uppercase;
+}
+.statValue {
+	color:rgba(255,255,255,.8);
+	line-height: 1.1;
+	margin: 0 0 16px 0;	
+}
+.units {
+	display:inline-block;
+	font-size: $defaulttype - 4;
+	padding-left: 3px;
+	vertical-align: top;
+}
 }
 
 .anchorPoint{
@@ -532,51 +555,48 @@ h1#site-title {
 	}
 	&:hover .keyword-popup{
 		width:300px;
-	    // bottom: 0px;
-	    // left: 50%;
-	    // margin-left:-50px;
+
 		font-weight: normal;
-	    // @include xPrefix(transform,  translateX(-50%));
-	    display: block;
-	    position: absolute;
+		display: block;
+		position: absolute;
 		.leaflet-popup-content-wrapper{
 			background: #fff;
-		    border-radius: 3px;
-		    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+			border-radius: 3px;
+			box-shadow: 0 1px 2px rgba(0,0,0,.1);
 			background-color: rgba(255,255,255,0.9);
-		    color: #333333;
-		    padding: 1px;
-		    text-align: left;
-		    pointer-events: all;
-		    .leaflet-popup-content{
-		    	padding: 5px 5px 0 5px;
-		    	margin: 0;
-			    line-height: inherit;
-			    p{
-		    	    font-size: 15px;
-				    line-height: 20px;
-				    margin: 0 0 10px;
-			    	margin-bottom: 2px !important;
-			    	padding-bottom: 2px !important;
+			color: #333333;
+			padding: 1px;
+			text-align: left;
+			pointer-events: all;
+			.leaflet-popup-content{
+				padding: 5px 5px 0 5px;
+				margin: 0;
+				line-height: inherit;
+				p{
+					font-size: 15px;
+					line-height: 20px;
+					margin: 0 0 10px;
+					margin-bottom: 2px !important;
+					padding-bottom: 2px !important;
 
-			    }
-		    }
+				}
+			}
 		}
 		.leaflet-popup-tip-container{
 			width: 20px;
-		    height: 20px;
-		    margin: 0 auto;
-		    position: relative;
-		    .leaflet-popup-tip{
-					width: 0;
+			height: 20px;
+			margin: 0 auto;
+			position: relative;
+			.leaflet-popup-tip{
+				width: 0;
 				height: 0;
 				margin: 0;
 				border-left: 10px solid transparent;
 				border-right: 10px solid transparent;
 				border-top: 10px solid #fff;
 				box-shadow: none;
-		    	border-top: 10px solid rgba(255,255,255,0.9);
-		    }
+				border-top: 10px solid rgba(255,255,255,0.9);
+			}
 		}
 	}
 }
@@ -657,23 +677,20 @@ h3.sectionSubHeader {
 	}
 	.legend-click{
 		display:inline-block;
-	    width: 10px;
-	    height: 10px;
-	    margin: 0 5px;
-	    position: absolute;
-	    left: -20px;
-	    margin-top: -7px;
-	    top: 50%;
+		width: 10px;
+		height: 10px;
+		margin: 0 5px;
+		position: absolute;
+		left: -20px;
+		margin-top: -7px;
+		top: 50%;
 	}
-	
+
 }
 .city-map{
 	height:600px;
 	background-color: #b1b1b1 !important;
-	// background-image: url("/img/loader.svg") !important;
-	// background-position:center center !important;
-	// background-repeat: no-repeat !important;
-	// background-size:120px !important;
+
 	.leaflet-container{
 
 	}
@@ -684,7 +701,7 @@ h3.sectionSubHeader {
 	li{
 		display: inline-block;
 		&:first-child label {
-		border-left: 1px solid #DADADA;
+			border-left: 1px solid #DADADA;
 		}
 		label{
 			border-bottom: 1px solid #DADADA;
@@ -751,31 +768,15 @@ h3.sectionSubHeader {
 	}
 }
 .color-key {
-		float:right;
-		height:20px;
-		width:20px;
-	}
+	float:right;
+	height:20px;
+	width:20px;
+}
 .year-switch-graphic{
 	margin-bottom:32px;
 }
 .city-graphic{
 
-	// padding-right:100px;
-	// &.no-legend{
-	// 	padding-right:0px;
-	// }
-	// position:relative;
-	// background-color: $lightgrey;
-	// padding:20px;
-	// min-height:450px;
-	// ul{
-	// 	position: absolute;
-	// 	z-index: 5;
-	// 	right: 35px;
-	// 	top: 10px;
-	// 	padding: 5px;
-	// 	background-color: white;
-	// }
 }
 
 
@@ -804,38 +805,34 @@ h3.sectionSubHeader {
 }
 
 #worldmap{
-	// position:absolute;
-	// top:64px;
-	// bottom:0;
-	// left:0;
+
 	height:100vh;
 	width:100%;
 
-	
+
 	svg g path{
 		stroke: transparent;
 		stroke-width:10px;
 	}
-	
+
 
 }
 .leaflet-control-attribution{
-	// display:none;
 }
 .map-placeholder {
 	width:100%;
 	background-color:#292929;
-	}
-	
+}
+
 #worldmap .leaflet-popup-pane .leaflet-popup-content-wrapper {
 	background-color:rgba(255,255,255,.8);
 	color:#333333;
 	a {
-	color:#333333;
-	font-size:13px !important;
+		color:#333333;
+		font-size:13px !important;
 	}
 	a:hover {
-	color:$linkcolor;
+		color:$linkcolor;
 	}
 } 
 
@@ -868,18 +865,18 @@ h3.sectionSubHeader {
 /* Search */
 
 #citySearch input:focus{
-    outline: none;
+	outline: none;
 }
 #citySearch:not(.poppedUp){
-	 input#search{
-	  width: 50%;
-	  border: none;
-	  font-size: $defaulttype;
-	  text-align:right;
-	  background-color: $headerbgcolor;
+	input#search{
+		width: 50%;
+		border: none;
+		font-size: $defaulttype;
+		text-align:right;
+		background-color: $headerbgcolor;
 	}
 	*::placeholder {
-	color:#808080;
+		color:#808080;
 	}
 }
 
@@ -888,7 +885,7 @@ h3.sectionSubHeader {
 	text-align:right;
 	position:relative;
 	a {
-	color:$bodytype !important;
+		color:$bodytype !important;
 	}	
 	ul{
 		background-image: linear-gradient(to bottom, rgba(245,245,245,1.0), rgba(218,218,218,1.0));		
@@ -899,30 +896,30 @@ h3.sectionSubHeader {
 		height:100%;
 		overflow:auto;
 		margin-top:9.9em;
-	    text-align: left;
-	    li{
-	    	padding: #{$padding/2};
-	    	padding-left:30px;
+		text-align: left;
+		li{
+			padding: #{$padding/2};
+			padding-left:30px;
 
-		    .popup-city-city{
-		    	display:inline-block;
-		    	font-size:$defaulttype * 2;
-		    }
-	    	.popup-city-li{
-	    		line-height:40px;
-			    img{
-			    	height:32px;
-			    	display: inline;
-			    	vertical-align: middle;
-			    }
-	    	}
-	    	.popup-city-region {
-		     color:$lightgrey1;
-		     }
-	    }
-	    li:hover{
-	    	background-color:rgba(0,0,0,0.1);
-	    }
+			.popup-city-city{
+				display:inline-block;
+				font-size:$defaulttype * 2;
+			}
+			.popup-city-li{
+				line-height:40px;
+				img{
+					height:32px;
+					display: inline;
+					vertical-align: middle;
+				}
+			}
+			.popup-city-region {
+				color:$lightgrey1;
+			}
+		}
+		li:hover{
+			background-color:rgba(0,0,0,0.1);
+		}
 	}
 }
 #citySearch .closeHolder{
@@ -941,7 +938,6 @@ h3.sectionSubHeader {
 	position: relative;
 	overflow: hidden;
 
-	// @include xPrefix(transform, scale(3));
 
 	&:hover {
 		&::before, &::after {
@@ -972,33 +968,33 @@ h3.sectionSubHeader {
 #citySearch.poppedUp{
 	z-index:3;
 	position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(255,255,255,0.8);
-    .closeHolder{
-    	display:block;
-    }
-    .search-container {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(255,255,255,0.8);
+	.closeHolder{
+		display:block;
+	}
+	.search-container {
 		background-color: #fff;
 		float:left;
 		padding: 0 0 10px 30px;
 		width: 100%;
-		}
-    input{
-    	border:none;
-    	border-bottom: 1px solid #000;
-    	color:#000;
-    	padding:3em #{$padding/2} 10px 0px;
-    	float:left;
-    	width:75%;
-    	font-size:32px;
-    	background-color:white;
-    }
-    *::placeholder {
-	color:$bodytype;
+	}
+	input{
+		border:none;
+		border-bottom: 1px solid #000;
+		color:#000;
+		padding:3em #{$padding/2} 10px 0px;
+		float:left;
+		width:75%;
+		font-size:32px;
+		background-color:white;
+	}
+	*::placeholder {
+		color:$bodytype;
 	}
 }
 
@@ -1013,39 +1009,39 @@ h3.sectionSubHeader {
 
 .data {
 	a.download-link {
-	/*background-image:url('/img/download-512.png');
-	background-position: right center;
-	background-repeat: no-repeat;
-	background-size:20px;
-	padding-right:25px;*/
-	color: $linkcolor;
-	font-size:14px;
-	}
-	a:hover {
+/*background-image:url('/img/download-512.png');
+background-position: right center;
+background-repeat: no-repeat;
+background-size:20px;
+padding-right:25px;*/
+color: $linkcolor;
+font-size:14px;
+}
+a:hover {
 	color:$linkcolor;
 	text-decoration: underline;
-	}
-	.download-size {
+}
+.download-size {
 	font-size:14px;
-	}
-	.expansion-links a {
+}
+.expansion-links a {
 	color:$linkcolor;
 	display: block;
 	padding-right:3px;
 	text-decoration: underline;
-	}
-	.download-desc {
-		color:$lightgrey1;
-		font-size:14px;
-	}
-	h4 {
-		color:$bodytype;
-		padding-bottom: .25em;
-	}
-	.atlas-downloads {
+}
+.download-desc {
+	color:$lightgrey1;
+	font-size:14px;
+}
+h4 {
+	color:$bodytype;
+	padding-bottom: .25em;
+}
+.atlas-downloads {
 	color:#808080;
 	font-size:14px;
-	}
+}
 }
 
 
@@ -1056,11 +1052,11 @@ h3.sectionSubHeader {
 }
 .hide-on-desktop .expansion-links{
 	position:absolute;
-    right: 0px;
-    text-align: right;
-    background-color: white;
-    padding: 5px;
-    border: 1px solid black;
+	right: 0px;
+	text-align: right;
+	background-color: white;
+	padding: 5px;
+	border: 1px solid black;
 }
 #data-table{
 	th {
@@ -1104,12 +1100,12 @@ h3.sectionSubHeader {
 		}
 	}
 	input.search {
-	margin-bottom: 1em;
-	padding:6px 8px;
-	width:225px;
+		margin-bottom: 1em;
+		padding:6px 8px;
+		width:225px;
 	} 
 	input.search[type="text"] {
-	font-size: $bodytype;
+		font-size: $bodytype;
 	}
 }
 .show-links{
@@ -1117,16 +1113,16 @@ h3.sectionSubHeader {
 	position:relative;
 	&::after{
 		content: "";
-	    width: 0px;
-	    height: 0px;
-	    top: 50%;
-	    margin-top: -5px;
-	    margin-left: 5px;
-	    position: absolute;
-	    border-top: 5px solid transparent;
-	    border-bottom: 5px solid transparent;
-	    border-left: 5px solid black;
-	    @include xPrefix(transition, 500ms all ease);
+		width: 0px;
+		height: 0px;
+		top: 50%;
+		margin-top: -5px;
+		margin-left: 5px;
+		position: absolute;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-left: 5px solid black;
+		@include xPrefix(transition, 500ms all ease);
 	}
 	&.showing-link::after{
 		@include xPrefix(transform, rotate(90DEG));
@@ -1152,11 +1148,11 @@ h3.sectionSubHeader {
 	video{
 		width:100%;
 		height:320px;
-	    height: calc(40vw - 25px);
-	    max-height: 412.25px;
+		height: calc(40vw - 25px);
+		max-height: 412.25px;
 
-	    height: calc(#{40 * 0.5625}vw - 20px);
-	    max-height: #{(($max-width-wide * .4) - 30)* 0.5625 };
+		height: calc(#{40 * 0.5625}vw - 20px);
+		max-height: #{(($max-width-wide * .4) - 30)* 0.5625 };
 	}
 }
 
@@ -1174,7 +1170,6 @@ h3.sectionSubHeader {
 		vertical-align: top;
 		display:inline-block;
 		list-style-type: none;
-		// @include xPrefix(columns, 3);
 	}
 	ul > div:first-of-type h3{
 		padding-top:0px;
@@ -1201,41 +1196,41 @@ h3.sectionSubHeader {
 		display:none;
 	}
 }
-	
+
 /* About Page */
 
 .about, .historical, .data-page-text {
 	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
 	padding-top:$padding-top;
 	h1, h2, h3 {
-	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
-}
+		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
+	}
 }
 
 .about {
 	.grid.about img {
-	float:left;
-	margin:0 10px 6px 0;
-	filter: grayscale(100%);
-	opacity:0.8;
-	width:180px;
+		float:left;
+		margin:0 10px 6px 0;
+		filter: grayscale(100%);
+		opacity:0.8;
+		width:180px;
 	}
 	.about-text {
 	}
 	h3 {
-	font-size: 18px;
-	letter-spacing: .8px;
-	text-transform: uppercase;
+		font-size: 18px;
+		letter-spacing: .8px;
+		text-transform: uppercase;
 	}	
 	h4 {
 		color:#808080;
 		font-size:16px;
 		float:left;
 		width:100%;
-		}
+	}
 	.highlight {
 		font-color: #FF6653;
-		}
+	}
 }	
 
 .highlight {
@@ -1248,5 +1243,4 @@ h3.sectionSubHeader {
 }
 
 @import "mobile";
-//@import "mapbox";
 
