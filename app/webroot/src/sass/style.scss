@@ -16,7 +16,7 @@ $lightgrey0 : #666666;
 $lightgrey : #333333;
 $lightgrey1 : #929292;
 $lightgrey2 : #F0F0F0;
-$lightgrey3 :  #f5f5f5;
+$lightgrey3 :  #F7F7F7;
 $bodytype : #5a5a5a;
 
 /*border color variables */
@@ -211,12 +211,22 @@ body[class^='cities_view_'] {
 	.headroom--not-top a:hover, .headroom--not-top #site-title a:hover {
 		color:$linkcolor!important;
 	}	
-
+	nav .menu-group .sub-menu{
+		background-color: transparent;
+		a:first-of-type{
+			border-top: 1px solid transparent;
+		}
+	}
 	.header {
 		border-bottom:1px solid rgba(255,255,255,.7);	
 	}
 	header.headroom--not-top {
 		border-bottom:1px solid rgba(0,0,0,0.2);	
+		nav .menu-group .sub-menu{
+			a, a:first-of-type{
+				border-top: 1px solid rgba(0,0,0,0.2);
+			}
+		}
 	}
 }
 
@@ -261,7 +271,12 @@ body.about, body.cities, body.data, body.historical_data {
 		@include xPrefix(transform, translateY(0%) );
 	}
 	&.headroom--not-top {
-		background-color:#f5f5f5;
+		background-color:#F7F7F7;
+		
+		nav .menu-group .sub-menu{
+			background-color: #F7F7F7;
+
+		}
 	}
 	display:inline-block;
 	display: flex;
@@ -304,7 +319,7 @@ body.about, body.cities, body.data, body.historical_data {
 				width:248px;
 				background-color: #F7F7F7;
 				a{
-					border-top:1px solid white;
+					border-top:1px solid rgba(255,255,255,0.7);
 					display: block;
 					padding:0px 0px 0px 25px;
 					margin-left:0px;
