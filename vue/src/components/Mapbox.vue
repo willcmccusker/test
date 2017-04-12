@@ -11,14 +11,14 @@
           <div class='title'>
             {{city.City.t3.substr(0,4)}} Population
           </div>
-          <div class='value' v-html='$parent.commas(city.City.population)'></div>
+          <div class='value' v-html='commas(city.City.population)'></div>
           <div class='unit'></div>
         </div>
         <div class='col-1-3'>
           <div class='title'>
             {{city.City.t3.substr(0,4)}} Density
           </div>
-          <div class='value' v-html='$parent.commas(city.City.density)'>
+          <div class='value' v-html='commas(city.City.density)'>
 
           </div>
           <div class='unit'>
@@ -29,7 +29,7 @@
           <div class='title'>
             {{city.City.t3.substr(0,4)}} Urban Extent
           </div>
-          <div class='value' v-html='$parent.commas(city.City.extent)'>
+          <div class='value' v-html='commas(city.City.extent)'>
 
           </div>
           <div class='unit'>
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+  import {commas} from '../assets/utils.js'
+
   export default {
 
     name: 'Mapbox',
@@ -58,6 +60,9 @@
       }
     },
     methods: {
+      commas () {
+        return commas.apply(this, arguments)
+      }
     }
   }
 </script>

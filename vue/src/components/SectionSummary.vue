@@ -50,6 +50,8 @@
 </template>
 
 <script>
+  import {percent, commas} from '../assets/utils.js'
+
   export default {
 
     name: 'SectionSummary',
@@ -91,7 +93,7 @@
         for (let i = 1; i < 4; i++) {
           divs += `<div class="col-1-3">
                       <div class="summary-sub-title">` + this.city.City['t' + i].substr(0, 4) + `</div>
-                      <div>` + this.$parent.commas(this.city.DataSet[key + '_t' + i]) + `</div>
+                      <div>` + commas(this.city.DataSet[key + '_t' + i]) + `</div>
                   </div>`
         }
         return divs
@@ -100,7 +102,7 @@
         let divs = '<div class="col-1-3">% Change</div>'
         for (let i = 1; i < 3; i++) {
           divs += `<div class="col-1-3">
-                      <div>` + this.$parent.percent(this.city.DataSet[key + '_t' + i + '_t' + (i + 1)]) + `</div>
+                      <div>` + percent(this.city.DataSet[key + '_t' + i + '_t' + (i + 1)]) + `</div>
                   </div>`
         }
         return divs
@@ -109,17 +111,17 @@
         let divs = ''
         for (let i = 1; i < 3; i++) {
           divs += `<div class="col-1-2">
-                      <div>` + this.$parent.commas(this.city.DataSet[key + '_t' + i + '_t' + (i + 1)]) + `</div>
+                      <div>` + commas(this.city.DataSet[key + '_t' + i + '_t' + (i + 1)]) + `</div>
                   </div>`
         }
         return divs
       },
-      changeT1_13 (key, percent = false) {
+      changeT1_13 (key, perc = false) {
         let divs = ''
         for (let i = 1; i < 3; i++) {
           let dates = i === 1 ? '_pre_1990' : '_1990_2015'
           let value = this.city.DataSet[key + dates]
-          value = percent ? this.$parent.percent(value) : value
+          value = perc ? percent(value) : value
           divs += `<div class="col-1-2">
                       <div>` + value + `</div>
                   </div>`

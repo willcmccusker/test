@@ -27,13 +27,11 @@
 </template>
 
 <script>
-  /* global city */
-  var Big = require('big.js')
-  // var city = require('../assets/city.json')
+  /* -global city */
+  var city = require('../assets/city.json')
   import Mapbox from './Mapbox'
   import SectionSummary from './SectionSummary'
   import Graphs from './Graphs'
-
   export default {
 
     name: 'City',
@@ -111,12 +109,6 @@
           }
           img.src = image
         })
-      },
-      commas (number, dp = 0) {
-        return new Big(number).round(dp).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-      },
-      percent (number, dp = 2, multiply = false) {
-        return new Big(number).times(multiply || 1).round(dp).toString() + '%'
       }
     },
     mounted () {
@@ -155,6 +147,7 @@
   width:50%;
 }
 #side-panel{
+  resize: horizontal;
   transition: width 500ms ease;
   width:316px;
   height:calc(100vh - 54px);
