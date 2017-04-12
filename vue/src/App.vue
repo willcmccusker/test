@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
   @import '../../app/webroot/src/sass/style.scss';
 
-  body[class^='cities_view_']{
+  html body[class^='cities_view_']{
     padding-bottom:0px !important;
     padding-top:0px;
   }

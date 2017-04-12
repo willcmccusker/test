@@ -31,7 +31,7 @@
 <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><script type="text/javascript">google.charts.load('current', {packages: ['corechart']});google.charts.setOnLoadCallback(googleChartsReady);</script> -->
 <?
 		echo $this->fetch('meta');
-		echo $this->fetch('css');
+		echo $this->params->controller == "cities" && $this->params->action == "view" ? $this->fetch('css') : '';
 		echo $this->fetch('script');
 
 	?>
