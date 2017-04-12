@@ -1,0 +1,5 @@
+// var $ = require('zepto')
+// var Headroom = require('../../../app/webroot/src/js/headroom.min.js')
+// var heady = document.querySelector('header')
+// var headroom = new Headroom(heady)
+// headroom.init()

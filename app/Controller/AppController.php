@@ -106,6 +106,14 @@ class AppController extends Controller {
             ));
         $cities = $this->City->find("all", array(
             "recursive"=>0,
+            "fields"=>array(
+                "id", "slug", "name", "country", "flag_path"
+            ),
+            "contain"=>array(
+                "Region"=>array(
+                    "id", "name"
+                )
+            ),
             "order"=>array("City.name"=>"ASC")
         ));
         

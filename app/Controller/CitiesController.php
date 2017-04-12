@@ -193,6 +193,7 @@ class CitiesController extends AppController {
 			));
 
 		$this->set(compact("city", "dynamicTexts", "tooltips", "fbphoto"));
+		$this->render('vue');
 	}
 
 

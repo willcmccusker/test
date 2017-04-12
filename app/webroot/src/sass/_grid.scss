@@ -13,7 +13,7 @@ html, body{
 .grid{
 	width:100%;
 	max-width: $max-width;
-	min-width:320px;
+	min-width:0px;
 	margin-right:auto;
 	padding: 0 20px;
 	padding-bottom:2em;
@@ -21,9 +21,13 @@ html, body{
 		padding-left: 0px !important;
 		padding-right: 0px !important;
 	}
-}
-.grid.wide{
-	max-width: $max-width-wide;
+	&.wide{
+		max-width: $max-width-wide;
+	}
+	&.center{
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 [class*='col-'] {
 	position:relative;
@@ -36,9 +40,13 @@ html, body{
 			padding-right:0px !important;
 		}
 }
-[class*='col-']:last-of-type {
-}
-[class*='col-']:first-of-type {
+.no-pad{
+	[class*='col-']:last-of-type {
+		padding-right:0px;
+	}
+	[class*='col-']:first-of-type {
+		padding-left: 0px;
+	}
 }
 .grid:after {
 	content: "";
