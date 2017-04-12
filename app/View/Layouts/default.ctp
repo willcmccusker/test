@@ -69,7 +69,7 @@
 	// debug($this->params->controller == "cities" && $this->params->action == "view");
 	echo $this->params->controller == "cities" && $this->params->action == "view" ? "" : $this->element("header");
 	echo $this->fetch('content');
-	echo $this->element("footer");
+	echo $this->params->controller == "cities" && $this->params->action == "view" ? "" : $this->element("footer");
 	//echo $this->element('sql_dump'); ?>
 	<style>
 	<? 		
