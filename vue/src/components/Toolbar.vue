@@ -50,7 +50,11 @@
 </template>
 
 <script>
-  let cities = require('../assets/cities.json')
+  /* global cities */
+
+  // if (process.env.NODE_ENV === 'development') {
+  //   var cities = require('../assets/cities.json')
+  // }
   export default {
 
     name: 'Toolbar',

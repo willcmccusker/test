@@ -124,7 +124,7 @@ table {
 body{
 	background-color: #F7F7F7;
 	color: $bodytype;
-	font-family: "NeueHaasRegularTX", Helvetica, sans-serif;
+	font-family: Helvetica, sans-serif;
 	line-height:1.5;
 	min-height:100vh;
 	opacity:1 !important;
@@ -186,6 +186,15 @@ img{
 	height:1px; 
 	opacity:0; 
 	position:absolute;
+}
+.clear{
+	clear:both;
+}
+.clear-left{
+	clear: left;
+}
+.clear-right{
+	clear: right;
 }
 .display-none{
 	display:none;

@@ -1,37 +1,60 @@
 <template>
   <div id='cityContainer' :style='backgroundStyle' :class='currentSection.section'>
-    <div id='side-panel'>
-      <div class='top-box'>
-        <div id='dropdown-nav' class='cursor' :class='{open: dropdown}'>
-          <div @click='dropdown = !dropdown' ref='dropdown' class='currentSection' >
-            <div class='graph-icon'></div>
-            <div class='dropdown-title' v-html="sectionKey === 0 ? 'select data set' : currentSection.title"></div>
-            <div class='dropdown-arrow'>
-              <img  :src="'/img/arrow-' + (sectionKey === 0 ? 'w' : 'b') + '.svg'">
-            </div>
-          </div>
-          <div class='allSections' v-if='dropdown'>
-            <div v-for='section, index in sections'>
-              <div class='dropdown-title' @click='sectionKey = index; dropdown = false;' v-html='section.title'></div>
-            </div>
-          </div>
+    <div id='city-header-data' class='grid center' v-if="currentSection.section === 'city-header'">
+      <div class='col-1-3'>
+        <div class='title'>
+          {{city.City.t3.substr(0,4)}} Population
         </div>
-
-        <section-summary :city='city' :section='currentSection'></section-summary>
-
+        <div class='value' v-html='commas(city.City.population)'></div>
+        <div class='unit'></div>
       </div>
-      <graphs v-if="currentSection.section != 'city-header'" :city='city' :section='currentSection'></graphs>
+      <div class='col-1-3'>
+        <div class='title'>
+          {{city.City.t3.substr(0,4)}} Density
+        </div>
+        <div class='value' v-html='commas(city.City.density)'>
+        </div>
+        <div class='unit'>
+        persons/hectare
+        </div>
+      </div>
+      <div class='col-1-3'>
+        <div class='title'>
+          {{city.City.t3.substr(0,4)}} Urban Extent
+        </div>
+        <div class='value' v-html='commas(city.City.extent)'>
+        </div>
+        <div class='unit'>
+          hectares
+        </div>
+      </div>
     </div>
-    <mapbox :city='city' :section='currentSection'></mapbox>
+    <template v-else>
+      <map-graphs :city='city' :currentSection='currentSection'></map-graphs>
+    </template>
+
+    <div id='side-panel'>        
+      <city-dropdown :sectionKey='sectionKey' :city='city'></city-dropdown>
+      <city-summary :sectionKey='sectionKey' :city='city'></city-summary>  
+
+      <section-dropdown v-on:setKey='setKey' :sections='sections' :sectionKey='sectionKey'></section-dropdown>
+      <section-summary  v-if='sectionKey != 0' :city='city' :section='currentSection' ></section-summary>
+    </div>
+    
   </div>
 </template>
 
 <script>
-  /* -global city */
-  var city = require('../assets/city.json')
-  import Mapbox from './Mapbox'
+  /* global city */
+  // if (process.env.NODE_ENV === 'development') {
+  //   var city = require('../assets/city.json')
+  // }
+  import SectionDropdown from './SectionDropdown'
   import SectionSummary from './SectionSummary'
-  import Graphs from './Graphs'
+  import CityDropdown from './CityDropdown'
+  import CitySummary from './CitySummary'
+  import MapGraphs from './MapGraphs'
+  import {commas} from '../assets/utils.js'
   export default {
 
     name: 'City',
@@ -39,9 +62,9 @@
     data () {
       return {
         backgroundLoaded: false,
-        city,
-        dropdown: false,
+        city: city,
         sectionKey: 0,
+        maps: false,
         sections: [
           {
             section: 'city-header',
@@ -101,6 +124,9 @@
       }
     },
     methods: {
+      commas () {
+        return commas.apply(this, arguments)
+      },
       loadImage (image) {
         return new Promise((resolve, reject) => {
           var img = new Image()
@@ -109,25 +135,25 @@
           }
           img.src = image
         })
+      },
+      setKey (index) {
+        this.sectionKey = index
       }
     },
-    mounted () {
-      var vm = this
-      document.addEventListener('click', (e) => {
-        if (this.$refs.dropdown && !this.$refs.dropdown.contains(e.target)) {
-          vm.dropdown = false
-        }
-      }, false)
-    },
     components: {
-      Mapbox,
+      MapGraphs,
+      SectionDropdown,
       SectionSummary,
-      Graphs
+      CityDropdown,
+      CitySummary
     }
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+@import '../assets/colors.scss';
+
 .cursor{
   cursor: pointer;
 }
@@ -142,79 +168,94 @@
   background-blend-mode: multiply; /* no ie support */
   height: 100vh;
   padding-top:54px;
+  #city-header-data {
+    color: white;
+    text-align:center;
+    margin-top: calc(50vh - 112px);
+    .title{
+      font-size:14px;
+      line-height:17px;
+    }
+    .value{
+      font-size:60px;
+      line-height:72px;
+    }
+    .unit{
+      font-size:12px;
+      line-height:14px;
+    }
+  }
+  &.city-header{
+    padding-left:0px;
+  }
+
+
+  .header-title{
+    background-color: black;
+    font-size:20px;
+    line-height:43px;
+    position:relative;
+    z-index:2;
+    padding-left:20px;
+  }
 }
 .population #side-panel{
-  width:50%;
+  // width:50%;
 }
 #side-panel{
-  resize: horizontal;
-  transition: width 500ms ease;
-  width:316px;
-  height:calc(100vh - 54px);
   position:absolute;
   left:0px;
   top:54px;
-  background-color: white;
-  box-shadow: 0px 2px 4px #C8C8C8;
   color: #5A5A5A;
-  .top-box{
-    padding:15px;
-    background-color: #F3F3F3;
+  padding:16px;
+}
+.summary, 
+.dropdown-nav {
+   width:274px; 
+}
+.dropdown-nav {
+  color: #5A5A5A;
+  font-size: 14px;
+  line-height: 30px;
+  position:relative;
+  background-color: white;
+  &.open{
+    .dropdown-arrow img{
+      transform: rotate(180DEG);
+    }
   }
-  #dropdown-nav {
-    font-size: 14px;
-    line-height: 36px;
-    position:relative;
+  .dropdown-title {
+    cursor: pointer;
+    font-weight:bold;
+  }
+  .currentSection {
+    padding:0 12px;
+    border-bottom:1px solid grey;
+    >div {
+      display: inline-block;
+    }
+    .dropdown-arrow{
+      float:right;
+      img{
+        width:15px;
+        vertical-align:middle;
+        cursor: pointer;
+        transition: transform 500ms ease;
+      }
+    }
+  }
+  .allSections{
+    z-index:2;
+    position:absolute;
     background-color: white;
-    margin-top:43px;
-    box-shadow: 0px 2px 4px #C8C8C8;
-    &.open{
-      .dropdown-arrow img{
-        transform: rotate(180DEG);
-      }
-    }
-    .dropdown-title {
-      cursor: pointer;
-      margin-left:16px;
-    }
-    .currentSection {
+    width: 100%;
+    top: 30px;
+    left:0px;
+    border-top: 1px solid #E8E8E8;
+    > div {
       padding:0 15px;
-      >div {
-        display: inline-block;
-      }
-      .graph-icon{
-        background-image: url('/img/graph.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-        width: 12px;
-        height:36px;
-      }
-      .dropdown-arrow{
-        float:right;
-        img{
-          width:15px;
-          vertical-align:middle;
-          cursor: pointer;
-          transition: transform 500ms ease;
-        }
-      }
     }
-    .allSections{
-      box-shadow: 0px 2px 4px #C8C8C8;
-      z-index:2;
-      position:absolute;
-      background-color: white;
-      width: 100%;
-      top: 36px;
-      left:0px;
-      border-top: 1px solid #E8E8E8;
-      > div {
-        padding:0 15px;
-      }
-      .dropdown-title{
-        margin-left:33px;
-      }
+    .dropdown-title{
     }
   }
 }
@@ -226,19 +267,58 @@
     .top-box{
       background-color: transparent;
     }
-    #dropdown-nav {
-      color: white;
-      background-color: transparent;
+    .dropdown-nav {
       .currentSection {
-        border:1px solid white;
         .dropdown-arrow{
 
         }
       }
       .allSections{
-        background-color: transparent;
       }
     }
   }
 }
+
+
+  .open {
+    .more-title{
+      margin-bottom: 20px;
+        &:after{
+        background-image: url('/img/minus.svg');
+      }
+    }
+  }
+  .more-title {
+    margin-top:17px;
+    font-size:11px;
+    line-height:13px;
+    text-transform: uppercase;
+    color: $light-grey;
+    position:relative;
+    &:after{
+      display: block;
+      content: '';
+      position:absolute;
+      right:0px;
+      font-size:14px;
+      bottom:0;
+      height:100%;
+      width: 8px;
+      background-image: url('/img/plus.svg');
+      background-position: center center;
+      background-size: 8px;
+      background-repeat: no-repeat;
+    }
+  }
+  .show-more {
+    .label, .amount {
+      line-height: 18.5px;
+    }
+    .amount {
+      padding-bottom: 1em;
+      &:last-of-type{
+        padding-bottom:0px;
+      }
+    }
+  }
 </style>
