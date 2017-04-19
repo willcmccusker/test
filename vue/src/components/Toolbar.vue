@@ -50,11 +50,13 @@
 </template>
 
 <script>
-  /* global cities */
 
-  // if (process.env.NODE_ENV === 'development') {
-  //   var cities = require('../assets/cities.json')
-  // }
+  if (process.env.NODE_ENV === 'development') {
+    var cities = require('../assets/cities.json')
+  } else {
+    /* exported cities */
+    /* global cities */
+  }
   export default {
 
     name: 'Toolbar',
