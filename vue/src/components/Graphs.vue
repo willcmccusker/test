@@ -1,5 +1,15 @@
 <template>
    <div id='section-graphs'>
+
+    <div v-if="section.section === 'arterial-roads' || section.section === 'blocks-and-plots'">
+      <div class='grid'>
+        <div class='col-1-1 change-years'>
+          <div @click='laterYear = false' class='change-year' :class="{currentYear: !laterYear}">{{earlyRange}}</div>
+          <div @click='laterYear = true' class='change-year' :class="{currentYear: laterYear}">{{laterRange}}</div>
+        </div>
+      </div>
+    </div>
+
 <!--          POPULATION          -->
     <div v-if="section.section === 'population'">
       <div class='grid' >
@@ -56,24 +66,75 @@
     </div>
 <!--          ARTERIAL ROADS          -->
     <div v-else-if="section.section === 'arterial-roads'">
-      {{section.title}}
+      <div class='grid'>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('arterial_roads_density_bar')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('arterial_roads_density_bar')"></div>
+          </div>
+        </div>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('arterial_roads_walking_bar')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('arterial_roads_walking_bar')"></div>
+          </div>
+        </div>
+      </div>
+      <div class='grid'>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('arterial_roads_beeline_bar')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('arterial_roads_beeline_bar')"></div>
+          </div>
+        </div>
+      </div>
     </div>
 <!--          BLOCKS AND PLOTS          -->
     <div v-else-if="section.section === 'blocks-and-plots'">
-      {{section.title}}
+      <div class='grid'>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('blocks_and_plots_composition_special_stacked')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('blocks_and_plots_composition_special_stacked')"></div>
+          </div>
+        </div>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('blocks_plots_average_block_bar')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('blocks_plots_average_block_bar')"></div>
+          </div>
+        </div>
+      </div>
+      <div class='grid'>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('blocks_plots_average_bar')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('blocks_plots_average_bar')"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import {makeChart, makeLine, makeStacked} from '../assets/graphing.js'
+  import {makeChart, makeLine, makeStacked, makeRoadChart, makeBlockChart, makeSpecialStacked} from '../assets/graphing.js'
   export default {
 
     name: 'Graphs',
     props: ['section', 'city'],
     data () {
       return {
-        chartObjects: {}
+        chartObjects: {},
+        laterYear: true
+      }
+    },
+    computed: {
+      earlyRange () {
+        return this.city.City.t1.substr(0, 4) + '—' + this.city.City.t2.substr(0, 4)
+      },
+      laterRange () {
+        return this.city.City.t2.substr(0, 4) + '—' + this.city.City.t3.substr(0, 4)
       }
     },
     mounted () {
@@ -84,51 +145,102 @@
         this.$nextTick(() => {
           this.launchGraphs()
         })
+      },
+      laterYear () {
+        this.relaunchGraphs()
       }
     },
     methods: {
-      canvas (id, classes = 'city-graphic', height = '350px') {
+      canvas (id, classes = 'city-graphic', height = '250px') {
         return `<canvas id='` + id + `' class='` + classes + `' height="` + height + `"></canvas>`
       },
       legend (id) {
         return this.chartObjects[id] && this.chartObjects[id].generateLegend()
+      },
+      arterialRoads () {
+        let chart = {}
+        let id = 'arterial_roads_density_bar'
+        if (this.chartObjects[id]) this.chartObjects[id].destroy()
+        chart[id] = makeRoadChart(id, this.city, 'Density of Arterial Roads (km/km2)', ' km/km2', undefined, this.laterYear)
+        id = 'arterial_roads_walking_bar'
+        if (this.chartObjects[id]) this.chartObjects[id].destroy()
+        chart[id] = makeRoadChart(id, this.city, 'Share of Area Within Walking Distance of Arterial Roads', '%', 100, this.laterYear)
+        id = 'arterial_roads_beeline_bar'
+        if (this.chartObjects[id]) this.chartObjects[id].destroy()
+        chart[id] = makeRoadChart(id, this.city, 'Beeline Distance to Arterial Roads', 'm', undefined, this.laterYear)
+        this.chartObjects = Object.assign({}, this.chartObjects, chart)
+      },
+      blocksAndPlots () {
+        let chart = {}
+        let id = 'blocks_and_plots_composition_special_stacked'
+        if (this.chartObjects[id]) this.chartObjects[id].destroy()
+        chart[id] = makeSpecialStacked(id, this.city, 'Share of Residential Land Use Settlements', this.laterYear)
+        this.chartObjects = Object.assign({}, this.chartObjects, chart)
+      },
+      relaunchGraphs () {
+        switch (this.section.section) {
+          case ('arterial-roads'):
+            this.arterialRoads()
+            break
+          case ('blocks-and-plots'):
+            this.blocksAndPlots()
+            break
+        }
       },
       launchGraphs () {
         let chart = {}
         switch (this.section.section) {
           case ('population'):
             let id = 'population_line'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeLine(id, this.city, 'Population')
             id = 'population_change_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Population Avg. Annual % Change', '%')
             break
           case ('urban-extent'):
             id = 'urban_extent_composition_stacked_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeStacked(id, this.city, 'Urban Composition')
             id = 'urban_extent_change_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Urban Extent Avg. Annual % Change')
             break
           case ('density'):
             id = 'density_built_up_line'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeLine(id, this.city, 'Built-up Area Density (Persons/Hectare)', ' Persons/Hectare')
             id = 'density_built_up_change_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Built-up Area Avg. Annual % Change')
             id = 'density_urban_extent_line'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeLine(id, this.city, 'Urban Extent Density (Persons/Hectare)', ' Persons/Hectare')
             id = 'density_urban_extent_change_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Urban Extent Avg. Annual % Change')
             break
           case ('composition-of-added-area'):
             break
           case ('roads'):
             id = 'roads_in_built_up_area_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Share of built up area occupied by roads and boulevardse', '%', 100, true)
             id = 'roads_average_width_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Average Street Width', 'm', undefined, true)
             break
           case ('arterial-roads'):
+            this.arterialRoads()
             break
           case ('blocks-and-plots'):
+            this.blocksAndPlots()
+            id = 'blocks_plots_average_block_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
+            chart[id] = makeChart(id, this.city, 'Average Block Size (hectares)', ' hectares', undefined, true)
+            id = 'blocks_plots_average_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
+            chart[id] = makeBlockChart(id, this.city, 'Average Plot Size (m&sup2;)', ' m&sup2;')
             break
         }
         this.chartObjects = Object.assign({}, this.chartObjects, chart)
@@ -139,7 +251,25 @@
 </script>
 
 <style lang="scss">
+@import '../assets/colors.scss';
 
+.change-year {
+  cursor: pointer;
+  display: inline-block;
+  float:left;
+  width:100px;
+  border:1px solid $line-grey-4;
+  text-align:center;
+  font-size:12.5px;
+  line-height:29px;
+  height:29px;
+  color: $light-grey;
+  &.currentYear {
+    font-weight: bold;
+    color: $dark-grey-2;
+    background-color: $light-grey-3;
+  }
+}
 #section-graphs {
   padding-left: 306px;
   padding-right:16px;

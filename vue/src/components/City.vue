@@ -45,10 +45,12 @@
 </template>
 
 <script>
-  /* global city */
-  // if (process.env.NODE_ENV === 'development') {
-  //   var city = require('../assets/city.json')
-  // }
+  if (process.env.NODE_ENV === 'development') {
+    var city = require('../assets/city.json')
+  } else {
+    /* exported city */
+    /* global city */
+  }
   import SectionDropdown from './SectionDropdown'
   import SectionSummary from './SectionSummary'
   import CityDropdown from './CityDropdown'

@@ -186,6 +186,230 @@ let charts = function (city) {
   }
 }
 
+export var makeSpecialStacked = function (prefix, city, title = '', laterYear = true) {
+  var ctx = document.getElementById(prefix)
+  var field = prefix.replace('_special_stacked', '')
+
+  var data1990 = {
+    labels: charts(city)[prefix].labels,
+    datasets: []
+  }
+  var data2015 = {
+    labels: charts(city)[prefix].labels,
+    datasets: []
+  }
+
+  // $(charts[prefix].datasets).each(function(){
+  charts(city)[prefix].datasets.forEach(function (dataset) {
+    var data = {
+      backgroundColor: dataset.bgColor,
+      borderWidth: 0,
+      label: dataset.label,
+      data: [city.DataSet[field + dataset.suffix + 'pre_1990'], city.Region.DataSet[field + dataset.suffix + 'pre_1990'], city.World.DataSet[field + dataset.suffix + 'pre_1990']]
+    }
+    data1990.datasets.push(JSON.parse(JSON.stringify(data)))
+    data.data = [city.DataSet[field + dataset.suffix + '1990_2015'], city.Region.DataSet[field + dataset.suffix + '1990_2015'], city.World.DataSet[field + dataset.suffix + '1990_2015']]
+    data2015.datasets.push(JSON.parse(JSON.stringify(data)))
+  })
+
+  // $(ctx).data("1990", data1990);
+  // $(ctx).data("2015", data2015);
+  console.log(laterYear)
+  return new Chart(ctx, {
+    type: 'horizontalBar',
+    data: laterYear ? data2015 : data1990,
+    options: {
+      legend: {
+        labels: {
+          fontColor: '#4A4A4A',
+          boxWidth: 10
+        }
+      },
+      tooltips: {
+        callbacks: {
+          title: function () {
+            return false
+          },
+          label: function (tooltipItem, data) {
+            var label = data.datasets[tooltipItem.datasetIndex].label
+            var amount = tooltipItem.xLabel
+
+            // var folded = fold(label, 20, true);
+            return percentageTooltip(amount, label)
+          }
+        }
+      },
+      title: {
+        text: title
+      },
+      scales: {
+        yAxes: stackedYAxes(prefix),
+        xAxes: stackedXAxes(prefix)
+      }
+    }
+  })
+}
+
+export var makeBlockChart = function (prefix, city, title = '', unit = '', multiply = false) {
+  var ctx = document.getElementById(prefix)
+  var field = prefix.replace('_bar', '')
+
+  var data = {
+    labels: ['Informal', 'Formal'],
+    datasets: [
+      {
+        label: city.City.t1.substr(0, 4) + '-' + city.City.t2.substr(0, 4),
+        backgroundColor: 'rgba(229,223,227,1.0)',
+        borderWidth: 0,
+        data: [city.DataSet[field + '_informal_plot_pre_1990'], city.Region.DataSet[field + '_formal_plot_pre_1990']]
+      },
+      {
+        label: city.City.t2.substr(0, 4) + '-' + city.City.t3.substr(0, 4),
+        backgroundColor: 'rgba(176,171,174,1.0)',
+        borderWidth: 0,
+        data: [city.DataSet[field + '_informal_plot_1990_2015'], city.Region.DataSet[field + '_formal_plot_1990_2015']]
+      }
+    ]
+  }
+  var yAxes = [{
+    ticks: {
+      beginAtZero: true,
+      callback: function (value, index, values) {
+        return commas(value)
+        // return (Math.floor(value * 100) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
+    }
+  }]
+  var xAxes = [{
+    ticks: {
+      beginAtZero: true
+    },
+    gridLines: {
+      display: false
+    }
+  }]
+  return new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      legend: {
+        labels: {
+          fontColor: '#929292',
+          boxWidth: 10
+        }
+      },
+      tooltips: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            var label = data.datasets[tooltipItem.datasetIndex].label
+            // var folded = fold(label, 20, true);
+            return bigTooltip(tooltipItem.yLabel, label, unit)
+          }
+        }
+      },
+      title: {
+        text: title
+      },
+      scales: {
+        yAxes: yAxes,
+        xAxes: xAxes
+      }
+    }
+  })
+}
+
+export let makeRoadChart = function (prefix, city, title = '', unit = '', multiply = false, laterYear = true) {
+  // 1990_data
+  // 2015_data
+  var ctx = document.getElementById(prefix)
+  var field = prefix.replace('_bar', '')
+
+  var data1990 = {
+    labels: charts(city).arterial_roads.labels,
+    datasets: []
+  }
+  var data2015 = {
+    labels: charts(city).arterial_roads.labels,
+    datasets: []
+  }
+
+  charts(city).arterial_roads.datasets.forEach(function (dataset) {
+    var data = {
+      backgroundColor: dataset.backgroundColor,
+      borderWidth: 0,
+      label: dataset.label,
+      data: [city.DataSet[field + dataset.suffix + 'pre_1990'], city.Region.DataSet[field + dataset.suffix + 'pre_1990'], city.World.DataSet[field + dataset.suffix + 'pre_1990']]
+    }
+    data1990.datasets.push(JSON.parse(JSON.stringify(data)))
+
+    data.data = [city.DataSet[field + dataset.suffix + '1990_2015'], city.Region.DataSet[field + dataset.suffix + '1990_2015'], city.World.DataSet[field + dataset.suffix + '1990_2015']]
+    data2015.datasets.push(JSON.parse(JSON.stringify(data)))
+  })
+
+  // $(ctx).data("1990", data1990);
+  // $(ctx).data("2015", data2015);
+  return new Chart(ctx, {
+    type: 'horizontalBar',
+    data: laterYear ? data2015 : data1990,
+    options: {
+      legend: {
+        labels: {
+          fontColor: '#929292',
+          boxWidth: 10
+        }
+      },
+      gridLines: {
+        display: false
+      },
+      tooltips: {
+        callbacks: {
+          title: function () {
+            return false
+          },
+          label: function (tooltipItem, data) {
+            var label = data.datasets[tooltipItem.datasetIndex].label
+            var number = tooltipItem.xLabel
+            if (unit === '%') {
+              return percentageTooltip(number, label, multiply)
+            } else {
+              return bigTooltip(number, label, unit)
+            }
+          }
+        }
+      },
+      title: {
+        text: title
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          },
+          gridLines: {
+            display: false
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            beginAtZero: true,
+            // max : max,
+            callback: function (value, index, values) {
+              if (multiply) {
+                value *= multiply
+              }
+              value = Math.floor(value * 100) / 100
+              if (unit && (unit === '%' || unit === 'm')) {
+                value += unit
+              }
+              return value
+            }
+          }
+        }]
+      }
+    }
+  })
+}
+
 export let makeStacked = function (prefix, city, title, unit = '', multiply = false, vert = false) {
   var ctx = document.getElementById(prefix)
   // var field = prefix.replace('_stacked_bar', '')
@@ -253,7 +477,8 @@ export let makeChart = function (prefix, city, title, unit = '', multiply = fals
           if (multiply) {
             value *= multiply
           }
-          value = (Math.floor(value * 100) / 100).toString().replace(/\B(?=(\d{3}) + (?!\d))/g, ',')
+          value = commas(value)
+          // value = (Math.floor(value * 100) / 100).toString().replace(/\B(?=(\d{3}) + (?!\d))/g, ',')
           // value = newValue == 0 ? value: newValue
           if (unit === '%' || unit === 'm') {
             value += unit
