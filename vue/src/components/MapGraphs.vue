@@ -1,19 +1,21 @@
 <template>
   <div>
-    <mapbox v-if='maps' :city='city' :section='currentSection'></mapbox>
+    <mapbox v-show='maps' :city='city' :section='currentSection'></mapbox>
     <div class='map-graph'>
       <div class='tabs'>
         <div :class="{selected: maps}" class='cursor' @click='maps = true'>Map</div>
         <div :class="{selected: !maps}" class='cursor' @click='maps = false'>Graphs</div>
       </div>
       <div class='clear'></div>
-      <mapkey v-if="maps" :city='city' :section='currentSection'></mapkey>
-      <graphs v-else :city='city' :section='currentSection'></graphs>
+      <mapkey v-show="maps" :city='city' :section='currentSection'></mapkey>
+      <graphs v-if="!maps" :city='city' :section='currentSection'></graphs>
     </div>
   </div>
 </template>
 
 <script>
+
+  import Mapkey from './Mapkey'
   import Mapbox from './Mapbox'
   import Graphs from './Graphs'
 
@@ -28,6 +30,7 @@
     },
     components: {
       Mapbox,
+      Mapkey,
       Graphs
     }
   }
@@ -37,6 +40,7 @@
 @import '../assets/colors.scss';
 
 .tabs {
+  position:relative;
   float:right;
   line-height:30px;
   margin-right:16px;

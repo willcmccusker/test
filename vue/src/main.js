@@ -12,7 +12,7 @@ new Vue({
   components: { App }
 })
 
-/* eslint no-extend-native: ["error", { "exceptions": ["Array"] }] */
+/* eslint no-extend-native: ["error", { "exceptions": ["Array", "String"] }] */
 Object.defineProperty(Array.prototype, 'chunk', {
   value: function (chunkSize) {
     var R = []
@@ -22,3 +22,8 @@ Object.defineProperty(Array.prototype, 'chunk', {
     return R
   }
 })
+
+String.prototype.replaceAll = function (search, replacement) {
+  var target = this
+  return target.split(search).join(replacement)
+}
