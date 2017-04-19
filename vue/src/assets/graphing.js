@@ -186,8 +186,7 @@ let charts = function (city) {
   }
 }
 
-export var makeSpecialStacked = function (prefix, city, title = '', laterYear = true) {
-  var ctx = document.getElementById(prefix)
+export var returnSpecialStacked = function (prefix, city, laterYear = true) {
   var field = prefix.replace('_special_stacked', '')
 
   var data1990 = {
@@ -211,13 +210,15 @@ export var makeSpecialStacked = function (prefix, city, title = '', laterYear = 
     data.data = [city.DataSet[field + dataset.suffix + '1990_2015'], city.Region.DataSet[field + dataset.suffix + '1990_2015'], city.World.DataSet[field + dataset.suffix + '1990_2015']]
     data2015.datasets.push(JSON.parse(JSON.stringify(data)))
   })
+  return laterYear ? data2015 : data1990
+}
 
-  // $(ctx).data("1990", data1990);
-  // $(ctx).data("2015", data2015);
-  console.log(laterYear)
+export var makeSpecialStacked = function (prefix, city, title = '', laterYear = true) {
+  var ctx = document.getElementById(prefix)
+
   return new Chart(ctx, {
     type: 'horizontalBar',
-    data: laterYear ? data2015 : data1990,
+    data: returnSpecialStacked(prefix, city, laterYear),
     options: {
       legend: {
         labels: {
@@ -318,12 +319,8 @@ export var makeBlockChart = function (prefix, city, title = '', unit = '', multi
   })
 }
 
-export let makeRoadChart = function (prefix, city, title = '', unit = '', multiply = false, laterYear = true) {
-  // 1990_data
-  // 2015_data
-  var ctx = document.getElementById(prefix)
+export let returnRoadChartData = function (prefix, city, laterYear = true) {
   var field = prefix.replace('_bar', '')
-
   var data1990 = {
     labels: charts(city).arterial_roads.labels,
     datasets: []
@@ -345,12 +342,15 @@ export let makeRoadChart = function (prefix, city, title = '', unit = '', multip
     data.data = [city.DataSet[field + dataset.suffix + '1990_2015'], city.Region.DataSet[field + dataset.suffix + '1990_2015'], city.World.DataSet[field + dataset.suffix + '1990_2015']]
     data2015.datasets.push(JSON.parse(JSON.stringify(data)))
   })
+  return laterYear ? data2015 : data1990
+}
 
-  // $(ctx).data("1990", data1990);
-  // $(ctx).data("2015", data2015);
+export let makeRoadChart = function (prefix, city, title = '', unit = '', multiply = false, laterYear = true) {
+  var ctx = document.getElementById(prefix)
+
   return new Chart(ctx, {
     type: 'horizontalBar',
-    data: laterYear ? data2015 : data1990,
+    data: returnRoadChartData(prefix, city, laterYear),
     options: {
       legend: {
         labels: {

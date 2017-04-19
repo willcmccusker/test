@@ -118,7 +118,8 @@
 </template>
 
 <script>
-  import {makeChart, makeLine, makeStacked, makeRoadChart, makeBlockChart, makeSpecialStacked} from '../assets/graphing.js'
+  // import clone from '../assets/utils.js'
+  import {makeChart, makeLine, makeStacked, makeRoadChart, makeBlockChart, makeSpecialStacked, returnRoadChartData, returnSpecialStacked} from '../assets/graphing.js'
   export default {
 
     name: 'Graphs',
@@ -180,10 +181,24 @@
       relaunchGraphs () {
         switch (this.section.section) {
           case ('arterial-roads'):
-            this.arterialRoads()
+            var roads = ['arterial_roads_density_bar', 'arterial_roads_walking_bar', 'arterial_roads_beeline_bar']
+            roads.forEach((road) => {
+              var meta = returnRoadChartData(road, this.city, this.laterYear)
+              meta.datasets.forEach((dataset, i) => {
+                var data = Object.assign({}, dataset.data)
+                Object.assign(this.chartObjects[road].config.data.datasets[i].data, data)
+              })
+              this.chartObjects[road].update()
+            })
             break
           case ('blocks-and-plots'):
-            this.blocksAndPlots()
+            var id = 'blocks_and_plots_composition_special_stacked'
+            var meta = returnSpecialStacked(id, this.city, this.laterYear)
+            meta.datasets.forEach((dataset, i) => {
+              var data = Object.assign({}, dataset.data)
+              Object.assign(this.chartObjects[id].config.data.datasets[i].data, data)
+            })
+            this.chartObjects[id].update()
             break
         }
       },
