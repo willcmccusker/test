@@ -141,17 +141,28 @@
     mounted () {
       this.launchGraphs()
     },
+    destroyed () {
+      this.destroyGraphs()
+    },
     watch: {
       section () {
+        this.destroyGraphs()
         this.$nextTick(() => {
           this.launchGraphs()
         })
       },
       laterYear () {
-        this.relaunchGraphs()
+        this.changeYear()
       }
     },
     methods: {
+      destroyGraphs () {
+        for (var key in this.chartObjects) {
+          if (this.chartObjects.hasOwnProperty(key)) {
+            this.chartObjects[key].destroy()
+          }
+        }
+      },
       canvas (id, classes = 'city-graphic', height = '250px') {
         return `<canvas id='` + id + `' class='` + classes + `' height="` + height + `"></canvas>`
       },
@@ -178,7 +189,7 @@
         chart[id] = makeSpecialStacked(id, this.city, 'Share of Residential Land Use Settlements', this.laterYear)
         this.chartObjects = Object.assign({}, this.chartObjects, chart)
       },
-      relaunchGraphs () {
+      changeYear () {
         switch (this.section.section) {
           case ('arterial-roads'):
             var roads = ['arterial_roads_density_bar', 'arterial_roads_walking_bar', 'arterial_roads_beeline_bar']
