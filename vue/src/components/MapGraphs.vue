@@ -1,13 +1,13 @@
 <template>
   <div>
-    <mapbox v-if='maps' :city='city' :section='currentSection'></mapbox>
+    <mapbox v-if='currentSection.map && maps' :city='city' :section='currentSection'></mapbox>
     <div class='map-graph'>
       <div class='tabs'>
-        <div :class="{selected: maps}" class='cursor' @click='maps = true'>Map</div>
-        <div :class="{selected: !maps}" class='cursor' @click='maps = false'>Graphs</div>
+        <div :class="{selected: maps, disabled: !currentSection.map}" class='cursor' @click='maps = true'>Map</div>
+        <div :class="{selected: !maps, disabled: !currentSection.graph}" class='cursor' @click='maps = false'>Graphs</div>
       </div>
       <div class='clear'></div>
-      <graphs v-if='!maps' :city='city' :section='currentSection'></graphs>
+      <graphs v-if='currentSection.graph && !maps' :city='city' :section='currentSection'></graphs>
     </div>
   </div>
 </template>
@@ -24,6 +24,29 @@
     data () {
       return {
         maps: false
+      }
+    },
+    watch: {
+      currentSection () {
+        this.decideMap()
+      }
+    },
+    mounted () {
+      this.decideMap()
+    },
+    methods: {
+      decideMap () {
+        // if current map graph choice is allowed, keep it, if not switch it
+        // if map is true and current map is true map is true
+        // if map is false and current graph is false map is true
+        // if map is true and current map is false map is false
+        // if map is false and current graph is true map is false
+        this.maps =
+        (
+          (this.maps && this.currentSection.map) || (!this.maps && !this.currentSection.graph)
+        ) || !(
+          (this.maps && !this.currentSection.map) || (!this.maps && this.currentSection.graph)
+        )
       }
     },
     components: {
@@ -51,6 +74,10 @@
     width: 95px;
     &.selected {
       background-color: white;
+    }
+    &.disabled {
+      opacity: 0.3;
+      pointer-events: none;
     }
     &:first-of-type{
       border-right: 1px solid $line-grey-3;

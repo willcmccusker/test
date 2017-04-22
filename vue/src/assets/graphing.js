@@ -30,7 +30,7 @@ const globalOptions = {
     position: 'right'
   },
   legendCallback: function (chart) {
-    var legend = '<ul class="legend-ui">'
+    var legend = '<ul class="legend-ul">'
     for (var i = 0; i < chart.data.datasets.length; i++) {
       let data = chart.data.datasets[i]
       var color = chart.config.options.legend.labels.fontColor
@@ -62,7 +62,7 @@ let charts = function (city) {
       labels: ['T1', 'T2', 'T3'],
       datasets: [
         {
-          backgroundColor: 'rgba(52,22,186,0.5)',
+          backgroundColor: 'rgba(52,22,186,1)',
           borderWidth: 0,
           label: ['Urban Built Up'],
           data: [city.DataSet.urban_extent_composition_urban_t1,
@@ -70,7 +70,7 @@ let charts = function (city) {
             city.DataSet.urban_extent_composition_urban_t3]
         },
         {
-          backgroundColor: 'rgba(194,121,159,0.5)',
+          backgroundColor: 'rgba(194,121,159,1)',
           borderWidth: 0,
           label: ['Suburban Built Up'],
           data: [city.DataSet.urban_extent_composition_suburban_t1,
@@ -78,7 +78,7 @@ let charts = function (city) {
             city.DataSet.urban_extent_composition_suburban_t3]
         },
         {
-          backgroundColor: 'rgba(0,0,0,0.5)',
+          backgroundColor: 'rgba(0,0,0,1)',
           borderWidth: 0,
           label: ['Rural Built Up'],
           data: [city.DataSet.urban_extent_composition_rural_t1,
@@ -86,7 +86,7 @@ let charts = function (city) {
             city.DataSet.urban_extent_composition_rural_t3]
         },
         {
-          backgroundColor: 'rgba(247,245,80,0.5)',
+          backgroundColor: 'rgba(247,245,80,1)',
           borderWidth: 0,
           label: ['Urbanized Open Space'],
           data: [city.DataSet.urban_extent_composition_open_t1,
@@ -163,22 +163,22 @@ let charts = function (city) {
       datasets: [
         {
           suffix: '_atomistic_',
-          bgColor: 'rgba(202,145,121,0.5)',
+          bgColor: 'rgba(202,145,121,1)',
           label: 'Atomistic Settlements'
         },
         {
           suffix: '_informal_',
-          bgColor: 'rgba(197,97,77,0.5)',
+          bgColor: 'rgba(197,97,77,1)',
           label: 'Informal Subdivisions'
         },
         {
           suffix: '_formal_',
-          bgColor: 'rgba(164,53,43,0.5)',
+          bgColor: 'rgba(164,53,43,1)',
           label: 'Formal Subdivisions'
         },
         {
           suffix: '_housing_',
-          bgColor: 'rgba(126,8,18,0.5)',
+          bgColor: 'rgba(126,8,18,1)',
           label: 'Housing Projects'
         }
       ]
@@ -457,12 +457,12 @@ export let makeChart = function (prefix, city, title, unit = '', multiply = fals
     labels: [city.City.name, city.Region.name, 'World'],
     datasets: [{
       label: side ? city.City.t1.substr(0, 4) + '-' + city.City.t2.substr(0, 4) : city.City.t1.substr(0, 4) + '-' + city.City.t2.substr(0, 4), // 'T1-T2'
-      backgroundColor: '#edc7b6',
+      backgroundColor: '#FE8B73',
       borderWidth: 0,
       data: [city.DataSet[field + suffix1], city.Region.DataSet[field + suffix1], city.World.DataSet[field + suffix1]]
     }, {
       label: side ? city.City.t2.substr(0, 4) + '-' + city.City.t3.substr(0, 4) : city.City.t2.substr(0, 4) + '-' + city.City.t3.substr(0, 4), // 'T2-T3'
-      backgroundColor: '#b9a7ae',
+      backgroundColor: '#A2A09D',
       borderWidth: 0,
       data: [city.DataSet[field + suffix2], city.Region.DataSet[field + suffix2], city.World.DataSet[field + suffix2]]
     }

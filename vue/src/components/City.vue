@@ -45,12 +45,13 @@
 </template>
 
 <script>
-  if (process.env.NODE_ENV === 'development') {
-    var city = require('../assets/city.json')
-  } else {
-    /* exported city */
-    /* global city */
-  }
+  // console.log(process.env.NODE_ENV)
+  // if (process.env.NODE_ENV === 'development') {
+  //   var city = require('../assets/city.json')
+  // } else {
+  /* exported city */
+  /* global city */
+  // }
   import SectionDropdown from './SectionDropdown'
   import SectionSummary from './SectionSummary'
   import CityDropdown from './CityDropdown'
@@ -74,31 +75,45 @@
           },
           {
             section: 'population',
-            title: 'Population'
+            title: 'Population',
+            graph: true,
+            map: false
           },
           {
             section: 'urban-extent',
-            title: 'Urban Extent'
+            title: 'Urban Extent',
+            graph: true,
+            map: true
           },
           {
             section: 'density',
-            title: 'Density'
+            title: 'Density',
+            graph: true,
+            map: false
           },
           {
             section: 'composition-of-added-area',
-            title: 'Composition of Added Area'
+            title: 'Composition of Added Area',
+            graph: false,
+            map: true
           },
           {
             section: 'roads',
-            title: 'Roads'
+            title: 'Roads',
+            graph: true,
+            map: true
           },
           {
             section: 'arterial-roads',
-            title: 'Arterial Roads'
+            title: 'Arterial Roads',
+            graph: true,
+            map: true
           },
           {
             section: 'blocks-and-plots',
-            title: 'Blocks and Plots'
+            title: 'Blocks and Plots',
+            graph: true,
+            map: true
           }
         ]
       }

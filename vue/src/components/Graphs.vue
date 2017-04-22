@@ -2,8 +2,8 @@
    <div id='section-graphs'>
 
     <div v-if="section.section === 'arterial-roads' || section.section === 'blocks-and-plots'">
-      <div class='grid'>
-        <div class='col-1-1 change-years'>
+      <div class='grid change-years'>
+        <div class='col-1-1'>
           <div @click='laterYear = false' class='change-year' :class="{currentYear: !laterYear}">{{earlyRange}}</div>
           <div @click='laterYear = true' class='change-year' :class="{currentYear: laterYear}">{{laterRange}}</div>
         </div>
@@ -14,7 +14,10 @@
     <div v-if="section.section === 'population'">
       <div class='grid' >
         <div class='col-1-2' v-html="canvas('population_line', 'city-graphic no-legend')"></div>
-        <div class='col-1-2' v-html="canvas('population_change_bar')"></div>
+        <div class='col-1-2'>
+          <div class='col-3-4 no-pad' v-html="canvas('population_change_bar')"></div>
+          <div class='hold-legend col-1-4 no-pad' v-html="legend('population_change_bar')"></div>
+        </div>
       </div>
     </div>
 <!--          URBAN EXTENT          -->
@@ -34,7 +37,10 @@
     <div v-else-if="section.section === 'density'">
       <div class='grid'>
         <div class='col-1-2' v-html="canvas('density_built_up_line')"></div>
-        <div class='col-1-2' v-html="canvas('density_built_up_change_bar')"></div>
+        <div class='col-1-2'>
+          <div class='col-3-4 no-pad' v-html="canvas('density_built_up_change_bar')"></div>
+          <div class='hold-legend col-1-4 no-pad' v-html="legend('density_built_up_change_bar')"></div>
+        </div>
       </div>
       <div class='grid'>
         <div class='col-1-2' v-html="canvas('density_urban_extent_line')"></div>
@@ -60,6 +66,14 @@
           <div class='col-3-4'  v-html="canvas('roads_average_width_bar')"></div>
           <div class='col-1-4'>
             <div class='hold-legend' v-html="legend('roads_average_width_bar')"></div>
+          </div>
+        </div>
+      </div>
+      <div class='grid'>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('roads_width_stacked_bar')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('roads_width_stacked_bar')"></div>
           </div>
         </div>
       </div>
@@ -255,6 +269,9 @@
             id = 'roads_average_width_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Average Street Width', 'm', undefined, true)
+            id = 'roads_width_stacked_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
+            chart[id] = makeStacked(id, this.city, 'Street Width Composition', undefined, undefined, true)
             break
           case ('arterial-roads'):
             this.arterialRoads()
@@ -278,7 +295,10 @@
 
 <style lang="scss">
 @import '../assets/colors.scss';
-
+.change-years {
+  padding-bottom:16px;
+  padding-top:16px;
+}
 .change-year {
   cursor: pointer;
   display: inline-block;

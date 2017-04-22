@@ -2,7 +2,15 @@
   <div id='map'>
     <div id='mapbox' class='city-map'></div>
     <div v-if='isMobile' class='mobile-map-cover'></div>
-    <mapkey v-on:add-layer='addLayer' v-on:remove-layer='removeLayer' :city='city' :map='currentMap' :section='section'></mapkey>
+    <mapkey 
+    v-on:remove-all='removeAll'
+    v-on:add-layer='addLayer' 
+    v-on:remove-layer='removeLayer' 
+    v-on:get-layers='getLayers'
+    :city='city' 
+    :map='map' 
+    :layers='currentMap'
+    :section='section'></mapkey>
   </div>
 </template>
 
@@ -25,16 +33,76 @@
         map: false,
         allLayers: {},
         layersLoading: [],
-        // host: 'atlasofurbanexpansion.org',
-        host: 'atlas.dev',
+        host: 'atlasofurbanexpansion.org',
+        localhost: 'atlas.dev',
         maps: {
+          'population': false,
           'urban-extent': [
-            {name: 'extent_??_urbanBuilt', url: '/urban_extent/urban_build_up_??/'},
-            {name: 'extent_??_suburbanBuilt', url: '/urban_extent/suburban_build_up_??/'},
-            {name: 'extent_??_ruralBuilt', url: '/urban_extent/rural_build_up_??/'},
-            {name: 'extent_??_urbanOpen', url: '/urban_extent/open_space_??/'},
-            {name: 'extent_??_exurbanBuilt', url: '/urban_extent/exurban_built_up_??/'},
-            {name: 'extent_??_exurbanOpen', url: '/urban_extent/exurban_open_??/'}
+            {
+              on: true,
+              display: 'Urban Built-Up',
+              name: 'extent_??_urbanBuilt',
+              url: '/urban_extent/urban_build_up_??/',
+              color: '#978AD8'
+            },
+            {
+              on: true,
+              display: 'Suburban Built-Up',
+              name: 'extent_??_suburbanBuilt',
+              url: '/urban_extent/suburban_build_up_??/',
+              color: '#DCB8CA'
+            },
+            {
+              on: true,
+              display: 'Rural Built-Up',
+              name: 'extent_??_ruralBuilt',
+              url: '/urban_extent/rural_build_up_??/',
+              color: '#7C7C7C'
+            },
+            {
+              on: true,
+              display: 'Urbanized Open Area',
+              name: 'extent_??_urbanOpen',
+              url: '/urban_extent/open_space_??/',
+              color: '#F6F5A4'
+            },
+            {
+              on: true,
+              display: 'Exurban Built-Up Area',
+              name: 'extent_??_exurbanBuilt',
+              url: '/urban_extent/exurban_built_up_??/',
+              color: '#BCBCBC'
+            },
+            {
+              on: true,
+              display: 'Exurban Open Space',
+              name: 'extent_??_exurbanOpen',
+              url: '/urban_extent/exurban_open_??/',
+              color: '#E1E1E1'
+            }
+          ],
+          'density': false,
+          'composition-of-added-area': [
+            {on: true, display: 'Built-up Area', name: 'addedArea_??_builtUp', url: '/added_area/built_up_area_??/', color: 'rgba(52,22,186,0.5)'},
+            {on: true, display: 'Infill', name: 'addedArea_??_infill', url: '/added_area/infill_??_!!/', color: 'rgba(255,1,196,0.5)'},
+            {on: true, display: 'Extension', name: 'addedArea_??_extension', url: '/added_area/extension_??_!!/', color: 'rgba(255,255,16,0.5)'},
+            {on: true, display: 'Leapfrog', name: 'addedArea_??_leapfrog', url: '/added_area/leapfrog_??_!!/', color: 'rgba(254,0,0,0.5)'},
+            {on: true, display: 'Inclusion', name: 'addedArea_??_inclusion', url: '/added_area/inclusion_??_!!/', color: 'rgba(53,136,102,0.5)'}
+          ],
+          'arterial-roads': [
+            {on: true, name: 'arterials', url: '/arterials/arterials_t1/'}
+          ],
+          'roads': [
+            {on: true, name: 'roads_??', url: '/roads/roads_??/'}
+          ],
+          'blocks-and-plots': [
+            {on: true, name: 'blocks_land_use_??', url: '/blocks/land_use_??/'},
+            {on: true, display: 'Atomistic Settlements', color: '#7fe900'},
+            {on: true, display: 'Informal Subdivisions', color: '#9ce8ff'},
+            {on: true, display: 'Formal Subdivisions', color: '#CA9179'},
+            {on: true, display: 'Housing Projects', color: '#BF614D'},
+            {on: true, display: 'Open Space', color: '#A4352B'},
+            {on: true, display: 'Non Residential', color: '#7E0812'}
           ]
         },
         timePeriods: ['t1', 't2', 't3']
@@ -52,10 +120,9 @@
       L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og'
       this.map = L.mapbox.map('mapbox', null, {
         center: [this.city.City.latitude, this.city.City.longitude],
-        zoom: 11,
-        maxZoom: 13,
         reuseTiles: true,
         // scrollWheelZoom: false,
+        zoom: 11,
         zoomControl: false
       })
       new L.Control.Zoom({ position: 'bottomright' }).addTo(this.map)
@@ -70,6 +137,11 @@
       }
     },
     methods: {
+      setLayer (i, on) {
+        var layer = this.currentMap[i]
+        layer.on = on
+        this.maps[this.section.section].splice(i, 1, layer)
+      },
       addLayerLoader (layerId) {
         this.layersLoading.push(layerId)
       },
@@ -80,7 +152,6 @@
         }
       },
       removeLayer (name) {
-        console.log('remove layer')
         if (this.allLayers[name]) {
           var layer = this.allLayers[name]
           if (this.map.hasLayer(layer)) {
@@ -89,8 +160,32 @@
           }
         }
       },
+      getLayers () {
+        var layers = []
+        this.map.eachLayer((layer) => {
+          if (layer.options.mine) {
+            layers.push(layer)
+          }
+        })
+        return layers
+      },
+      removeAll () {
+        this.map.eachLayer((layer) => {
+          if (layer.options.mine) {
+            this.map.removeLayer(layer)
+          }
+        })
+      },
+      generateLayer (name, url, options) {
+        return L.tileLayer(url, options)
+        // .on('loading', () => {
+        //   this.addLayerLoader(name)
+        // })
+        // .on('load', () => {
+        //   this.removeLayerLoader(name)
+        // })
+      },
       addLayer (name) {
-        console.log('add layer')
         if (this.allLayers[name]) {
           var layer = this.allLayers[name]
           if (!this.map.hasLayer(layer)) {
@@ -99,46 +194,75 @@
           layer.bringToFront()
         }
       },
+      addYearLayers (yearCount, options) {
+        var inc = this.section.section === 'roads' || this.section.section === 'blocks-and-plots' ? 1 : 0
+        for (var i = 1; i < (yearCount + 1); i++) {
+          var j = i - inc
+          this.maps[this.section.section].forEach((layerType, count) => {
+            if ((this.section.section === 'roads' || this.section.section === 'blocks-and-plots') && count > 0) {
+              return
+            }
+            var name = layerType.name.replaceAll('??', 't' + j).replace('!!', 't' + (j + 1))
+            options.name = name
+            var url = layerType.url.replaceAll('??', 't' + j).replace('!!', 't' + (j + 1))
+            var u = 'http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + url + '{z}/{x}/{y}.png'
+            var layer = this.generateLayer(name, u, options)
+            if (!this.allLayers[name]) {
+              this.allLayers[name] = layer
+            }
+          })
+        }
+      },
       setLayers () {
+        var options = {
+          tms: true,
+          subdomains: 'abc',
+          mine: true,
+          maxZoom: 13
+        }
         switch (this.section.section) {
           case ('population'):
             break
           case ('urban-extent'):
-            var subdomainOptions = {tms: true, subdomains: 'abc'}
-            for (var i = 1; i < 4; i++) {
-              var layers = []
-              this.maps[this.section.section].forEach((layerType) => {
-                var name = layerType.name.replaceAll('??', 't' + i)
-                var url = layerType.url.replaceAll('??', 't' + i)
-                var layer = L.tileLayer('http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + url + '{z}/{x}/{y}.png', subdomainOptions)
-                .on('loading', () => {
-                  this.addLayerLoader(name)
-                })
-                .on('load', () => {
-                  this.removeLayerLoader(name)
-                })
-                this.allLayers[name] = layer
-                layers.push(layer)
-              })
-              this.allLayers['extent_t' + i + '_group'] = L.layerGroup(layers)
-            }
-            for (i = 0; i < 3; i++) {
+            for (var i = 0; i < 3; i++) {
               for (var j = 0; j < (i + 1); j++) {
                 var bound = j === 0 ? 'inner' : (j === 1 ? 'middle' : 'outer')
                 var name = 't' + (i + 1) + '_' + bound
-                subdomainOptions.opacity = 0.7
-                this.allLayers['extent_' + name] = L.tileLayer('http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png', subdomainOptions)
-                .on('loading', () => {
-                  this.addLayerLoader(name)
-                })
-                .on('load', () => {
-                  this.removeLayerLoader(name)
-                })
+                options.opacity = 0.7
+                options.name = 'extent_' + name
+                if (!this.allLayers['extent_' + name]) {
+                  var u = 'http://{s}.' + this.localhost + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png'
+                  this.allLayers['extent_' + name] = this.generateLayer(name, u, options)
+                }
               }
             }
-            // this.allLayers['extent_t1_inner'].addTo(this.map, 'water')
-            // this.allLayers['extent_t3_middle'].addTo(this.map)
-            // this.allLayers['extent_t3_outer'].addTo(this.map)
+            // falls through
+          case ('composition-of-added-area'):
+            var yearCount = this.section.section === 'urban-extent' ? 3 : 2
+            options.opacity = 1
+            this.addYearLayers(yearCount, options)
+            this.map.setZoom(11)
+            break
+          case ('arterial-roads'):
+            name = this.maps['arterial-roads'][0].name
+            options.name = name
+            options.opacity = 1
+            options.maxZoom = 17
+            if (!this.allLayers[name]) {
+              var url = this.maps['arterial-roads'][0].url
+              u = 'http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
+              this.allLayers[name] = this.generateLayer(name, u, options)
+            }
+            this.map.setZoom(12)
+            break
+          case ('blocks-and-plots'):
+            // falls through
+          case ('roads'):
+            options.opacity = 1
+            options.maxZoom = 17
+            yearCount = 2
+            this.addYearLayers(yearCount, options)
+            this.map.setZoom(15)
             break
         }
       }
@@ -157,6 +281,7 @@
   width:100vw;
   height:100vh;
   #mapbox{
+    // background-color: white !important;
     z-index:0;
     height:100vh;
 
