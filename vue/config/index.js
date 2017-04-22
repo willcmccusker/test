@@ -28,6 +28,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+        '/mapbox.js/mapbox.css': {
+            target: 'http://atlas.dev/app/webroot/',
+            changeOrigin: true,
+            secure: false
+          },
         '**/*.css': {
             target: 'http://atlas.dev',
             changeOrigin: true,
@@ -55,6 +60,11 @@ module.exports = {
           },
         '**/*.woff': {
             target: 'http://atlas.dev',
+            changeOrigin: true,
+            secure: false
+          },
+        '/mapbox.js/mapbox.js': {
+            target: 'http://atlas.dev/app/webroot/',
             changeOrigin: true,
             secure: false
           }

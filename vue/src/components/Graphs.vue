@@ -2,8 +2,8 @@
    <div id='section-graphs'>
 
     <div v-if="section.section === 'arterial-roads' || section.section === 'blocks-and-plots'">
-      <div class='grid'>
-        <div class='col-1-1 change-years'>
+      <div class='grid change-years'>
+        <div class='col-1-1'>
           <div @click='laterYear = false' class='change-year' :class="{currentYear: !laterYear}">{{earlyRange}}</div>
           <div @click='laterYear = true' class='change-year' :class="{currentYear: laterYear}">{{laterRange}}</div>
         </div>
@@ -14,7 +14,10 @@
     <div v-if="section.section === 'population'">
       <div class='grid' >
         <div class='col-1-2' v-html="canvas('population_line', 'city-graphic no-legend')"></div>
-        <div class='col-1-2' v-html="canvas('population_change_bar')"></div>
+        <div class='col-1-2'>
+          <div class='col-3-4 no-pad' v-html="canvas('population_change_bar')"></div>
+          <div class='hold-legend col-1-4 no-pad' v-html="legend('population_change_bar')"></div>
+        </div>
       </div>
     </div>
 <!--          URBAN EXTENT          -->
@@ -34,7 +37,10 @@
     <div v-else-if="section.section === 'density'">
       <div class='grid'>
         <div class='col-1-2' v-html="canvas('density_built_up_line')"></div>
-        <div class='col-1-2' v-html="canvas('density_built_up_change_bar')"></div>
+        <div class='col-1-2'>
+          <div class='col-3-4 no-pad' v-html="canvas('density_built_up_change_bar')"></div>
+          <div class='hold-legend col-1-4 no-pad' v-html="legend('density_built_up_change_bar')"></div>
+        </div>
       </div>
       <div class='grid'>
         <div class='col-1-2' v-html="canvas('density_urban_extent_line')"></div>
@@ -60,6 +66,14 @@
           <div class='col-3-4'  v-html="canvas('roads_average_width_bar')"></div>
           <div class='col-1-4'>
             <div class='hold-legend' v-html="legend('roads_average_width_bar')"></div>
+          </div>
+        </div>
+      </div>
+      <div class='grid'>
+        <div class='col-1-2'>
+          <div class='col-3-4' v-html="canvas('roads_width_stacked_bar')"></div>
+          <div class='col-1-4'>
+            <div class='hold-legend' v-html="legend('roads_width_stacked_bar')"></div>
           </div>
         </div>
       </div>
@@ -118,7 +132,8 @@
 </template>
 
 <script>
-  import {makeChart, makeLine, makeStacked, makeRoadChart, makeBlockChart, makeSpecialStacked} from '../assets/graphing.js'
+  // import clone from '../assets/utils.js'
+  import {makeChart, makeLine, makeStacked, makeRoadChart, makeBlockChart, makeSpecialStacked, returnRoadChartData, returnSpecialStacked} from '../assets/graphing.js'
   export default {
 
     name: 'Graphs',
@@ -140,17 +155,28 @@
     mounted () {
       this.launchGraphs()
     },
+    destroyed () {
+      this.destroyGraphs()
+    },
     watch: {
       section () {
+        this.destroyGraphs()
         this.$nextTick(() => {
           this.launchGraphs()
         })
       },
       laterYear () {
-        this.relaunchGraphs()
+        this.changeYear()
       }
     },
     methods: {
+      destroyGraphs () {
+        for (var key in this.chartObjects) {
+          if (this.chartObjects.hasOwnProperty(key)) {
+            this.chartObjects[key].destroy()
+          }
+        }
+      },
       canvas (id, classes = 'city-graphic', height = '250px') {
         return `<canvas id='` + id + `' class='` + classes + `' height="` + height + `"></canvas>`
       },
@@ -177,13 +203,27 @@
         chart[id] = makeSpecialStacked(id, this.city, 'Share of Residential Land Use Settlements', this.laterYear)
         this.chartObjects = Object.assign({}, this.chartObjects, chart)
       },
-      relaunchGraphs () {
+      changeYear () {
         switch (this.section.section) {
           case ('arterial-roads'):
-            this.arterialRoads()
+            var roads = ['arterial_roads_density_bar', 'arterial_roads_walking_bar', 'arterial_roads_beeline_bar']
+            roads.forEach((road) => {
+              var meta = returnRoadChartData(road, this.city, this.laterYear)
+              meta.datasets.forEach((dataset, i) => {
+                var data = Object.assign({}, dataset.data)
+                Object.assign(this.chartObjects[road].config.data.datasets[i].data, data)
+              })
+              this.chartObjects[road].update()
+            })
             break
           case ('blocks-and-plots'):
-            this.blocksAndPlots()
+            var id = 'blocks_and_plots_composition_special_stacked'
+            var meta = returnSpecialStacked(id, this.city, this.laterYear)
+            meta.datasets.forEach((dataset, i) => {
+              var data = Object.assign({}, dataset.data)
+              Object.assign(this.chartObjects[id].config.data.datasets[i].data, data)
+            })
+            this.chartObjects[id].update()
             break
         }
       },
@@ -229,6 +269,9 @@
             id = 'roads_average_width_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Average Street Width', 'm', undefined, true)
+            id = 'roads_width_stacked_bar'
+            if (this.chartObjects[id]) this.chartObjects[id].destroy()
+            chart[id] = makeStacked(id, this.city, 'Street Width Composition', undefined, undefined, true)
             break
           case ('arterial-roads'):
             this.arterialRoads()
@@ -252,7 +295,10 @@
 
 <style lang="scss">
 @import '../assets/colors.scss';
-
+.change-years {
+  padding-bottom:16px;
+  padding-top:16px;
+}
 .change-year {
   cursor: pointer;
   display: inline-block;

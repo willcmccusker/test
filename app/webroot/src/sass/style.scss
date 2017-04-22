@@ -82,8 +82,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: bottom;
 }
 table tbody > * {
@@ -699,6 +697,8 @@ h3.sectionSubHeader {
 	font-family: "Helvetica Neue Light", Helvetica, sans-serif;
 	padding-left:20px;
 	margin-top:32px;
+	padding-top:5px;
+	border: 1px solid #e7e7e7;
 	li{
 		font-size:12px;
 		position:relative;
