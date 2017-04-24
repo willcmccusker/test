@@ -2,7 +2,7 @@
 <header class='header'>
 	<div id='site-title'>
 		<h1 id="site-title">
-			<a href="/">Atlas of Urban Expansion-</a>
+			<a href="/">Atlas of Urban Expansion</a>
 		</h1>
 	</div>
 	<nav class='menu-icon'>
