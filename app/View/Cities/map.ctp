@@ -17,15 +17,15 @@ var startFrontMap = function(){
       lat = 40.717;
       long = -74.004;
 
-      lat = 39.2037;
-      long = 76.8610;
+      lat = 3;
+      long = -73;
     }
 
 
     bounds = new L.LatLngBounds(new L.LatLng(-66, -200), new L.LatLng(79, 200));
 
   var map = L.map('worldmap', {
-    maxZoom : 10,
+    maxZoom : 5,
     minZoom : 2,
     scrollWheelZoom : false,
     maxBounds: bounds,
