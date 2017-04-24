@@ -61,6 +61,7 @@ var startFrontMap = function(){
 
   L.geoJson(<?= $points ?>, {
     pointToLayer: function (feature, latlng) {
+      console.log(latlng)
       return L.circleMarker(latlng, {
         radius: 3.5,
         stroke: false,
