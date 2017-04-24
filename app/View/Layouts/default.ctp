@@ -64,7 +64,6 @@
 <?endif;?>
 </head>
 <body class='<?= Inflector::slug($this->request->url);?>'>
-asdf
 <img width="1px" height="1px" class='loader' src="/img/loader.svg">
 <?
 	// debug($this->params->controller == "cities" && $this->params->action == "view");
