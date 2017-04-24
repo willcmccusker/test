@@ -31,6 +31,7 @@
       return {
         isMobile: false,
         map: false,
+        labelsMap: false,
         allLayers: {},
         layersLoading: [],
         host: 'atlasofurbanexpansion.org',
@@ -126,9 +127,8 @@
         zoomControl: false
       })
       new L.Control.Zoom({ position: 'bottomright' }).addTo(this.map)
-      this.baseMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
-      // this.labelsMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s19z2u000l2snsh0t9i8gw').addTo(this.map)
-      // this.labelsMap.bringToFront()
+      L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
+      this.labelsMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s19z2u000l2snsh0t9i8gw').addTo(this.map)
       this.setLayers()
     },
     watch: {
@@ -264,6 +264,9 @@
             this.addYearLayers(yearCount, options)
             this.map.setZoom(15)
             break
+        }
+        if (this.labelsMap) {
+          this.labelsMap.bringToFront()
         }
       }
     }

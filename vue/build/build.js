@@ -35,9 +35,9 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
         if (err) throw err
         chalk.cyan('Moved to cake.\n')
         spinner.text = 'Renaming'
-        fs.rename('../app/webroot/vue/vue.ctp', '../app/View/Cities/vue.ctp', err => {
+        fs.rename('../app/webroot/vue/vueheader.ctp', '../app/View/Elements/vueheader.ctp', err => {
           if (err) throw err
-          chalk.cyan('Renamed vue.ctp.\n')
+          chalk.cyan('Renamed vueheader.ctp.\n')
           spinner.stop()
           console.log(chalk.cyan('  Build complete.\n'))
         })

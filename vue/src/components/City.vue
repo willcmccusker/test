@@ -45,13 +45,7 @@
 </template>
 
 <script>
-  // console.log(process.env.NODE_ENV)
-  // if (process.env.NODE_ENV === 'development') {
-  //   var city = require('../assets/city.json')
-  // } else {
-  /* exported city */
-  /* global city */
-  // }
+
   import SectionDropdown from './SectionDropdown'
   import SectionSummary from './SectionSummary'
   import CityDropdown from './CityDropdown'
@@ -65,7 +59,7 @@
     data () {
       return {
         backgroundLoaded: false,
-        city: city,
+        city: this.$city,
         sectionKey: 0,
         maps: false,
         sections: [

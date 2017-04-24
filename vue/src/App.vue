@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <toolbar></toolbar>
-    <city></city>
+    <city v-if='$city'></city>
   </div>
 </template>
 

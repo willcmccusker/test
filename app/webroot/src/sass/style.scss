@@ -126,8 +126,6 @@ body{
 	line-height:1.5;
 	min-height:100vh;
 	opacity:1 !important;
-	padding-top:54px;
-	padding-bottom:377px;
 	position:relative;
 	@include xPrefix(transition, opacity 1s ease);
 	.maploader{
@@ -207,35 +205,6 @@ img{
 	display:none;
 }
 
-body[class^='cities_view_'] {
-	padding-bottom: 317px !important;
-	.header a {
-		color:#fff!important;
-	}
-	.headroom--not-top a, .headroom--not-top #site-title a {
-		color:#808080!important;
-	}	
-	.headroom--not-top a:hover, .headroom--not-top #site-title a:hover {
-		color:$linkcolor!important;
-	}	
-	nav .menu-group .sub-menu{
-		background-color: transparent;
-		a:first-of-type{
-			border-top: 1px solid transparent;
-		}
-	}
-	.header {
-		border-bottom:1px solid rgba(255,255,255,.7);	
-	}
-	header.headroom--not-top {
-		border-bottom:1px solid rgba(0,0,0,0.2);	
-		nav .menu-group .sub-menu{
-			a, a:first-of-type{
-				border-top: 1px solid rgba(0,0,0,0.2);
-			}
-		}
-	}
-}
 
 body[class^='cities_view_'] #site-title a {
 	color:#fff!important;
@@ -251,104 +220,6 @@ body.about, body.cities, body.data, body.historical_data {
 	}
 }
 
-
-.header {
-
-	font-size:16px;
-	padding: 0px 30px 0px 30px;
-	line-height: 54px;
-	position: fixed;
-	top:0px;
-	width:100%;
-	z-index:9999;
-	@include xPrefix(transition, transform 500ms ease);
-
-	a {
-		color: $headercolor;
-	}
-
-	&.headroom--unpinned:not(.poppedUp){
-		@include xPrefix(transform, translateY(-100%) );
-		nav.navOpen .nav-holder a,
-		nav.navOpen .nav-holder .menu-group{
-			display:none;
-		}
-	}
-	&.headroom--pinned:not(.poppedUp){
-		@include xPrefix(transform, translateY(0%) );
-	}
-	&.headroom--not-top {
-		background-color:#F7F7F7;
-		
-		nav .menu-group .sub-menu{
-			background-color: #F7F7F7;
-
-		}
-	}
-	display:inline-block;
-	display: flex;
-	.nav-holder {
-		margin: 0 0 0 20px;
-	}
-	#site-title{
-		display:inline-block;
-		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
-		a {
-			color:#000 !important;
-		}
-		h1{
-			display: inline-block;
-		}
-	}
-	nav{
-		display:inline-block;
-		flex: 1;
-		order: 2;
-		a{
-			margin: 0 0 0 25px;
-		}
-		a:hover {
-			color:$linkcolor;
-		}
-
-		.menu-group{
-			position: relative;
-			display: inline-block;
-			min-height: 54px;
-			a {
-				display:block;
-			}
-			.sub-menu{
-				display:none;
-				position: absolute;
-				left:0px;
-				top: 100%;
-				width:248px;
-				background-color: #F7F7F7;
-				a{
-					border-top:1px solid rgba(255,255,255,0.7);
-					display: block;
-					padding:0px 0px 0px 25px;
-					margin-left:0px;
-
-				}
-			}
-			&:hover {
-				.sub-menu{
-					margin-left: 0px;
-					display: block;
-				}
-			}
-		}
-	}
-	#citySearch{
-		display:inline-block;
-		float:right;
-		order: 3;
-		margin-left: auto;
-	}
-
-}
 
 footer {
 	/* box-shadow: 10px 10px 5px #888888; */
@@ -722,6 +593,9 @@ h3.sectionSubHeader {
 	.leaflet-container{
 
 	}
+}
+.leaflet-control-attribution {
+	display: none;
 }
 .map-legend-years{
 	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;

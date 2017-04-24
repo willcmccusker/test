@@ -105,7 +105,7 @@
       },
       checkLayerPanel () {
         switch (this.section.section) {
-          case ('urban-extend'):
+          case ('urban-extent'):
             // fall through
           case ('roads'):
             // fall through
@@ -227,6 +227,9 @@
             break
           default:
             this.$parent.removeAll()
+        }
+        if (this.$parent.labelsMap) {
+          this.$parent.labelsMap.bringToFront()
         }
       }
     },

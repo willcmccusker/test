@@ -33,19 +33,13 @@
 
 <script>
 
-  // if (process.env.NODE_ENV === 'development') {
-  //   var cities = require('../assets/cities.json')
-  // } else {
-  /* exported cities */
-  /* global cities */
-  // }
   export default {
 
     name: 'CityDropdown',
     props: ['city', 'sectionKey'],
     data () {
       return {
-        cities,
+        cities: this.$cities,
         dropdown: false,
         cityFilter: ''
       }
