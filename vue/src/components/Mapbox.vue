@@ -33,8 +33,8 @@
         labelsMap: false,
         allLayers: {},
         layersLoading: [],
-        host: 'atlasofurbanexpansion.org',
-        localhost: 'atlas.dev',
+        host: 'atlasexpansionurbanacolombia.org',
+        localhost: 'atlasexpansionurbanacolombia.org',
         maps: {
           'population': false,
           'urban-extent': [

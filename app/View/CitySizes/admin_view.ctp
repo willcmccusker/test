@@ -96,7 +96,7 @@
 		<th><?php echo __('Country'); ?></th>
 		<th><?php echo __('Latitude'); ?></th>
 		<th><?php echo __('Longitude'); ?></th>
-		<th><?php echo __('Population'); ?></th>
+		<th><?php echo __('Población'); ?></th>
 		<th><?php echo __('Photo Path'); ?></th>
 		<th><?php echo __('P D F Path'); ?></th>
 		<th><?php echo __('G I S Path'); ?></th>

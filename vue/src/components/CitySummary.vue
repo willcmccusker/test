@@ -15,7 +15,7 @@
           <div class='more-title' >City Summary</div>
         </div>
         <div class='show-more' v-if='dropdown'>
-          <div class='label'>{{year}} Population</div>
+          <div class='label'>{{year}} Población</div>
           <div class='amount' v-html='commas(city.City.population)'></div>
          
           <div class='label'>{{year}} Urban Extent</div>

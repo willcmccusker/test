@@ -7,57 +7,57 @@
   <!--          POPULATION          -->
       <div v-if="section.section === 'population'">
         <div class='grid no-pad' v-html="t123Title"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Population')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Población')"></div>
         <div class='grid no-pad' v-html="t123('population')"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('% Change')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Cambio Porcentual')"></div>
         <div class='grid no-pad' v-html="changeT123('population_change')"></div>
       </div>
   <!--          URBAN EXTENT          -->
       <div v-else-if="section.section === 'urban-extent'">
         <div class='grid no-pad' v-html="t123Title"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Urban Extent in Hectares')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Huella Urbana en Hectáreas')"></div>
         <div class='grid no-pad' v-html="t123('urban_extent_actuals')"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('% Change')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Cambio Porcentual')"></div>
         <div class='grid no-pad' v-html="changeT123('urban_extent_change')"></div>
       </div>
   <!--          DENSITY          -->
       <div v-else-if="section.section === 'density'">
         <div class='grid no-pad' v-html="t123Title"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Built-up Area Density (Person/Hectare)')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Densidad del Área Edificada (Personas/Hectárea)')"></div>
         <div class='grid no-pad' v-html="t123('density_built_up')"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('% Change')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Cambio Porcentual')"></div>
         <div class='grid no-pad' v-html="changeT123('density_built_up_change')"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Urban Extent Density (Person/Hectare)')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Densidad de la Huella Urbana (Personas/Hectárea)')"></div>
         <div class='grid no-pad' v-html="t123('density_urban_extent')"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('% Change')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Cambio Porcentual')"></div>
         <div class='grid no-pad' v-html="changeT123('density_urban_extent_change')"></div>
       </div>
   <!--          COMPOSITION OF ADDED AREA          -->
       <div v-else-if="section.section === 'composition-of-added-area'">
         <div class='grid no-pad' v-html="t12_23Title"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Added Built-up Area in hectares')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Área Edificada Adicional')"></div>
         <div class='grid no-pad' v-html="changeT12_23('added_area_total')"></div>
       </div>
   <!--          ROADS          -->
       <div v-else-if="section.section === 'roads'">
         <div class='grid no-pad' v-html="t1_3"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Average Road Width (m)')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Ancho Promedio de las vías (Metros)')"></div>
         <div class='grid no-pad' v-html="changeT1_13('roads_average_width')"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Share of built up area occupied by roads')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Porcentaje de área edificada ocupado por vías')"></div>
         <div class='grid no-pad' v-html="changeT1_13('roads_in_built_up_area', true)"></div>
       </div>
   <!--          ARTERIAL ROADS          -->
       <div v-else-if="section.section === 'arterial-roads'">
         <div class='grid no-pad' v-html="t1_3"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Density of Arterial Roads (km/km2)')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Densidad de Vías Arteriales (km/km2)')"></div>
         <div class='grid no-pad' v-html="changeT1_13('arterial_roads_density_all')"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Share of built up area within walking distance of an arterial road')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Porcentaje de Área Edificada a Distancia Caminable de una Vía Arterial')"></div>
         <div class='grid no-pad' v-html="changeT1_13('arterial_roads_walking_all', true)"></div>
       </div>
   <!--          BLOCKS AND PLOTS          -->
       <div v-else-if="section.section === 'blocks-and-plots'">
         <div class='grid no-pad' v-html="t1_3"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Average Block Size (hectares)')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Tamaño promedio de un lote (Héctares)')"></div>
         <div class='grid no-pad' v-html="changeT1_13('blocks_plots_average_block')"></div>
       </div>
     </div>

@@ -54,7 +54,7 @@
 		<th><?php echo __('Country'); ?></th>
 		<th><?php echo __('Latitude'); ?></th>
 		<th><?php echo __('Longitude'); ?></th>
-		<th><?php echo __('Population'); ?></th>
+		<th><?php echo __('Población'); ?></th>
 		<th><?php echo __('Extent'); ?></th>
 		<th><?php echo __('Density'); ?></th>
 		<th><?php echo __('T1'); ?></th>

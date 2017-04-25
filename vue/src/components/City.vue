@@ -11,7 +11,7 @@
     <div id='city-header-data' class='grid center' v-if="currentSection.section === 'city-header'">
       <div class='col-1-3 mob-1-1'>
         <div class='title'>
-          {{city.City.t3.substr(0,4)}} Population
+          {{city.City.t3.substr(0,4)}} Población
         </div>
         <div class='value' v-html='commas(city.City.population)'></div>
         <div class='unit'></div>
@@ -70,7 +70,7 @@
           },
           {
             section: 'population',
-            title: 'Population',
+            title: 'Población',
             graph: true,
             map: false
           },

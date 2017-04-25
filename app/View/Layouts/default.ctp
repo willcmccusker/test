@@ -19,7 +19,7 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title>Atlas of Urban Expansion - <?php echo $this->fetch('title'); ?></title>
+	<title>Atlas de Expansión Urbana Colombia - <?php echo $this->fetch('title'); ?></title>
 
  	<?php
 		// echo $this->Html->meta('icon');

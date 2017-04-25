@@ -28,12 +28,14 @@
   Router::parseExtensions('png');
 	Router::connect('/', array('controller' => 'cities', 'action' => 'map'));
   
-	Router::connect('/data', array('controller' => 'cities', 'action' => 'index', 'data'));
+  Router::connect('/data', array('controller' => 'cities', 'action' => 'index', 'data'));
+  Router::connect('/datos', array('controller' => 'cities', 'action' => 'index', 'data'));
 
-  Router::connect('/sobre-nosotros', array('controller' => 'texts', 'action' => 'display', 'about'));
+  Router::connect('/sobre-el-proyecto', array('controller' => 'texts', 'action' => 'display', 'about'));
   Router::connect('/about', array('controller' => 'texts', 'action' => 'display', 'about'));
 
   Router::connect('/acknowledgements', array('controller' => 'texts', 'action' => 'display', 'acknowledgements'));
+  Router::connect('/expresiones-de-gratitud', array('controller' => 'texts', 'action' => 'display', 'acknowledgements'));
 
   Router::connect('/historical-data', array('controller' => 'texts', 'action' => 'display',  'historic_data'));
 
@@ -43,6 +45,11 @@
   Router::connect('/team', array('controller' => 'texts', 'action' => 'display',  'team'));
 
   Router::connect('/methodology', array('controller' => 'texts', 'action' => 'display',  'methodology'));
+  Router::connect('/metodologia', array('controller' => 'texts', 'action' => 'display',  'methodology'));
+
+  Router::connect('/ciudades', array('controller' => 'cities', 'action' => 'index'));
+
+
 
   Router::connect(
     '/tiles/show/:city/:map/:layer/:z/:x/:y',

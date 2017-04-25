@@ -64,7 +64,7 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Population'); ?></th>
+		<th><?php echo __('Población'); ?></th>
 		<td>
 			<?php echo h($city['City']['population']); ?>
 			&nbsp;

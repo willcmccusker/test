@@ -2,8 +2,8 @@
   <div>
     <div class='map-graph'>
       <div class='tabs'>
-        <div :class="{selected: maps, disabled: !currentSection.map}" class='cursor' @click='maps = true'>Map</div>
-        <div :class="{selected: !maps, disabled: !currentSection.graph}" class='cursor' @click='maps = false'>Graphs</div>
+        <div :class="{selected: maps, disabled: !currentSection.map}" class='cursor' @click='maps = true'>Mapa</div>
+        <div :class="{selected: !maps, disabled: !currentSection.graph}" class='cursor' @click='maps = false'>Gráfica</div>
       </div>
       <div class='clear'></div>
       <graphs v-if='currentSection.graph && !maps' :city='city' :section='currentSection'></graphs>

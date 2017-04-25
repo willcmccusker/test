@@ -38,7 +38,7 @@
 					<?php echo $this->Form->input('longitude', array('class' => 'form-control', 'placeholder' => 'Longitude'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('population', array('class' => 'form-control', 'placeholder' => 'Population'));?>
+					<?php echo $this->Form->input('population', array('class' => 'form-control', 'placeholder' => 'Población'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('extent', array('class' => 'form-control', 'placeholder' => 'Extent'));?>

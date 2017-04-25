@@ -2,7 +2,7 @@
    <header class="header">
       <div id="site-title">
         <h1 id="site-title">
-          <a href="/">Atlas of Urban Expansion</a>
+          <a href="/">Atlas de Expansión Urbana Colombia</a>
         </h1>
       </div>
       <div @click="clicked('s')" id='search-icon'></div>
@@ -53,43 +53,39 @@
         linkGroups: [
           [
             {
-              url: '/cities',
-              display: 'Cities'
+              url: '/ciudades',
+              display: 'Ciudades'
             }
           ], [
             {
-              url: '/about',
-              display: 'About'
+              url: '/sobre-el-proyecto',
+              display: 'Sobre el Proyecto'
             },
             {
-              url: '/team',
-              display: 'Team'
+              url: '/autores',
+              display: 'Autores'
             },
             {
-              url: '/methodology',
-              display: 'Methodology'
+              url: '/metodologia',
+              display: 'Metodología'
             },
             {
-              url: '/acknowledgements',
-              display: 'Acknowledgements'
+              url: '/expresiones-de-gratitud',
+              display: 'Expresiones de Gratitud'
             }
           ], [
             {
-              url: '/data',
-              display: 'Data'
+              url: '/datos',
+              display: 'Datos'
             },
             {
-              url: '/historical-data',
-              display: '30 Historical Cities'
-            },
-            {
-              url: 'http://atlasexpansionurbanacolombia.org',
-              display: 'AUE – Colombia'
+              url: 'http://atlasofurbanexpansion.org',
+              display: 'Atlas of Urban Expansion'
             }
           ], [
             {
-              url: 'mailto:contact@atlasofurbanexpansion.org',
-              display: 'Contact'
+              url: 'mailto:info@atlasofurbanexpansion.org',
+              display: 'Contáctenos'
             }
           ]
         ]
