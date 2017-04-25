@@ -30,7 +30,6 @@
   
 	Router::connect('/data', array('controller' => 'cities', 'action' => 'index', 'data'));
 
-  Router::connect('/sobre-nosotros', array('controller' => 'texts', 'action' => 'display', 'about'));
   Router::connect('/about', array('controller' => 'texts', 'action' => 'display', 'about'));
 
   Router::connect('/acknowledgements', array('controller' => 'texts', 'action' => 'display', 'acknowledgements'));

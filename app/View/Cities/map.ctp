@@ -18,8 +18,10 @@ var startFrontMap = function(){
       lat = 40.717;
       long = -74.004;
 
-      lat = 3;
-      long = -73;
+      // lat = 3;
+      // long = -73;
+      lat = 26;
+      long = 8;
     }
 
 
