@@ -145,7 +145,7 @@
   position: fixed;
   top:0px;
   width:100%;
-  z-index:4;
+  z-index:2;
   display:inline-block;
   background-color: rgba(0,0,0,0);
   transition: background 500ms ease;
@@ -243,7 +243,7 @@
     width: 23px;
     height:23px;
     position:fixed;
-    top:6px;
+    top:11px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;

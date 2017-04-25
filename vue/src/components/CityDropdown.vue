@@ -15,6 +15,7 @@
       <div class='allCities' v-if='dropdown'>
         <div class='city-filter'>
         <input v-model='cityFilter' placeholder='Select a city or type to search'>
+        <div @click='dropdown = false' class='close-search'></div>
         </div>
         <div class='cityGroup' v-for='citiesGroup, index in citiesGrouped'>
           <div v-for='city, indexx in citiesGroup'>
@@ -91,6 +92,20 @@
     line-height:76px;
   }
   .allCities{
+
+    background-color: white;
+    color: $dark-grey;
+    position:fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow: auto;
+    z-index:9;
+    > * {
+      position: relative;
+      z-index:9;
+    }
     a,
     .dropdown-title,
     .dropdown-region {
@@ -101,19 +116,23 @@
     .dropdown-region {
       font-weight: bold;
     }
-    background-color: white;
-    color: $dark-grey;
-    position:fixed;
-    top:55px;
-    left:16px;
-    right:16px;
-    bottom:16px;
-    overflow: auto;
-    z-index:4;
     .city-filter {
       padding:12px;
       border-bottom: 1px solid $line-grey-2;
       margin-bottom:20px;
+      padding-right:100px;
+      position: relative;
+      .close-search {
+        position:absolute;
+        right:16px;
+        top:16px;
+        width:23px;
+        height:23px;
+        background-image: url('/img/close.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
       input {
         font-size:14px;
         font-family: helvetica;

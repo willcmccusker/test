@@ -249,6 +249,7 @@
             options.maxZoom = 17
             if (!this.allLayers[name]) {
               var url = this.maps['arterial-roads'][0].url
+              // u = 'http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
               u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
               this.allLayers[name] = this.generateLayer(name, u, options)
             }
