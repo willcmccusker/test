@@ -105,7 +105,7 @@
       },
       checkLayerPanel () {
         switch (this.section.section) {
-          case ('urban-extend'):
+          case ('urban-extent'):
             // fall through
           case ('roads'):
             // fall through
@@ -228,6 +228,9 @@
           default:
             this.$parent.removeAll()
         }
+        if (this.$parent.labelsMap) {
+          this.$parent.labelsMap.bringToFront()
+        }
       }
     },
     watch: {
@@ -262,7 +265,7 @@
   color: $dark-grey-2;
   font-size: 12px;
   line-height:16px;
-
+  z-index:2;
   .map-key-years {
     padding: 14px;
     border-bottom: 1px solid $line-grey-5;
@@ -391,6 +394,14 @@
         background-color: #E1E1E1;
       }
     }
+  }
+}
+@import '../../../app/webroot/src/sass/vars';
+
+@media only screen and (min-width : 0) and (max-width : $tablet-max-width)  {
+  #map-key{
+    position:static;
+    width:100%;
   }
 }
 </style>

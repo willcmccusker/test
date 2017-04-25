@@ -4,6 +4,14 @@ import Vue from 'vue'
 import App from './App'
 
 Vue.config.productionTip = false
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'development') {
+  window.city = require('./assets/city.json')
+  window.cities = require('./assets/cities.json')
+}
+
+Vue.prototype.$city = window.city
+Vue.prototype.$cities = window.cities
 
 /* eslint-disable no-new */
 new Vue({

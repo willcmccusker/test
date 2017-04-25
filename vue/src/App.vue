@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <toolbar></toolbar>
-    <city></city>
+    <city v-if='$city'></city>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../app/webroot/src/sass/style.scss';
+  // @import '../../app/webroot/src/sass/style.scss';
 
   html body[class^='cities_view_']{
     padding-bottom:0px !important;

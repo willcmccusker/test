@@ -2,7 +2,7 @@
   <div>
     <div v-if='sectionKey === 0' >
         <div class='city-title'>
-          {{city.City.name}}, {{city.City.country}}
+          {{city.City.name}}
         </div>
     </div>
     <div v-else class='dropdown-nav cursor' :class='{open: dropdown}' ref='citydropdown'>
@@ -33,19 +33,13 @@
 
 <script>
 
-  // if (process.env.NODE_ENV === 'development') {
-  //   var cities = require('../assets/cities.json')
-  // } else {
-  /* exported cities */
-  /* global cities */
-  // }
   export default {
 
     name: 'CityDropdown',
     props: ['city', 'sectionKey'],
     data () {
       return {
-        cities,
+        cities: this.$cities,
         dropdown: false,
         cityFilter: ''
       }
@@ -89,56 +83,65 @@
 </script>
 
 <style lang="scss" scoped>
+@import '../../../app/webroot/src/sass/vars';
 @import '../assets/colors.scss';
 
   .city-title{
-    font-size:48px;
-    line-height:59px;
+    font-size:64px;
+    line-height:76px;
   }
-.allCities{
-  a,
-  .dropdown-title,
-  .dropdown-region {
-    font-size: 14px;
-    line-height:21px;
-    font-weight: normal;
-  }
-  .dropdown-region {
-    font-weight: bold;
-  }
-  background-color: white;
-  color: $dark-grey;
-  position:fixed;
-  top:55px;
-  left:16px;
-  right:16px;
-  bottom:16px;
-  overflow: auto;
-  z-index:4;
-  .city-filter {
-    padding:12px;
-    border-bottom: 1px solid $line-grey-2;
-    margin-bottom:20px;
-    input {
-      font-size:14px;
-      font-family: helvetica;
-      width:100%;
-      height: 30px;
-      line-height:30px;
-      border:none;
-      -webkit-appearance:none;
-      padding: 0px;
-      outline: none;
+  .allCities{
+    a,
+    .dropdown-title,
+    .dropdown-region {
+      font-size: 14px;
+      line-height:21px;
+      font-weight: normal;
     }
-
-  }
-  .cityGroup{
-    padding:12px;
+    .dropdown-region {
+      font-weight: bold;
+    }
     background-color: white;
-    position: relative;
-    width:25%;
-    float:left;
-  }
-}
+    color: $dark-grey;
+    position:fixed;
+    top:55px;
+    left:16px;
+    right:16px;
+    bottom:16px;
+    overflow: auto;
+    z-index:4;
+    .city-filter {
+      padding:12px;
+      border-bottom: 1px solid $line-grey-2;
+      margin-bottom:20px;
+      input {
+        font-size:14px;
+        font-family: helvetica;
+        width:100%;
+        height: 30px;
+        line-height:30px;
+        border:none;
+        -webkit-appearance:none;
+        padding: 0px;
+        outline: none;
+      }
 
+    }
+    .cityGroup{
+      padding:12px;
+      background-color: white;
+      position: relative;
+      width:25%;
+      float:left;
+    }
+  }
+
+  @media only screen and (min-width : 0) and (max-width : $tablet-max-width)  {
+    .allCities{
+      height: calc(100% - 60px);
+      .cityGroup {
+        width:100%;
+      }
+    }
+  }
 </style>

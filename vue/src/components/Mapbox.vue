@@ -1,7 +1,5 @@
 <template>
   <div id='map'>
-    <div id='mapbox' class='city-map'></div>
-    <div v-if='isMobile' class='mobile-map-cover'></div>
     <mapkey 
     v-on:remove-all='removeAll'
     v-on:add-layer='addLayer' 
@@ -11,6 +9,7 @@
     :map='map' 
     :layers='currentMap'
     :section='section'></mapkey>
+    <div id='mapbox' class='city-map'></div>
   </div>
 </template>
 
@@ -31,6 +30,7 @@
       return {
         isMobile: false,
         map: false,
+        labelsMap: false,
         allLayers: {},
         layersLoading: [],
         host: 'atlasofurbanexpansion.org',
@@ -93,7 +93,7 @@
             {on: true, name: 'arterials', url: '/arterials/arterials_t1/'}
           ],
           'roads': [
-            {on: true, name: 'roads_??', url: '/roads/roads_??/'}
+            {on: true, name: 'roads_??', url: '/roads/locales_??/'}
           ],
           'blocks-and-plots': [
             {on: true, name: 'blocks_land_use_??', url: '/blocks/land_use_??/'},
@@ -126,9 +126,8 @@
         zoomControl: false
       })
       new L.Control.Zoom({ position: 'bottomright' }).addTo(this.map)
-      this.baseMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
+      L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
       // this.labelsMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s19z2u000l2snsh0t9i8gw').addTo(this.map)
-      // this.labelsMap.bringToFront()
       this.setLayers()
     },
     watch: {
@@ -265,16 +264,20 @@
             this.map.setZoom(15)
             break
         }
+        if (this.labelsMap) {
+          this.labelsMap.bringToFront()
+        }
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+
 *{
   color: white;
 }
-  #map{
+#map{
   position:fixed;
   top:0px;
   left:0px;
@@ -286,5 +289,19 @@
     height:100vh;
 
   }
+}
+@import '../../../app/webroot/src/sass/vars';
+
+@media only screen and (min-width : 0) and (max-width : $tablet-max-width)  {
+  #map{
+    position:static;
+    height:auto;
+    #mapbox {
+      width: calc(100% - 40px);
+      margin:auto;
+      // height:300px;
+    }
   }
+
+}
 </style>

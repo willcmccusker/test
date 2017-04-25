@@ -36,9 +36,6 @@
 
 	?>
 	<style>
-		body{
-			opacity:0;
-		}
 		.header-bg{
 		    -webkit-transition: filter 1000ms ease;
 		    -moz-transition: filter 1000ms ease;
@@ -63,40 +60,29 @@
 	<meta property="og:image" content="<?=$fbphoto;?>" />
 <?endif;?>
 </head>
-<body class='<?= Inflector::slug($this->request->url);?>'>
-<img width="1px" height="1px" class='loader' src="/img/loader.svg">
+<body class='<?= Inflector::slug($this->request->url) == "" ? "map" : Inflector::slug($this->request->url)?>'>
 <?
 	// debug($this->params->controller == "cities" && $this->params->action == "view");
-	echo $this->params->controller == "cities" && $this->params->action == "view" ? "" : $this->element("header");
+	echo $this->element("vueheader");
 	echo $this->fetch('content');
-	echo $this->params->controller == "cities" && $this->params->action == "view" ? "" : $this->element("footer");
 	//echo $this->element('sql_dump'); ?>
-	<style>
-	<? 		
-// 	echo file_get_contents(APP . 'webroot/dist/css/style.css');
-// 	echo file_get_contents(APP . 'webroot/mapbox.js/mapbox.css');
-	
-	?>
-    </style>
-
-
 
 	<?
-	echo $this->Html->css('/dist/css/style.css');
-	echo $this->Html->css('/mapbox.js/mapbox.css');
+		echo $this->Html->css('/dist/css/style.css');
+		echo $this->Html->css('/mapbox.js/mapbox.css');
 		echo $this->Html->script('/mapbox.js/mapbox.js');
 		echo $this->Html->script('/dist/js/app.min.js');
 	?>
 	       <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
         setTimeout(function(){
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
- (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
- m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
- })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
- ga('create', 'UA-85794401-1', 'auto');
- ga('send', 'pageview');
-},500);
+					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+					ga('create', 'UA-85794401-1', 'auto');
+					ga('send', 'pageview');
+				},500);
 </script>
 </body>
 </html>

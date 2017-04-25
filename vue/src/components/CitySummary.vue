@@ -74,7 +74,6 @@
   background-color: white;
   padding:12px;
   vertical-align: top;
-  margin-bottom:12px;
   .row {
     vertical-align:top;
     line-height:22px;

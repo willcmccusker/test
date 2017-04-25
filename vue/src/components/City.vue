@@ -1,14 +1,22 @@
 <template>
   <div id='cityContainer' :style='backgroundStyle' :class='currentSection.section'>
+    
+    <div id='side-panel'>        
+      <city-dropdown :sectionKey='sectionKey' :city='city'></city-dropdown>
+      <city-summary :sectionKey='sectionKey' :city='city'></city-summary>  
+
+      <section-dropdown v-on:setKey='setKey' :sections='sections' :sectionKey='sectionKey'></section-dropdown>
+      <section-summary  v-if='sectionKey != 0' :city='city' :section='currentSection' ></section-summary>
+    </div>
     <div id='city-header-data' class='grid center' v-if="currentSection.section === 'city-header'">
-      <div class='col-1-3'>
+      <div class='col-1-3 mob-1-1'>
         <div class='title'>
           {{city.City.t3.substr(0,4)}} Population
         </div>
         <div class='value' v-html='commas(city.City.population)'></div>
         <div class='unit'></div>
       </div>
-      <div class='col-1-3'>
+      <div class='col-1-3 mob-1-1'>
         <div class='title'>
           {{city.City.t3.substr(0,4)}} Density
         </div>
@@ -18,7 +26,7 @@
         persons/hectare
         </div>
       </div>
-      <div class='col-1-3'>
+      <div class='col-1-3 mob-1-1'>
         <div class='title'>
           {{city.City.t3.substr(0,4)}} Urban Extent
         </div>
@@ -29,29 +37,16 @@
         </div>
       </div>
     </div>
+
     <template v-else>
       <map-graphs :city='city' :currentSection='currentSection'></map-graphs>
     </template>
-
-    <div id='side-panel'>        
-      <city-dropdown :sectionKey='sectionKey' :city='city'></city-dropdown>
-      <city-summary :sectionKey='sectionKey' :city='city'></city-summary>  
-
-      <section-dropdown v-on:setKey='setKey' :sections='sections' :sectionKey='sectionKey'></section-dropdown>
-      <section-summary  v-if='sectionKey != 0' :city='city' :section='currentSection' ></section-summary>
-    </div>
     
   </div>
 </template>
 
 <script>
-  // console.log(process.env.NODE_ENV)
-  // if (process.env.NODE_ENV === 'development') {
-  //   var city = require('../assets/city.json')
-  // } else {
-  /* exported city */
-  /* global city */
-  // }
+
   import SectionDropdown from './SectionDropdown'
   import SectionSummary from './SectionSummary'
   import CityDropdown from './CityDropdown'
@@ -65,7 +60,7 @@
     data () {
       return {
         backgroundLoaded: false,
-        city: city,
+        city: this.$city,
         sectionKey: 0,
         maps: false,
         sections: [
@@ -168,7 +163,7 @@
 </script>
 
 <style lang="scss">
-
+@import '../../../app/webroot/src/sass/vars';
 @import '../assets/colors.scss';
 
 .cursor{
@@ -183,7 +178,7 @@
   background-repeat: no-repeat;
   background-color: #C5C5C5;
   background-blend-mode: multiply; /* no ie support */
-  height: 100vh;
+  min-height: 100vh;
   padding-top:54px;
   #city-header-data {
     color: white;
@@ -220,6 +215,7 @@
   // width:50%;
 }
 #side-panel{
+  z-index:2;
   position:absolute;
   left:0px;
   top:54px;
@@ -262,12 +258,12 @@
     }
   }
   .allSections{
-    z-index:2;
-    position:absolute;
+    z-index:4;
     background-color: white;
     width: 100%;
     top: 30px;
     left:0px;
+    position: absolute;
     border-top: 1px solid #E8E8E8;
     > div {
       padding:0 15px;
@@ -335,6 +331,32 @@
       padding-bottom: 1em;
       &:last-of-type{
         padding-bottom:0px;
+      }
+    }
+  }
+  @media only screen and (min-width : 0) and (max-width : $tablet-max-width)  {
+    #side-panel {
+      position:static;
+      width:100%;
+      .allSections {
+        top:0px;
+        position:static;
+      }
+      .summary, 
+      .dropdown-nav {
+        width:100%;
+      }
+    }
+    #cityContainer {
+      #city-header-data {
+        margin-top:0px;
+        > div {
+          margin:20px 0px;
+        }
+        .value {
+          font-size:48px;
+          line-height:48px;
+        }
       }
     }
   }

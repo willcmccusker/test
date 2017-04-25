@@ -6,6 +6,7 @@
 <script>
 
 // L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og';
+
 var startFrontMap = function(){
   var x = document.getElementById("demo");
     if (navigator.geolocation.position) {
@@ -26,12 +27,17 @@ var startFrontMap = function(){
 
   var map = L.map('worldmap', {
     maxZoom : 5,
-    minZoom : 2,
-    scrollWheelZoom : false,
+    minZoom : 3,
+    // scrollWheelZoom : false,
+    zoomControl: false,
     maxBounds: bounds,
-    maxBoundsViscosity: 1
-  }).setView([lat, long], 6);
 
+    maxBoundsViscosity: 1,
+    attribution: {
+      prefix: false
+    }
+  }).setView([lat, long], 3);
+  new L.Control.Zoom({ position: 'bottomright' }).addTo(map)
   var activeId = null;
 
   function getColor(name) {
@@ -84,4 +90,9 @@ var startFrontMap = function(){
     }
   }).addTo(map);
 }
+// if (document.readyState === 'complete' || document.readyState !== 'loading') {
+//   startFrontMap();
+// } else {
+//   document.addEventListener('DOMContentLoaded', startFrontMap);
+// }
 </script>
