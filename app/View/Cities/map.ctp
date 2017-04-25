@@ -20,6 +20,8 @@ var startFrontMap = function(){
 
       lat = 3;
       long = -73;
+      // lat = 26;
+      // long = 8;
     }
 
 
@@ -36,7 +38,7 @@ var startFrontMap = function(){
     attribution: {
       prefix: false
     }
-  }).setView([lat, long], 3);
+  }).setView([lat, long], 5);
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map)
   var activeId = null;
 

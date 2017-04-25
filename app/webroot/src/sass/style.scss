@@ -102,6 +102,7 @@ body{
 	
 	background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
 
+	&.datos ,
 	&.data ,
 	&.historical_data{
 		background-image: linear-gradient(0deg, #B8D2D0 0%, #B48E59 99%);
@@ -129,8 +130,8 @@ img{
 	max-width:100%;
 }
 .no-file{
-	display:none;
-	text-decoration: line-through !important;
+
+	opacity:0.3;
 	cursor: default;
 }
 .no-scroll{
@@ -652,7 +653,8 @@ h3.sectionSubHeader {
 }
 
 
-body.methodology {
+body.methodology ,
+body.metodologia {
 
 	h3 {
 		margin:0px 0px 30px 0px;
@@ -667,6 +669,7 @@ body.methodology {
 /* Data Page */
 
 
+body.datos ,
 body.data {
 	.border-above {
 		border-top: 2px solid #222222;
@@ -906,6 +909,10 @@ body.data {
 }
 .about {
 	color: #222222;
+	p {
+		font-size:32px;
+		line-height:40px;
+	}
 	.page-header {
 		font-size: 64px;
 		line-height:77px;
@@ -922,6 +929,10 @@ body.data {
 			&:hover {
 				opacity: 1;
 			}
+		}
+		.about-text {
+			font-size:16px;
+			line-height:18px;
 		}
 		.popup {
 			display: none;
