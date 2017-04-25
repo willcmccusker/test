@@ -103,6 +103,7 @@ class CitiesController extends AppController {
 			case("data"):
 	            App::uses('Text', 'Model');
 	            $this->Text = new Text;
+
 	            $dataText = $this->Text->find("first", array(
 	            	"conditions"=>array(
 	            		"Text.slug"=>"data"
@@ -114,7 +115,6 @@ class CitiesController extends AppController {
 	            		)
 	            	));
 	            $this->set(compact("methodologyText", "dataText"));
-				
 			break;
 			case("index"):
 
@@ -146,9 +146,7 @@ class CitiesController extends AppController {
 		$this->index("map");
 	}
 
-	public function data(){
-		$this->index("data");
-	}
+	
 
 
 

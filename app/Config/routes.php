@@ -27,13 +27,14 @@
  */
   Router::parseExtensions('png');
 	Router::connect('/', array('controller' => 'cities', 'action' => 'map'));
-	Router::connect('/data', array('controller' => 'cities', 'action' => 'data'));
+	Router::connect('/data', array('controller' => 'cities', 'action' => 'index', 'data'));
 
   Router::connect('/about', array('controller' => 'texts', 'action' => 'display', 'about'));
   Router::connect('/acknowledgements', array('controller' => 'texts', 'action' => 'display', 'acknowledgements'));
   Router::connect('/historical-data', array('controller' => 'texts', 'action' => 'display',  'historic_data'));
   Router::connect('/rankings', array('controller' => 'texts', 'action' => 'display',  'rankings'));
-  Router::connect('/team-overview', array('controller' => 'texts', 'action' => 'display',  'team_overview'));
+  Router::connect('/team', array('controller' => 'texts', 'action' => 'display',  'team'));
+  Router::connect('/methodology', array('controller' => 'texts', 'action' => 'display',  'methodology'));
 
   Router::connect(
     '/tiles/show/:city/:map/:layer/:z/:x/:y',

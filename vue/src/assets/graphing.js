@@ -6,7 +6,8 @@ const globalOptions = {
     enabled: true
     // delay: 500
   },
-  maintainAspectRatio: false,
+  maintainAspectRatio: true,
+  responsive: true,
   // responsiveAnimationDuration: 500,
   title: {
     display: true
@@ -46,7 +47,6 @@ const globalOptions = {
     legend += '</ul>'
     return legend
   },
-  responsive: true,
   defaultFontFamily: 'Helvetica',
   yAxes: {
     display: true
@@ -577,7 +577,7 @@ export let makeLine = function (prefix, city, title, unit = '') {
     type: 'line',
     data: data,
     options: {
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       tooltips: {
         callbacks: {
           label: function (tooltipItem, data) {

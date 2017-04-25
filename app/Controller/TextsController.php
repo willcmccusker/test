@@ -19,7 +19,7 @@ class TextsController extends AppController {
 	public function beforeFilter() {
 			parent::beforeFilter();
 			//$this->Auth->loginRedirect = array('controller' => '', 'action' => '');
-			$this->Auth->allow('about', 'historical', 'acknowledgements');
+			$this->Auth->allow('display');
 	}
 /**
  * admin_index method

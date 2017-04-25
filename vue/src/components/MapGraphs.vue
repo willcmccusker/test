@@ -1,6 +1,5 @@
 <template>
   <div>
-    <mapbox v-if='currentSection.map && maps' :city='city' :section='currentSection'></mapbox>
     <div class='map-graph'>
       <div class='tabs'>
         <div :class="{selected: maps, disabled: !currentSection.map}" class='cursor' @click='maps = true'>Map</div>
@@ -9,6 +8,7 @@
       <div class='clear'></div>
       <graphs v-if='currentSection.graph && !maps' :city='city' :section='currentSection'></graphs>
     </div>
+    <mapbox v-if='currentSection.map && maps' :city='city' :section='currentSection'></mapbox>
   </div>
 </template>
 
@@ -23,7 +23,7 @@
     props: ['currentSection', 'city'],
     data () {
       return {
-        maps: false
+        maps: true
       }
     },
     watch: {
@@ -57,9 +57,12 @@
 </script>
 
 <style lang="scss" scoped>
+@import '../../../app/webroot/src/sass/vars';
+
 @import '../assets/colors.scss';
 
 .tabs {
+  z-index:2;
   position:relative;
   float:right;
   line-height:30px;
@@ -82,6 +85,15 @@
     &:first-of-type{
       border-right: 1px solid $line-grey-3;
       margin-right:-4px;
+    }
+  }
+}
+@media only screen and (min-width : 0) and (max-width : $tablet-max-width)  {
+  .tabs {
+    float:none;
+    width:100%;
+    > div {
+      width:50%;
     }
   }
 }

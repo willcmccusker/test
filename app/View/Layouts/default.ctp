@@ -36,9 +36,6 @@
 
 	?>
 	<style>
-		body{
-			opacity:0;
-		}
 		.header-bg{
 		    -webkit-transition: filter 1000ms ease;
 		    -moz-transition: filter 1000ms ease;
@@ -63,8 +60,7 @@
 	<meta property="og:image" content="<?=$fbphoto;?>" />
 <?endif;?>
 </head>
-<body class='<?= Inflector::slug($this->request->url);?>'>
-<img width="1px" height="1px" class='loader' src="/img/loader.svg">
+<body class='<?= Inflector::slug($this->request->url) == "" ? "map" : Inflector::slug($this->request->url)?>'>
 <?
 	// debug($this->params->controller == "cities" && $this->params->action == "view");
 	echo $this->element("vueheader");
@@ -75,7 +71,7 @@
 		echo $this->Html->css('/dist/css/style.css');
 		echo $this->Html->css('/mapbox.js/mapbox.css');
 		echo $this->Html->script('/mapbox.js/mapbox.js');
-		// echo $this->Html->script('/dist/js/app.min.js');
+		echo $this->Html->script('/dist/js/app.min.js');
 	?>
 	       <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>

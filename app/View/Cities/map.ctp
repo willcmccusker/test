@@ -27,7 +27,7 @@ var startFrontMap = function(){
 
   var map = L.map('worldmap', {
     maxZoom : 5,
-    minZoom : 2,
+    minZoom : 3,
     // scrollWheelZoom : false,
     zoomControl: false,
     maxBounds: bounds,
@@ -88,9 +88,9 @@ var startFrontMap = function(){
     }
   }).addTo(map);
 }
-if (document.readyState === 'complete' || document.readyState !== 'loading') {
-  startFrontMap();
-} else {
-  document.addEventListener('DOMContentLoaded', startFrontMap);
-}
+// if (document.readyState === 'complete' || document.readyState !== 'loading') {
+//   startFrontMap();
+// } else {
+//   document.addEventListener('DOMContentLoaded', startFrontMap);
+// }
 </script>
