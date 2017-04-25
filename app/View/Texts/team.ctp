@@ -59,7 +59,7 @@
     ?>
 <div class='grid about wide'>
     <div class='col-1-1'>
-        <div class='page-header'>Autores</div>
+        <div class='page-header'>Team</div>
     </div>
 </div>
 <div class='grid about wide'>

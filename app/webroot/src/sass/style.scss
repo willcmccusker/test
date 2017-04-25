@@ -129,8 +129,8 @@ img{
 	max-width:100%;
 }
 .no-file{
-	display:none;
-	text-decoration: line-through !important;
+
+	opacity:0.3;
 	cursor: default;
 }
 .no-scroll{
@@ -906,6 +906,10 @@ body.data {
 }
 .about {
 	color: #222222;
+	p {
+		font-size:32px;
+		line-height:40px;
+	}
 	.page-header {
 		font-size: 64px;
 		line-height:77px;
@@ -922,6 +926,10 @@ body.data {
 			&:hover {
 				opacity: 1;
 			}
+		}
+		.about-text {
+			font-size:16px;
+			line-height:18px;
 		}
 		.popup {
 			display: none;

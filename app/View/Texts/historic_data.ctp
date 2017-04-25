@@ -10,7 +10,7 @@
 
 <div class='grid about left'>
 	<div class='col-1-1'>
-    <? echo $text["Text"]["content"];?>
+    <p><? echo $text["Text"]["content"];?></p>
 	</div>
 </div>
 

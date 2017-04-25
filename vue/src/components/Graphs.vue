@@ -177,7 +177,7 @@
           }
         }
       },
-      canvas (id, classes = 'city-graphic', height = '300px', width = '400px') {
+      canvas (id, classes = 'city-graphic', height = '300px', width = '500px') {
         return `<canvas id='` + id + `' class='` + classes + `' height="` + height + ` width="` + width + `"></canvas>`
       },
       legend (id) {
