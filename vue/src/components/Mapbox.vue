@@ -90,10 +90,10 @@
             {on: true, display: 'Inclusion', name: 'addedArea_??_inclusion', url: '/added_area/inclusion_??_!!/', color: 'rgba(53,136,102,0.5)'}
           ],
           'arterial-roads': [
-            {on: true, name: 'arterials', url: '/arterials/arterials_t1/'}
+            {on: true, name: 'arterials', url: '/arterials/arterials/'}
           ],
           'roads': [
-            {on: true, name: 'roads_??', url: '/roads/locales_??/'}
+            {on: true, name: 'roads_??', url: '/roads/roads_??/'}
           ],
           'blocks-and-plots': [
             {on: true, name: 'blocks_land_use_??', url: '/blocks/land_use_??/'},
@@ -238,14 +238,14 @@
             // falls through
           case ('composition-of-added-area'):
             var yearCount = this.section.section === 'urban-extent' ? 3 : 2
-            options.opacity = 1
+            options.opacity = 0.7
             this.addYearLayers(yearCount, options)
             this.map.setZoom(11)
             break
           case ('arterial-roads'):
             name = this.maps['arterial-roads'][0].name
             options.name = name
-            options.opacity = 1
+            options.opacity = 0.7
             options.maxZoom = 17
             if (!this.allLayers[name]) {
               var url = this.maps['arterial-roads'][0].url
@@ -257,7 +257,7 @@
           case ('blocks-and-plots'):
             // falls through
           case ('roads'):
-            options.opacity = 1
+            options.opacity = 0.7
             options.maxZoom = 17
             yearCount = 2
             this.addYearLayers(yearCount, options)
