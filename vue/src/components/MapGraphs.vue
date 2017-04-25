@@ -62,7 +62,7 @@
 @import '../assets/colors.scss';
 
 .tabs {
-  z-index:2;
+  z-index:1;
   position:relative;
   float:right;
   line-height:30px;

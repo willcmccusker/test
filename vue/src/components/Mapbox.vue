@@ -33,8 +33,8 @@
         labelsMap: false,
         allLayers: {},
         layersLoading: [],
-        host: 'atlasofurbanexpansion.org',
-        localhost: 'atlas.dev',
+        host: 'dev.atlasofurbanexpansion.org',
+        localhost: 'dev.atlasofurbanexpansion.org',
         maps: {
           'population': false,
           'urban-extent': [
@@ -93,7 +93,7 @@
             {on: true, name: 'arterials', url: '/arterials/arterials_t1/'}
           ],
           'roads': [
-            {on: true, name: 'roads_??', url: '/roads/locales_??/'}
+            {on: true, name: 'roads_??', url: '/roads/roads_??/'}
           ],
           'blocks-and-plots': [
             {on: true, name: 'blocks_land_use_??', url: '/blocks/land_use_??/'},
@@ -204,7 +204,7 @@
             var name = layerType.name.replaceAll('??', 't' + j).replace('!!', 't' + (j + 1))
             options.name = name
             var url = layerType.url.replaceAll('??', 't' + j).replace('!!', 't' + (j + 1))
-            var u = 'http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + url + '{z}/{x}/{y}.png'
+            var u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + url + '{z}/{x}/{y}.png'
             var layer = this.generateLayer(name, u, options)
             if (!this.allLayers[name]) {
               this.allLayers[name] = layer
@@ -230,7 +230,7 @@
                 options.opacity = 0.7
                 options.name = 'extent_' + name
                 if (!this.allLayers['extent_' + name]) {
-                  var u = 'http://{s}.' + this.localhost + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png'
+                  var u = 'http://' + this.localhost + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png'
                   this.allLayers['extent_' + name] = this.generateLayer(name, u, options)
                 }
               }
@@ -245,11 +245,12 @@
           case ('arterial-roads'):
             name = this.maps['arterial-roads'][0].name
             options.name = name
-            options.opacity = 1
+            options.opacity = 0.7
             options.maxZoom = 17
             if (!this.allLayers[name]) {
               var url = this.maps['arterial-roads'][0].url
-              u = 'http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
+              // u = 'http://{s}.' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
+              u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
               this.allLayers[name] = this.generateLayer(name, u, options)
             }
             this.map.setZoom(12)
@@ -257,7 +258,7 @@
           case ('blocks-and-plots'):
             // falls through
           case ('roads'):
-            options.opacity = 1
+            options.opacity = 0.7
             options.maxZoom = 17
             yearCount = 2
             this.addYearLayers(yearCount, options)

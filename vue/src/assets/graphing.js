@@ -7,7 +7,7 @@ const globalOptions = {
     // delay: 500
   },
   maintainAspectRatio: true,
-  responsive: true,
+  responsive: false,
   // responsiveAnimationDuration: 500,
   title: {
     display: true
@@ -514,7 +514,6 @@ export let makeChart = function (prefix, city, title, unit = '', multiply = fals
           boxWidth: 10
         }
       },
-      responsive: true,
       gridLines: {
         display: false
       },
