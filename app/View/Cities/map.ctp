@@ -1,7 +1,8 @@
 <? $this->assign('title', "Home");?>
 <div class='position-relative'>
 	<div id="worldmap"></div>
-  <div class='site-info show-on-mobile grid'>
+  <div class='logos'><div class='logologo'><div></div><div></div><div></div></div></div>
+  <div class='site-info hide-on-desktop show-on-mobile grid'>
     <div class='col-1-1'>
     El <b>Atlas de Expansión Urbana</b> recopila y analiza datos sobre la cantidad y la calidad de la expansión urbana en una grupo de municipios Colombianos. Dicho estudio complementará el recientemente uno recientemente realizado utilizando la misma metodología del estudio global estratificada de <a href='/ciudades'>200</a> ciudades.
     </div>

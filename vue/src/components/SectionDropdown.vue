@@ -48,4 +48,7 @@
 </script>
 
 <style lang="css" scoped>
+.dropdown-nav {
+    margin-top:12px;
+}
 </style>

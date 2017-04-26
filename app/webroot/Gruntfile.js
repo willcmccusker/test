@@ -57,10 +57,10 @@ module.exports = function (grunt) {
           },
           dist: {
             options: {
-              mangle: false,
-              compress: false,
-              wrap: false,
-              sourceMap: true,
+              mangle: true,
+              compress: true,
+              wrap: true,
+              sourceMap: false,
               banner: '/*\n <%= pkg.name %>-dist <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             files: "<%= uglifyFiles %>"
