@@ -1,6 +1,7 @@
 <? $this->assign('title', "Cities");?>
-<div id='cityList'  class='grid wide'>
 
+<div id='cityList'  class='grid wide'>
+		<div class='citites-title'>Cities</div>
 			<!-- <input class="search" placeholder="Search" /> -->
 
 		<!-- 	<button class="sort" data-sort="city">

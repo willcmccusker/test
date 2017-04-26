@@ -117,7 +117,6 @@
       }
     },
     mounted () {
-      L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og'
       this.map = L.mapbox.map('mapbox', null, {
         center: [this.city.City.latitude, this.city.City.longitude],
         reuseTiles: true,
