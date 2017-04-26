@@ -19,11 +19,11 @@
         </div>
         <div class='cityGroup' v-for='citiesGroup, index in citiesGrouped'>
           <div v-for='city, indexx in citiesGroup'>
-            <div class='dropdown-region' v-if='lastRegion(index, indexx, city)'>
+            <div class='dropdown-region' :class='{first: index === 0}' v-if='lastRegion(index, indexx, city)'>
               {{city.Region.name}}
             </div>
             <div class='dropdown-title'>
-              <a :href="'/cities/view/' + city.City.slug">{{city.City.name}}</a>
+              <a :href="'/cities/view/' + city.City.slug">{{city.City.name}} - <span class='country-name'>{{city.City.country}}</span></a>
             </div>
           </div>
         </div>
@@ -112,9 +112,18 @@
       font-size: 14px;
       line-height:21px;
       font-weight: normal;
+      .country-name {
+        color: #cccccc;
+      }
     }
     .dropdown-region {
-      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 25px 0 10px 0;
+      &.first {
+        padding-top:0px;
+      }
     }
     .city-filter {
       padding:12px;

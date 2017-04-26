@@ -264,13 +264,14 @@ body[class^='cities_view_'] .header {
     }
     input {
       color:$dark-grey;
-      height:38px;
+      height:43px;
       margin-top:62px;
       border: none;
       width:100%;
       line-height: 38px;
       font-size: 32px;
       border-bottom:1px solid $line-grey;
+      padding-bottom:5px;
       &:focus{
         outline: none;
       }
@@ -923,8 +924,8 @@ body.data {
 	border: 1px solid black;
 }
 #data-table{
-	padding:20px;
-	background-color: rgba(0,0,0,0.1);
+	// padding:20px;
+	// background-color: rgba(0,0,0,0.1);
 	a {
 		color:$linkcolor;
 	}
@@ -1097,6 +1098,7 @@ body.data {
 		.about-text {
 			font-size:16px;
 			line-height:18px;
+			padding-top:5px;
 		}
 		.popup {
 			display: none;
