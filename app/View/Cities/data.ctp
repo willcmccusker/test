@@ -88,23 +88,24 @@
 						<td class='name'><?= $city["City"]["country"];?></td>
 						<?
 						$map1 = isset($city["City"]["areas_and_densities_map_path"]) ? $download_path."Phase I Maps/".$city["City"]["areas_and_densities_map_path"] : false;
-						$map1 = file_exists(APP . "webroot/" . $map1) ? $map1 : false;
+						$map1 = $map1 && file_exists(APP . "webroot/" . $map1) ? $map1 : false;
+						?><script>console.log(<?= json_encode($city["City"]);?>, '<? echo APP . "webroot/" . $map1;?>', <?= $map1 ? $map1 : 'false';?>)</script><?
 
 						$metric1 = isset($city["City"]["areas_and_densities_p_d_f_path"]) ? $download_path."Phase I Metrics/".$city["City"]["areas_and_densities_p_d_f_path"] : false;
-						$metric1 = file_exists(APP . "webroot/" . $metric1) ? $metric1 : false;
+						$metric1 = $metric1  &&file_exists(APP . "webroot/" . $metric1) ? $metric1 : false;
 
 						$gis1 = isset($city["City"]["areas_and_densities_g_i_s_path"]) ? $download_path."Phase I GIS/".$city["City"]["areas_and_densities_g_i_s_path"] : false;
-						$gis1 = file_exists(APP . "/webroot/" . $gis1) ? $gis1 : false;
+						$gis1 = $gis1 && file_exists(APP . "/webroot/" . $gis1) ? $gis1 : false;
 
 
 						$map2 = isset($city["City"]["blocks_and_roads_map_path"]) ? $download_path."Phase II Maps/".$city["City"]["blocks_and_roads_map_path"] : false;
-						$map2 = file_exists(APP . "webroot/" . $map2) ? $map2 : false;
+						$map2 = $map2 && file_exists(APP . "webroot/" . $map2) ? $map2 : false;
 
 						$metric2 = isset($city["City"]["blocks_and_roads_p_d_f_path"]) ? $download_path."Phase II Metrics/".$city["City"]["blocks_and_roads_p_d_f_path"] : false;
-						$metric2 = file_exists(APP . "webroot/" . $metric2) ? $metric2 : false;
+						$metric2 = $metric2 && file_exists(APP . "webroot/" . $metric2) ? $metric2 : false;
 
 						$gis2 = isset($city["City"]["blocks_and_roads_g_i_s_path"]) ? $download_path."Phase II GIS/".$city["City"]["blocks_and_roads_g_i_s_path"] : false;
-						$gis2 = file_exists(APP . "/webroot/" . $gis2) ? $gis2 : false;
+						$gis2 = $gis2 && file_exists(APP . "/webroot/" . $gis2) ? $gis2 : false;
 
 
 						?>

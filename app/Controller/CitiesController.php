@@ -101,6 +101,11 @@ class CitiesController extends AppController {
 
 			break;
 			case("data"):
+
+							$cities = $this->City->find('all', array(
+								'recursive'=>0
+								));
+
 	            App::uses('Text', 'Model');
 	            $this->Text = new Text;
 
@@ -114,7 +119,7 @@ class CitiesController extends AppController {
 	            		"Text.slug"=>"methodology"
 	            		)
 	            	));
-	            $this->set(compact("methodologyText", "dataText"));
+	            $this->set(compact("methodologyText", "dataText", "cities"));
 			break;
 			case("index"):
 
