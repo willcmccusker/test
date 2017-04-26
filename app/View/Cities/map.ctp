@@ -1,7 +1,8 @@
 <? $this->assign('title', "Home");?>
 <div class='position-relative'>
 	<div id="worldmap"></div>
-  <div class='site-info show-on-mobile grid'>
+  <div class='logos'><div class='logologo'><div></div><div></div><div></div></div></div>
+  <div class='site-info hide-on-desktop show-on-mobile grid'>
     <div class='col-1-1'>
     The <b>Atlas of Urban Expansion</b> collects and analyzes data on the quantity and quality of urban expansion in a stratified global sample of <a href='/cities'>200</a> cities.
     </div>

@@ -773,6 +773,41 @@ h3.sectionSubHeader {
 		stroke-width:10px;
 	}
 }
+.logos {
+	display:table;
+	vertical-align:middle;
+	position:absolute;
+	bottom: 20px;
+	left:20px;
+	z-index:2;
+	height:100%;
+	.logologo {
+		display:table-cell;
+		vertical-align:middle;
+		div {
+			display:inline-block;
+			margin-right:32px;
+			background-position: center center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+		div:nth-of-type(1) {
+			width: 105px;
+			height: 19px;
+			background-image: url('/img/logo-1.png');
+		}
+		div:nth-of-type(2) {
+			width:75px;
+			height:25px;
+			background-image: url('/img/logo-2.png');
+		}
+		div:nth-of-type(3) {
+			width:116px;
+			height:26px;
+			background-image: url('/img/logo-3.png');
+		}
+	}
+}
 .leaflet-control-attribution{
 }
 .map-placeholder {
