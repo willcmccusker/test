@@ -68,6 +68,7 @@
 	// debug($this->params->controller == "cities" && $this->params->action == "view");
 	echo $this->element("vueheader");
 	echo $this->fetch('content');
+	echo $this->params->action == "display" ? $this->element("footer") : '';
 	//echo $this->element('sql_dump'); ?>
 
 	<?
