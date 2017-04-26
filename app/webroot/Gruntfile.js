@@ -58,7 +58,7 @@ module.exports = function (grunt) {
           dist: {
             options: {
               mangle: false,
-              compress: false,
+              compress: true,
               wrap: false,
               sourceMap: true,
               banner: '/*\n <%= pkg.name %>-dist <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'

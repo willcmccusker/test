@@ -220,7 +220,7 @@
   left:0px;
   top:54px;
   color: #5A5A5A;
-  padding:16px;
+  padding:14px;
 }
 .summary, 
 .dropdown-nav {

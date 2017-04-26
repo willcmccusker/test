@@ -1,4 +1,4 @@
-<head><link href="/vue/static/css/app.6d0b9bacafabfa4d7dc380594b306769.css" rel="stylesheet"></head>
+<head><link href="/vue/static/css/app.b2ecab63c704681317828c3d9785b41a.css" rel="stylesheet"></head>
 <? 
 if (isset($city)) $this->assign('title', $city["City"]["name"]);
 ?>
