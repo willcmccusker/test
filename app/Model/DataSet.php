@@ -30,7 +30,7 @@ class DataSet extends AppModel {
 			
 			$sql = file_get_contents( APP . '/webroot/build_data/atlas.sql');
 			$this->query($sql, false);
-	        $this->User = ClassRegistry::init('User');
+      $this->User = ClassRegistry::init('User');
 			$this->User->begin();
 
 			$citySizes = array();

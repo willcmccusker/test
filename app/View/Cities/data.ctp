@@ -88,8 +88,10 @@
 						<td class='name'><?= $city["City"]["country"];?></td>
 						<?
 						$map1 = isset($city["City"]["areas_and_densities_map_path"]) ? $download_path."Phase I Maps/".$city["City"]["areas_and_densities_map_path"] : false;
+						?><script>console.log(<?= json_encode($city["City"]);?>, '<? echo APP . "webroot/" . $map1;?>', <?= $map1 ? "'".$map1."'" : 'false';?>)</script><?
+
 						$map1 = $map1 && file_exists(APP . "webroot/" . $map1) ? $map1 : false;
-						?><script>console.log(<?= json_encode($city["City"]);?>, '<? echo APP . "webroot/" . $map1;?>', <?= $map1 ? $map1 : 'false';?>)</script><?
+						?><script>console.log(<?= $map1 ? $map1 : 'false';?>)</script><?
 
 						$metric1 = isset($city["City"]["areas_and_densities_p_d_f_path"]) ? $download_path."Phase I Metrics/".$city["City"]["areas_and_densities_p_d_f_path"] : false;
 						$metric1 = $metric1  &&file_exists(APP . "webroot/" . $metric1) ? $metric1 : false;
