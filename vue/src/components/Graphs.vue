@@ -13,9 +13,9 @@
 <!--          POPULATION          -->
     <div v-if="section.section === 'population'">
       <div class='grid' >
-        <div class='col-1-2 tab-1-1' v-html="canvas('population_line', 'city-graphic no-legend')"></div>
+        <div class='col-1-2 tab-1-1' v-html="canvas('population_line')"></div>
         <div class='col-1-2 tab-1-1'>
-          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('population_change_bar')"></div>
+          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('population_change_bar', '300px')"></div>
           <div class='hold-legend col-1-4 no-pad no-pad mob-1-1' v-html="legend('population_change_bar')"></div>
         </div>
       </div>
@@ -24,11 +24,11 @@
     <div v-else-if="section.section === 'urban-extent'">
       <div class='grid'>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('urban_extent_composition_stacked_bar')"></div>
+          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('urban_extent_composition_stacked_bar', '300px')"></div>
           <div class='hold-legend col-1-4 no-pad no-pad mob-1-1' v-html="legend('urban_extent_composition_stacked_bar')"></div>
         </div>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('urban_extent_change_bar')"></div>
+          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('urban_extent_change_bar', '300px')"></div>
           <div class='hold-legend col-1-4 no-pad no-pad mob-1-1' v-html="legend('urban_extent_change_bar')"></div>
         </div>
       </div>
@@ -38,14 +38,14 @@
       <div class='grid'>
         <div class='col-1-2 mob-1-1' v-html="canvas('density_built_up_line', undefined, undefined)"></div>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('density_built_up_change_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('density_built_up_change_bar', '300px')"></div>
           <div class='hold-legend col-1-4 no-pad no-pad mob-1-1' v-html="legend('density_built_up_change_bar')"></div>
         </div>
       </div>
       <div class='grid'>
         <div class='col-1-2 mob-1-1' v-html="canvas('density_urban_extent_line', undefined, undefined)"></div>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('density_urban_extent_change_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad no-pad mob-1-1' v-html="canvas('density_urban_extent_change_bar', '300px')"></div>
           <div class='hold-legend col-1-4 no-pad no-pad mob-1-1' v-html="legend('density_urban_extent_change_bar')"></div>
         </div>
       </div>
@@ -57,13 +57,13 @@
     <div v-else-if="section.section === 'roads'">
       <div class='grid'>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('roads_in_built_up_area_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('roads_in_built_up_area_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('roads_in_built_up_area_bar')"></div>
           </div>
         </div>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1'  v-html="canvas('roads_average_width_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1'  v-html="canvas('roads_average_width_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('roads_average_width_bar')"></div>
           </div>
@@ -71,7 +71,7 @@
       </div>
       <div class='grid'>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('roads_width_stacked_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('roads_width_stacked_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('roads_width_stacked_bar')"></div>
           </div>
@@ -82,13 +82,13 @@
     <div v-else-if="section.section === 'arterial-roads'">
       <div class='grid'>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('arterial_roads_density_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('arterial_roads_density_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('arterial_roads_density_bar')"></div>
           </div>
         </div>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('arterial_roads_walking_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('arterial_roads_walking_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('arterial_roads_walking_bar')"></div>
           </div>
@@ -96,7 +96,7 @@
       </div>
       <div class='grid'>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('arterial_roads_beeline_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('arterial_roads_beeline_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('arterial_roads_beeline_bar')"></div>
           </div>
@@ -107,13 +107,13 @@
     <div v-else-if="section.section === 'blocks-and-plots'">
       <div class='grid'>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('blocks_and_plots_composition_special_stacked', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('blocks_and_plots_composition_special_stacked', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('blocks_and_plots_composition_special_stacked')"></div>
           </div>
         </div>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('blocks_plots_average_block_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('blocks_plots_average_block_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('blocks_plots_average_block_bar')"></div>
           </div>
@@ -121,7 +121,7 @@
       </div>
       <div class='grid'>
         <div class='col-1-2 mob-1-1'>
-          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('blocks_plots_average_bar', undefined, undefined)"></div>
+          <div class='col-3-4 no-pad mob-1-1' v-html="canvas('blocks_plots_average_bar', '300px')"></div>
           <div class='col-1-4 no-pad mob-1-1'>
             <div class='hold-legend' v-html="legend('blocks_plots_average_bar')"></div>
           </div>
@@ -177,8 +177,8 @@
           }
         }
       },
-      canvas (id, classes = 'city-graphic', height = '300px', width = '500px') {
-        return `<canvas id='` + id + `' class='` + classes + `' height="` + height + ` width="` + width + `"></canvas>`
+      canvas (id, width = '400px', height = '300px') {
+        return `<canvas id='` + id + `' class='city-graphic'  width="` + width + `" height="` + height + `"></canvas>`
       },
       legend (id) {
         return this.chartObjects[id] && this.chartObjects[id].generateLegend()
@@ -324,6 +324,9 @@
   & > div {
     background-color: white;
   }
+}
+canvas {
+  max-width:100%;
 }
 
 #population_line, 

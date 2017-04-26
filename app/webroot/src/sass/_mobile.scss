@@ -39,6 +39,23 @@
 		}
 	}
 
+	.about .page-header {
+
+		font-size: 36px;
+		line-height: 43px;
+		letter-spacing: 0.19px;
+	}
+	.about p,
+	body.methodology h3, body.methodology p, body.metodologia h3, body.metodologia p {
+		font-size:18px;
+		line-height:25px;
+		letter-spacing: 0.14px;
+
+	}
+
+	#cityList {
+		padding-top: 32px;
+	}
 
 	.cityHeader {
 		.countryNameRow .flag img {
