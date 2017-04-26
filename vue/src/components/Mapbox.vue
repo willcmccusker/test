@@ -97,12 +97,12 @@
           ],
           'blocks-and-plots': [
             {on: true, name: 'blocks_land_use_??', url: '/blocks/land_use_??/'},
-            {on: true, display: 'Atomistic Settlements', color: '#7fe900'},
-            {on: true, display: 'Informal Subdivisions', color: '#9ce8ff'},
-            {on: true, display: 'Formal Subdivisions', color: '#CA9179'},
-            {on: true, display: 'Housing Projects', color: '#BF614D'},
-            {on: true, display: 'Open Space', color: '#A4352B'},
-            {on: true, display: 'Non Residential', color: '#7E0812'}
+            {on: true, display: 'Atomistic Settlements', color: '#CA9179'},
+            {on: true, display: 'Informal Subdivisions', color: '#BF614D'},
+            {on: true, display: 'Formal Subdivisions', color: '#A4352B'},
+            {on: true, display: 'Housing Projects', color: '#7E0812'},
+            {on: true, display: 'Open Space', color: '#7fe900'},
+            {on: true, display: 'Non Residential', color: '#9ce8ff'}
           ]
         },
         timePeriods: ['t1', 't2', 't3']

@@ -253,9 +253,45 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/colors.scss';
-
+#cityContainer.urban-extent {
+  .map-key-year {
+    &:first-of-type{
+      .map-key-checkbox {
+        border: 1px solid #2E2E76;
+      }
+      &.always,
+      &.current {
+        .map-key-checkbox {
+          background-color: #2E2E76;
+        }
+      }
+    }
+    &:nth-of-type(2) {
+      .map-key-checkbox {
+        border: 1px solid #AC2341;
+      }
+      &.always,
+      &.current {
+        .map-key-checkbox {
+          background-color: #AC2341;
+        }
+      }
+    }
+    &:nth-of-type(3) {
+      .map-key-checkbox {
+        border: 1px solid #DA8B40;
+      } 
+      &.always,
+      &.current {
+        .map-key-checkbox {
+          background-color: #DA8B40;
+        }
+      }
+    }
+  }
+}
 #map-key {
   position:fixed;
   top:101px;
@@ -272,37 +308,26 @@
     .map-key-year {
       margin:14px 0px;
       cursor: pointer;
+
       &:first-of-type{
         .map-key-checkbox {
-          border: 1px solid #8747DF;
+          border: 1px solid #ac2341;
         }
         &.always,
         &.current {
           .map-key-checkbox {
-            border: 0px solid #8747DF;
-            background-color: #2E2E76;
+            background-color: #ac2341;
           }
         }
       }
       &:nth-of-type(2) {
         .map-key-checkbox {
-          border: 1px solid #AC2341;
+          border: 1px solid #da8b40;
         }
         &.always,
         &.current {
           .map-key-checkbox {
-            background-color: #AC2341;
-          }
-        }
-      }
-      &:nth-of-type(3) {
-        .map-key-checkbox {
-          border: 1px solid #DA8B40;
-        } 
-        &.always,
-        &.current {
-          .map-key-checkbox {
-            background-color: #DA8B40;
+            background-color: #da8b40;
           }
         }
       }
@@ -374,24 +399,6 @@
       .layer-title {
         margin-left: 32px;
         line-height:16px;
-      }
-      &:nth-of-type(1) .layer-checkbox.checked{
-        background-color: #978AD8;
-      }
-      &:nth-of-type(2) .layer-checkbox.checked{
-        background-color: #DCB8CA;
-      }
-      &:nth-of-type(3) .layer-checkbox.checked{
-        background-color: #7C7C7C;
-      }
-      &:nth-of-type(4) .layer-checkbox.checked{
-        background-color: #F6F5A4;
-      }
-      &:nth-of-type(5) .layer-checkbox.checked{
-        background-color: #BCBCBC;
-      }
-      &:nth-of-type(6) .layer-checkbox.checked{
-        background-color: #E1E1E1;
       }
     }
   }
