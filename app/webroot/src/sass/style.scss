@@ -13,22 +13,17 @@ default * 5
 
 
 @font-face {
-	font-family: 'DINNextLTProUltraLight';
-	src: url('/fonts/DINNextLTPro-UltraLight.eot');
-	src: url('/fonts/DINNextLTPro-UltraLight.eot?#iefix') format('embedded-opentype'),
-	url('/fonts/DINNextLTPro-UltraLight.woff') format('woff'),
-	url('/fonts/DINNextLTPro-UltraLight.ttf') format('truetype');
-	font-weight: 200;
+	font-family: 'SuisseBPIntl';
+	src: url('/fonts/SuisseBPIntl-Regular.ttf');
+	src: url('/fonts/SuisseBPIntl-Regular.woff') format('woff');
+	font-weight: normal;
 	font-style: normal;
 }
-
 @font-face {
-	font-family: 'NeueHaasRegularTX';
-	src: url('/fonts/NHaasGroteskTXPro-55Rg.eot');
-	src: url('/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
-	url('/fonts/NHaasGroteskTXPro-55Rg.woff') format('woff'),
-	url('/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
-	font-weight: normal;
+	font-family: 'SuisseBPIntl';
+	src: url('/fonts/SuisseBPIntl-Antique.ttf');
+	src: url('/fonts/SuisseBPIntl-Antique.woff') format('woff');
+	font-weight: bold;
 	font-style: normal;
 }
 
@@ -95,7 +90,7 @@ table {
 body{
 	background-color: #F7F7F7;
 	color: $bodytype;
-	font-family: Helvetica, sans-serif;
+	font-family: 'SuisseBPIntl', courier, Helvetica, sans-serif;
 	line-height:1.5;
 	min-height:100vh;
 	position:relative;
@@ -248,7 +243,7 @@ h1#site-title {
 }
 
 .h2{
-	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	font-family:"SuisseBPIntl",  Helvetica, Arial, sans-serif;
 	font-size:$defaulttype * 2;
 }
 
@@ -299,7 +294,7 @@ h1#site-title {
 }
 .citySummaryTable {
 	font-size:$defaulttype * 2 + 8;
-	font-family:"DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family:"SuisseBPIntl", Helvetica, sans-serif;
 }
 
 .cityRegionTable {
@@ -309,7 +304,7 @@ h1#site-title {
 }
 
 .statLabel {
-	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
+	font-family: "SuisseBPIntl", Helvetica, Arial, sans-serif;
 	font-size:$defaulttype - 4;	
 	text-transform: uppercase;
 }
@@ -427,11 +422,11 @@ h1#site-title {
 
 h3.sectionSubHeader {
 	font-size:$defaulttype * 2;
-	font-family: "NeueHaasRegularTX", "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "SuisseBPIntl", "Helvetica Neue Light", Helvetica, sans-serif;
 }
 
 .graphSection p {
-	font-family: "Times New Roman", Times, serif;
+	font-family: "SuisseBPIntl", Helvetica, serif;
 	font-size: 16px;
 	color:$lightgrey1;
 }
@@ -450,11 +445,11 @@ h3.sectionSubHeader {
 }
 .years span{
 	background-color: #e4e4e4;
-	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "SuisseBPIntl", "Helvetica Neue Light", Helvetica, sans-serif;
 	padding: 5px 10px 3px;
 }
 .legend-ul{
-	font-family: "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "SuisseBPIntl", "Helvetica Neue Light", Helvetica, sans-serif;
 	padding-left:20px;
 	margin-top:32px;
 	padding-top:5px;
@@ -487,7 +482,7 @@ h3.sectionSubHeader {
 	display: none;
 }
 .map-legend-years{
-	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "SuisseBPIntl", "Helvetica Neue Light", Helvetica, sans-serif;
 	margin-top:15px;
 	li{
 		display: inline-block;
@@ -516,11 +511,11 @@ h3.sectionSubHeader {
 	}
 }
 .map-legend-sections{
-	font-family: "DINNextLTProUltraLight", "Helvetica Neue Light", Helvetica, sans-serif;
+	font-family: "SuisseBPIntl", "Helvetica Neue Light", Helvetica, sans-serif;
 	font-size: 14px;
 	margin-top:10px;
 	u {
-		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
+		font-family: "SuisseBPIntl", Helvetica, Arial, sans-serif;
 		text-decoration: none;
 	}
 	li{
@@ -765,7 +760,7 @@ body.data {
 		color:$linkcolor;
 	}
 	th {
-		font-family: Helvetica, sans-serif;
+		font-family: "SuisseBPIntl", Helvetica, sans-serif;
 		font-size: 12px;
 		font-weight: normal;
 		text-transform: uppercase;
@@ -901,12 +896,7 @@ body.data {
 
 /* About Page */
 
-.about, .historical, .data-page-text {
-	font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
-	h1, h2, h3 {
-		font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif !important;
-	}
-}
+
 .about {
 	color: #222222;
 	p {

@@ -161,7 +161,7 @@
   #site-title{
     z-index:2;
     display:inline-block;
-    font-family: "NeueHaasRegularTX", Helvetica, Arial, sans-serif;
+    font-family: "SuisseBPIntl", Helvetica, Arial, sans-serif;
     h1{
       display: inline-block;
     }
