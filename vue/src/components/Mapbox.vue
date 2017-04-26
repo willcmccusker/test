@@ -40,42 +40,42 @@
           'urban-extent': [
             {
               on: true,
-              display: 'Urban Built-Up',
+              display: 'Urbano Edificado',
               name: 'extent_??_urbanBuilt',
               url: '/urban_extent/urban_build_up_??/',
               color: '#978AD8'
             },
             {
               on: true,
-              display: 'Suburban Built-Up',
+              display: 'Suburbano Edificado',
               name: 'extent_??_suburbanBuilt',
               url: '/urban_extent/suburban_build_up_??/',
               color: '#DCB8CA'
             },
             {
               on: true,
-              display: 'Rural Built-Up',
+              display: 'Rural Edificado',
               name: 'extent_??_ruralBuilt',
               url: '/urban_extent/rural_build_up_??/',
               color: '#7C7C7C'
             },
             {
               on: true,
-              display: 'Urbanized Open Area',
+              display: 'Espacio Abierto Edificado',
               name: 'extent_??_urbanOpen',
               url: '/urban_extent/open_space_??/',
               color: '#F6F5A4'
             },
             {
               on: true,
-              display: 'Exurban Built-Up Area',
+              display: 'Área Exurbana Edificada',
               name: 'extent_??_exurbanBuilt',
               url: '/urban_extent/exurban_built_up_??/',
               color: '#BCBCBC'
             },
             {
               on: true,
-              display: 'Exurban Open Space',
+              display: 'Espacio Abierto Exurbano',
               name: 'extent_??_exurbanOpen',
               url: '/urban_extent/exurban_open_??/',
               color: '#E1E1E1'
@@ -97,10 +97,10 @@
           ],
           'blocks-and-plots': [
             {on: true, name: 'blocks_land_use_??', url: '/blocks/land_use_??/'},
-            {on: true, display: 'Atomistic Settlements', color: '#CA9179'},
-            {on: true, display: 'Informal Subdivisions', color: '#BF614D'},
-            {on: true, display: 'Formal Subdivisions', color: '#A4352B'},
-            {on: true, display: 'Housing Projects', color: '#7E0812'},
+            {on: true, display: 'Asentamientos Atomísticos', color: '#CA9179'},
+            {on: true, display: 'Subdivisiones Informales', color: '#BF614D'},
+            {on: true, display: 'Subdivisiones Formales', color: '#A4352B'},
+            {on: true, display: 'Proyectos de Vivienda', color: '#7E0812'},
             {on: true, display: 'Open Space', color: '#7fe900'},
             {on: true, display: 'Non Residential', color: '#9ce8ff'}
           ]

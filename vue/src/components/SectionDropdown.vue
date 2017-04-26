@@ -2,7 +2,7 @@
   <div class='dropdown-nav cursor' :class='{open: dropdown}'>
     <div @click='dropdown = !dropdown' ref='sectiondropdown' class='currentSection' >
       <div class='graph-icon'></div>
-      <div class='dropdown-title' v-html="sectionKey === 0 ? 'select a data set' : currentSection.title"></div>
+      <div class='dropdown-title' v-html="sectionKey === 0 ? 'Seleccione una Base de Datos' : currentSection.title"></div>
       <div class='dropdown-arrow'>
         <img  :src="'/img/arrow-b.svg'">
       </div>

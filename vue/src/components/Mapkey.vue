@@ -256,7 +256,8 @@
 <style lang="scss">
 @import '../assets/colors.scss';
 #cityContainer.urban-extent {
-  .map-key-year {
+
+  #map-key .map-key-years .map-key-year {
     &:first-of-type{
       .map-key-checkbox {
         border: 1px solid #2E2E76;

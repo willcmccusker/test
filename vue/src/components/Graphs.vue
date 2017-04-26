@@ -236,15 +236,15 @@
             chart[id] = makeLine(id, this.city, 'Población')
             id = 'population_change_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeChart(id, this.city, 'Población Avg. Annual % Change', '%')
+            chart[id] = makeChart(id, this.city, 'Tasa Anual de Variación (%) de la Población', '%')
             break
           case ('urban-extent'):
             id = 'urban_extent_composition_stacked_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeStacked(id, this.city, 'Urban Composition')
+            chart[id] = makeStacked(id, this.city, 'Composición Urbana')
             id = 'urban_extent_change_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeChart(id, this.city, 'Urban Extent Avg. Annual % Change')
+            chart[id] = makeChart(id, this.city, 'Tasa Anual de Variación (%) de la Huella Urbana')
             break
           case ('density'):
             id = 'density_built_up_line'
@@ -252,26 +252,26 @@
             chart[id] = makeLine(id, this.city, 'Densidad del Área Edificada (Personas/Hectárea)', ' Personas/Hectárea')
             id = 'density_built_up_change_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeChart(id, this.city, 'Built-up Area Avg. Annual % Change')
+            chart[id] = makeChart(id, this.city, 'Tasa Anual de Variación (%) del Área Edificada')
             id = 'density_urban_extent_line'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeLine(id, this.city, 'Densidad de la Huella Urbana (Personas/Hectárea)', ' Personas/Hectárea')
             id = 'density_urban_extent_change_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeChart(id, this.city, 'Urban Extent Avg. Annual % Change')
+            chart[id] = makeChart(id, this.city, 'Tasa Anual de Variación (%) de la Huella Urbana')
             break
           case ('composition-of-added-area'):
             break
           case ('roads'):
             id = 'roads_in_built_up_area_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeChart(id, this.city, 'Share of built up area occupied by roads and boulevards ', '%', 100, true)
+            chart[id] = makeChart(id, this.city, '% del Área Urbana ocupado por vías y bulevares ', '%', 100, true)
             id = 'roads_average_width_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeChart(id, this.city, 'Ancho Promedio de las vías (Metros)', 'm', undefined, true)
             id = 'roads_width_stacked_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeStacked(id, this.city, 'Street Width Composition', undefined, undefined, true)
+            chart[id] = makeStacked(id, this.city, 'Composición del Ancho de las Vías', undefined, undefined, true)
             break
           case ('arterial-roads'):
             this.arterialRoads()
@@ -283,7 +283,7 @@
             chart[id] = makeChart(id, this.city, 'Tamaño promedio de un lote (Héctares)', ' héctares', undefined, true)
             id = 'blocks_plots_average_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeBlockChart(id, this.city, 'Average Plot Size (m&sup2;)', ' m&sup2;')
+            chart[id] = makeBlockChart(id, this.city, 'Promedio del tamaño de los lotes (m&sup2;)', ' m&sup2;')
             break
         }
         this.chartObjects = Object.assign({}, this.chartObjects, chart)

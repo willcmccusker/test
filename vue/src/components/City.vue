@@ -18,22 +18,22 @@
       </div>
       <div class='col-1-3 mob-1-1'>
         <div class='title'>
-          {{city.City.t3.substr(0,4)}} Density
+          {{city.City.t3.substr(0,4)}} Densidad
         </div>
         <div class='value' v-html='commas(city.City.density)'>
         </div>
         <div class='unit'>
-        persons/hectare
+        personas/hectáreas
         </div>
       </div>
       <div class='col-1-3 mob-1-1'>
         <div class='title'>
-          {{city.City.t3.substr(0,4)}} Urban Extent
+          {{city.City.t3.substr(0,4)}} Huella Urbana
         </div>
         <div class='value' v-html='commas(city.City.extent)'>
         </div>
         <div class='unit'>
-          hectares
+          hectáreas
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@
         sections: [
           {
             section: 'city-header',
-            title: 'Summary'
+            title: 'Resumen'
           },
           {
             section: 'population',
@@ -76,37 +76,37 @@
           },
           {
             section: 'urban-extent',
-            title: 'Urban Extent',
+            title: 'Huella Urbana',
             graph: true,
             map: true
           },
           {
             section: 'density',
-            title: 'Density',
+            title: 'Densidad',
             graph: true,
             map: false
           },
           {
             section: 'composition-of-added-area',
-            title: 'Composition of Added Area',
+            title: 'Composición del Área Agregada',
             graph: false,
             map: true
           },
           {
             section: 'roads',
-            title: 'Roads',
+            title: 'Vías',
             graph: true,
             map: true
           },
           {
             section: 'arterial-roads',
-            title: 'Arterial Roads',
+            title: 'Vías Arteriales',
             graph: true,
             map: true
           },
           {
             section: 'blocks-and-plots',
-            title: 'Blocks and Plots',
+            title: 'Manzanas y Lotes',
             graph: true,
             map: true
           }

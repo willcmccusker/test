@@ -6,13 +6,13 @@
       </div>
       <div class='country'>{{city.City.country}}</div>
     </div>
-    <div class='row'>
+<!--     <div class='row'>
       <div class='label'>Region</div>
       <div class='region'>{{city.Region.name}}</div>
-    </div>
+    </div> -->
     <div v-if='sectionKey != 0'>
         <div class='cursor' :class="{open: dropdown}" @click='dropdown = !dropdown' >
-          <div class='more-title' >City Summary</div>
+          <div class='more-title' >Datos Básicos de la Ciudad</div>
         </div>
         <div class='show-more' v-if='dropdown'>
           <div class='label'>{{year}} Población</div>

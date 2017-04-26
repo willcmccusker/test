@@ -76,7 +76,7 @@
 						<th data-sort="int">City Size</th> */?>
 						<th class='no-sort hide-on-mobile'>Áreas y densidades</th>
 						<th class='no-sort hide-on-mobile'>Manzanas y vías</th>
-						<th class='no-sort hide-on-desktop'>Downloads</th>
+						<th class='no-sort hide-on-desktop'>Archivos Descargables</th>
 					</tr>
 				</thead>
 				<tbody class='list'>
@@ -128,7 +128,7 @@
 						</td>			
 						
 						<td class='hide-on-desktop'>
-							<div class='show-links'>Select</div>
+							<div class='show-links'>Seleccione</div>
 							<div class='expansion-links display-none'>
 								<?= $map1  ? "<a download href='".$map1."' target='_blank'>Mapas de Areas y Densidades</a>" : "<span class='no-file'>Mapas de Areas y Densidades</span>";?>
 								<br \>
@@ -160,9 +160,9 @@
 			 </div>
 			 <div class='per-page'>
 			 	<select>
-			 		<option value="10">10 per page</option>
-			 		<option value="50">50 per page</option>
-			 		<option value="100">100 per page</option>
+			 		<option value="10">10 por página</option>
+			 		<option value="50">50 por página</option>
+			 		<option value="100">100 por página</option>
 			 		<option value="200">Mostrar Todos</option>
 			 	</select>
 			 </div>

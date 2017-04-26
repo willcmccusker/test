@@ -64,7 +64,7 @@ let charts = function (city) {
         {
           backgroundColor: 'rgba(52,22,186,1)',
           borderWidth: 0,
-          label: ['Urban Built Up'],
+          label: ['Urbano Edificado'],
           data: [city.DataSet.urban_extent_composition_urban_t1,
             city.DataSet.urban_extent_composition_urban_t2,
             city.DataSet.urban_extent_composition_urban_t3]
@@ -72,7 +72,7 @@ let charts = function (city) {
         {
           backgroundColor: 'rgba(194,121,159,1)',
           borderWidth: 0,
-          label: ['Suburban Built Up'],
+          label: ['Suburbano Edificado'],
           data: [city.DataSet.urban_extent_composition_suburban_t1,
             city.DataSet.urban_extent_composition_suburban_t2,
             city.DataSet.urban_extent_composition_suburban_t3]
@@ -80,7 +80,7 @@ let charts = function (city) {
         {
           backgroundColor: 'rgba(0,0,0,1)',
           borderWidth: 0,
-          label: ['Rural Built Up'],
+          label: ['Rural Edificado'],
           data: [city.DataSet.urban_extent_composition_rural_t1,
             city.DataSet.urban_extent_composition_rural_t2,
             city.DataSet.urban_extent_composition_rural_t3]
@@ -88,7 +88,7 @@ let charts = function (city) {
         {
           backgroundColor: 'rgba(247,245,80,1)',
           borderWidth: 0,
-          label: ['Urbanized Open Space'],
+          label: ['Espacio Abierto Edificado'],
           data: [city.DataSet.urban_extent_composition_open_t1,
             city.DataSet.urban_extent_composition_open_t2,
             city.DataSet.urban_extent_composition_open_t3]
@@ -136,22 +136,22 @@ let charts = function (city) {
       ]
     },
     'arterial_roads': {
-      labels: ['City', 'Region', 'World'],
+      labels: ['Ciudad', 'Region', 'Mundo'],
       datasets: [
         {
-          label: 'Wide',
+          label: 'Vías Anchas',
           suffix: '_wide_',
           backgroundColor: '#F1E0DE',
           borderWidth: 0
         },
         {
-          label: 'Narrow',
+          label: 'Vías Angostas',
           suffix: '_narrow_',
           backgroundColor: '#E1C6C4',
           borderWidth: 0
         },
         {
-          label: 'All',
+          label: 'Todo',
           suffix: '_all_',
           backgroundColor: '#CEADA9',
           borderWidth: 0
@@ -159,27 +159,27 @@ let charts = function (city) {
       ]
     },
     'blocks_and_plots_composition_special_stacked': {
-      labels: ['City', 'Region', 'World'],
+      labels: ['Ciudad', 'Region', 'Mundo'],
       datasets: [
         {
           suffix: '_atomistic_',
           bgColor: 'rgba(202,145,121,1)',
-          label: 'Atomistic Settlements'
+          label: 'Asentamientos Atomísticos'
         },
         {
           suffix: '_informal_',
           bgColor: 'rgba(197,97,77,1)',
-          label: 'Informal Subdivisions'
+          label: 'Subdivisiones Informales'
         },
         {
           suffix: '_formal_',
           bgColor: 'rgba(164,53,43,1)',
-          label: 'Formal Subdivisions'
+          label: 'Subdivisiones Formales'
         },
         {
           suffix: '_housing_',
           bgColor: 'rgba(126,8,18,1)',
-          label: 'Housing Projects'
+          label: 'Proyectos de Vivienda'
         }
       ]
     }
@@ -454,7 +454,7 @@ export let makeChart = function (prefix, city, title, unit = '', multiply = fals
   var suffix1 = side ? '_pre_1990' : '_t1_t2'
   var suffix2 = side ? '_1990_2015' : '_t2_t3'
   var data = {
-    labels: [city.City.name, city.Region.name, 'World'],
+    labels: [city.City.name, city.Region.name, 'Mundo'],
     datasets: [{
       label: side ? city.City.t1.substr(0, 4) + '-' + city.City.t2.substr(0, 4) : city.City.t1.substr(0, 4) + '-' + city.City.t2.substr(0, 4), // 'T1-T2'
       backgroundColor: '#FE8B73',

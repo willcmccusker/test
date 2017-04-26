@@ -1,7 +1,7 @@
 <template>
   <div id='section-summary' class='summary' :class="{open: dropdown}">
     <div class='cursor'  @click='dropdown = !dropdown' >
-      <div class='more-title' >{{section.title}} Summary</div>
+      <div class='more-title' >{{section.title}} Resumen</div>
     </div>
     <div class='show-more' v-if='dropdown'>
   <!--          POPULATION          -->
