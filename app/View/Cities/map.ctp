@@ -36,8 +36,8 @@ var startFrontMap = function(){
   bounds = new L.LatLngBounds(new L.LatLng(-66, -200), new L.LatLng(79, 200));
 
   var map = L.map('worldmap', {
-    maxZoom : 5,
-    minZoom : 3,
+    maxZoom : 7,
+    minZoom : 5,
     // scrollWheelZoom : false,
     zoomControl: false,
     maxBounds: bounds,
@@ -47,6 +47,11 @@ var startFrontMap = function(){
       prefix: false
     }
   }).setView([lat, long], 5);
+
+  L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1p6wvk000552ro5lfefr4wc').addTo(map)
+  L.tileLayer('http://atlasexpansionurbanacolombia.org/tiles/show/All/world/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+
+
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map)
   var activeId = null;
 
@@ -73,7 +78,6 @@ var startFrontMap = function(){
   }
 
 
-  var outline = L.tileLayer('/tiles/show/All/world/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
 
   L.geoJson(<?= $points ?>, {
     pointToLayer: function (feature, latlng) {
@@ -81,7 +85,7 @@ var startFrontMap = function(){
         radius: 3.5,
         stroke: false,
         fillOpacity:1,
-        fillColor: '#666'
+        fillColor: '#F00'
       });
     },
     onEachFeature: function (feature, layer) {
