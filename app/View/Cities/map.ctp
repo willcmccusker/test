@@ -10,7 +10,6 @@
 var startFrontMap = function(){
   var x = document.getElementById("demo");
     if (navigator.geolocation.position) {
-        console.log(navigator.geolocation);
         lat = navigator.geolocation.position.coords.latitude;
         long = navigator.geolocation.position.coords.longitude;
     } else {
@@ -69,7 +68,6 @@ var startFrontMap = function(){
 
   L.geoJson(<?= $points ?>, {
     pointToLayer: function (feature, latlng) {
-      console.log(latlng)
       return L.circleMarker(latlng, {
         radius: 3.5,
         stroke: false,

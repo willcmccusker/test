@@ -984,5 +984,23 @@ body.data {
 	}
 }	
 
+
+/* footer */
+
+footer {
+	width:100%;
+	background-color: $line-grey;
+	line-height:40px;
+	font-size:12px;
+	color: #929292;
+	letter-spacing: 0.86px;
+	a {
+			color: #929292;
+	}
+	.grid {
+		padding-bottom:0px;
+	}
+}
+
 @import "mobile";
 
