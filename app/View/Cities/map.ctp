@@ -3,7 +3,7 @@
 	<div id="worldmap"></div>
   <div class='site-info show-on-mobile grid'>
     <div class='col-1-1'>
-    The <b>Atlas of Urban Expansion</b> collects and analyzes data on the quantity and quality of urban expansion in a stratified global sample of <a href='/cities'>200</a> cities.
+    El <b>Atlas de Expansión Urbana</b> recopila y analiza datos sobre la cantidad y la calidad de la expansión urbana en una grupo de municipios Colombianos. Dicho estudio complementará el recientemente uno recientemente realizado utilizando la misma metodología del estudio global estratificada de <a href='/ciudades'>200</a> ciudades.
     </div>
   </div>
 </div>
