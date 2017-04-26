@@ -110,6 +110,10 @@ body{
 			line-height: 46px;
 		}
 	}
+		&.cities{
+			background-image: none;
+			background-color: white;
+		}
 }
 *{
 	box-sizing: border-box;
@@ -590,18 +594,23 @@ h3.sectionSubHeader {
 	}
 }
 
+.site-info {
+	font-size:32px;
+	line-height: 40px;
+	letter-spacing: 0.25px;
+	margin-top:60px;
+	padding:0px 20px !important;
+	a {
+		text-decoration: underline;
+	}
+}
 #worldmap{
-
 	height:100vh;
 	width:100%;
-
-
 	svg g path{
 		stroke: transparent;
 		stroke-width:10px;
 	}
-
-
 }
 .leaflet-control-attribution{
 }
@@ -857,9 +866,14 @@ body.data {
 
 /* Index */
 #cityList {
-	padding-top: 100px;
+	padding-top: 32px;
 	padding-bottom: 100px;
-
+	.citites-title {
+		padding-left:10px;
+		font-size: 32px;
+		line-height:20px;
+		margin-bottom:32px;
+	}
 	.city:hover {
 		background-color:$lightgrey3;
 	}

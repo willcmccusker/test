@@ -1,7 +1,11 @@
 <? $this->assign('title', "Home");?>
 <div class='position-relative'>
 	<div id="worldmap"></div>
-	<div class='mobile-map-cover'></div>
+  <div class='site-info show-on-mobile grid'>
+    <div class='col-1-1'>
+    The <b>Atlas of Urban Expansion</b> collects and analyzes data on the quantity and quality of urban expansion in a stratified global sample of <a href='/cities'>200</a> cities.
+    </div>
+  </div>
 </div>
 <script>
 
@@ -24,7 +28,7 @@ var startFrontMap = function(){
     }
 
 
-    bounds = new L.LatLngBounds(new L.LatLng(-66, -200), new L.LatLng(79, 200));
+  bounds = new L.LatLngBounds(new L.LatLng(-66, -200), new L.LatLng(79, 200));
 
   var map = L.map('worldmap', {
     maxZoom : 5,

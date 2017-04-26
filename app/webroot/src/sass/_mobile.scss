@@ -5,14 +5,27 @@
 /* tablet */
 @media only screen and (min-width : 0px) and (max-width : $tablet-max-width)  {
 
+
+
 	/* typography */
 
 	body {
 		font-size: $defaulttype - 2;
+		&.map {
+			background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
+			#worldmap {
+				display: none;
+			}
+		}
 	}
 
 	h1#site-title {
-		font-size:$defaulttype - 4;
+		font-size: 16px !important;
+	}
+	body.map {
+			h1#site-title {
+				display: none;
+			}
 	}
 
 	h1, .h1{
@@ -140,9 +153,6 @@
 		}
 		ul.list{
 			columns: 1;
-			.city{
-				display:none;
-			}
 		}
 		@for $i from 0 to 10{
 			&.region-#{$i} > ul > .region-#{$i} .city{

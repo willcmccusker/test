@@ -184,7 +184,7 @@
       left: 50%;
     }
     .linkGroup {
-      margin-bottom:10px;
+      margin-bottom:32px;
     }
 
     .list{
@@ -275,7 +275,7 @@
     }
     #menu-icon {
       width:23px;
-      top:9px;
+      top:11px;
       &.open {
         top:11px;
         width:19px;
@@ -283,7 +283,7 @@
     }
     #search-icon {
       width:19px;
-      top:9px;
+      top:11px;
       right:60px;
     }
   }

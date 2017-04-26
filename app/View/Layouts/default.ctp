@@ -20,71 +20,48 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>Atlas de Expansión Urbana Colombia - <?php echo $this->fetch('title'); ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0, maximum-scale=1, height=device-height, target-densitydpi=device-dpi">
 
- 	<?php
-		// echo $this->Html->meta('icon');
-
-
-?>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0, maximum-scale=1, height=device-height, target-densitydpi=device-dpi">
-
-<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><script type="text/javascript">google.charts.load('current', {packages: ['corechart']});google.charts.setOnLoadCallback(googleChartsReady);</script> -->
-<?
-		echo $this->fetch('meta');
-		echo $this->params->controller == "cities" && $this->params->action == "view" ? $this->fetch('css') : '';
-		echo $this->fetch('script');
-
-	?>
-	<style>
-		.header-bg{
-		    -webkit-transition: filter 1000ms ease;
-		    -moz-transition: filter 1000ms ease;
-		    -ms-transition: filter 1000ms ease;
-		    transition: filter 1000ms ease;
-		    transition: -webkit-filter 1000ms ease;
-		}
-		.cityHeader .header-bg.lazyimg {
-		    -webkit-filter: blur(5px);
-		    -moz-filter: blur(5px);
-		    -ms-filter: blur(5px);
-		    filter: blur(5px);
-		}
-	</style>
+	<?echo $this->fetch('meta');?>
 	<meta name="description" content=""></head>
 	<meta name="keywords" content=""></head>
 	<meta property="og:site_name" content="" />
 	<meta property="og:url" content="" />
 	<meta property="og:description" content="" />
+	
 <?
 		echo $this->Html->css('/dist/css/style.css');
 		echo $this->Html->script('/dist/js/app.min.js');
 ?>
+
 <?if(isset($fbphoto)):?>
 	<meta property="og:image" content="<?=$fbphoto;?>" />
 <?endif;?>
+
 </head>
 <body class='<?= Inflector::slug($this->request->url) == "" ? "map" : Inflector::slug($this->request->url)?>'>
-<?
-	// debug($this->params->controller == "cities" && $this->params->action == "view");
+	<?
 	echo $this->element("vueheader");
 	echo $this->fetch('content');
 	echo $this->params->action == "display" ? $this->element("footer") : '';
-	//echo $this->element('sql_dump'); ?>
+	//echo $this->element('sql_dump'); 
 
-	<?
-		echo $this->Html->css('/mapbox.js/mapbox.css');
-		echo $this->Html->script('/mapbox.js/mapbox.js');
+	echo $this->Html->css('/mapbox.js/mapbox.css');
+	echo $this->Html->script('/mapbox.js/mapbox.js');
 	?>
-	       <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-        setTimeout(function(){
-					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-					})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-					ga('create', 'UA-85794401-1', 'auto');
-					ga('send', 'pageview');
-				},500);
-</script>
+	<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+	<script>
+  L.mapbox.accessToken = 'pk.eyJ1Ijoid2lsbGNtY2N1c2tlciIsImEiOiJjaXF0c2hseGswMDZtZnhuaHlwdmdiOXM1In0._0qo-NTp7TGotAhL6sa4Og'
+
+
+	setTimeout(function(){
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-85794401-1', 'auto');
+	ga('send', 'pageview');
+	},500);
+	</script>
 </body>
 </html>
