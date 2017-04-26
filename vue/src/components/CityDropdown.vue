@@ -135,7 +135,7 @@
       }
       input {
         font-size:14px;
-        font-family: helvetica;
+        font-family: 'SuisseBPIntl', helvetica;
         width:100%;
         height: 30px;
         line-height:30px;
