@@ -29,10 +29,8 @@
 	<meta property="og:url" content="" />
 	<meta property="og:description" content="" />
 	
-<?
-		echo $this->Html->css('/dist/css/style.css');
-		echo $this->Html->script('/dist/js/app.min.js');
-?>
+		<?echo $this->Html->css('/dist/css/style.css');?>
+		<?echo $this->Html->script('/dist/js/app.min.js');?>
 
 <?if(isset($fbphoto)):?>
 	<meta property="og:image" content="<?=$fbphoto;?>" />
@@ -63,5 +61,6 @@
 	ga('send', 'pageview');
 	},500);
 	</script>
+	<?echo $this->Html->css('/john-style.css');?>
 </body>
 </html>

@@ -2,7 +2,7 @@
    <header class="header">
       <div id="site-title">
         <h1 id="site-title">
-          <a href="/">Atlas de Expansión Urbana Colombia</a>
+          <a href="/"><span class='hide-on-mobile'>Atlas de </span>Expansión Urbana Colombia</a>
         </h1>
       </div>
       <div @click="clicked('s')" id='search-icon'></div>
