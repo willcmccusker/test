@@ -215,8 +215,8 @@
         var options = {
           tms: true,
           subdomains: 'abc',
-          mine: true,
-          maxZoom: 13
+          mine: true
+          // maxZoom: 13
         }
         switch (this.section.section) {
           case ('population'):
