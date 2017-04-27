@@ -239,7 +239,7 @@
             var yearCount = this.section.section === 'urban-extent' ? 3 : 2
             options.opacity = 0.7
             this.addYearLayers(yearCount, options)
-            // this.map.setZoom(11)
+            this.map.setZoom(13)
             break
           case ('arterial-roads'):
             name = this.maps['arterial-roads'][0].name
@@ -252,7 +252,7 @@
               u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
               this.allLayers[name] = this.generateLayer(name, u, options)
             }
-            // this.map.setZoom(12)
+            this.map.setZoom(13)
             break
           case ('blocks-and-plots'):
             // falls through
@@ -261,7 +261,7 @@
             // options.maxZoom = 17
             yearCount = 2
             this.addYearLayers(yearCount, options)
-            // this.map.setZoom(15)
+            this.map.setZoom(13)
             break
         }
         if (this.labelsMap) {
