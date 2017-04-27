@@ -180,20 +180,20 @@ class CitiesController extends AppController {
 
 		$fbphoto = "/file-manager/userfiles/photo/".$city["City"]["photo_path"];
 
-		App::uses('Text', 'Model');
-		$this->Text = new Text;
-		$dynamicTexts = $this->Text->find("all", array(
-			"conditions"=>array(
-				"Text.type"=>"dynamic"
-				)
-			));
-		$dynamicTexts = $this->Text->dynam($dynamicTexts, $city);
+		// App::uses('Text', 'Model');
+		// $this->Text = new Text;
+		// $dynamicTexts = $this->Text->find("all", array(
+		// 	"conditions"=>array(
+		// 		"Text.type"=>"dynamic"
+		// 		)
+		// 	));
+		// $dynamicTexts = $this->Text->dynam($dynamicTexts, $city);
 
-		$tooltips = $this->Text->find("all", array(
-			"conditions"=>array(
-				"Text.type"=>"tooltip"
-				)
-			));
+		// $tooltips = $this->Text->find("all", array(
+		// 	"conditions"=>array(
+		// 		"Text.type"=>"tooltip"
+		// 		)
+		// 	));
 
 		$this->set(compact("city", "dynamicTexts", "tooltips", "fbphoto"));
 		$this->render('vue');
