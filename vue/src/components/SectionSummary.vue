@@ -49,7 +49,7 @@
   <!--          ARTERIAL ROADS          -->
       <div v-else-if="section.section === 'arterial-roads'">
         <div class='grid no-pad' v-html="t1_3"></div>
-        <div class='grid no-pad no-pad-bottom' v-html="title('Density of Arterial Roads (km/km2)')"></div>
+        <div class='grid no-pad no-pad-bottom' v-html="title('Density of Arterial Roads (km/km&sup2;)')"></div>
         <div class='grid no-pad' v-html="changeT1_13('arterial_roads_density_all')"></div>
         <div class='grid no-pad no-pad-bottom' v-html="title('Share of built up area within walking distance of an arterial road')"></div>
         <div class='grid no-pad' v-html="changeT1_13('arterial_roads_walking_all', true)"></div>
