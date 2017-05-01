@@ -14,15 +14,15 @@ default * 5
 
 @font-face {
 	font-family: 'SuisseBPIntl';
-	src: url('/fonts/SuisseBPIntl-Regular.ttf');
-	src: url('/fonts/SuisseBPIntl-Regular.woff') format('woff');
+	src: url('/fonts/SuisseIntl-Regular-WebS.ttf'),
+	url('/fonts/SuisseIntl-Regular-WebS.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'SuisseBPIntl';
-	src: url('/fonts/SuisseBPIntl-Antique.ttf');
-	src: url('/fonts/SuisseBPIntl-Antique.woff') format('woff');
+	src: url('/fonts/SuisseIntl-SemiBold-WebS.ttf'),
+	url('/fonts/SuisseIntl-SemiBold-WebS.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 }
