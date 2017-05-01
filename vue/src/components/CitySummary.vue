@@ -40,7 +40,7 @@
     props: ['city', 'sectionKey'],
     data () {
       return {
-        dropdown: false
+        dropdown: true
       }
     },
     computed: {
