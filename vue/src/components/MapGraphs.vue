@@ -41,12 +41,12 @@
         // if map is false and current graph is false map is true
         // if map is true and current map is false map is false
         // if map is false and current graph is true map is false
-        this.maps =
-        (
-          (this.maps && this.currentSection.map) || (!this.maps && !this.currentSection.graph)
-        ) || !(
-          (this.maps && !this.currentSection.map) || (!this.maps && this.currentSection.graph)
-        )
+        this.maps = this.currentSection.map
+        // (
+        //   (this.maps && this.currentSection.map) || (!this.maps && !this.currentSection.graph)
+        // ) || !(
+        //   (this.maps && !this.currentSection.map) || (!this.maps && this.currentSection.graph)
+        // )
       }
     },
     components: {

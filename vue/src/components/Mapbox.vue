@@ -252,7 +252,7 @@
               u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + url + '/{z}/{x}/{y}.png'
               this.allLayers[name] = this.generateLayer(name, u, options)
             }
-            this.map.setZoom(13)
+            this.map.setZoom(14)
             break
           case ('blocks-and-plots'):
             // falls through

@@ -187,7 +187,7 @@
         let chart = {}
         let id = 'arterial_roads_density_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
-        chart[id] = makeRoadChart(id, this.city, 'Density of Arterial Roads (km/km2)', ' km/km2', undefined, this.laterYear)
+        chart[id] = makeRoadChart(id, this.city, 'Density of Arterial Roads (km/km&sup2;)', ' km/km&sup2;', undefined, this.laterYear)
         id = 'arterial_roads_walking_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
         chart[id] = makeRoadChart(id, this.city, 'Share of Area Within Walking Distance of Arterial Roads', '%', 100, this.laterYear)
