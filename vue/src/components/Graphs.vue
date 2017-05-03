@@ -187,7 +187,7 @@
         let chart = {}
         let id = 'arterial_roads_density_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
-        chart[id] = makeRoadChart(id, this.city, 'Densidad de Vías Arteriales (km/km&sup2;)', ' km/km&sup2;', undefined, this.laterYear)
+        chart[id] = makeRoadChart(id, this.city, 'Densidad de Vías Arteriales (km/km²)', ' km/km²', undefined, this.laterYear)
         id = 'arterial_roads_walking_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
         chart[id] = makeRoadChart(id, this.city, 'Porcentaje de Área a distancia caminable de vías arteriales', '%', 100, this.laterYear)
@@ -283,7 +283,7 @@
             chart[id] = makeChart(id, this.city, 'Tamaño promedio de un lote (Héctares)', ' Héctares', undefined, true)
             id = 'blocks_plots_average_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeBlockChart(id, this.city, 'Promedio del tamaño de los lotes (m&sup2;)', ' m&sup2;')
+            chart[id] = makeBlockChart(id, this.city, 'Promedio del tamaño de los lotes (m²)', ' m²')
             break
         }
         this.chartObjects = Object.assign({}, this.chartObjects, chart)
