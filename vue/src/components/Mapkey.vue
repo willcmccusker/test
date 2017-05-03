@@ -6,7 +6,7 @@
         <div class='map-key-period' v-html='i.display'></div>
       </div>
     </div>
-    <div v-if='section.section === "urban-extent"' class='cursor showLayers' @click='extraLayersVisible = !extraLayersVisible'>{{extraLayersVisible ? 'Hide': 'Show'}} Urban Composition</div>
+    <div v-if='section.section === "urban-extent"' class='cursor showLayers' @click='extraLayersVisible = !extraLayersVisible'>{{extraLayersVisible ? 'Ocultar': 'Mostrar'}} Composición Urbana</div>
     <div v-if='extraLayersVisible' class='map-key-layers '>
       <div @click='checkLayer(index, layer)' :class="{'no-click' : section.section === 'blocks-and-plots'}" class='layer-action cursor' v-for='layer, index in layersFiltered'>
         <div class='layer-checkbox' :style="layerStyle(layer)"></div>
