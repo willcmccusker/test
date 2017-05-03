@@ -320,7 +320,7 @@
 }
 #section-graphs {
   position:relative;
-  z-index: 3;
+  z-index: 1;
   padding-left: 306px;
   padding-right:16px;
   & > div {

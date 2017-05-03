@@ -297,6 +297,7 @@
   #map{
     position:static;
     height:auto;
+    z-index:0;
     #mapbox {
       width: calc(100% - 40px);
       margin:auto;
