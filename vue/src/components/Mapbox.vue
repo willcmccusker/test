@@ -1,6 +1,7 @@
 <template>
   <div id='map'>
     <mapkey 
+    v-if='mapkeyON'
     v-on:remove-all='removeAll'
     v-on:add-layer='addLayer' 
     v-on:remove-layer='removeLayer' 
@@ -22,7 +23,7 @@
   export default {
 
     name: 'Mapbox',
-    props: ['city', 'section'],
+    props: ['city', 'section', 'mapkeyON'],
     components: {
       Mapkey
     },

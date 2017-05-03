@@ -137,5 +137,10 @@
 
 @import '../../../app/webroot/src/sass/vars';
 @import '../assets/colors';
-
+header.city-header {
+  filter: invert(100%);
+  img {
+    filter: invert(100%);
+  }
+}
 </style>

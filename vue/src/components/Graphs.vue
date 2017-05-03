@@ -319,6 +319,8 @@
   }
 }
 #section-graphs {
+  position:relative;
+  z-index: 3;
   padding-left: 306px;
   padding-right:16px;
   & > div {
