@@ -102,8 +102,8 @@
   .flag{
     img {
       vertical-align:top;
-      max-width: 26px;
-      max-height: 17px;
+      max-width: 35px;
+      // max-height: 17px;
     }
   }
 }

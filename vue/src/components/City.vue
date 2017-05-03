@@ -131,9 +131,12 @@
           })
         }
         return {
-          'background-image': 'url("' + image + this.city.City.photo_path + '")'
+          'background-image': 'linear-gradient(-180deg, #C5C5C5 0%, #616161 98%), url("' + image + this.city.City.photo_path + '")'
         }
       }
+    },
+    mounted () {
+      this.$parent.section = 'city-header'
     },
     methods: {
       commas () {
@@ -150,6 +153,11 @@
       },
       setKey (index) {
         this.sectionKey = index
+      }
+    },
+    watch: {
+      currentSection () {
+        this.$parent.section = this.currentSection.section
       }
     },
     components: {
@@ -178,6 +186,7 @@
   background-repeat: no-repeat;
   background-color: #C5C5C5;
   background-blend-mode: multiply; /* no ie support */
+  /* Rectangle 16: */
   min-height: 100vh;
   padding-top:54px;
   #city-header-data {

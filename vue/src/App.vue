@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <toolbar></toolbar>
+    <toolbar :class='section'></toolbar>
     <city v-if='$city'></city>
   </div>
 </template>
@@ -12,6 +12,11 @@ import Toolbar from './components/Toolbar'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      section: 'map'
+    }
+  },
   components: {
     City,
     Toolbar
