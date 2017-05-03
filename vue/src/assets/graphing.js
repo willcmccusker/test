@@ -136,7 +136,7 @@ let charts = function (city) {
       ]
     },
     'arterial_roads': {
-      labels: ['Ciudad', 'Region', 'Mundo'],
+      labels: ['Ciudad', 'Región', 'Mundo'],
       datasets: [
         {
           label: 'Vías Anchas',
@@ -159,7 +159,7 @@ let charts = function (city) {
       ]
     },
     'blocks_and_plots_composition_special_stacked': {
-      labels: ['Ciudad', 'Region', 'Mundo'],
+      labels: ['Ciudad', 'Región', 'Mundo'],
       datasets: [
         {
           suffix: '_atomistic_',

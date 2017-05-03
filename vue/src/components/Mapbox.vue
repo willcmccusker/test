@@ -84,11 +84,11 @@
           ],
           'density': false,
           'composition-of-added-area': [
-            {on: true, display: 'Built-up Area', name: 'addedArea_??_builtUp', url: '/added_area/built_up_area_??/', color: 'rgba(52,22,186,0.5)'},
-            {on: true, display: 'Infill', name: 'addedArea_??_infill', url: '/added_area/infill_??_!!/', color: 'rgba(255,1,196,0.5)'},
-            {on: true, display: 'Extension', name: 'addedArea_??_extension', url: '/added_area/extension_??_!!/', color: 'rgba(255,255,16,0.5)'},
-            {on: true, display: 'Leapfrog', name: 'addedArea_??_leapfrog', url: '/added_area/leapfrog_??_!!/', color: 'rgba(254,0,0,0.5)'},
-            {on: true, display: 'Inclusion', name: 'addedArea_??_inclusion', url: '/added_area/inclusion_??_!!/', color: 'rgba(53,136,102,0.5)'}
+            {on: true, display: 'Área Construida', name: 'addedArea_??_builtUp', url: '/added_area/built_up_area_??/', color: 'rgba(52,22,186,0.5)'},
+            {on: true, display: 'Relleno', name: 'addedArea_??_infill', url: '/added_area/infill_??_!!/', color: 'rgba(255,1,196,0.5)'},
+            {on: true, display: 'Extensión', name: 'addedArea_??_extension', url: '/added_area/extension_??_!!/', color: 'rgba(255,255,16,0.5)'},
+            {on: true, display: 'Crecimiento Discontinuo', name: 'addedArea_??_leapfrog', url: '/added_area/leapfrog_??_!!/', color: 'rgba(254,0,0,0.5)'},
+            {on: true, display: 'Inclusión', name: 'addedArea_??_inclusion', url: '/added_area/inclusion_??_!!/', color: 'rgba(53,136,102,0.5)'}
           ],
           'arterial-roads': [
             {on: true, name: 'arterials', url: '/arterials/arterials/'}
@@ -102,8 +102,8 @@
             {on: true, display: 'Subdivisiones Informales', color: '#BF614D'},
             {on: true, display: 'Subdivisiones Formales', color: '#A4352B'},
             {on: true, display: 'Proyectos de Vivienda', color: '#7E0812'},
-            {on: true, display: 'Open Space', color: '#7fe900'},
-            {on: true, display: 'Non Residential', color: '#9ce8ff'}
+            {on: true, display: 'Espacio Abierto', color: '#7fe900'},
+            {on: true, display: 'No Residencial', color: '#9ce8ff'}
           ]
         },
         timePeriods: ['t1', 't2', 't3']
