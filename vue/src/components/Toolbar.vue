@@ -16,7 +16,7 @@
           </div>
         </div>
         <div v-else-if='search'>
-          <input ref='input' @focus='poppedUp = true' v-model='searchFilter' class="search" id="search" placeholder="Type to Search">
+          <input ref='input' @focus='poppedUp = true' v-model='searchFilter' class="search" id="search" placeholder="Escribe para buscar">
           <ul class="list" >
             <li v-for='city in searchResults'>
               <a :href="'/cities/view/' + city.City.slug">
