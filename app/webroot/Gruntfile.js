@@ -21,7 +21,7 @@ module.exports = function (grunt) {
             // 'node_modules/big.js/big.min.js',
             'src/js/jquery-3.1.0.min.js',
             // 'src/js/jquery.easyListSplitter.ignore.js',
-            // 'src/js/headroom.min.js',
+            'src/js/headroom.min.js',
             // 'src/js/jquery.onscreen.min.js',
             // 'src/js/leaflet.min.js',
             // 'src/js/mapbox.standalone.js',
