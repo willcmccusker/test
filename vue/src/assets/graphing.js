@@ -609,7 +609,7 @@ export let makeLine = function (prefix, city, title, unit = '') {
             displayFormats: {
               quarter: 'MMM YYYY'
             },
-            min: new Date('1988-01-01'),
+            min: new Date('1985-01-01'),
             max: new Date('2016-01-01'),
             unitStepSize: 5
           }
