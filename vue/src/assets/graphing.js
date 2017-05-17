@@ -59,7 +59,7 @@ Chart.defaults.global = MergeRecursive(Chart.defaults.global, globalOptions)
 let charts = function (city) {
   return {
     'urban_extent_composition_stacked_bar': {
-      labels: ['T1', 'T2', 'T3'],
+      labels: [city.City.t1.substr(0, 4), city.City.t2.substr(0, 4), city.City.t3.substr(0, 4)],
       datasets: [
         {
           backgroundColor: 'rgba(52,22,186,1)',
