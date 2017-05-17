@@ -136,7 +136,7 @@ let charts = function (city) {
       ]
     },
     'arterial_roads': {
-      labels: ['Ciudad', 'Región', 'Mundo'],
+      labels: ['Ciudad', city.Region.name /* 'Región' */, 'Mundo'],
       datasets: [
         {
           label: 'Vías Anchas',

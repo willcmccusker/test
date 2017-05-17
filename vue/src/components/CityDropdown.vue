@@ -48,7 +48,7 @@
     computed: {
       citiesOrdered () {
         return this.cities.sort(function (a, b) {
-          return a.Region.name === b.Region.name ? (a.City.name > b.City.name ? 1 : -1) : (a.Region.name > b.Region.name ? 1 : -1)
+          return a.City.country === b.City.country ? (a.City.name > b.City.name ? 1 : -1) : (a.City.country > b.City.country ? 1 : -1)
         })
       },
       citiesGrouped () {
