@@ -8,7 +8,7 @@
       <div class='clear'></div>
       <graphs v-if='currentSection.graph && !maps' :city='city' :section='currentSection'></graphs>
     </div>
-    <mapbox v-if='currentSection.map' :mapkeyON='maps' :city='city' :section='currentSection'></mapbox>
+    <mapbox :class='{maps: maps, graphs:!maps}' v-if='currentSection.map' :mapkeyON='maps' :city='city' :section='currentSection'></mapbox>
   </div>
 </template>
 
@@ -56,11 +56,15 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import '../../../app/webroot/src/sass/vars';
 
 @import '../assets/colors.scss';
-
+#map.graphs {
+  .leaflet-control-zoom {
+    display: none;
+  }
+}
 .tabs {
   z-index:1;
   position:relative;
