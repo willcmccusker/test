@@ -19,10 +19,10 @@
           <div class='amount' v-html='commas(city.City.population)'></div>
          
           <div class='label'>{{year}} Urban Extent</div>
-          <div class='amount' v-html='commas(city.City.extent)'></div>
+          <div class='amount' v-html="commas(city.City.extent) + ' persons/hectare'"></div>
           
           <div class='label'>{{year}} Density</div>
-          <div class='amount' v-html='commas(city.City.density)'></div>
+          <div class='amount' v-html="commas(city.City.density) + ' hectares'"></div>
 
         </div>
       </div>
