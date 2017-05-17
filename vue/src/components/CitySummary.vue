@@ -19,10 +19,10 @@
           <div class='amount' v-html='commas(city.City.population)'></div>
          
           <div class='label'>{{year}} Huella Urbana</div>
-          <div class='amount' v-html='commas(city.City.extent)'></div>
+          <div class='amount' v-html="commas(city.City.extent) + ' personas/hectáreas'"></div>
           
           <div class='label'>{{year}} Densidad</div>
-          <div class='amount' v-html='commas(city.City.density)'></div>
+          <div class='amount' v-html="commas(city.City.density) + ' hectáreas'"></div>
 
         </div>
       </div>
