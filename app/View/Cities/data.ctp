@@ -79,6 +79,7 @@
 				<tbody class='list'>
 					<?
 					$download_path = "/file-manager/userfiles/data_page/";
+					// $download_path = "http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/";
 					foreach($cities as $i=>$city):
 
 						?>

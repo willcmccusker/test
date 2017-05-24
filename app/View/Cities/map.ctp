@@ -69,7 +69,7 @@ var startFrontMap = function(){
   }
 
 
-  var outline = L.tileLayer('/tiles/show/All/world/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
+  var outline = L.tileLayer('http://atlasofurbanexpansion.org/tiles/show/All/world/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);
 
   L.geoJson(<?= $points ?>, {
     pointToLayer: function (feature, latlng) {

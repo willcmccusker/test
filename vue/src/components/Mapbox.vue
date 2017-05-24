@@ -34,7 +34,7 @@
         labelsMap: false,
         allLayers: {},
         layersLoading: [],
-        host: 'dev.atlasofurbanexpansion.org',
+        host: '{s}.atlasofurbanexpansion.org',
         localhost: 'dev.atlasofurbanexpansion.org',
         maps: {
           'population': false,
@@ -206,6 +206,7 @@
             var url = layerType.url.replaceAll('??', 't' + j).replace('!!', 't' + (j + 1))
             var u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + url + '{z}/{x}/{y}.png'
             var layer = this.generateLayer(name, u, options)
+
             if (!this.allLayers[name]) {
               this.allLayers[name] = layer
             }
@@ -230,7 +231,7 @@
                 options.opacity = 0.7
                 options.name = 'extent_' + name
                 if (!this.allLayers['extent_' + name]) {
-                  var u = 'http://' + this.localhost + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png'
+                  var u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png'
                   this.allLayers['extent_' + name] = this.generateLayer(name, u, options)
                 }
               }
