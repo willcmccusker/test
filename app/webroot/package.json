@@ -2,9 +2,10 @@
   "name": "atlas",
   "version": "0.1.0",
   "devDependencies": {
+    "compass": "^0.1.1",
     "grunt": "~0.4.4",
     "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-compass": "latest",
+    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-concat": "^1.0.0",
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-uglify": "latest",

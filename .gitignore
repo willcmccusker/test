@@ -10,6 +10,8 @@
 /tags
 *.mo
 
+/vue/
+
 /app/webroot/photos
 /app/webroot/file-manager/*
 !/app/webroot/file-manager/connectors/
