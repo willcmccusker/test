@@ -19,7 +19,7 @@
   export default {
 
     name: 'SectionDropdown',
-    props: ['sections', 'sectionKey', 'currentSection'],
+    props: ['sections', 'sectionKey'],
     data () {
       return {
         dropdown: false
