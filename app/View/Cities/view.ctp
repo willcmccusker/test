@@ -780,8 +780,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				<h3 class='sectionSubHeader' >Blocks and Plots</h3>
 				<p><?= $dynamicTexts["blocks_and_plots"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
-					<li> <label><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1"  data-target="blocks"/>Pre 1990</label>
-					<li> <label  class=" current-year"><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2" checked="checked" data-target="blocks" /> 1990 – 2014 </label>
+					<li> <label class=" current-year"><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t1"  checked="checked" data-target="blocks"/>Pre 1990</label>
+					<li> <label  ><input class="periodToggle blocks" type="radio" name="blocksPeriod" value="t2"  data-target="blocks" /> 1990 – 2014 </label>
 				</ul>
 			</div>
 			<div class='col-6-8 tab-1-1 mob-1-1'>
@@ -819,9 +819,9 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 							});
 
 						allMaps.blocks_t1_layer = L.layerGroup([
-							allMaps.t1_blocks]);
+							allMaps.t1_blocks]).addTo(allMaps.blocks);
 						allMaps.blocks_t2_layer = L.layerGroup([
-							allMaps.t2_blocks]).addTo(allMaps.blocks);
+							allMaps.t2_blocks]);
 					}
 				</script>
 			</div>
