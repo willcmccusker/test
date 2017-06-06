@@ -23,7 +23,7 @@
         <div class='value' v-html='commas(city.City.density)'>
         </div>
         <div class='unit'>
-        personas/hectáreas
+        personas/hectárea
         </div>
       </div>
       <div class='col-1-3 mob-1-1'>
