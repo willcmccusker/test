@@ -589,8 +589,8 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 				<h3 class='sectionSubHeader' >Roads</h3>
 				<p><?= $dynamicTexts["roads"]["Text"]["content"];?></p>
 				<ul  class='map-legend-years'>
-					<li> <label><input class="periodToggle roads" type="radio" name="roadsPeriod" value="t1"  data-target="roads"/>Pre 1990</label>
-					<li> <label  class=" current-year"><input class="periodToggle roads" type="radio" name="roadsPeriod" checked="checked" value="t2" data-target="roads" />1990 – 2014</label>
+					<li> <label  class=" current-year"><input class="periodToggle roads" type="radio" name="roadsPeriod" checked="checked" value="t1"  data-target="roads"/>Pre 1990</label>
+					<li> <label ><input class="periodToggle roads" type="radio" name="roadsPeriod"  value="t2" data-target="roads" />1990 – 2014</label>
 				</ul>
 			</div>
 			<div class='col-6-8 tab-1-1 mob-1-1'>
@@ -643,10 +643,10 @@ $host = $host[count($host) - 2].".".$host[count($host)-1];
 
 					allMaps.roads_t1_layer = L.layerGroup([
 						allMaps.t1_roads, 
-						allMaps.t1_locales]);
+						allMaps.t1_locales]).addTo(allMaps.roads);
 					allMaps.roads_t2_layer = L.layerGroup([
 						allMaps.t2_roads, 
-						allMaps.t2_locales]).addTo(allMaps.roads);
+						allMaps.t2_locales]);
 				}
 				</script>
 			</div>
