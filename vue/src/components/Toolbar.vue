@@ -27,7 +27,7 @@
                     </div>
                   </div>
                   <div class="popup-city-city" v-html='city.City.name'></div>
-                  <div class="popup-city-region" v-html='city.Region.name'></div>
+                  <div class="popup-city-region" v-html='city.City.country'></div>
                 </div> 
               </a>
             </li>

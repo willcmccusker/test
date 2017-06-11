@@ -5,9 +5,45 @@
 	</div>
 </div>
 
+
+<div class='grid left about'>
+	<div class='col-1-1 data-analysis'>
+		<div class=' data-section-title'>
+			<p>La ciudad como una unidad de análisis y el universo de ciudades.</p>
+		</div>
+		<p>El presente análisis estudia 106 municipios y 14 aglomeraciones de diferentes tamaños y regiones de la República de Colombia.
+		Si bien existe un acuerdo casi universal según el cual un asentamiento de 100,000 personas o más constituye una ciudad. Este estudio particular ha revisado asentamientos humanos de diferentes tamaños aún por debajo del límite de 100 mil habitantes con el fin de lograr un mejor entendimiento de estos. 
+		El presente estudio reconoce municipios individuales, pero adicionalmente analiza aglomeraciones en su conjunto: las áreas urbanas contiguas que pueden contener varios municipios se consideran una sola ciudad.</p>
+		<p>Definimos las ciudades por la extensión del área construida, más que por sus límites administrativos o jurisdiccionales. El extrema tectorum -  el límite del área construida de la ciudad, como se calificó en la antigua Roma-  define la ciudad y la ciudad así definida es nuestra unidad de análisis. Hemos identificado 4.231 ciudades en todo el mundo que fueron hogar de 100,000 personas o más en 2010. Estas 4.231 ciudades constituyen nuestro Universo de Ciudades con una población total de 2.500 millones o el 70 por ciento de los 3.600 millones de habitantes urbanos del planeta en 2010.</p>
+	</div>
+</div>
+
+
+
+
+<div class='grid left about'>
+	<div class='col-1-1'>
+		<div class='data-section-title border-above'>Metodología</div>
+		<div class='data-methodology'>
+			<a class=" download-title download-link" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.pdf"><span class='under'>Listado de Ciudades</span> (PDF)</a> <a href='http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.xlsx'>(XLSX)</a>
+			<br/>
+			<a class="download-link  download-title " href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Introducción.pdf"> <span class='under'>Introducción</span> (PDF)</a>
+			<br/>
+			<a class="download-link download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Como Comprender y Medir la Expansion Urbana.pdf"> <span class='under'>Entender y medir la Expansión Urbana</span> (PDF)</a>
+		</div>
+		<div class='data-section-title'>Tablas</div>
+		<div class='data-tables'>
+			<p>
+				Áreas y Densidades <a class="download-link " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.csv?time=1476445928498">CSV</a>,&nbsp;<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.xlsx?time=1476445970255">XLSX</a>&nbsp;<br/>
+				Manzanas y vías <a class="download-link " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.csv?time=1476446017157">CSV</a>,&nbsp;<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.xlsx?time=1476446050567">XLSX</a><br/>
+			</p>
+		</div>
+	</div>
+</div>
+
 <div class='grid left about data-pic-links'>
 	<div class='col-1-1'>
-		<div class='data-section-title'>Descargar la edición impresa</div>
+		<div class='data-section-title border-above'>Descargar la edición impresa</div>
 	</div>
 	<div class='col-1-2 mob-1-1'>
 		<a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Full Volumes/Atlas of Urban Expansion 2016 Volume 1 - Areas and Densities.pdf?time=1476445777143">
@@ -22,44 +58,9 @@
 			<div class='download-title'>Volumen 2: Manzanas y vías</div>
 			<div class="download-size">(PDF – 932 Mb)</div>
 		</a> 
+		<br/>
 	</div>
 </div>
-
-<div class='grid left about'>
-	<div class='col-1-1'>
-		<div class='data-section-title border-above'>Metodología</div>
-		<div class='data-methodology'>
-			<a class=" download-title download-link" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/The_Global_Sample_of_Cities.pdf?time=1476446504182"><span class='under'>Listado de Ciudades</span> (PDF)</a>
-			<br/>
-			<a class="download-link  download-title " href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/Understanding_and_Measuring_Urban_Expansion.pdf?time=1476446554646"> <span class='under'>Entender y medir la Expansión Urbana</span> (PDF)</a>
-			<br/>
-			<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Methodology/Understanding_and_Measuring_Urban_Layouts.pdf?time=1476446569669"> <span class='under'>Entender y medir los trazados urbanos</span> (PDF)</a>
-		</div>
-		<div class='data-section-title'>Tablas</div>
-		<div class='data-tables'>
-			<p>
-				Áreas y Densidades <a class="download-link " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.csv?time=1476445928498">CSV</a>,&nbsp;<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.xlsx?time=1476445970255">XLSX</a>&nbsp;<br/>
-				Manzanas y vías <a class="download-link " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.csv?time=1476446017157">CSV</a>,&nbsp;<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.xlsx?time=1476446050567">XLSX</a><br/>
-				Historical Data for Blocks and Roads <a class="download-link " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_2.csv?time=1476446170646">CSV</a>,&nbsp;<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_2.xlsx?time=1476446193604">XLSX</a>
-			</p>
-		</div>
-	</div>
-</div>
-
-<div class='grid left about'>
-	<div class='col-1-1 data-analysis'>
-		<div class='border-above data-section-title'>
-			<p>La ciudad como una unidad de análisis y el universo de ciudades.</p>
-		</div>
-
-		<p>El presente análisis estudia 106 municipios y 14 aglomeraciones de diferentes tamaños y regiones de la República de Colombia.
-		Si bien existe un acuerdo casi universal según el cual un asentamiento de 100,000 personas o más constituye una ciudad. Este estudio particular ha revisado asentamientos humanos de diferentes tamaños aún por debajo del límite de 100 mil habitantes con el fin de lograr un mejor entendimiento de estos. 
-		El presente estudio reconoce municipios individuales, pero adicionalmente analiza aglomeraciones en su conjunto: las áreas urbanas contiguas que pueden contener varios municipios se consideran una sola ciudad.</p>
-		<p>Definimos las ciudades por la extensión del área construida, más que por sus límites administrativos o jurisdiccionales. El extrema tectorum -  el límite del área construida de la ciudad, como se calificó en la antigua Roma-  define la ciudad y la ciudad así definida es nuestra unidad de análisis. Hemos identificado 4.231 ciudades en todo el mundo que fueron hogar de 100,000 personas o más en 2010. Estas 4.231 ciudades constituyen nuestro Universo de Ciudades con una población total de 2.500 millones o el 70 por ciento de los 3.600 millones de habitantes urbanos del planeta en 2010.
-</p><br/>
-	</div>
-</div>
-
 
 
 <div class='grid data left about'>

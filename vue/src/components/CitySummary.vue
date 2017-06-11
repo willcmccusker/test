@@ -96,13 +96,13 @@
   }
   .region, .country {
     color: $dark-grey;
-    font-size:12px;
-    line-height:20px;
+    font-size:14px;
+    line-height:35px;
   }
   .flag{
     img {
       vertical-align:top;
-      max-width: 35px;
+      max-height: 35px;
       // max-height: 17px;
     }
   }
