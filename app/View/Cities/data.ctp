@@ -25,17 +25,17 @@
 	<div class='col-1-1'>
 		<div class='data-section-title border-above'>Metodología</div>
 		<div class='data-methodology'>
-			<a class=" download-title download-link" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.pdf"><span class='under'>Listado de Ciudades</span> (PDF)</a> <a href='http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.xlsx'>(XLSX)</a>
+			<a class=" download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.pdf"><span class='under'>Listado de Ciudades</span> (PDF)</a> <a class='download-title download-link' href='http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.xlsx'>(XLSX)</a>
 			<br/>
-			<a class="download-link  download-title " href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Introducción.pdf"> <span class='under'>Introducción</span> (PDF)</a>
+			<a class="download-link  download-title " href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Introduccion.pdf"> <span class='under'>Introducción</span> (PDF)</a>
 			<br/>
 			<a class="download-link download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Como Comprender y Medir la Expansion Urbana.pdf"> <span class='under'>Entender y medir la Expansión Urbana</span> (PDF)</a>
 		</div>
 		<div class='data-section-title'>Tablas</div>
 		<div class='data-tables'>
 			<p>
-				Áreas y Densidades <a class="download-link " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.csv?time=1476445928498">CSV</a>,&nbsp;<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.xlsx?time=1476445970255">XLSX</a>&nbsp;<br/>
-				Manzanas y vías <a class="download-link " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.csv?time=1476446017157">CSV</a>,&nbsp;<a class="download-link download-title" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.xlsx?time=1476446050567">XLSX</a><br/>
+				Áreas y Densidades <a  class="download-link download-title" download="" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Colombia_Areas_and_Densities_Table.xlsx">XLSX</a><!--,&nbsp;<a  href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Areas_and_Densities_Tables/Areas_and_Densities_Table_1.xlsx?time=1476445970255">XLSX</a>&nbsp;--><br/>
+				Manzanas y vías <!--<a class="download-link download-title  " download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Blocks_and_Roads_Table_1.csv?time=1476446017157">CSV</a>,&nbsp;--><a class="download-link download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Blocks_and_Roads_Tables/Colombia_Blocks_and_Roads_Table.xlsx">XLSX</a><br/>
 			</p>
 		</div>
 	</div>
@@ -46,17 +46,17 @@
 		<div class='data-section-title border-above'>Descargar la edición impresa</div>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Full Volumes/Atlas of Urban Expansion 2016 Volume 1 - Areas and Densities.pdf?time=1476445777143">
+		<a class="download-link" download="" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Full_Volumes/Atlas Volumen I.pdf">
 			<img src='/img/blue-book.png'>
 			<div class='download-title'>Volumen 1: Áreas y densidades</div>
-			<div class="download-size">(PDF – 649 Mb)</div>
+			<div class="download-size">(PDF – 661 Mb)</div>
 		</a>
 	</div>
 	<div class='col-1-2 mob-1-1'>
-		<a class="download-link" download="" href="http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/Full Volumes/Atlas of Urban Expansion 2016 Volume 2 - Blocks and Roads.pdf?time=1476445725960">
+		<a class="download-link" download="" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Full_Volumes/Atlas Volumen II.pdf">
 			<img src='/img/red-book.png'>
 			<div class='download-title'>Volumen 2: Manzanas y vías</div>
-			<div class="download-size">(PDF – 932 Mb)</div>
+			<div class="download-size">(PDF – 1.61 Gb)</div>
 		</a> 
 		<br/>
 	</div>
