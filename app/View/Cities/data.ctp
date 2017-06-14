@@ -94,7 +94,7 @@
 						$metric1 = isset($city["City"]["areas_and_densities_p_d_f_path"]) ? $download_path."Phase I Metrics/".$city["City"]["areas_and_densities_p_d_f_path"] : false;
 						$metric1 = $metric1  &&file_exists(APP . "webroot/" . $metric1) ? $metric1 : false;
 
-						$gis1 = isset($city["City"]["areas_and_densities_g_i_s_path"]) ? $download_path."zips/".$city["City"]["areas_and_densities_g_i_s_path"] : false;
+						$gis1 = isset($city["City"]["areas_and_densities_g_i_s_path"]) ? $download_path."Phase I GIS/".$city["City"]["areas_and_densities_g_i_s_path"] : false;
 						$gis1 = $gis1 && file_exists(APP . "/webroot/" . $gis1) ? $gis1 : false;
 
 
