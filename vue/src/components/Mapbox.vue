@@ -2,10 +2,12 @@
   <div id='map'>
     <mapkey 
     v-if='mapkeyON'
+    v-on:switch-bg='switchBG'
     v-on:remove-all='removeAll'
     v-on:add-layer='addLayer' 
     v-on:remove-layer='removeLayer' 
     v-on:get-layers='getLayers'
+    :light='light'
     :city='city' 
     :map='map' 
     :layers='currentMap'
@@ -31,6 +33,9 @@
       return {
         isMobile: false,
         map: false,
+        light: false,
+        lightBG: false,
+        satBG: false,
         labelsMap: false,
         allLayers: {},
         layersLoading: [],
@@ -126,16 +131,32 @@
         zoomControl: false
       })
       new L.Control.Zoom({ position: 'bottomright' }).addTo(this.map)
-      L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
-      // this.labelsMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s19z2u000l2snsh0t9i8gw').addTo(this.map)
+
+      this.lightBG = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj44oki3u843e2rnx1wyilp8z').addTo(this.map)
+      this.satBG = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
+      // L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
+      this.labelsMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s19z2u000l2snsh0t9i8gw').addTo(this.map)
       this.setLayers()
     },
     watch: {
       'section.section': function () {
         this.setLayers()
+      },
+      'light': function () {
+        if (this.light) {
+          this.map.removeLayer(this.satBG)
+          this.lightBG.addTo(this.map)
+        } else {
+          this.map.removeLayer(this.lightBG)
+          this.satBG.addTo(this.map)
+        }
+        this.setLabels()
       }
     },
     methods: {
+      switchBG () {
+        this.light = !this.light
+      },
       setLayer (i, on) {
         var layer = this.currentMap[i]
         layer.on = on
@@ -213,6 +234,11 @@
           })
         }
       },
+      setLabels () {
+        if (this.labelsMap) {
+          this.labelsMap.bringToFront()
+        }
+      },
       setLayers () {
         var options = {
           tms: true,
@@ -266,9 +292,7 @@
             this.map.setZoom(15)
             break
         }
-        if (this.labelsMap) {
-          this.labelsMap.bringToFront()
-        }
+        this.setLabels()
       }
     }
   }
