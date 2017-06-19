@@ -13,6 +13,9 @@
         <div class='layer-title' v-html='layer.display'></div>
       </div>
     </div>
+    <div class='satellite' @click='switchBG'>
+      <div :class='{selected:!light}'>Satélite</div><div :class='{selected:light}'>Claro</div>
+    </div>
   </div>
 </template>
 
@@ -21,7 +24,7 @@
   export default {
 
     name: 'Mapkey',
-    props: ['city', 'map', 'section', 'layers'],
+    props: ['city', 'map', 'section', 'layers', 'light'],
     data () {
       return {
         yearIndex: 1,
@@ -98,6 +101,9 @@
       }
     },
     methods: {
+      switchBG () {
+        this.$emit('switch-bg')
+      },
       layerStyle (layer) {
         return layer.on && {
           'background-color': layer.color
@@ -303,6 +309,20 @@
   font-size: 12px;
   line-height:16px;
   z-index:2;
+  .satellite {
+    border-top: 1px solid $line-grey-5;
+    > div {
+      padding: 14px;
+      width:50%;
+      display: inline-block;
+      text-align:center;
+      cursor: pointer;
+
+      &.selected, &:hover {
+        background-color: #f6f6f6;
+      }
+    }
+  }
   .map-key-years {
     padding: 14px;
     border-bottom: 1px solid $line-grey-5;

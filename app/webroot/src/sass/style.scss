@@ -201,6 +201,9 @@ body[class^='cities_view_'] .header {
   &:hover {
     background-color: rgba(255,255,255,0.5);
   }
+  &.headroom--unpinned{
+    top:-50px;
+  }
   a {
     color: $dark-grey;
   }
@@ -287,13 +290,20 @@ body[class^='cities_view_'] .header {
     }
   }
 
+  &.headroom--unpinned{
+    #search-icon,
+    #menu-icon{
+      top:-39px;
+    }
+  }
   #search-icon,
   #menu-icon {
     z-index:4;
     width: 23px;
     height:23px;
     position:fixed;
-    top: 11px;
+    top:11px;
+    transition: top 500ms ease;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;

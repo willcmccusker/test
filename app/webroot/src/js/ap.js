@@ -5,7 +5,6 @@ $(document).ready(function () {
   }
   setTeam()
   setData()
-
   var heady = document.querySelector("header");
   var headroom  = new Headroom(heady)
   headroom.init() 

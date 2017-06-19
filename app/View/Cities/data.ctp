@@ -83,7 +83,11 @@
 				<tbody class='list'>
 					<?
 					$download_path = "/file-manager/userfiles/data_page/";
-					foreach($cities as $i=>$city):?>
+
+					// $download_path = "http://atlasofurbanexpansion.org/file-manager/userfiles/data_page/";
+					foreach($cities as $i=>$city):
+
+						?>
 					<tr>
 						<td class='name'><a href='/cities/view/<?=$city["City"]["slug"];?>'><?= $city["City"]["name"];?></a></td>
 						<td class='name'><?= $city["City"]["country"];?></td>

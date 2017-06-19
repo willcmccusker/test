@@ -2,10 +2,12 @@
   <div id='map'>
     <mapkey 
     v-if='mapkeyON'
+    v-on:switch-bg='switchBG'
     v-on:remove-all='removeAll'
     v-on:add-layer='addLayer' 
     v-on:remove-layer='removeLayer' 
     v-on:get-layers='getLayers'
+    :light='light'
     :city='city' 
     :map='map' 
     :layers='currentMap'
@@ -31,11 +33,15 @@
       return {
         isMobile: false,
         map: false,
+        light: false,
+        lightBG: false,
+        satBG: false,
         labelsMap: false,
         allLayers: {},
         layersLoading: [],
         host: 'atlasexpansionurbanacolombia.org',
         localhost: 'atlasexpansionurbanacolombia.org',
+
         maps: {
           'population': false,
           'urban-extent': [
@@ -126,16 +132,32 @@
         zoomControl: false
       })
       new L.Control.Zoom({ position: 'bottomright' }).addTo(this.map)
-      L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
-      // this.labelsMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s19z2u000l2snsh0t9i8gw').addTo(this.map)
+
+      this.lightBG = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj44oki3u843e2rnx1wyilp8z').addTo(this.map)
+      this.satBG = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
+      // L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s0rv49000w2sqm46rsl141').addTo(this.map)
+      this.labelsMap = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1s19z2u000l2snsh0t9i8gw').addTo(this.map)
       this.setLayers()
     },
     watch: {
       'section.section': function () {
         this.setLayers()
+      },
+      'light': function () {
+        if (this.light) {
+          this.map.removeLayer(this.satBG)
+          this.lightBG.addTo(this.map)
+        } else {
+          this.map.removeLayer(this.lightBG)
+          this.satBG.addTo(this.map)
+        }
+        this.setLabels()
       }
     },
     methods: {
+      switchBG () {
+        this.light = !this.light
+      },
       setLayer (i, on) {
         var layer = this.currentMap[i]
         layer.on = on
@@ -206,10 +228,16 @@
             var url = layerType.url.replaceAll('??', 't' + j).replace('!!', 't' + (j + 1))
             var u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + url + '{z}/{x}/{y}.png'
             var layer = this.generateLayer(name, u, options)
+
             if (!this.allLayers[name]) {
               this.allLayers[name] = layer
             }
           })
+        }
+      },
+      setLabels () {
+        if (this.labelsMap) {
+          this.labelsMap.bringToFront()
         }
       },
       setLayers () {
@@ -230,7 +258,7 @@
                 options.opacity = 0.7
                 options.name = 'extent_' + name
                 if (!this.allLayers['extent_' + name]) {
-                  var u = 'http://' + this.localhost + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png'
+                  var u = 'http://' + this.host + '/tiles/show/' + this.city.City.slug + '/extent/' + name + '/{z}/{x}/{y}.png'
                   this.allLayers['extent_' + name] = this.generateLayer(name, u, options)
                 }
               }
@@ -265,9 +293,7 @@
             this.map.setZoom(13)
             break
         }
-        if (this.labelsMap) {
-          this.labelsMap.bringToFront()
-        }
+        this.setLabels()
       }
     }
   }
