@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class='satellite' @click='switchBG'>
-      <div :class='{selected:!light}'>Satélite</div><div :class='{selected:light}'>Claro</div>
+      <div :class='{selected:!light}'>Satélite</div><div :class='{selected:light}'>Mapa</div>
     </div>
   </div>
 </template>
