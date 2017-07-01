@@ -8,7 +8,7 @@
       <div class='clear'></div>
       <graphs v-if='currentSection.graph && !maps' :city='city' :section='currentSection'></graphs>
     </div>
-    <mapbox :class='{maps: maps, graphs:!maps}' v-if='currentSection.map' :mapkeyON='maps' :city='city' :section='currentSection'></mapbox>
+    <mapbox :class='{maps: maps, graphs:!maps}'  :mapkeyON='maps' :city='city' :section='currentSection'></mapbox>
   </div>
 </template>
 

@@ -1,12 +1,15 @@
 <template>
   <div id='cityContainer' :style='backgroundStyle' :class='currentSection.section'>
     
-    <div id='side-panel'>        
-      <city-dropdown :sectionKey='sectionKey' :city='city'></city-dropdown>
-      <city-summary :sectionKey='sectionKey' :city='city'></city-summary>  
-
-      <section-dropdown v-on:setKey='setKey' :sections='sections' :sectionKey='sectionKey'></section-dropdown>
-      <section-summary  v-if='sectionKey != 0' :city='city' :section='currentSection' ></section-summary>
+    <div id='side-panel'> 
+      <div id='side-panel-1'>       
+        <city-dropdown :sectionKey='sectionKey' :city='city'></city-dropdown>
+        <city-summary :sectionKey='sectionKey' :city='city'></city-summary>  
+      </div>
+      <div id='side-panel-2'>
+        <section-dropdown v-on:setKey='setKey' :sections='sections' :sectionKey='sectionKey'></section-dropdown>
+        <section-summary  v-if='sectionKey != 0' :city='city' :section='currentSection' ></section-summary>
+      </div>
     </div>
     <div id='city-header-data' class='grid center' v-if="currentSection.section === 'city-header'">
       <div class='col-1-3 mob-1-1'>

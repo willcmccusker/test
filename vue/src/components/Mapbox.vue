@@ -1,5 +1,6 @@
 <template>
   <div id='map'>
+    <div id='map-cover' v-if='!section.map'></div>
     <mapkey 
     v-if='mapkeyON'
     v-on:switch-bg='switchBG'
@@ -315,6 +316,16 @@
     height:100vh;
 
   }
+}
+
+#map-cover {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.3);
+  z-index:2;
 }
 @import '../../../app/webroot/src/sass/vars';
 
