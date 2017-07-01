@@ -3,7 +3,10 @@
     <div class='cursor'  @click='dropdown = !dropdown' >
       <div class='more-title' >{{section.title}} Summary</div>
     </div>
-    <div class='show-more' v-if='dropdown'>
+<!--     <transition
+    v-on:enter="enter"
+    v-on:leave="leave"> -->
+    <div class='show-more' v-show='dropdown'>
   <!--          POPULATION          -->
       <div v-if="section.section === 'population'">
         <div class='grid no-pad' v-html="t123Title"></div>
@@ -61,6 +64,7 @@
         <div class='grid no-pad' v-html="changeT1_13('blocks_plots_average_block')"></div>
       </div>
     </div>
+<!--     </transition> -->
   </div>
 </template>
 
@@ -107,6 +111,12 @@
       }
     },
     methods: {
+      enter (el, done) {
+        // this.$velocity(el, 'slideDown', {duration: 500})
+      },
+      leave (el, done) {
+        // this.$velocity(el, 'slideUp', {duration: 500})
+      },
       title (title) {
         return `<div class='col-1-1'>
                   <div class="summary-sub-title">` + title + `</div>
@@ -166,10 +176,10 @@
   line-height:12px;
   padding:12px;
   &.open {
-    padding-bottom:0px;
-    .margin-title {
-      margin-bottom: 12px;
-    }
+    // padding-bottom:0px;
+    // .margin-title {
+    //   margin-bottom: 12px;
+    // }
   }
   .grid {
     padding-bottom: 0px;

@@ -307,7 +307,7 @@
 
   .open {
     .more-title{
-      margin-bottom: 20px;
+      // margin-bottom: 20px;
         &:after{
         background-image: url('/img/minus.svg');
       }
@@ -336,6 +336,10 @@
     }
   }
   .show-more {
+    
+    & > div:first-of-type {
+      margin-top:20px;
+    }
     .label, .amount {
       line-height: 18.5px;
     }
