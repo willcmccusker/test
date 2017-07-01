@@ -91,6 +91,9 @@
         ]
       }
     },
+    mounted () {
+      document.addEventListener('keydown', this.keyDownTextField, false)
+    },
     computed: {
       searchResults () {
         var vm = this
@@ -103,6 +106,15 @@
       }
     },
     methods: {
+      keyDownTextField (e) {
+        console.log(e.keyCode)
+        if (e.key.length === 1 && !this.search) {
+          // this.searchFilter += e.key
+          this.search = true
+        } else if (e.keyCode === 27) {
+          this.search = false
+        }
+      },
       clicked (b) {
         if (b === 's') {
           this.search = !this.search

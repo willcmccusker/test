@@ -12,6 +12,9 @@ if (process.env.NODE_ENV === 'development') {
 Vue.prototype.$city = window.city
 Vue.prototype.$cities = window.cities
 
+// import velocity from 'velocity-animate'
+// Vue.prototype.$velocity = velocity
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
