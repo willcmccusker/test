@@ -119,19 +119,21 @@
 
 						<td class='hide-on-mobile'>
 							<div class='expansion-links'>
-								<?= $map1  ? "<a download href='".$map1."' target='_blank'>Mapas</a>" : "<span class='no-file'>Mapas</span>";?>
-								<?= $metric1  ? "<a download href='".$metric1."' target='_blank'>Métrica</a>" : "<span class='no-file'>Metrics</span>";?>
+								<?= $map1  ? "<a download href='".$map1."' target='_blank'>Mapas</a>" : "<span class='no-file'>Mapas</span>";?>,
+								<?= $metric1  ? "<a download href='".$metric1."' target='_blank'>Métrica</a>" : "<span class='no-file'>Metrics</span>";?>,
+
 								<?= $gis1  ? "<a download href='".$gis1."' target='_blank'>GIS</a>" : "<span class='no-file'>GIS</span>";?>
 							</div>
 						</td>		
 						<td class='hide-on-mobile'>
 							<div class='expansion-links'>
-								<?= $map2  ? "<a download href='".$map2."' target='_blank'>Mapas</a>" : "<span class='no-file'>Mapas</span>";?>
-								<?= $metric2  ? "<a download href='".$metric2."' target='_blank'>Métrica</a>" : "<span class='no-file'>Metrics</span>";?>
+								<?= $map2  ? "<a download href='".$map2."' target='_blank'>Mapas</a>" : "<span class='no-file'>Mapas</span>";?>,
+								<?= $metric2  ? "<a download href='".$metric2."' target='_blank'>Métrica</a>" : "<span class='no-file'>Metrics</span>";?>,
 								<?= $gis2  ? "<a download href='".$gis2."' target='_blank'>GIS</a>" : "<span class='no-file'>GIS</span>";?>
 							</div>
 						</td>			
 						
+
 						<td class='hide-on-desktop'>
 							<div class='show-links'>Seleccione</div>
 							<div class='expansion-links display-none'>

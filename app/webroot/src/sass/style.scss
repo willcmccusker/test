@@ -94,8 +94,9 @@ body{
 	line-height:1.5;
 	min-height:100vh;
 	position:relative;
-	
-	background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
+	background-image: linear-gradient(rgb(245, 245, 245), rgb(218, 218, 218));
+
+	// background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
 	padding-bottom:40px;
 	&.datos ,
 	&.data ,
@@ -1005,6 +1006,9 @@ body.data {
 	th:last-of-type{
 		width:30%;
 	}
+  .expansion-links a {
+    text-decoration: underline;
+  }
 	.page-holder{
 		display: inline-block;
 		.pagination{
