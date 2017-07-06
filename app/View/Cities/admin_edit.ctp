@@ -32,10 +32,10 @@
 					<?php echo $this->Form->input('country', array('class' => 'form-control', 'placeholder' => 'Country'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('latitude', array('class' => 'form-control', 'placeholder' => 'Latitude'));?>
+					<?php echo $this->Form->input('latitude', array('step'=>'0.000001', 'class' => 'form-control', 'placeholder' => 'Latitude'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('longitude', array('class' => 'form-control', 'placeholder' => 'Longitude'));?>
+					<?php echo $this->Form->input('longitude', array('step'=>'0.000001', 'class' => 'form-control', 'placeholder' => 'Longitude'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('population', array('class' => 'form-control', 'placeholder' => 'Población'));?>
