@@ -141,6 +141,7 @@
     },
     watch: {
       'section.section': function () {
+        this.removeAll()
         this.setLayers()
       },
       'light': function () {
