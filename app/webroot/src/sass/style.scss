@@ -96,28 +96,28 @@ body{
 	position:relative;
 	background-image: linear-gradient(rgb(245, 245, 245), rgb(218, 218, 218));
 
-	// background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
-	padding-bottom:40px;
-	&.datos ,
-	&.data ,
-	&.historical_data{
-		background-image: linear-gradient(0deg, #B8D2D0 0%, #B48E59 99%);
-	}
-	&[class^='cities_view_'],
-	&.map {
-		padding-bottom:0px;
-		background-image: none;
-		h1#site-title {
-			font-size: 20px;
-			line-height: 46px;
-		}
-	}
-		&.cities,
-		&.ciudades{
-			background-image: none;
-			background-color: white;
-		}
-
+  // background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
+  padding-bottom:40px;
+  &.datos ,
+  &.data ,
+  &.historical_data{
+    // background-image: linear-gradient(0deg, #B8D2D0 0%, #B48E59 99%);
+    background-image: linear-gradient(rgb(245, 245, 245), rgb(218, 218, 218));
+  }
+  &[class^='cities_view_'],
+  &.map {
+    padding-bottom:0px;
+    background-image: none;
+    h1#site-title {
+      font-size: 20px;
+      line-height: 46px;
+    }
+  }
+    &.cities,
+    &.ciudades{
+      background-image: none;
+      background-color: white;
+    }
 }
 *{
   box-sizing: border-box;
@@ -953,8 +953,8 @@ body.data {
 		line-height:40px;
 		.download-title {
       color: #FF6653;
-      font-size: 24px;
-      line-height: 30px;
+      font-size: 16px;
+      line-height: 22px;
       text-decoration: none;
       .under {
         text-decoration: underline;
@@ -969,8 +969,8 @@ body.data {
     font-size: 32px;
     line-height:40px;
     .download-link {
-      font-size: 32px;
-      line-height:40px;
+      font-size: 16px;
+      line-height:22px;
       text-decoration: underline;
     }
     .download-title {
@@ -1182,8 +1182,9 @@ body.data {
     }
     .popup {
       display: none;
-      font-size:32px;
-      line-height:40px;
+      font-size:24px;
+      line-height:30px;
+
       .popdown {
         cursor: pointer;
         width: 41px;
@@ -1209,7 +1210,9 @@ body.data {
         bottom:0px;
         width:100vw;
         height:100vh;
-        background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
+        // background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
+          background-image: linear-gradient(rgb(245, 245, 245), rgb(218, 218, 218));
+
         img {
           margin-bottom:40px;
           opacity: 1;
