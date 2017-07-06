@@ -421,7 +421,7 @@ h1 {
 
 
 h1#site-title {
-	font-size:36px;
+	font-size:18px;
 	line-height:46px;
 	font-weight: normal;
 	padding:0;
@@ -918,17 +918,6 @@ body.data {
 		margin-bottom:16px;
 		line-height:40px;
 	}
-	.download-link {
-
-    color: #FF6653;
-    font-size: 24px;
-    line-height: 30px;
-
-		img {
-			width:116px;
-			margin-bottom:16px;
-		}
-	}
 	.download-title {
 		line-height:18px;
 		position:relative;
@@ -947,6 +936,17 @@ body.data {
 		}
 	}
 
+  .download-link {
+
+    color: #FF6653;
+    font-size: 24px !important;
+    line-height: 30px !important;
+
+    img {
+      width:116px;
+      margin-bottom:16px;
+    }
+  }
 	.data-methodology{
 		font-size: 32px;
 		line-height:40px;
