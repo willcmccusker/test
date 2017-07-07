@@ -125,6 +125,7 @@ class TextsController extends AppController {
 				)
 			));
 		if(empty($text)){
+			die("?");
 			throw new NotFoundException(__('Invalid text'));
 		}
 		$this->set(compact("text"));

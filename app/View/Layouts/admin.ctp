@@ -56,7 +56,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<? if($this->Session->read('Auth.User')): ?>
 			<div id='file-manager'>Open File Manager</div>
 		<? endif;?>
-			<?php echo $this->Flash->render(); ?>
+			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>

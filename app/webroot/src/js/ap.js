@@ -57,6 +57,5 @@ function setTeam () {
 }
 
 function popdown () {
-  console.log('popdown')
   $('.popped').removeClass('popped')
 }

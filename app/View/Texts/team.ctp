@@ -70,8 +70,8 @@
                 <span class="highlight"><?=$t['name']?></span>
                 <div class='popup'>
                     <div class='popdown'></div>
-                    <img src="<?=$t['img']?>">
                     <div class='scrollOver'>
+                        <img src="<?=$t['img']?>">
                         <?=$t['name']?><?=$t['info'];?>
                     </div>
                 </div>

@@ -5,14 +5,17 @@
 /* tablet */
 @media only screen and (min-width : 0px) and (max-width : $tablet-max-width)  {
 
-
+.about .popit .popup.popped .scrollOver {
+	padding:20px;
+}
 
 	/* typography */
 
 	body {
 		font-size: $defaulttype - 2;
 		&.map {
-			background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
+			// background-image: linear-gradient(0deg,#56e7b5,#87b7b3 98%);
+		  background-image: linear-gradient(rgb(245, 245, 245), rgb(218, 218, 218));
 			#worldmap {
 				display: none;
 			}
