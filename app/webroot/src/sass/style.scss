@@ -783,9 +783,10 @@ h3.sectionSubHeader {
 .site-info {
   font-size:32px;
   line-height: 40px;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.14px;
   margin-top:60px;
-  padding:0px 20px !important;
+  font-size:18px;
+  line-height:25px;
   a {
     text-decoration: underline;
   }
@@ -902,46 +903,46 @@ body.datos ,
 body.data {
 
 
-
-	.border-above {
-		border-top: 2px solid #222222;
-	}
-	.data-pic-links {
-		.download-title {
-			&:after {
-				top:10px;
-			}
-		}
-	}	
-	.data-section-title {
-		font-size:32px;
-		padding-top: 50px;
-		margin-bottom:16px;
-		line-height:40px;
-	}
-	.download-title {
-		line-height:18px;
-		position:relative;
-		text-decoration: underline;
-		&:after {
-			content: '';
-			position:relative;
-			background-image: url('/img/arrow-down.svg');
-			background-position: center center;
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 19px;
-			height:23px;
-			display: inline-block;
-			margin-left:10px;
-		}
-	}
+  .border-above {
+    border-top: 2px solid #222222;
+  }
+  .data-pic-links {
+    .download-title {
+      &:after {
+      }
+    }
+  } 
+  .data-section-title {
+    font-size:32px;
+    padding-top: 50px;
+    margin-bottom:16px;
+    line-height:40px;
+  }
+  .download-title {
+    font-size:16px;
+    line-height:22px;
+    position:relative;
+    text-decoration: underline;
+    &:after {
+      bottom: -3px;
+      content: '';
+      position:relative;
+      background-image: url('/img/arrow-down.svg');
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 19px;
+      height:16px;
+      display: inline-block;
+      margin-left:10px;
+    }
+  }
 
   .download-link {
 
     color: #FF6653;
-    font-size: 24px !important;
-    line-height: 30px !important;
+    font-size:16px;
+    line-height:22px;
 
     img {
       width:116px;
@@ -953,8 +954,6 @@ body.data {
 		line-height:40px;
 		.download-title {
       color: #FF6653;
-      font-size: 16px;
-      line-height: 22px;
       text-decoration: none;
       .under {
         text-decoration: underline;
@@ -966,8 +965,11 @@ body.data {
   }
   .data-tables {
     vertical-align: top;
-    font-size: 32px;
-    line-height:40px;
+    p{
+      font-size: 16px;
+      line-height:22px; 
+    }
+
     .download-link {
       font-size: 16px;
       line-height:22px;
@@ -1216,6 +1218,7 @@ body.data {
         img {
           margin-bottom:40px;
           opacity: 1;
+          display:block;
         }
         .scrollOver {
           position:fixed;
@@ -1226,7 +1229,7 @@ body.data {
           overflow: auto;
           padding:40px;
           padding-right:calc( 100% - 750px);
-          padding-top:380px
+          // padding-top:380px
         }
       }
     }

@@ -46,8 +46,8 @@ Actualmente coordina la implementación de diferentes iniciativas de crecimiento
                 <span class="highlight"><?=$t['name']?></span>
                 <div class='popup'>
                     <div class='popdown'></div>
-                    <img src="<?=$t['img']?>">
                     <div class='scrollOver'>
+                        <img src="<?=$t['img']?>">
                         <?=$t['name']?><?=$t['info'];?>
                     </div>
                 </div>
