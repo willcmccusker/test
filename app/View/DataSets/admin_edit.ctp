@@ -16,6 +16,7 @@
 		<div class="col-md-9">
 			<?php echo $this->Form->create('DataSet', array('role' => 'form')); ?>
 	<?php echo $this->Form->create('DataSet', array('role' => 'form')); ?>
+	<?php echo $this->Form->input('id');?>
 <?foreach($fields as $field=>$bs):?>
 				<div class="form-group">
 					<?php echo $this->Form->input($field, array('class' => 'form-control', 'placeholder' => Inflector::humanize($field)));?>
