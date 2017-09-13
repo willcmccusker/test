@@ -1,1 +1,1 @@
-<!-- app moved to /app/View/Element/vueheader.ctp -->
+<!-- app moved to /app/View/Elements/vueheader.ctp -->

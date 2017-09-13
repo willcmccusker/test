@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 
 Vue.prototype.$city = window.city
 Vue.prototype.$cities = window.cities
+Vue.prototype.$firstVisit = window.firstVisit
 
 // import velocity from 'velocity-animate'
 // Vue.prototype.$velocity = velocity

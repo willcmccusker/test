@@ -116,8 +116,13 @@ class AppController extends Controller {
             ),
             "order"=>array("City.name"=>"ASC")
         ));
+
         
-        $this->set(compact("cities", "footerText"));
+        $firstVisit = !$this->Session->read('alreadyVisited');
+        $this->Session->write('alreadyVisited', true);
+
+        
+        $this->set(compact("cities", "footerText", "firstVisit"));
 
     }
 

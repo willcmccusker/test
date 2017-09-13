@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <popup></popup>
     <toolbar :class='section'></toolbar>
     <city v-if='$city'></city>
   </div>
@@ -7,6 +8,7 @@
 
 <script>
 require('./assets/site.js')
+import Popup from './components/Popup'
 import City from './components/City'
 import Toolbar from './components/Toolbar'
 
@@ -18,6 +20,7 @@ export default {
     }
   },
   components: {
+    Popup,
     City,
     Toolbar
   }
