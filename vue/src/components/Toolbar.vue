@@ -67,7 +67,7 @@
             },
             {
               url: '/metodologia',
-              display: 'Metodología'
+              display: 'Metodología y Fuentes'
             },
             {
               url: '/expresiones-de-gratitud',
@@ -133,7 +133,7 @@
       search () {
         if (this.search) {
           this.$nextTick(function () {
-            this.$refs.input.focus()
+            this.$refs.input && this.$refs.input.focus()
           })
         } else {
           this.searchFilter = ''

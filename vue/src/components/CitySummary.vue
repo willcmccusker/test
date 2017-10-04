@@ -84,8 +84,8 @@
     }
   }
   .label, .amount, {
-    font-size:12px;
-    line-height: 14px;
+    font-size:11px;
+    line-height: 13px;
     color: $light-grey;
   }
   .label {
@@ -96,8 +96,8 @@
   }
   .region, .country {
     color: $dark-grey;
-    font-size:14px;
-    line-height:35px;
+    font-size:13px;
+    line-height:33px;
   }
   .flag{
     img {

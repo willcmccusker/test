@@ -3,12 +3,11 @@
 	<div id="worldmap"></div>
   <div class='logos'>
     <div class='logologo'><div></div></div>
-    <div class='logologo'><div></div></div>
-    <div class='logologo'><div></div></div>
+    <div class='logologo'><a target="_blank" href="https://www.dnp.gov.co/Paginas/inicio.aspx"><div></div></a></div>
+    <div class='logologo'><a href="http://marroninstitute.nyu.edu" target="_blank"><div></div></a></div>
   </div>
   <div class='about site-info hide-on-desktop show-on-mobile grid'>
-    <div class='col-1-1'>
-    El <b>Atlas de Expansión Urbana</b> recopila y analiza datos sobre la cantidad y la calidad de la expansión urbana en una grupo de municipios Colombianos. Dicho estudio complementará el recientemente uno recientemente realizado utilizando la misma metodología del estudio global estratificada de <a href='/ciudades'>200</a> ciudades.
+    <div class='col-1-1'>Bienvenido al <b>Atlas de Expansión Urbana Colombia</b>, para complementar su experiencia de navegación lo invitamos a que se dirija a la sección de Datos  y revise los docuementos en la subsección de Metodología. Esto le permitirá tener un pleno entendimiento de las metricas y los resultados que esta herramienta presenta.
     </div>
 
   </div>
@@ -47,7 +46,7 @@ var startFrontMap = function(){
     attribution: {
       prefix: false
     }
-  }).setView([lat, long], 5);
+  }).setView([lat, long], 6);
 
   L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj1p6wvk000552ro5lfefr4wc').addTo(map)
   L.tileLayer('http://atlasexpansionurbanacolombia.org/tiles/show/All/world/world/{z}/{x}/{y}.png', {tms: true}).addTo(map);

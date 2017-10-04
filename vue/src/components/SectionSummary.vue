@@ -172,8 +172,8 @@
 
 #section-summary {
   background-color: white;
-  font-size:12px;
-  line-height:12px;
+  font-size:11px;
+  line-height:11px;
   padding:12px;
   &.open {
     // padding-bottom:0px;

@@ -60,16 +60,16 @@ body[class^='cities_view_'] .grid {
 	min-height:1px;
 	padding:0 #{$padding/2};
 		&.no-pad{
-			padding-left:0px !important;
+			padding-left:0px !important ;
 			padding-right:0px !important;
 		}
 }
 .no-pad{
 	[class*='col-']:last-of-type {
-		padding-right:0px;
+		padding-right:0px !important;
 	}
 	[class*='col-']:first-of-type {
-		padding-left: 0px;
+		padding-left: 0px !important;
 	}
 }
 .grid:after {

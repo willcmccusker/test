@@ -134,7 +134,7 @@
           })
         }
         return {
-          'background-image': 'linear-gradient(-180deg, #C5C5C5 0%, #616161 98%), url("' + image + this.city.City.photo_path + '")'
+          'background-image': 'url("' + image + this.city.City.photo_path + '"), linear-gradient(-180deg, #C5C5C5 0%, #616161 98%)'
         }
       }
     },
@@ -240,8 +240,8 @@
 }
 .dropdown-nav {
   color: #5A5A5A;
-  font-size: 14px;
-  line-height: 30px;
+  font-size: 13px;
+  line-height: 28px;
   position:relative;
   background-color: white;
   &.open{
@@ -315,8 +315,8 @@
   }
   .more-title {
     margin-top:17px;
-    font-size:11px;
-    line-height:13px;
+    font-size:10px;
+    line-height:12px;
     text-transform: uppercase;
     color: $light-grey;
     position:relative;

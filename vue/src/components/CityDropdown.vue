@@ -4,6 +4,7 @@
         <div class='city-title'>
           {{city.City.name}}
         </div>
+        <div v-if="cityGran">{{cityGran}}</div>
     </div>
     <div v-else class='dropdown-nav cursor' :class='{open: dropdown}' ref='citydropdown'>
      <div @click='dropdown = !dropdown'  class='currentSection' >
@@ -46,6 +47,11 @@
       }
     },
     computed: {
+      cityGran () {
+        let firstFour = this.city.City.name.slice(0, 4)
+        console.log(firstFour)
+        return firstFour.toLowerCase() === 'gran' ? 'Incluye municipios conurbados a la ciudad principal' : ''
+      },
       citiesOrdered () {
         return this.cities.sort(function (a, b) {
           return a.City.country === b.City.country ? (a.City.name > b.City.name ? 1 : -1) : (a.City.country > b.City.country ? 1 : -1)
