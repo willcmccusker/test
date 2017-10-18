@@ -9,12 +9,10 @@
 <div class='grid left about'>
 	<div class='col-1-1 data-analysis'>
 		<div class=' data-section-title'>
-			<p>La ciudad como una unidad de análisis y el universo de ciudades.</p>
+			<p>La Ciudad Como Unidad de Análisis</p>
 		</div>
-		<p>El presente análisis estudia 106 municipios y 14 aglomeraciones de diferentes tamaños y regiones de la República de Colombia.
-		Si bien existe un acuerdo casi universal según el cual un asentamiento de 100,000 personas o más constituye una ciudad. Este estudio particular ha revisado asentamientos humanos de diferentes tamaños aún por debajo del límite de 100 mil habitantes con el fin de lograr un mejor entendimiento de estos. 
-		El presente estudio reconoce municipios individuales, pero adicionalmente analiza aglomeraciones en su conjunto: las áreas urbanas contiguas que pueden contener varios municipios se consideran una sola ciudad.</p>
-		<p>Definimos las ciudades por la extensión del área construida, más que por sus límites administrativos o jurisdiccionales. El extrema tectorum -  el límite del área construida de la ciudad, como se calificó en la antigua Roma-  define la ciudad y la ciudad así definida es nuestra unidad de análisis. Hemos identificado 4.231 ciudades en todo el mundo que fueron hogar de 100,000 personas o más en 2010. Estas 4.231 ciudades constituyen nuestro Universo de Ciudades con una población total de 2.500 millones o el 70 por ciento de los 3.600 millones de habitantes urbanos del planeta en 2010.</p>
+		<p>El presente análisis estudia 106 municipios y 14 aglomeraciones de diferentes tamaños y regiones de la República de Colombia. Si bien existe un acuerdo casi universal según el cual un asentamiento de 100,000 personas o más constituye una ciudad. Este estudio particular ha revisado asentamientos humanos de diferentes tamaños aún por debajo del límite de 100 mil habitantes con el fin de lograr un mejor entendimiento de estos. El presente estudio reconoce municipios individuales, pero adicionalmente analiza aglomeraciones en su conjunto: las áreas urbanas contiguas que pueden contener varios municipios se consideran una sola ciudad.</p>
+		<p>Definimos las ciudades por la extensión del área construida, más que por sus límites administrativos o jurisdiccionales. El extrema tectorum - el límite del área construida de la ciudad, como se calificó en la antigua Roma- define la ciudad y la ciudad así definida es nuestra unidad de análisis. </p>
 	</div>
 </div>
 
@@ -23,13 +21,17 @@
 
 <div class='grid left about'>
 	<div class='col-1-1'>
-		<div class='data-section-title border-above'>Metodología</div>
+		<div class='data-section-title border-above'>Documentos Soporte</div>
 		<div class='data-methodology'>
 			<a class=" download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.pdf"><span class='under'>Listado de Ciudades</span> (PDF)</a> <a class='download-title download-link' href='http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Lista_de_Ciudades.xlsx'>(XLSX)</a>
 			<br/>
 			<a class="download-link  download-title " href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Introduccion.pdf"> <span class='under'>Introducción</span> (PDF)</a>
 			<br/>
-			<a class="download-link download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Como Comprender y Medir la Expansion Urbana.pdf"> <span class='under'>Entender y medir la Expansión Urbana</span> (PDF)</a>
+			<a class="download-link download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Como_Comprender_y_Medir_la_Expansion_Urbana.pdf"> <span class='under'>Cómo Comprender y Medir la Expansión Urbana</span> (PDF)</a>
+			<br/>
+			<a class="download-link download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Como_Comprender_y_Medir_los_Trazados_Urbanos.pdf"> <span class='under'>Cómo Comprender  y Medir los Trazados Urbanos</span> (PDF)</a>
+			<br/>
+			<a class="download-link download-title" href="http://atlasexpansionurbanacolombia.org/file-manager/userfiles/data_page/Methodology/WEB_Diccionario_de_Datos.pdf"> <span class='under'>Diccionario de Datos</span> (PDF)</a>
 		</div>
 		<div class='data-section-title'>Tablas</div>
 		<div class='data-tables'>

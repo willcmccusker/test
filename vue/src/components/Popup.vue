@@ -1,7 +1,7 @@
 <template>
   <div id='popup' v-if="firstVisit && !popped" @click.self="close()">
     <div id="popup-text">
-      <div class="">Esta página web es una versión Beta preparada por la Universidad de Nueva York con fines informativos. La versión Oficial será lanzada por el Departamento Nacional de Planeación -DNP- en las próximas semanas.</div>
+      <div class="">Bienvenido al Atlas de Expansión Urbana Colombia, para complementar su experiencia de navegación lo invitamos a que se dirija a la sección de Datos  y revise la subsección de Documentos de Soporte. Esto le permitirá tener un pleno entendimiento de las metricas y los resultados que esta herramienta presenta</div>
       <div id="close" @click="close()"></div>
     </div>
   </div>

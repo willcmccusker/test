@@ -240,8 +240,8 @@
 }
 .dropdown-nav {
   color: #5A5A5A;
-  font-size: 13px;
-  line-height: 28px;
+  font-size: 12px;
+  line-height: 26px;
   position:relative;
   background-color: white;
   &.open{
