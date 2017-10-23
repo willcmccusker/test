@@ -8,11 +8,16 @@
       <div @click="clicked('s')" id='search-icon'></div>
       <div @click="clicked('m')" id='menu-icon' :class="{open: sideOpen}"></div>
       <div class='side-menu' :class="{visible: sideOpen}">
-        <div v-if='menu'>
+        <div class="" v-if='menu'>
           <div class='linkGroup' v-for='links in linkGroups'>
             <div v-for='link in links'>
               <a :href='link.url'>{{link.display}}</a>
             </div>
+          </div>
+          <div class='linkGroup'>
+              <div class='logologo'><div></div></div>
+              <div class='logologo'><a target="_blank" href="https://www.dnp.gov.co/Paginas/inicio.aspx"><div></div></a></div>
+              <div class='logologo'><a href="http://marroninstitute.nyu.edu" target="_blank"><div></div></a></div>
           </div>
         </div>
         <div v-else-if='search'>
