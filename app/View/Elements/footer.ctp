@@ -6,7 +6,7 @@
 <p>The Atlas presents the output of the first two phases of the Monitoring Global Urban Expansion Program, an initiative that gathers data and evidence on cities worldwide.</p>
 		</div>
 		<div class='col-1-2 tab-1-1 mob-1-1'>
-			<div class="logo_block"><img src='/img/un-habitat_logo.png' alt="UN Habitat logo" width='150' /><img src='/img/nyu_logo.png' alt="NYU logo" width='105' /><img src='/img/lincoln-institute_logo.png' alt="Lincoln Institute logo" width='150'/></div>
+			<div class="logo_block"><img src='/img/un-habitat_logo.png' alt="UN Habitat logo" width='150' /><img src='/img/nyu_logo.png' alt="NYU logo" width='105' /><a href="http://www.lincolninst.edu/" target="_blank"><img src='/img/lincoln-institute_logo.png' alt="Lincoln Institute logo" width='150'/></a></div>
 		</div>
 	</div>
 	<div class='grid wide bottom-links'>
