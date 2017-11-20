@@ -9,7 +9,7 @@
 		</div>
 		<div class='col-2-4 tab-1-1'>
 			<h1>About Atlas of Urban Expansion</h1>
-			<p>The NYU Urban Expansion Program at the Marron Institute of Urban Management and the Stern School of Business of New York University, in partnership with UN-Habitat and the Lincoln Institute of Land Policy, has initiated a multi-phase research effort to monitor the quantitative and qualitative aspects of global urban expansion. This effort is a continuation of an earlier project by the authors and their colleagues that resulted in the Atlas of Urban Expansion (Cambridge MA: Lincoln Institute of Land Policy, 2012). The monitoring program has now completed the data collection and has begun the interpretation and analysis of the data in three interdependent phases in a global representative sample of 200 cities:</p>
+			<p>The NYU Urban Expansion Program at the Marron Institute of Urban Management and the Stern School of Business of New York University, in partnership with UN-Habitat and the <a href="http://www.lincolninst.edu/" target="_blank">Lincoln Institute of Land Policy</a>, has initiated a multi-phase research effort to monitor the quantitative and qualitative aspects of global urban expansion. This effort is a continuation of an earlier project by the authors and their colleagues that resulted in the Atlas of Urban Expansion (Cambridge MA: Lincoln Institute of Land Policy, 2012). The monitoring program has now completed the data collection and has begun the interpretation and analysis of the data in three interdependent phases in a global representative sample of 200 cities:</p>
 			</div>
 			</div>
 			<div class='grid wide about'>
