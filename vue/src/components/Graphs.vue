@@ -280,7 +280,7 @@
             this.blocksAndPlots()
             id = 'blocks_plots_average_block_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
-            chart[id] = makeChart(id, this.city, 'Tamaño promedio de un lote (Héctares)', ' Héctares', undefined, true)
+            chart[id] = makeChart(id, this.city, 'Tamaño de Manzana (Héctares)', ' Héctares', undefined, true)
             id = 'blocks_plots_average_bar'
             if (this.chartObjects[id]) this.chartObjects[id].destroy()
             chart[id] = makeBlockChart(id, this.city, 'Promedio del tamaño de los lotes (m²)', ' m²')

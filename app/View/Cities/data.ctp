@@ -9,10 +9,10 @@
 <div class='grid left about'>
 	<div class='col-1-1 data-analysis'>
 		<div class=' data-section-title'>
-			<p>La Ciudad Como Unidad de Análisis</p>
+			<p>La Ciudad Como Unidad de Medida</p>
 		</div>
-		<p>El presente análisis estudia 106 municipios y 14 aglomeraciones de diferentes tamaños y regiones de la República de Colombia. Si bien existe un acuerdo casi universal según el cual un asentamiento de 100,000 personas o más constituye una ciudad. Este estudio particular ha revisado asentamientos humanos de diferentes tamaños aún por debajo del límite de 100 mil habitantes con el fin de lograr un mejor entendimiento de estos. El presente estudio reconoce municipios individuales, pero adicionalmente analiza aglomeraciones en su conjunto: las áreas urbanas contiguas que pueden contener varios municipios se consideran una sola ciudad.</p>
-		<p>Definimos las ciudades por la extensión del área construida, más que por sus límites administrativos o jurisdiccionales. El extrema tectorum - el límite del área construida de la ciudad, como se calificó en la antigua Roma- define la ciudad y la ciudad así definida es nuestra unidad de análisis. </p>
+		<p>El presente análisis estudia 106 municipios y 12 aglomeraciones de diferentes tamaños y regiones de la República de Colombia. Si bien existe un acuerdo casi universal según el cual un asentamiento de 100,000 personas o más constituye una ciudad. Este estudio particular ha revisado asentamientos humanos de diferentes tamaños aún por debajo del límite de 100 mil habitantes con el fin de lograr un mejor entendimiento de estos. El presente estudio reconoce municipios individuales, pero adicionalmente analiza aglomeraciones en su conjunto que son las áreas urbanas contiguas que pueden contener varios municipios se consideran una sola ciudad.</p>
+		<p>Definimos las ciudades por la extensión del área construida, más que por sus límites administrativos o jurisdiccionales. El extrema tectorum - el límite del área construida de la ciudad, como se calificó en la antigua Roma- define la ciudad y la ciudad así definida es nuestra unidad de análisis.</p>
 	</div>
 </div>
 
