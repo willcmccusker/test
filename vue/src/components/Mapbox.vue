@@ -132,6 +132,7 @@
         zoom: 11,
         zoomControl: false
       })
+      L.control.scale().addTo(this.map)
       new L.Control.Zoom({ position: 'bottomright' }).addTo(this.map)
 
       this.lightBG = L.mapbox.styleLayer('mapbox://styles/willcmccusker/cj44oki3u843e2rnx1wyilp8z').addTo(this.map)

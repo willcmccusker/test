@@ -14,7 +14,7 @@
               <a :href='link.url'>{{link.display}}</a>
             </div>
           </div>
-          <div class='linkGroup'>
+          <div class='linkGroup logoLinkGroup'>
               <div class='logologo'><div></div></div>
               <div class='logologo'><a target="_blank" href="https://www.dnp.gov.co/Paginas/inicio.aspx"><div></div></a></div>
               <div class='logologo'><a href="http://marroninstitute.nyu.edu" target="_blank"><div></div></a></div>
@@ -160,4 +160,14 @@ header.city-header {
     filter: invert(100%);
   }
 }
+.logoLinkGroup > div {
+  &:first-of-type {
+    margin-top:4em;
+  }
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  // text-align:center;
+}
+
 </style>

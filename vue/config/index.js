@@ -29,42 +29,42 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/mapbox.js/mapbox.css': {
-            target: 'http://atlas.dev/app/webroot/',
+            target: 'http://atlas.local/app/webroot/',
             changeOrigin: true,
             secure: false
           },
         '**/*.css': {
-            target: 'http://atlas.dev',
+            target: 'http://atlas.local',
             changeOrigin: true,
             secure: false
           },
         '**/*.jpg': {
-            target: 'http://atlas.dev',
+            target: 'http://atlas.local',
             changeOrigin: true,
             secure: false
           },
         '**/*.png': {
-            target: 'http://atlas.dev',
+            target: 'http://atlas.local',
             changeOrigin: true,
             secure: false
           },
         '**/*.svg': {
-            target: 'http://atlas.dev',
+            target: 'http://atlas.local',
             changeOrigin: true,
             secure: false
           },
         '**/*.ttf': {
-            target: 'http://atlas.dev',
+            target: 'http://atlas.local',
             changeOrigin: true,
             secure: false
           },
         '**/*.woff': {
-            target: 'http://atlas.dev',
+            target: 'http://atlas.local',
             changeOrigin: true,
             secure: false
           },
         '/mapbox.js/mapbox.js': {
-            target: 'http://atlas.dev/app/webroot/',
+            target: 'http://atlas.local/app/webroot/',
             changeOrigin: true,
             secure: false
           }

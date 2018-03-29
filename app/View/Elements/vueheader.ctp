@@ -1,4 +1,4 @@
-<head><link href="/vue/static/css/app.f9b7dfe424aefad664ce9398f648346b.css" rel="stylesheet"></head>
+<head><link href="/vue/static/css/app.0d181fcc9320c5831e97863611683120.css" rel="stylesheet"></head>
 <?
 if (isset($city)) $this->assign('title', $city["City"]["name"]);
 ?>
@@ -9,4 +9,4 @@ if (isset($city)) $this->assign('title', $city["City"]["name"]);
 </script>
 
 <div id="app"></div>
-<script type="text/javascript" src="/vue/static/js/manifest.d40542e1b89fdcd58bd2.js"></script><script type="text/javascript" src="/vue/static/js/vendor.a0842d6b71488cc80ca0.js"></script><script type="text/javascript" src="/vue/static/js/app.36c569806aae2c0eceb2.js"></script>
+<script type="text/javascript" src="/vue/static/js/manifest.39f5f82e7bbe9abec8f2.js"></script><script type="text/javascript" src="/vue/static/js/vendor.a0842d6b71488cc80ca0.js"></script><script type="text/javascript" src="/vue/static/js/app.341c16b75a39163a525b.js"></script>
