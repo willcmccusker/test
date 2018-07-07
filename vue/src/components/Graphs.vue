@@ -190,7 +190,7 @@
         chart[id] = makeRoadChart(id, this.city, 'Densidad de Vías Arteriales (km/km²)', ' km/km²', undefined, this.laterYear)
         id = 'arterial_roads_walking_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
-        chart[id] = makeRoadChart(id, this.city, 'Porcentaje de Área a distancia caminable de vías arteriales', '%', 100, this.laterYear)
+        chart[id] = makeRoadChart(id, this.city, 'Porcentaje de Área a distancia caminable de vías arteriales', '%', undefined, this.laterYear)
         id = 'arterial_roads_beeline_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
         chart[id] = makeRoadChart(id, this.city, 'Distancia en Línea Recta a Vías Arteriales', 'm', undefined, this.laterYear)

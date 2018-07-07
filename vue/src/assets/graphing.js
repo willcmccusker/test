@@ -88,7 +88,7 @@ let charts = function (city) {
         {
           backgroundColor: 'rgba(247,245,80,1)',
           borderWidth: 0,
-          label: ['Espacio Abierto Edificado'],
+          label: ['Espacio Abierto Urbanizado'],
           data: [city.DataSet.urban_extent_composition_open_t1,
             city.DataSet.urban_extent_composition_open_t2,
             city.DataSet.urban_extent_composition_open_t3]
@@ -159,7 +159,7 @@ let charts = function (city) {
       ]
     },
     'blocks_and_plots_composition_special_stacked': {
-      labels: ['Ciudad', 'Colombia', 'Mundo'],
+      labels: [city.City.name, 'Colombia', 'Mundo'],
       datasets: [
         {
           suffix: '_atomistic_',
