@@ -8,7 +8,7 @@ const globalOptions = {
   },
   layout: {
     padding: {
-      left: 20
+      left: 15
     }
   },
   maintainAspectRatio: true,
@@ -141,7 +141,8 @@ let charts = function (city) {
       ]
     },
     'arterial_roads': {
-      labels: [city.City.name, city.Region.name /* 'Región' */, 'Mundo'],
+
+      labels: [fold(city.City.name, 15, true), fold(city.Region.name, 15, true) /* 'Región' */, 'Mundo'],
       datasets: [
         {
           label: 'Vías Anchas',
@@ -164,7 +165,7 @@ let charts = function (city) {
       ]
     },
     'blocks_and_plots_composition_special_stacked': {
-      labels: [city.City.name, 'Colombia', 'Mundo'],
+      labels: [fold(city.City.name, 15, true), 'Colombia', 'Mundo'],
       datasets: [
         {
           suffix: '_atomistic_',
@@ -686,6 +687,37 @@ function MergeRecursive (obj1, obj2) {
   }
   return obj1
 }
+
+// function chunkString(s, len)
+// {
+//     var curr = len, prev = 0;
+//
+//     output = [];
+//
+//     while(s[curr]) {
+//       if(s[curr++] == ' ') {
+//         output.push(s.substring(prev,curr));
+//         prev = curr;
+//         curr += len;
+//       }
+//       else
+//       {
+//         var currReverse = curr;
+//         do {
+//             if(s.substring(currReverse - 1, currReverse) == ' ')
+//             {
+//                 output.push(s.substring(prev,currReverse));
+//                 prev = currReverse;
+//                 curr = currReverse + len;
+//                 break;
+//             }
+//             currReverse--;
+//         } while(currReverse > prev)
+//       }
+//     }
+//     output.push(s.substr(prev));
+//     return output;
+// }
 
 //
 // Folds a string at a specified length, optionally attempting

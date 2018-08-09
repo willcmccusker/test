@@ -9,4 +9,4 @@ if (isset($city)) $this->assign('title', $city["City"]["name"]);
 </script>
 
 <div id="app"></div>
-<script type="text/javascript" src="/vue/static/js/manifest.886260ee869c32159f36.js"></script><script type="text/javascript" src="/vue/static/js/vendor.a1f7bb944ce3e3b1a794.js"></script><script type="text/javascript" src="/vue/static/js/app.699db8fc13f4b86972c6.js"></script>
+<script type="text/javascript" src="/vue/static/js/manifest.65802de1da8ce24a3320.js"></script><script type="text/javascript" src="/vue/static/js/vendor.a1f7bb944ce3e3b1a794.js"></script><script type="text/javascript" src="/vue/static/js/app.94ddf13ce99128fe0f08.js"></script>
