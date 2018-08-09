@@ -187,7 +187,7 @@
         let chart = {}
         let id = 'arterial_roads_density_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
-        chart[id] = makeRoadChart(id, this.city, 'Densidad de Vías Arteriales (km/km²)', ' km/km²', undefined, this.laterYear)
+        chart[id] = makeRoadChart(id, this.city, 'Densidad de Vías Arteriales (km/km²)', ' km/km²', 100, this.laterYear)
         id = 'arterial_roads_walking_bar'
         if (this.chartObjects[id]) this.chartObjects[id].destroy()
         chart[id] = makeRoadChart(id, this.city, 'Porcentaje de Área a distancia caminable de vías arteriales', '%', undefined, this.laterYear)
@@ -332,7 +332,7 @@ canvas {
   margin-left:auto;
 }
 
-#population_line, 
+#population_line,
 #population_change_bar,
 #urban_extent_composition_stacked_bar,
 #urban_extent_change_bar,

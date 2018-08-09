@@ -6,6 +6,11 @@ const globalOptions = {
     enabled: true
     // delay: 500
   },
+  layout: {
+    padding: {
+      left: 20
+    }
+  },
   maintainAspectRatio: true,
   responsive: false,
   // responsiveAnimationDuration: 500,
